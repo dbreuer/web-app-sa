@@ -1,0 +1,25 @@
+<div class="spotlights-grid">
+    <div ng-repeat="spotlight in section.spotlights" class="landing-page-content-box-item">
+        <div class="article">
+            <div class="spotlight-title">
+                <h2>
+                    <a href="#{{spotlight.url}}" title="{{spotlight.title}}" ng-bind="spotlight.title"></a>
+                </h2>
+            </div>
+            <div class="spotlight-box">
+               <div class="image-box">
+                   <a href="#{{spotlight.url}}" title="{{spotlight.image.button}}">
+                        <img ng-src="{{spotlight.image.src}}" alt="{{spotlight.image.title}}" />
+                   </a>
+               </div>
+                <div class="text-box">
+                    <p ng-bind="spotlight.description"></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="spotlight-links">
+                <a href="#{{spotlight.url}}" title="{{spotlight.button}}" ng-bind="spotlight.button"></a>
+            </div>
+        </div>
+    </div>
+</div>

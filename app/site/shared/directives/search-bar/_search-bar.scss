@@ -1,0 +1,63 @@
+$tl: 0.6s; // transition length
+.search-bar {
+  body {
+    margin: 5%;
+  }
+  .search-box {
+    transition: width $tl, border-radius $tl, background $tl, box-shadow $tl;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: $aat-green;
+    & + label .search-icon {
+      color: white;
+    }
+    &:hover {
+      color: white;
+      background: $aat-green;
+      box-shadow: 0 0 0 5px $aat-green-20;
+      & + label .search-icon {
+        color: white;
+      }
+    }
+    &:focus {
+      transition: width $tl cubic-bezier(0, 1.22, .66, 1.39), border-radius $tl, background $tl;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      padding-left: 15px;
+      cursor: text;
+      width: 300px;
+      border-radius: auto;
+      background: $aat-green;
+      color: white;
+      font-weight: bold;
+      & + label .search-icon {
+        color: white;
+      }
+    }
+    &:not(:focus) {
+      text-indent: -5000px;
+    }
+    // for more-graceful falling back (:not browsers likely support indent)
+  }
+  .search-container {
+    float: right;
+    margin-top: .4em;
+    margin-right: -4em;
+  }
+
+  #search-submit {
+    position: relative;
+    left: -5000px;
+  }
+
+  .search-icon {
+    position: relative;
+    left: -2.3em;
+    color: $aat-green;
+    cursor: pointer;
+  }
+}

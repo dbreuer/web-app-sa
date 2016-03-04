@@ -1,0 +1,479 @@
+{
+  "page": {
+    "frontpage": {
+      "fullwidth": true,
+      "content": [
+        {
+          "name": "Main Banner",
+          "class": "hero",
+          "type": "hero-content"
+        },
+        {
+          "name": "CTA steps",
+          "type": "steps-content"
+        },
+        {
+          "name": "Campaign Section",
+          "type": "campaign-cta-content"
+        },
+        {
+          "name": "Secondary CTA",
+          "type": "secondary-cta-content"
+        },
+        {
+          "name": "Social hub Module section",
+          "type": "social-content"
+        }
+      ]
+    },
+    "about": {
+      "fullwidth": false,
+      "sidebar": {
+        "title": "About us",
+        "left": "about"
+      },
+      "content": [
+        {
+          "name": "About us",
+          "class": "title",
+          "type": "title-content"
+        },
+        {
+          "name": "Banner Slider",
+          "class": "slideshow",
+          "type": "slideshow-content",
+          "effect": "slide-right",
+          "images": [
+            {
+              "src": "/img/ayton_namwaza_banda.jpg",
+              "title": "Find a Training provider",
+              "description": " first description"
+            },
+            {
+              "src": "http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/frontpage_hero_background/public/frontpage/lungile_mawonga_0.jpg?itok=HcKaY0_2",
+              "title": "AAT(SA) Membership",
+              "description": " second description"
+            },
+            {
+              "src": "http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/frontpage_hero_background/public/frontpage/sebathu_bengani_0.jpg?itok=Amu2Gr8O",
+              "title": "Deliver AAT(SA) qualifications"
+            }
+          ]
+        },
+        {
+          "name": "Promos",
+          "class": "spotlight-grid",
+          "type": "spotlights-content",
+          "effect": "slide-left",
+          "spotlights": [
+            {
+              "title": "What we do",
+              "description": "We’re a professional membership body, and we award skills-based accountancy and finance qualifications. Find out more Upholding standards",
+              "url": "/about/what-we-do",
+              "image": {
+                "src": "http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/landing_page_content_box/public/landing_pages/israel_mogobe.jpg?itok=vXbL54nk",
+                "title": "What We do"
+              },
+              "button": "Find out more"
+            },
+            {
+              "title": "Contact us",
+              "description": "We’re a professional membership body, and we award skills-based accountancy and finance qualifications. Find out more Upholding standards",
+              "url": "/about/what-we-do",
+              "image": {
+                "src": "http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/landing_page_content_box/public/landing_pages/ashgar_ali_hassim.jpg?itok=KQngkAag",
+                "title": "What We do"
+              },
+              "button": "Find out more"
+            },
+            {
+              "title": "AAT UK",
+              "description": "We’re a professional membership body, and we award skills-based accountancy and finance qualifications. Find out more Upholding standards",
+              "url": "/about/what-we-do",
+              "image": {
+                "src": "http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/landing_page_content_box/public/landing_pages/edward_makwana_saica.jpg?itok=-35K2xUE",
+                "title": "What We do"
+              },
+              "button": "Find out more"
+            },
+            {
+              "title": "Terms and conditions",
+              "description": "We’re a professional membership body, and we award skills-based accountancy and finance qualifications. Find out more Upholding standards",
+              "url": "/about/what-we-do",
+              "image": {
+                "src": "http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/landing_page_content_box/public/landing_pages/sylvia_segone_2.jpg?itok=OaqGU7O3",
+                "title": "What We do"
+              },
+              "button": "Find out more"
+            }
+          ]
+        }
+      ]
+    },
+    "what-we-do": {
+      "fullwidth": false,
+      "sidebar": {
+        "title": "About us",
+        "left": "about"
+      },
+      "content": [
+        {
+          "name": "What we do",
+          "class": "title",
+          "type": "title-content"
+        },
+        {
+          "type": "html-content",
+          "name": "About AAT(SA)",
+          "html": "<div class=\"field-item even\" property=\"content:encoded\"><p><span style=\"font-size: 12px;\">AAT(SA) (AAT South Africa) is a unique partnership between the South African Institute of Charted Accountants (SAICA) and the Association of Accounting Technicians (AAT). We are a professional body dedicated to the education, development, regulation and support of accounting technicians in South Africa.</span></p> <p>Together, both bodies have been involved with the education and development of accounting and financial staff for more than 60 years.</p> <h3>Who is AAT?</h3> <p>The Association of Accounting Technicians (AAT) is one of the world’s leading membership organisations for accounting professionals. With over 120,000 members, AAT has been providing competence-based accounting qualifications in Central Southern Africa for over 20 years. <a href=\"http://www.aat.org.uk\">More information about AAT can be found on their website</a>.</p> <h3>Who is SAICA?</h3> <p>SAICA is the pre-eminent accountancy body in South Africa. They have established themselves as one of the leading institutes in the world, playing an important part in a highly dynamic business sector. SAICA provides a wide range of support services to their members enabling them to play a key role in developing the rapidly changing South African economy. <a href=\"https://www.saica.co.za/About/tabid/56/language/en-ZA/Default.aspx\">More information about SAICA can be found on their website</a>.</p> <h3>What is an accounting technician?</h3> <p>Accounting technicians work at all levels of finance, depending on where they are in their careers. Some accounting technicians work as accounts clerks, whilst others go on to become managing directors or finance directors of well known companies.</p> <h3> Our qualifications</h3> <p>AAT(SA) qualifications can enable your career in finance and accounting and help you make a truly positive contribution to your business, department or unit. We offer a practical qualification targeted at all staff levels, from clerical-administrative to professional accounting and finance positions.</p> <p>Flexible and unique, an AAT(SA) qualification comprises both accounting theory and a practical component and allows you to develop and apply you skills in your own work environment. Our qualifications are based on occupational standards that have been adopted by the Eastern Central and Southern Africa Federation of Accountants (ECSAFA) and accredited to the SAQA NQF.</p> </div>"
+        }
+      ]
+    }
+  },
+  "users": [
+    {
+      "user": {
+        "gender": "female",
+        "name": {
+          "title": "mrs",
+          "first": "evita",
+          "last": "nunes"
+        },
+        "location": {
+          "street": "3668 rua castro alves",
+          "city": "foz do iguaçu",
+          "state": "goiás",
+          "zip": 59871
+        },
+        "email": "evita.nunes@example.com",
+        "username": "smalltiger103",
+        "password": "olive",
+        "salt": "20Jpqhhz",
+        "md5": "fbaa2bdd30b3fd7bbe16f7e717cf42b0",
+        "sha1": "df99defc1c6015dfaa33fb9afb9f5f2c4123942d",
+        "sha256": "d6d0947a421db9b57f758204758c0b8da8c0549a9d25053d2e1e34d2a275e6c8",
+        "registered": 988565498,
+        "dob": 133118927,
+        "phone": "(45) 2521-5986",
+        "cell": "(18) 3615-2360",
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/women/88.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/women/88.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/88.jpg"
+        }
+      }
+    },
+    {
+      "user": {
+        "gender": "male",
+        "name": {
+          "title": "mr",
+          "first": "hernâni",
+          "last": "duarte"
+        },
+        "location": {
+          "street": "5742 rua vinte e quatro de outubro",
+          "city": "ribeirão preto",
+          "state": "goiás",
+          "zip": 64062
+        },
+        "email": "hernâni.duarte@example.com",
+        "username": "whitekoala396",
+        "password": "terror",
+        "salt": "WbPHDp1N",
+        "md5": "0497f6a8f10e684d6ab25bbf313e68b5",
+        "sha1": "5597e99bcde86eb8de72e972c5196d51588736ab",
+        "sha256": "c67b31fd9de125d3f4322efe4b6e5458022a49c248eebb2d2bb4db7e0a0c627c",
+        "registered": 942937461,
+        "dob": 1263598653,
+        "phone": "(61) 2673-6467",
+        "cell": "(25) 2298-4164",
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/men/12.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/men/12.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/men/12.jpg"
+        }
+      }
+    },
+    {
+      "user": {
+        "gender": "female",
+        "name": {
+          "title": "miss",
+          "first": "walníria",
+          "last": "gomes"
+        },
+        "location": {
+          "street": "7094 rua vinte e quatro de outubro",
+          "city": "americana",
+          "state": "minas gerais",
+          "zip": 55282
+        },
+        "email": "walníria.gomes@example.com",
+        "username": "blueduck546",
+        "password": "megatron",
+        "salt": "L7BQxFcL",
+        "md5": "abac8371e30ebb1e3f1eec4d4c599287",
+        "sha1": "10ca4e3f5c74b9158603f29035f0c42e10c8e0e5",
+        "sha256": "c46149f3222f42e83df923a7d62041b9aa40fdd228f4e07f052840eab08d170b",
+        "registered": 1010831823,
+        "dob": 887229721,
+        "phone": "(19) 4536-8989",
+        "cell": "(77) 2774-0825",
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/women/68.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/women/68.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/68.jpg"
+        }
+      }
+    }
+  ],
+  "menu": {
+    "top": {
+      "results": [
+        {
+          "name": "Home",
+          "url": "/frontpage",
+          "mid": 101
+        },
+        {
+          "name": "MyAAT",
+          "url": "/myaat",
+          "mid": 102,
+          "disabled": true
+        },
+        {
+          "name": "About",
+          "url": "/about",
+          "mid": 103
+        },
+        {
+          "name": "Qualifications",
+          "url": "/qualifications",
+          "mid": 104,
+          "disabled": true
+        },
+        {
+          "name": "Employers",
+          "url": "/employers",
+          "mid": 105,
+          "disabled": true
+        },
+        {
+          "name": "Deliver AAT(SA)",
+          "url": "/deliver",
+          "mid": 106,
+          "disabled": true
+        },
+        {
+          "name": "Membership/CPD",
+          "url": "/membership",
+          "mid": 107,
+          "disabled": true
+        },
+        {
+          "name": "News",
+          "url": "/news",
+          "mid": 108
+        }
+      ],
+      "class": "nav navbar-nav menu-top-bar"
+    },
+    "footer": {
+      "results": [
+        {
+          "name": "About AAT",
+          "url": "/about",
+          "mid": 201
+        },
+        {
+          "name": "Careers at AAT",
+          "url": "/carrers",
+          "mid": 202
+        },
+        {
+          "name": "Become a training provide",
+          "url": "/training-provider",
+          "mid": 203
+        },
+        {
+          "name": "AAT new",
+          "url": "/news",
+          "mid": 204
+        },
+        {
+          "name": "AAT standards",
+          "url": "/standards",
+          "mid": 205
+        },
+        {
+          "name": "Contact us",
+          "url": "/contact-us",
+          "mid": 206
+        }
+      ],
+      "class": "footer-group col-xs-12 col-sm-3"
+    },
+    "about": {
+      "results": [
+        {
+          "name": "What we do",
+          "url": "/about/what-we-do",
+          "mid": 301
+        },
+        {
+          "name": "Contact us",
+          "url": "/about/contact-us",
+          "mid": 302
+        },
+        {
+          "name": "AAT UK",
+          "url": "http://aat.org.uk",
+          "mid": 303
+        },
+        {
+          "name": "Terms and conditions",
+          "url": "/about/terms",
+          "mid": 304
+        },
+        {
+          "name": "SAICA",
+          "url": "http://www.saica.co.za/",
+          "mid": 305
+        }
+      ],
+      "class": "menu",
+      "title": "About us"
+    },
+    "qualifications_secondary": {
+      "title": "AAT qualifications",
+      "results": [
+        {
+          "name": "Order a course prospectus",
+          "url": "/",
+          "mid": 123
+        },
+        {
+          "name": "AAT qualifications and courses",
+          "url": "/",
+          "mid": 123,
+          "children": [
+            {
+              "name": "The AAT Accounting Qualification",
+              "url": "/",
+              "mid": 123,
+              "children": [
+                {
+                  "name": "Introductory - Certificate in Accounting",
+                  "url": "/",
+                  "mid": 123
+                },
+                {
+                  "name": "Introductory - Diploma in Accounting and Business",
+                  "url": "/",
+                  "mid": 123
+                },
+                {
+                  "name": "Intermediate - Diploma in Accounting",
+                  "url": "/",
+                  "mid": 123
+                },
+                {
+                  "name": "Advanced - Diploma in Accounting",
+                  "url": "/",
+                  "mid": 123
+                },
+                {
+                  "name": "How you're assessed",
+                  "url": "/",
+                  "mid": 123
+                }
+              ]
+            },
+            {
+              "name": "Accounting Skills",
+              "url": "/",
+              "mid": 123
+            },
+            {
+              "name": "Bookkeeping and Computerised Accounting",
+              "url": "/",
+              "mid": 123
+            },
+            {
+              "name": "Business Skills",
+              "url": "/",
+              "mid": 123
+            },
+            {
+              "name": "Tax",
+              "url": "/",
+              "mid": 123
+            },
+            {
+              "name": "Short courses - ​AAT Essentials",
+              "url": "/",
+              "mid": 123
+            }
+          ]
+        },
+        {
+          "name": "Register as a student",
+          "url": "/",
+          "mid": 123
+        },
+        {
+          "name": "Exemptions",
+          "url": "/",
+          "mid": 123
+        },
+        {
+          "name": "Accounting apprenticeship",
+          "url": "/",
+          "mid": 123
+        },
+        {
+          "name": "AAT apprenticeship jobs",
+          "url": "/",
+          "mid": 123
+        },
+        {
+          "name": "Skillcheck",
+          "url": "/",
+          "mid": 123
+        },
+        {
+          "name": "Fees and funding",
+          "url": "/",
+          "mid": 123
+        },
+        {
+          "name": "AAT support and study resources",
+          "url": "/",
+          "mid": 123
+        },
+        {
+          "name": "Flexible study methods",
+          "url": "/",
+          "mid": 123
+        },
+        {
+          "name": "Find an AAT training provider",
+          "url": "/",
+          "mid": 123
+        },
+        {
+          "name": "Find open days in your area",
+          "url": "/",
+          "mid": 123
+        },
+        {
+          "name": "Why study with AAT?",
+          "url": "/",
+          "mid": 123
+        }
+      ],
+      "class": "menu nav navbar menu-propect---qualifications-1"
+    }
+  }
+}
