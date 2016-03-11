@@ -66,6 +66,11 @@ node fake_api_server.js
 ```
 
 
+or run both server
+```
+npm start
+```
+
 
 Core Files
 -------------
