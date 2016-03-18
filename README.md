@@ -66,6 +66,11 @@ node fake_api_server.js
 ```
 
 
+or run both server
+```
+npm start
+```
+
 
 Core Files
 -------------
@@ -119,6 +124,8 @@ AWS JS SDK for the browser is included.
 You can build custom scripts here : https://sdk.amazonaws.com/builder/js/
 
 (installed via bower)
+
+@todo - move this the WIKI
 
 DATA STRUCTURE
 -------------
