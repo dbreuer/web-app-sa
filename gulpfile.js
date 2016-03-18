@@ -1,6 +1,6 @@
 /***
  *
- * AAT GulpJS file v.0.1
+ * AAT GulpJS file v.0.2
  *
  * @author : Mark Rushton <mark@modernfidelity.co.uk>
  *
@@ -8,6 +8,7 @@
  *
  */
 
+'use strict';
 
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
@@ -17,7 +18,24 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     gzip = require('gulp-gzip'),
     minifyHTML = require('gulp-minify-html'),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps'),
+    angularTemplateCache = require('gulp-angular-templatecache'),
+    jshint = require('gulp-jshint'),
+    jscs = require('gulp-jscs'),
+    jsdoc = require('gulp-jsdoc3');
+
+// Build Destination
+var dest = '';
+
+// Source JS files
+var jsFiles = [];
+
+// Source SCSS files
+var sassFiles = [
+    './app/sass/**/*.scss',
+    './app/site/**/*.scss',
+    './app/*.scss',
+];
 
 // WATCH
 gulp.task('watch', function() {
@@ -33,7 +51,6 @@ gulp.task('watch', function() {
     gulp.watch(['./app/site/**/*.html'], ['html']);
 
 });
-
 
 // CSS & SASS
 gulp.task('sass', function() {
@@ -115,6 +132,28 @@ gulp.task('js', function() {
 
 });
 
+
+// Linting
+gulp.task('lint', ['scripts', 'css', 'docs'], function() {
+    return gulp
+        .src(srcFiles)
+        .pipe(jshint())
+        .pipe(jshint.reporter('default', {verbose: true}));
+});
+
+// Code styling
+gulp.task('style', ['scripts', 'css', 'docs', 'lint'], function() {
+    return gulp
+        .src(srcFiles)
+        .pipe(jscs())
+        .pipe(jscs.reporter());
+});
+
+// Documentation (JSDoc)
+gulp.task('docs', ['scripts'], function(callback) {
+    gulp.src(srcFiles, {read: false}).pipe(jsdoc(callback));
+});
+
 // HTML
 gulp.task('html', function() {
 
@@ -129,6 +168,11 @@ gulp.task('html', function() {
         .pipe(gulp.dest('./app/'));
 });
 
-
 // Default
 gulp.task('default', ['sass', 'js', 'html', 'watch']);
+
+// DEV
+gulp.task('dev', ['sass', 'js', 'html']);
+
+// PROD
+gulp.task('prod', ['sass', 'js', 'html']);
