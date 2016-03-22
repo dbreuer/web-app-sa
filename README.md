@@ -125,6 +125,8 @@ You can build custom scripts here : https://sdk.amazonaws.com/builder/js/
 
 (installed via bower)
 
+@todo - move this the WIKI
+
 DATA STRUCTURE
 -------------
 

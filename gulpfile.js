@@ -1,6 +1,6 @@
 /***
  *
- * AAT GulpJS file v.0.1
+ * AAT GulpJS file v.0.2
  *
  * @author : Mark Rushton <mark@modernfidelity.co.uk>
  *
@@ -8,6 +8,7 @@
  *
  */
 
+'use strict';
 
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
@@ -17,15 +18,31 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     gzip = require('gulp-gzip'),
     minifyHTML = require('gulp-minify-html'),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps'),
+    angularTemplateCache = require('gulp-angular-templatecache'),
+    jshint = require('gulp-jshint'),
+    jscs = require('gulp-jscs'),
+    jsdoc = require('gulp-jsdoc3');
 
+// Build Destination
+var dest = '';
+
+// Source JS files
+var jsFiles = [];
+
+// Source SCSS files
+var sassFiles = [
+    './app/sass/**/*.scss',
+    './app/site/**/*.scss',
+    './app/*.scss',
+];
 
 // WATCH
-gulp.task('watch', function () {
+gulp.task('watch', function() {
 
     gulp.watch([
-        './app/sass/**/*.scss',
-        './app/site/shared/directives/**/*.scss'
+            './app/sass/**/*.scss',
+            './app/site/shared/directives/**/*.scss'
         ],
         ['sass']
     );
@@ -35,9 +52,8 @@ gulp.task('watch', function () {
 
 });
 
-
 // CSS & SASS
-gulp.task('sass', function () {
+gulp.task('sass', function() {
     gulp.src([
             './app/sass/app.scss'
             //'./app/sass/**/**/*.scss'
@@ -50,7 +66,7 @@ gulp.task('sass', function () {
 });
 
 // JAVASCRIPT
-gulp.task('js', function () {
+gulp.task('js', function() {
 
     return gulp.src([
 
@@ -65,45 +81,45 @@ gulp.task('js', function () {
             //'app/bower_components/slick-carousel/slick/slick.js',
             //'app/bower_components/angular-slick/dist/slick.js',
 
-
             // SHARED
             'app/site/shared/shared.js',
 
-            'app/site/shared/directives/component/component.js',
-
-            'app/site/shared/directives/mobile-menu/mobile-menu.js',
-            'app/site/shared/directives/search-bar/search-bar.js',
-            'app/site/shared/meta/meta.js',
-
-            'app/site/shared/directives/menu/menu.js',
-            'app/site/shared/directives/landing-page/landing-page.js',
-
-            'app/site/shared/directives/hero/hero.js',
-            'app/site/shared/directives/steps/steps.js',
-            'app/site/shared/directives/campaign-cta/campaign-cta.js',
-            'app/site/shared/directives/secondary-cta/secondary-cta.js',
-            'app/site/shared/directives/html/html.js',
-            'app/site/shared/directives/social/social.js',
-            'app/site/shared/directives/image/image.js',
-            'app/site/shared/directives/module/module.js',
-            'app/site/shared/directives/slideshow/slideshow.js',
-            'app/site/shared/directives/spotlights/spotlights.js',
-            'app/site/shared/directives/title/title.js',
-
-            'app/site/shared/directives/404/404.js',
+            //'app/site/shared/directives/component/component.js',
+            //
+            //'app/site/shared/directives/mobile-menu/mobile-menu.js',
+            //'app/site/shared/directives/search-bar/search-bar.js',
+            //'app/site/shared/meta/meta.js',
+            //
+            //'app/site/shared/directives/menu/menu.js',
+            //'app/site/shared/directives/landing-page/landing-page.js',
+            //
+            //'app/site/shared/directives/hero/hero.js',
+            //'app/site/shared/directives/steps/steps.js',
+            //'app/site/shared/directives/campaign-cta/campaign-cta.js',
+            //'app/site/shared/directives/secondary-cta/secondary-cta.js',
+            //'app/site/shared/directives/html/html.js',
+            //'app/site/shared/directives/social/social.js',
+            //'app/site/shared/directives/image/image.js',
+            //'app/site/shared/directives/module/module.js',
+            //'app/site/shared/directives/slideshow/slideshow.js',
+            //'app/site/shared/directives/spotlights/spotlights.js',
+            //'app/site/shared/directives/title/title.js',
+            //
+            //'app/site/shared/directives/404/404.js',
 
             // CUSTOM
-            'app/site/components/bookmarks/bookmarks.js',
-            'app/site/components/auth/auth.js',
-            'app/site/api/api.js',
             'app/site/components/frontpage/frontpage.js',
-            'app/site/components/news/news.js',
-            'app/site/components/maintenance/maintenance.js',
-            'app/site/components/about/about.js',
-            'app/site/components/dashboard/dashboard.js',
-            'app/site/components/contact/contact.js',
-            'app/site/components/login/login.js',
-            'app/site/components/user/user.js',
+            //'app/site/components/bookmarks/bookmarks.js',
+            //'app/site/components/auth/auth.js',
+            //'app/site/api/api.js',
+            //
+            //'app/site/components/news/news.js',
+            //'app/site/components/maintenance/maintenance.js',
+            //'app/site/components/about/about.js',
+            //'app/site/components/dashboard/dashboard.js',
+            //'app/site/components/contact/contact.js',
+            //'app/site/components/login/login.js',
+            //'app/site/components/user/user.js',
 
             // MAIN
             'app/app.js'
@@ -116,8 +132,30 @@ gulp.task('js', function () {
 
 });
 
+
+// Linting
+gulp.task('lint', ['scripts', 'css', 'docs'], function() {
+    return gulp
+        .src(srcFiles)
+        .pipe(jshint())
+        .pipe(jshint.reporter('default', {verbose: true}));
+});
+
+// Code styling
+gulp.task('style', ['scripts', 'css', 'docs', 'lint'], function() {
+    return gulp
+        .src(srcFiles)
+        .pipe(jscs())
+        .pipe(jscs.reporter());
+});
+
+// Documentation (JSDoc)
+gulp.task('docs', ['scripts'], function(callback) {
+    gulp.src(srcFiles, {read: false}).pipe(jsdoc(callback));
+});
+
 // HTML
-gulp.task('html', function () {
+gulp.task('html', function() {
 
     var opts = {
         conditionals: true,
@@ -130,6 +168,11 @@ gulp.task('html', function () {
         .pipe(gulp.dest('./app/'));
 });
 
-
 // Default
 gulp.task('default', ['sass', 'js', 'html', 'watch']);
+
+// DEV
+gulp.task('dev', ['sass', 'js', 'html']);
+
+// PROD
+gulp.task('prod', ['sass', 'js', 'html']);
