@@ -2,8 +2,14 @@
  *
  * FRONTPAGE COMPONENT
  *
- * * @description
+ * @author
+ *    Mark Rushton <mark@modernfidelity.co.uk>
  *
+ * @class app.Frontpage
+ *
+ * @description Provides the frontpage functionality for the site
+ *
+ * @memberof app
  *
  */
 

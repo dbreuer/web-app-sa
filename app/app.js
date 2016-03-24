@@ -1,11 +1,13 @@
-/***
+/**
  *
- * APP JS
+ * WEB APP SA
  *
- * @description This is the main application file and defines the scope for the project
+ * @author David Breuer <David.Breuer@aat.org.uk>
+ * @author Mark Rushton <mark@modernfidelity.co.uk>
  *
- * @namespace App
+ * @description Main angular application
  *
+ * @namespace app
  *
  */
 
@@ -108,7 +110,7 @@
       // Check token
       var token = localStorage.getItem('auth-token');
 
-      if (current.access.requiresLogin == true) {
+      if (current.access.requiresLogin === true) {
 
         //console.log("@RUN - " - token);
 
@@ -134,5 +136,8 @@
     });
 
   }
+
+  // Precompile .tpls
+  angular.module('templates', []);
 
 }());

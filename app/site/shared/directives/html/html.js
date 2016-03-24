@@ -3,28 +3,27 @@
  * Created by David Breuer on 19/02/2016.
  *
  * @file html.js
- * @description
  *
  */
-(function () {
-    'use strict';
+(function() {
+  'use strict';
 
-    angular
-        .module('shared.html', [])
-        .directive('htmlContent', htmlDirective);
+  angular
+    .module('shared.html', [])
+    .directive('htmlContent', htmlDirective);
 
-    htmlDirective.$inject = [];
+  htmlDirective.$inject = [];
 
-    /* @ngInject */
-    function htmlDirective() {
-        var directive = {
-            bindToController: true,
-            templateUrl: 'site/shared/directives/html/html.html',
-            replace: true,
-            restrict: 'E'
-        };
-        return directive;
-    }
+  /* @ngInject */
+  function htmlDirective() {
+    var directive = {
+      bindToController: true,
+      templateUrl: 'site/shared/directives/html/html.html',
+      replace: true,
+      restrict: 'E'
+    };
+    return directive;
+  }
 
 })();
 

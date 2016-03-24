@@ -3,7 +3,7 @@
  * Created by David Breuer on 22/02/2016.
  *
  * @file campaign-cta.js
- * @description
+ *
  *
  */
 (function () {

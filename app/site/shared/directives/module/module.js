@@ -3,28 +3,27 @@
  * Created by David Breuer on 19/02/2016.
  *
  * @file module.js
- * @description
  *
  */
-(function () {
-    'use strict';
+(function() {
+  'use strict';
 
-    angular
-        .module('shared.module', [])
-        .directive('moduleContent', moduleDirective);
+  angular
+    .module('shared.module', [])
+    .directive('moduleContent', moduleDirective);
 
-    moduleDirective.$inject = [];
+  moduleDirective.$inject = [];
 
-    /* @ngInject */
-    function moduleDirective() {
-        var directive = {
-            bindToController: true,
-            templateUrl: 'site/shared/directives/module/module.html',
-            replace: true,
-            restrict: 'AE'
-        };
-        return directive;
-    }
+  /* @ngInject */
+  function moduleDirective() {
+    var directive = {
+      bindToController: true,
+      templateUrl: 'site/shared/directives/module/module.html',
+      replace: true,
+      restrict: 'AE'
+    };
+    return directive;
+  }
 
 })();
 

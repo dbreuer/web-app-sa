@@ -5,5 +5,7 @@
   ],
   "jsDoc": {
     "checkAnnotations": "jsdoc3"
-  }
+  },
+  "maxErrors": null
+
 }

@@ -1,9 +1,8 @@
-//shared.js
+
 /**
  * Created by David Breuer on 19/02/2016.
  *
- * @file shared.js
- * @description
+ * @description Collection of shared resources
  *
  */
 angular

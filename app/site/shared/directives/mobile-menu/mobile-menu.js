@@ -11,12 +11,11 @@
 
 angular.module('mobile-menu', [])
 
-    // Directives
-    .directive('mobileMenu', mobileMenu);
+  // Directives
+  .directive('mobileMenu', mobileMenu);
 
 // Inject Deps
 mobileMenu.$inject = [];
-
 
 /**
  *
@@ -27,45 +26,45 @@ mobileMenu.$inject = [];
  */
 function mobileMenu() {
 
-    return {
-        replace: true,
-        restrict: 'AE',
+  return {
+    replace: true,
+    restrict: 'AE',
 
-        scope: {
-            toggle: '='
-        },
+    scope: {
+      toggle: '='
+    },
 
-        templateUrl: 'site/shared/directives/mobile-menu/mobile-menu.tpl.html',
+    templateUrl: 'site/shared/directives/mobile-menu/mobile-menu.tpl.html',
 
-        link: function (scope, elem, attrs) {
+    link: function(scope, elem, attrs) {
 
-            // Toggle Menu
-            scope.toggle = false;
+      // Toggle Menu
+      scope.toggle = false;
 
-            scope.toggleOverlay = function () {
-                scope.toggle = scope.toggle === false ? true : false;
-            };
-
-
-            ///**
-            // *
-            // *
-            // */
-            //MenuDataService.getMobileMenu()
-            //
-            //    .then(function (response) {
-            //        scope.menu = response
-            //    })
-            //    .catch(function (error) {
-            //
-            //        console.log("Mobile Menu get error");
-            //
-            //    });
-            //
+      scope.toggleOverlay = function() {
+        scope.toggle = scope.toggle === false ? true : false;
+      };
 
 
-        }
+      ///**
+      // *
+      // *
+      // */
+      //MenuDataService.getMobileMenu()
+      //
+      //    .then(function (response) {
+      //        scope.menu = response
+      //    })
+      //    .catch(function (error) {
+      //
+      //        console.log("Mobile Menu get error");
+      //
+      //    });
+      //
+
+
     }
+  }
 
 
 }
@@ -79,34 +78,34 @@ function mobileMenu() {
  */
 function MobileMenuController(MobileMenuDataService, jwtHelper, $location, $window, AuthTokenService) {
 
-    //var vm = this;
-    //
-    //
-    ///**
-    // *
-    // * Login form Submit handler w/ page redirect
-    // *
-    // */
-    //function onSubmit() {
-    //
-    //    var formSubmitted = true;
-    //
-    //    //console.log("ctrl : ", AuthTokenService);
-    //
-    //    MobileMenuDataService.login(vm.model.email, vm.model.password)
-    //        .then(function success(response) {
-    //
-    //            AuthTokenService.authStatus = true;
-    //
-    //            //console.log(AuthTokenService.authStatus);
-    //
-    //            // Redirect if succesful login
-    //            $window.location.href = '#/dashboard';
-    //            $window.location.reload();
-    //
-    //        });
-    //
-    //}
+  //var vm = this;
+  //
+  //
+  ///**
+  // *
+  // * Login form Submit handler w/ page redirect
+  // *
+  // */
+  //function onSubmit() {
+  //
+  //    var formSubmitted = true;
+  //
+  //    //console.log("ctrl : ", AuthTokenService);
+  //
+  //    MobileMenuDataService.login(vm.model.email, vm.model.password)
+  //        .then(function success(response) {
+  //
+  //            AuthTokenService.authStatus = true;
+  //
+  //            //console.log(AuthTokenService.authStatus);
+  //
+  //            // Redirect if succesful login
+  //            $window.location.href = '#/dashboard';
+  //            $window.location.reload();
+  //
+  //        });
+  //
+  //}
 
 
 }
@@ -119,37 +118,37 @@ function MobileMenuController(MobileMenuDataService, jwtHelper, $location, $wind
  */
 function MobileMenuDataService($http, $rootScope, API_URL, jwtHelper, $window, AuthTokenService) {
 
-    var endpointAPI = API_URL + "/mobile-menu";
+  var endpointAPI = API_URL + "/mobile-menu";
 
-    return {
-        getMobileMenu: getMobileMenu
-    };
+  return {
+    getMobileMenu: getMobileMenu
+  };
 
 
-    /**
-     *
-     * Get the users bookmarks
-     *
-     * @param uuid
-     * @returns {*}
-     */
-    function getMobileMenu(uuid) {
+  /**
+   *
+   * Get the users bookmarks
+   *
+   * @param uuid
+   * @returns {*}
+   */
+  function getMobileMenu(uuid) {
 
-        return $http.get(endpointAPI + "/" + uuid)
-            .then(dataComplete)
-            .catch(dataFailed);
+    return $http.get(endpointAPI + "/" + uuid)
+      .then(dataComplete)
+      .catch(dataFailed);
 
-        function dataComplete(response) {
+    function dataComplete(response) {
 
-            console.log(response.data);
-            return response.data;
+      console.log(response.data);
+      return response.data;
 
-        }
-
-        function dataFailed(error) {
-            console.log('XHR Failed for get data .' + error);
-        }
     }
+
+    function dataFailed(error) {
+      console.log('XHR Failed for get data .' + error);
+    }
+  }
 
 
 }
