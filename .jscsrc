@@ -1,0 +1,9 @@
+{
+  "preset": "google",
+  "excludeFiles": [
+    "app/bower_components/**/*.js"
+  ],
+  "jsDoc": {
+    "checkAnnotations": "jsdoc3"
+  }
+}

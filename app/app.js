@@ -10,131 +10,129 @@
  */
 
 (function() {
-    'use strict';
+  'use strict';
 
-    // Declare app level module which depends on views, and components
-    angular.module('project', [
+  // Declare app level module which depends on views, and components
+  angular.module('project', [
 
-            // CORE
-            'ngRoute',
-            'ngSanitize',
-            'ngAnimate',
-            'angular-jwt',
-            'angular-storage',
-            'formly',
-            'formlyBootstrap',
-            'ui.bootstrap',
+      // CORE
+      'ngRoute',
+      'ngSanitize',
+      'ngAnimate',
+      'angular-jwt',
+      'angular-storage',
+      'formly',
+      'formlyBootstrap',
+      'ui.bootstrap',
 
-            // SHARED
-            //'mobile-menu',
-            //'search-bar',
-            //'bookmarks',
-            //'meta',
-            //'menu',
-            //'landing-page',
+      // SHARED
+      //'mobile-menu',
+      //'search-bar',
+      //'bookmarks',
+      //'meta',
+      //'menu',
+      //'landing-page',
 
-            // CUSTOM
-            //'project.auth',
-            'project.frontpage',
-            //'project.news',
-            //'project.about',
-            //'project.maintenance',
-            //'project.dashboard',
-            //'project.contact',
-            //'project.login',
-            //'project.auth',
-            //'project.user',
-            //'project.api',
+      // CUSTOM
+      //'project.auth',
+      'project.frontpage',
+      //'project.news',
+      //'project.about',
+      //'project.maintenance',
+      //'project.dashboard',
+      //'project.contact',
+      //'project.login',
+      //'project.auth',
+      //'project.user',
+      //'project.api',
 
-            //'shared'
+      //'shared'
 
-        ])
+    ])
 
-        // App config
-        .config([
+    // App config
+    .config([
 
-            '$routeProvider',
-            '$locationProvider',
-            '$httpProvider',
-            'jwtInterceptorProvider',
+      '$routeProvider',
+      '$locationProvider',
+      '$httpProvider',
+      'jwtInterceptorProvider',
 
-            function($routeProvider, $locationProvider, $httpProvider, jwtInterceptorProvider) {
+      function(
+        $routeProvider, $locationProvider, $httpProvider, jwtInterceptorProvider
+      ) {
 
-                // @todo - use the HTML5 History API (only set in the main app.js not individual routes...)
-                // @todo - needs nginx proxy to rewrite request to index.html
-
-                //if (window.history && window.history.pushState) {
-                //    $locationProvider.html5Mode(true);
-                //}
-
-                //$httpProvider.interceptors.push('AuthInterceptor');
-                $routeProvider.otherwise({redirectTo: '/frontpage'});
-
-                // Add JWT Token to each request
-                jwtInterceptorProvider.tokenGetter = function() {
-                    return localStorage.getItem('aat-auth-token');
-                }
-                $httpProvider.interceptors.push('jwtInterceptor');
-
-            }])
-
-        // Define App constants (ref env vars)
-        .constant('API_URL', 'https://api.aat-sa-prod.elasticbeanstalk.com/')
-
-        .run(appRun);
-
-    // Inject Deps
-    appRun.$inject = ['$rootScope', '$location'];
-
-    /**
-     *
-     * App RUN scope
-     *
-     * @param {object} $rootScope
-     * @param {object} $location
-     *
-     */
-
-    function appRun($rootScope, $location) {
-
-        // register listener to watch route changes
-        $rootScope.$on('$routeChangeStart', function(event, current, next) {
-
-            // Page Title
-            //$rootScope.pageTitle = MetaDataService.pageTitle();
-            //$rootScope.metaDescription = MetaDataService.pageTitle();
-
-            console.log('CURRENT -> ', current);
-            console.log('NEXT -> ' + next);
-
-            // Check token
-            var token = localStorage.getItem('aat-auth-token');
-
-            if (current.access.requiresLogin == true) {
-
-                //console.log("@RUN - " - token);
-
-                if (!token) {
-                    console.log('REQUIRES Login + user has no JWT token...');
-                    event.preventDefault();
-                    $location.path('/login');
-                }
-
-            }
-
+        $locationProvider.html5Mode({
+          enabled: true,
+          requireBase: false
         });
 
-        // Page Title
-        $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
+        //$httpProvider.interceptors.push('AuthInterceptor');
+        $routeProvider.otherwise({redirectTo: '/frontpage'});
 
-            console.log(current.hasOwnProperty('$$route'));
+        // Add JWT Token to each request
+        jwtInterceptorProvider.tokenGetter = function() {
+          return sessionStorage.getItem('auth-token');
+        };
 
-            if (current.hasOwnProperty('$$route')) {
-                $rootScope.pageTitle = current.$$route.pageTitle;
-                $rootScope.metaDescription = current.$$route.metaDescription;
-            }
-        });
+        $httpProvider.interceptors.push('jwtInterceptor');
 
-    }
+      }])
+
+    // Define App constants (ref env vars)
+    .constant('API_URL', 'https://api.aat-sa-prod.elasticbeanstalk.com/')
+
+    .run(appRun);
+
+  // Inject Deps
+  appRun.$inject = ['$rootScope', '$location'];
+
+  /**
+   *
+   * App RUN scope
+   *
+   * @param {object} $rootScope
+   * @param {object} $location
+   *
+   */
+
+  function appRun($rootScope, $location) {
+
+    // register listener to watch route changes
+    $rootScope.$on('$routeChangeStart', function(event, current, next) {
+
+      // Page Title
+      //$rootScope.pageTitle = MetaDataService.pageTitle();
+      //$rootScope.metaDescription = MetaDataService.pageTitle();
+
+      // Check token
+      var token = localStorage.getItem('auth-token');
+
+      if (current.access.requiresLogin == true) {
+
+        //console.log("@RUN - " - token);
+
+        if (!token) {
+          console.log('REQUIRES LOGIN');
+          event.preventDefault();
+          $location.path('/login');
+        }
+
+      }
+
+    });
+
+    // Page Title
+    $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
+
+      //console.log(current.hasOwnProperty('$$route'));
+
+      if (current.hasOwnProperty('$$route')) {
+        $rootScope.pageTitle = current.$$route.pageTitle;
+        $rootScope.metaDescription = current.$$route.metaDescription;
+      }
+    });
+
+  }
 
 }());

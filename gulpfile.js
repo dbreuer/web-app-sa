@@ -1,6 +1,6 @@
 /***
  *
- * AAT GulpJS file v.0.2
+ * AAT GulpJS file v.0.3
  *
  * @author : Mark Rushton <mark@modernfidelity.co.uk>
  *
