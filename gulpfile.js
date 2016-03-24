@@ -81,7 +81,7 @@ var customJsFiles = [
   //'app/site/shared/directives/404/404.js',
 
   // CUSTOM
-  'src/client/app/site/components/frontpage/frontpage.js',
+  'src/client/app/components/frontpage/frontpage.js',
   //'app/site/components/bookmarks/bookmarks.js',
   //'app/site/components/auth/auth.js',
   //'app/site/components/news/news.js',
@@ -173,7 +173,7 @@ gulp.task('docs', ['scripts'], function(callback) {
 function prepareTemplates() {
   return gulp
     .src([
-      './src/client/app/site/**/*.tpl.html'
+      './src/client/app/**/*.tpl.html'
     ])
     .pipe(angularTemplateCache());
 }
@@ -184,14 +184,14 @@ gulp.task('watch', function() {
 
   gulp.watch([
       './src/client/app/sass/**/*.scss',
-      './src/client/app/site/shared/directives/**/*.scss'
+      './src/client/app/shared/directives/**/*.scss'
     ],
     ['css']
   );
 
   gulp.watch([
-    './src/client/app/site/components/**/*.js',
-    './src/client/app/site/shared/**/*.js',
+    './src/client/app/components/**/*.js',
+    './src/client/app/shared/**/*.js',
     './src/client/app/app.js'
   ], ['lint', 'style', 'docs', 'scripts']);
 
