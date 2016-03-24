@@ -85,7 +85,6 @@ var customJsFiles = [
   //'app/site/components/bookmarks/bookmarks.js',
   //'app/site/components/auth/auth.js',
   //'app/site/components/news/news.js',
-  //'app/site/components/maintenance/maintenance.js',
   //'app/site/components/about/about.js',
   //'app/site/components/dashboard/dashboard.js',
   //'app/site/components/contact/contact.js',
