@@ -30,19 +30,25 @@ var sourcemaps = require('gulp-sourcemaps');
 var gzip = require('gulp-gzip');
 
 // Build Destination
-var dest = 'app';
+var dest = 'build';
 
 // Vendor JS files
 var vendorJsFiles = [
-  'app/bower_components/angular/angular.js',
-  'app/bower_components/angular-route/angular-route.js',
-  'app/bower_components/angular-animate/angular-animate.js',
-  'app/bower_components/angular-sanitize/angular-sanitize.js',
-  'app/bower_components/angular-jwt/dist/angular-jwt.js',
-  'app/bower_components/a0-angular-storage/dist/angular-storage.js',
-  'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+  'src/client/app/bower_components/angular/angular.js',
+  'src/client/app/bower_components/angular-route/angular-route.js',
+  'src/client/app/bower_components/angular-animate/angular-animate.js',
+  'src/client/app/bower_components/angular-sanitize/angular-sanitize.js',
+  'src/client/app/bower_components/angular-jwt/dist/angular-jwt.js',
+  'src/client/app/bower_components/a0-angular-storage/dist/angular-storage.js',
+  //'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+
+  'src/client/app/bower_components/api-check/dist/api-check.js',
+  'src/client/app/bower_components/angular-formly/dist/formly.js',
+  'src/client/app/bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js'
+
   //'app/bower_components/slick-carousel/slick/slick.js',
   //'app/bower_components/angular-slick/dist/slick.js',
+
 ];
 
 // Source JS files
@@ -75,11 +81,9 @@ var customJsFiles = [
   //'app/site/shared/directives/404/404.js',
 
   // CUSTOM
-  'app/site/components/frontpage/frontpage.js',
+  'src/client/app/site/components/frontpage/frontpage.js',
   //'app/site/components/bookmarks/bookmarks.js',
   //'app/site/components/auth/auth.js',
-  //'app/site/api/api.js',
-  //
   //'app/site/components/news/news.js',
   //'app/site/components/maintenance/maintenance.js',
   //'app/site/components/about/about.js',
@@ -89,27 +93,27 @@ var customJsFiles = [
   //'app/site/components/user/user.js',
 
   // MAIN
-  'app/app.js'
+  'src/client/app/app.js'
 ];
 
 var sourceJsFiles = vendorJsFiles.concat(customJsFiles);
 
 // Source SCSS files
 var sassFiles = [
-  './app/sass/app.scss'
+  './src/client/app/sass/app.scss'
 ];
 
 // Compile CSS from SCSS files
 gulp.task('css', function() {
   return gulp
     .src([
-      './app/sass/app.scss'
+      './src/client/app/sass/app.scss'
     ])
     .pipe(sass().on('error', sass.logError))
-    //.pipe(minifyCSS())
+    .pipe(minifyCSS())
     .pipe(sourcemaps.write('source-maps'))
     .pipe(rename('build.css'))
-    .pipe(gulp.dest('./app/css/'));
+    .pipe(gulp.dest(dest + '/css'));
 });
 
 // Concatenate/Uglify JS Files
@@ -120,8 +124,8 @@ gulp.task('scripts', ['css'], function() {
     .pipe(addStream.obj(prepareTemplates()))
     .pipe(concat('build.js'))
     //.pipe(rename({suffix: '.min'}))
-    .pipe(uglify())
-    .pipe(gulp.dest(dest));
+    //.pipe(uglify())
+    .pipe(gulp.dest(dest + '/js'));
 
 });
 
@@ -149,17 +153,11 @@ gulp.task('html', function() {
   };
   return gulp
     .src('./app/index.html')
-    .pipe(minifyHTML(opts))
-    .pipe(rename('build.html'))
-    .pipe(gulp.dest('./app/'));
+    //.pipe(minifyHTML(opts))
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest('./build/'));
 });
 
-// Angular Template Cache
-function prepareTemplates() {
-  return gulp
-    .src('app/**/*.tpl.html')
-    .pipe(angularTemplateCache());
-}
 
 /// Documentation (JSDoc)
 gulp.task('docs', ['scripts'], function(callback) {
@@ -170,25 +168,37 @@ gulp.task('docs', ['scripts'], function(callback) {
     .pipe(jsdoc(callback));
 });
 
+
+
+// Angular Template Cache
+function prepareTemplates() {
+  return gulp
+    .src([
+      './src/client/app/site/**/*.tpl.html'
+    ])
+    .pipe(angularTemplateCache());
+}
+
+
 // WATCHERS
 gulp.task('watch', function() {
 
   gulp.watch([
-      './app/sass/**/*.scss',
-      './app/site/shared/directives/**/*.scss'
+      './src/client/app/sass/**/*.scss',
+      './src/client/app/site/shared/directives/**/*.scss'
     ],
     ['css']
   );
 
   gulp.watch([
-    './app/site/components/**/*.js',
-    './app/site/shared/**/*.js',
-    './app/app.js'
+    './src/client/app/site/components/**/*.js',
+    './src/client/app/site/shared/**/*.js',
+    './src/client/app/app.js'
   ], ['lint', 'style', 'docs', 'scripts']);
 
-  gulp.watch('./app/**/*.tpl.html', ['lint', 'style', 'docs', 'scripts']);
+  gulp.watch('./src/client/app/**/*.tpl.html', ['lint', 'style', 'docs', 'scripts']);
 
-  gulp.watch(['./app/site/**/*.html'], ['html']);
+  gulp.watch(['./src/client/app/index.html'], ['html']);
 
 });
 

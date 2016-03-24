@@ -141,12 +141,12 @@ The will now build the image "aat/web-app-sa", which will be seen in your images
 To now start this as a container, please run the following : 
 
 
-    docker run -itd -p 8001:80 -v /YOUR_FULL_PATH/web-app/app:/var/www/nginx-default aat/web-app-sa
+    docker run -itd -p 8001:80 -v /YOUR_FULL_PATH/web-app/build:/var/www/nginx-default aat/web-app-sa
    
 
 So my example : 
 
-    docker run -itd -p 8001:80 -v /Users/markrushton/Sites/aat/web-app-sa/app:/var/www/nginx-default aat/web-app-sa
+    docker run -itd -p 8001:80 -v /Users/markrushton/Sites/aat/web-app-sa/build:/var/www/nginx-default aat/web-app-sa
 
 
 Check your docker machine IP : (dev is the name of the docker-machine env, your may be different i.e. default) 

@@ -6,6 +6,6 @@
   "jsDoc": {
     "checkAnnotations": "jsdoc3"
   },
-  "maxErrors": null
-
+  "maxErrors": null,
+  "maximumLineLength": 120
 }
