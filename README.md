@@ -133,15 +133,15 @@ Windows / Mac - Docker-machine (or docker-toolbox) :
 Then cd into the the project root and run the following : 
 
 
-    docker build -t ilmg/web-app .
+    docker build -t aat/web-app-sa .
 
 
-The will now build the image "ilmg/web-app", which will be seen in your images list if you run the command "docker images"
+The will now build the image "aat/web-app-sa", which will be seen in your images list if you run the command "docker images"
 
 To now start this as a container, please run the following : 
 
 
-    docker run -itd -p 8001:80 -v /YOUR_FULL_PATH/web-app/app:/var/www/nginx-default ilmg/web-app
+    docker run -itd -p 8001:80 -v /YOUR_FULL_PATH/web-app/app:/var/www/nginx-default aat/web-app-sa
    
 
 So my example : 
@@ -186,5 +186,5 @@ You can build custom scripts here : https://sdk.amazonaws.com/builder/js/
 DATA STRUCTURE
 -------------
 
-Please the data_structure.md
+Please see data_structure.md
 
