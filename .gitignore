@@ -104,3 +104,4 @@ crashlytics-build.properties
 #Bower components directory
 /app/bower_components
 
+docs
