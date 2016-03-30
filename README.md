@@ -116,6 +116,61 @@ Libraries
 All frontend tools should be added via Bower install --save; and build / test tools should be added via npm install --save
 
 
+
+Docker
+-------------
+
+Make sure you have installed Docker, and an environment is available / started.
+
+Windows / Mac - Docker-machine (or docker-toolbox) : 
+
+     
+    docker-machine start default
+    
+   
+    eval $(docker-machine env default)
+    
+Then cd into the the project root and run the following : 
+
+
+    docker build -t aat/web-app-sa .
+
+
+The will now build the image "aat/web-app-sa", which will be seen in your images list if you run the command "docker images"
+
+To now start this as a container, please run the following : 
+
+
+    docker run -itd -p 8001:80 -v /YOUR_FULL_PATH/web-app/build:/var/www/nginx-default aat/web-app-sa
+   
+
+So my example : 
+
+    docker run -itd -p 8001:80 -v /Users/markrushton/Sites/aat/web-app-sa/build:/var/www/nginx-default aat/web-app-sa
+
+
+Check your docker machine IP : (dev is the name of the docker-machine env, your may be different i.e. default) 
+
+    docker-machine ip dev 
+
+Now in a new browser tab, visit the website at the returned YOUR_DOCKER_IP:8001 
+
+So my example : 
+
+    192.168.99.100:8001
+
+
+**Success, you are now up and running.** 
+
+
+*Some other useful Docker commands to stop / remove all of Docker containers:*
+
+    docker stop $(docker ps -a -q)
+    docker rm $(docker ps -a -q)
+
+
+
+
 AWS SDK
 -------------
 
@@ -125,82 +180,11 @@ You can build custom scripts here : https://sdk.amazonaws.com/builder/js/
 
 (installed via bower)
 
+@todo - move this the WIKI
+
+
 DATA STRUCTURE
 -------------
 
-The following is the a working version of the content data. 
+Please see data_structure.md
 
-Content Component types:
-    Hero
-    Html
-    Title
-    Spotlights
-    Slideshows
- 
-Sidebar component types:
-    Menu
-    Spotlights
- 
-
-
-```
-...
- "page": {
-    "frontpage": {                                                      //page name [pageid] uniq
-      "fullwidth": true,                                                //is it full width {boolean} 
-      "content": [                                                      //page sections array
-        {
-          "name": "section1",                                           //section name [sectionid] uniq
-          "class": "hero",                                              //main wrapper class
-          "type": "hero"                                                //component/module name
-        },
-        {
-          "name": "section1",                                           //section name [sectionid] uniq
-          "class": "single-page",                                       //main wrapper class
-          "type": "html"                                                //component/module name
-          "html": "<div class=\"whatever\">Lorem ipsum dolorem</div>"   //html content
-        },
-        {
-          "name": "Example Title",                                      //section name [sectionid] uniq
-          "class": "title",                                             //main wrapper class
-          "type": "title"                                               //component/module name
-        },
-        {
-          "name": "Spotlights Title",                                   //section name [sectionid] uniq
-          "class": "spotlight-grid",                                    //main wrapper class
-          "type": "spotlights",                                         //component/module name
-          "spotlights": [
-                  {
-                    "title": "What we do",                              //Spotlight title
-                    "description": "We’re a professional ...",          //Spotlight description
-                    "url": "/about/what-we-do",                         //Spotlight url
-                    "image": {
-                      "src": "http://example/israel_mogobe.jpg",        //Spotlight image object source
-                      "title": "What We do"                             //Spotlight image object title
-                    },
-                    "button": "Find out more"                           //Spotlight button text
-                  },
-                  ...
-        },
-         {
-           "name": "Banner Slider",
-           "class": "slideshow",
-           "type": "slideshow",
-           "images": [                                                  //Slideshow image array
-             {
-               "src": "/img/example-banner.jpg",                        //slide image source
-               "title": "Banner title",                                 //slide image title (optional)
-               "description": "first description"                       //slide image description (optional)
-             },
-             ...
-      ],
-       "sidebar": {
-          "title": "About us",                                          //Sidebar title
-          "left": "left-sidebar-menu",                                  //left sidebar menu id
-          "right": "right-sidebar-menu"                                 //right sidebar menu id
-        }
-    }
-    ...
- }
-```
-    
