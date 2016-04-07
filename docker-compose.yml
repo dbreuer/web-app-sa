@@ -6,7 +6,7 @@ custom_nginx:
     build: ./
     restart: always
     ports:
-        - 8001:80
+        - 8002:80
     volumes:
         - ./build:/var/www/nginx-default
 
