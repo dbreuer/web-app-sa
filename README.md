@@ -183,8 +183,8 @@ You can build custom scripts here : https://sdk.amazonaws.com/builder/js/
 @todo - move this the WIKI
 
 
-DATA STRUCTURE
--------------
+### DATA STRUCTURE
+
 
 Please see data_structure.md
 
