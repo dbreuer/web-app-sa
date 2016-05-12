@@ -1,8 +1,9 @@
 /**
  *
- * MY-AAT COMPONENT
+ * FRONTPAGE COMPONENT
  *
- * @author Mark Rushton <mark@modernfidelity.co.uk>
+ * @author
+ *    Mark Rushton <mark@modernfidelity.co.uk>
  *
  * @class app.Frontpage
  *
@@ -15,13 +16,13 @@
 (function() {
   'use strict';
 
-  angular.module('project.myaat', ['ngRoute'])
+  angular.module('project.frontpage', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
-      $routeProvider.when('/my-aat', {
-        pageTitle: 'AAT - MyAAT',
-        templateUrl: 'components/myaat/myaat.tpl.html',
-        controller: 'MyaatController',
+      $routeProvider.when('/frontpage', {
+        pageTitle: 'AAT - Welcome',
+        templateUrl: 'components/frontpage/frontpage.tpl.html',
+        controller: 'FrontpageController',
         controllerAs: 'vm',
         access: {
           requiresLogin: false,
@@ -30,10 +31,10 @@
       });
     }])
 
-    .controller('MyaatController', MyaatController);
+    .controller('FrontpageController', FrontpageController);
 
   // Inject Deps
-  MyaatController.$inject = [];
+  FrontpageController.$inject = [];
 
   /**
    *
@@ -41,7 +42,7 @@
    *
    * @constructor
    */
-  function MyaatController() {
+  function FrontpageController() {
 
     var vm = this;
     vm.pageContent = {};

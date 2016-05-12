@@ -38,17 +38,12 @@
       //'landing-page',
 
       // CUSTOM
-      //'project.auth',
       'project.frontpage',
-      //'project.news',
-      //'project.about',
-      //'project.maintenance',
-      //'project.dashboard'
       'project.myaat',
-      //'project.contact',
-      //'project.login',
-      //'project.auth',
-      //'project.user',
+      'project.news',
+      'project.static-pages',
+      'project.qualifications',
+    //'project.contact',
       //'project.api',
 
       'shared'

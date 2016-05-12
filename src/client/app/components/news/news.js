@@ -4,202 +4,200 @@
  *
  * @file Simple page component to surface news content from the API
  *
- * @todo : simplify
- *
  */
 
 (function() {
 
-    'use strict';
+  'use strict';
 
-    angular.module('project.news', ['ngRoute'])
+  angular.module('project.news', ['ngRoute'])
 
-        //
-        .config(['$routeProvider', function($routeProvider) {
-            $routeProvider.when('/news', {
-                pageTitle: 'News',
-                templateUrl: './site/components/news/news.html',
-                controller: 'NewsController',
-                controllerAs: 'vm',
-                access: {
-                    requiresLogin: false,
-                    roles: []
-                }
-            });
-        }])
+    //
+    .config(['$routeProvider', function($routeProvider) {
+      $routeProvider.when('/news', {
+        pageTitle: 'News',
+        templateUrl: 'components/news/news.html',
+        controller: 'NewsController',
+        controllerAs: 'vm',
+        access: {
+          requiresLogin: false,
+          roles: []
+        }
+      });
+    }])
 
-        //
-        .service('NewsDataService', NewsDataService)
+    //
+    .service('NewsDataService', NewsDataService)
 
-        //
-        .controller('NewsController', NewsController);
+    //
+    .controller('NewsController', NewsController);
 
-    NewsDataService.$inject = ['$http', 'API_URL'];
+  NewsDataService.$inject = ['$http', 'API_URL'];
 
-    NewsController.$inject = ['NewsDataService'];
+  NewsController.$inject = ['NewsDataService'];
+
+  /**
+   *
+   * News Data Service
+   *
+   * @param $http
+   * @constructor
+   */
+  function NewsDataService($http, API_URL) {
+
+    var listingsAPI = API_URL + '/news';
+
+    return {
+      getNewsData: getNewsData,
+      getNewsRelatedData: getNewsRelatedData,
+      getListingsData: getListingsData
+    };
 
     /**
      *
-     * News Data Service
+     * Get News Data
      *
-     * @param $http
-     * @constructor
+     * @returns {*}
      */
-    function NewsDataService($http, API_URL) {
+    function getNewsData() {
 
-        var listingsAPI = API_URL + '/news';
+      //console.log("NewsDataService.getNewsData");
 
-        return {
-            getNewsData: getNewsData,
-            getNewsRelatedData: getNewsRelatedData,
-            getListingsData: getListingsData
-        };
+      return $http.get(listingsAPI)
+        .then(dataComplete)
+        .catch(dataFailed);
 
-        /**
-         *
-         * Get News Data
-         *
-         * @returns {*}
-         */
-        function getNewsData() {
+      function dataComplete(response) {
+        //console.log("complete called");
+        return response.data;
+      }
 
-            //console.log("NewsDataService.getNewsData");
+      function dataFailed(error) {
+        console.log('XHR Failed for getNewsData.' + error.data);
+      }
+    }
 
-            return $http.get(listingsAPI)
-                .then(dataComplete)
-                .catch(dataFailed);
+    /**
+     *
+     * @returns {*}
+     */
+    function getNewsRelatedData() {
 
-            function dataComplete(response) {
-                //console.log("complete called");
-                return response.data;
-            }
+      //console.log("NewsDataService.getNewsData");
 
-            function dataFailed(error) {
-                console.log('XHR Failed for getNewsData.' + error.data);
-            }
-        }
+      return $http.get(listingsAPI)
+        .then(dataComplete)
+        .catch(dataFailed);
 
-        /**
-         *
-         * @returns {*}
-         */
-        function getNewsRelatedData() {
+      function dataComplete(response) {
+        //console.log("complete called");
+        return response.data;
+      }
 
-            //console.log("NewsDataService.getNewsData");
+      function dataFailed(error) {
+        console.log('XHR Failed for getNewsRelatedData.' + error.data);
+      }
+    }
 
-            return $http.get(listingsAPI)
-                .then(dataComplete)
-                .catch(dataFailed);
+    /**
+     *
+     * Get Listings Data
+     *
+     * Fetch data from the API and page through the results
+     *
+     * @returns {*}
+     */
+    function getListingsData() {
 
-            function dataComplete(response) {
-                //console.log("complete called");
-                return response.data;
-            }
+      //console.log("NewsDataService.getListingsData");
 
-            function dataFailed(error) {
-                console.log('XHR Failed for getNewsRelatedData.' + error.data);
-            }
-        }
+      return $http.get(listingsAPI, {
+          cache: true
+        })
+        .then(dataComplete)
+        .catch(dataFailed);
 
-        /**
-         *
-         * Get Listings Data
-         *
-         * Fetch data from the API and page through the results
-         *
-         * @returns {*}
-         */
-        function getListingsData() {
+      function dataComplete(response) {
+        //console.log("complete called");
+        return response.data;
+      }
 
-            //console.log("NewsDataService.getListingsData");
+      function dataFailed(error) {
+        console.log('XHR Failed for getListingsData.' + error.data);
+      }
+    }
 
-            return $http.get(listingsAPI, {
-                    cache: true
-                })
-                .then(dataComplete)
-                .catch(dataFailed);
+  }
 
-            function dataComplete(response) {
-                //console.log("complete called");
-                return response.data;
-            }
+  /**
+   *
+   * News Controller
+   *
+   * @param {object} $http
+   * @constructor
+   */
+  function NewsController(NewsDataService) {
 
-            function dataFailed(error) {
-                console.log('XHR Failed for getListingsData.' + error.data);
-            }
-        }
+    var vm = this;
+
+    vm.term = 'News data';
+    vm.news = [];
+    vm.listings = [];
+
+    // Call main controller function
+    activate();
+
+    /**
+     *
+     * Main Controller Function
+     *
+     * @returns {*}
+     *
+     */
+    function activate() {
+
+      //
+      return getNewsData().then(function() {
+        //console.log('Activated News View');
+      });
 
     }
 
     /**
      *
-     * News Controller
+     * Call the Get News Data (Service) to collect data
      *
-     * @param {object} $http
-     * @constructor
+     * @returns {Array}
      */
-    function NewsController(NewsDataService) {
+    function getNewsData() {
 
-        var vm = this;
+      var content = [];
 
-        vm.term = 'News data';
-        vm.news = [];
-        vm.listings = [];
+      content = NewsDataService.getNewsData()
 
-        // Call main controller function
-        activate();
+        .then(function(data) {
 
-        /**
-         *
-         * Main Controller Function
-         *
-         * @returns {*}
-         *
-         */
-        function activate() {
+          vm.news = data;
 
-            //
-            return getNewsData().then(function() {
-                //console.log('Activated News View');
-            });
+          //console.log("controller news data caller");
 
-        }
+          return vm.news;
+        });
 
-        /**
-         *
-         * Call the Get News Data (Service) to collect data
-         *
-         * @returns {Array}
-         */
-        function getNewsData() {
+      content = NewsDataService.getListingsData()
 
-            var content = [];
+        .then(function(data) {
 
-            content = NewsDataService.getNewsData()
+          vm.listings = data;
 
-                .then(function(data) {
+          //console.log("controller news data caller");
 
-                    vm.news = data;
+          return vm.listings;
+        });
 
-                    //console.log("controller news data caller");
-
-                    return vm.news;
-                });
-
-            content = NewsDataService.getListingsData()
-
-                .then(function(data) {
-
-                    vm.listings = data;
-
-                    //console.log("controller news data caller");
-
-                    return vm.listings;
-                });
-
-            return content;
-        }
-
+      return content;
     }
+
+  }
 
 }());

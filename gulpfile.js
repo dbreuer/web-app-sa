@@ -80,17 +80,12 @@ var customJsFiles = [
   //
   'src/client/app/shared/directives/404/404.js',
 
-  // CUSTOM
-  'src/client/app/components/frontpage/frontpage.js',
-  //'src/client/app/components/bookmarks/bookmarks.js',
-  //'src/client/app/components/auth/auth.js',
-  //'src/client/app/components/news/news.js',
-  //'src/client/app/components/about/about.js',
+  // COMPONENTS
   'src/client/app/components/myaat/myaat.js',
-  //'src/client/app/components/dashboard/dashboard.js',
-  //'src/client/app/components/contact/contact.js',
-  //'src/client/app/components/login/login.js',
-  //'src/client/app/components/user/user.js',
+  'src/client/app/components/frontpage/frontpage.js',
+  'src/client/app/components/news/news.js',
+  'src/client/app/components/static-pages/static-pages.js',
+  'src/client/app/components/qualifications/qualifications.js',
 
   // MAIN
   'src/client/app/app.js'
