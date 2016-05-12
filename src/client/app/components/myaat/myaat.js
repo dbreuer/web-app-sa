@@ -18,7 +18,7 @@
   angular.module('project.myaat', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
-      $routeProvider.when('/my-aat', {
+      $routeProvider.when('/myaat', {
         pageTitle: 'AAT - MyAAT',
         templateUrl: 'components/myaat/myaat.tpl.html',
         controller: 'MyaatController',
