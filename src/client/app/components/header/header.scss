@@ -6,27 +6,24 @@
     left: 15px;
   }
 
-  .top-nav {
-
-    position: absolute;
-    top: 15px;
-    left: 80px;
-
-    a {
-      text-transform: uppercase;
-      padding:0 5px 0 5px;
-    }
-
-    li {
-      display: inline-block;
-    }
-
-  }
-
-
-
   @media (min-width: $breakpoint-desktop) {
 
+    .top-nav {
+
+      position: absolute;
+      top: 15px;
+      left: 80px;
+
+      a {
+        text-transform: uppercase;
+        padding: 0 5px 0 5px;
+      }
+
+      li {
+        display: inline-block;
+      }
+
+    }
   }
 
 }
