@@ -40,7 +40,7 @@ var vendorJsFiles = [
   'src/client/app/bower_components/angular-sanitize/angular-sanitize.js',
   'src/client/app/bower_components/angular-jwt/dist/angular-jwt.js',
   'src/client/app/bower_components/a0-angular-storage/dist/angular-storage.js',
-  //'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+  'src/client/app/bower_components/angular-bootstrap/ui-bootstrap.js',
 
   'src/client/app/bower_components/api-check/dist/api-check.js',
   'src/client/app/bower_components/angular-formly/dist/formly.js',
@@ -54,42 +54,43 @@ var vendorJsFiles = [
 // Source JS files
 var customJsFiles = [
 
-  // SHARED
-  //'app/site/shared/shared.js',
+   //SHARED
+  'src/client/app/shared/shared.js',
 
-  //'app/site/shared/directives/component/component.js',
+  //'src/client/app/shared/directives/component/component.js',
   //
-  //'app/site/shared/directives/mobile-menu/mobile-menu.js',
-  //'app/site/shared/directives/search-bar/search-bar.js',
-  //'app/site/shared/meta/meta.js',
+  //'src/client/app/shared/directives/mobile-menu/mobile-menu.js',
+  //'src/client/app/shared/directives/search-bar/search-bar.js',
+  //'src/client/app/shared/meta/meta.js',
+
+  'src/client/app/shared/directives/menu/menu.js',
+  //'src/client/app/shared/directives/landing-page/landing-page.js',
+
+  'src/client/app/shared/directives/hero/hero.js',
+  //'src/client/app/shared/directives/steps/steps.js',
+  //'src/client/app/shared/directives/campaign-cta/campaign-cta.js',
+  //'src/client/app/shared/directives/secondary-cta/secondary-cta.js',
+  //'src/client/app/shared/directives/html/html.js',
+  'src/client/app/shared/directives/social/social.js',
+  //'src/client/app/shared/directives/image/image.js',
+  //'src/client/app/shared/directives/module/module.js',
+  'src/client/app/shared/directives/slideshow/slideshow.js',
+  'src/client/app/shared/directives/spotlights/spotlights.js',
+  //'src/client/app/shared/directives/title/title.js',
   //
-  //'app/site/shared/directives/menu/menu.js',
-  //'app/site/shared/directives/landing-page/landing-page.js',
-  //
-  //'app/site/shared/directives/hero/hero.js',
-  //'app/site/shared/directives/steps/steps.js',
-  //'app/site/shared/directives/campaign-cta/campaign-cta.js',
-  //'app/site/shared/directives/secondary-cta/secondary-cta.js',
-  //'app/site/shared/directives/html/html.js',
-  //'app/site/shared/directives/social/social.js',
-  //'app/site/shared/directives/image/image.js',
-  //'app/site/shared/directives/module/module.js',
-  //'app/site/shared/directives/slideshow/slideshow.js',
-  //'app/site/shared/directives/spotlights/spotlights.js',
-  //'app/site/shared/directives/title/title.js',
-  //
-  //'app/site/shared/directives/404/404.js',
+  'src/client/app/shared/directives/404/404.js',
 
   // CUSTOM
   'src/client/app/components/frontpage/frontpage.js',
-  //'app/site/components/bookmarks/bookmarks.js',
-  //'app/site/components/auth/auth.js',
-  //'app/site/components/news/news.js',
-  //'app/site/components/about/about.js',
-  //'app/site/components/dashboard/dashboard.js',
-  //'app/site/components/contact/contact.js',
-  //'app/site/components/login/login.js',
-  //'app/site/components/user/user.js',
+  //'src/client/app/components/bookmarks/bookmarks.js',
+  //'src/client/app/components/auth/auth.js',
+  //'src/client/app/components/news/news.js',
+  //'src/client/app/components/about/about.js',
+  'src/client/app/components/myaat/myaat.js',
+  //'src/client/app/components/dashboard/dashboard.js',
+  //'src/client/app/components/contact/contact.js',
+  //'src/client/app/components/login/login.js',
+  //'src/client/app/components/user/user.js',
 
   // MAIN
   'src/client/app/app.js'
@@ -111,7 +112,7 @@ gulp.task('css', function() {
     .src(sassFiles)
     .pipe(concat('build.css'))
     //     .pipe(rename({suffix: '.min'}))
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(sass({outputStyle: 'uncompressed'}).on('error', sass.logError))
     .pipe(gulp.dest(dest + '/css'));
 });
 
@@ -167,6 +168,13 @@ gulp.task('docs', ['scripts'], function(callback) {
     .pipe(jsdoc(callback));
 });
 
+
+gulp.task('fontello', function () {
+  return gulp.src('./app/fontello.config.json')
+    .pipe(fontello())
+    .pipe(print())
+    .pipe(gulp.dest('./build/'));
+});
 
 // Angular Template Cache
 function prepareTemplates() {

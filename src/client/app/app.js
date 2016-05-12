@@ -27,7 +27,7 @@
 
       //'formly',
       //'formlyBootstrap',
-      //'ui.bootstrap',
+      'ui.bootstrap',
 
       // SHARED
       //'mobile-menu',
@@ -43,14 +43,15 @@
       //'project.news',
       //'project.about',
       //'project.maintenance',
-      //'project.dashboard',
+      //'project.dashboard'
+      'project.myaat',
       //'project.contact',
       //'project.login',
       //'project.auth',
       //'project.user',
       //'project.api',
 
-      //'shared'
+      'shared'
 
     ])
 

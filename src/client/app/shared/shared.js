@@ -7,17 +7,17 @@
  */
 angular
     .module('shared', [
-        'shared.component',
+        //'shared.component',
         'shared.hero',
-        'shared.html',
-        'shared.module',
-        'shared.image',
+        //'shared.html',
+        //'shared.module',
+        //'shared.image',
         'shared.slideshow',
         'shared.spotlights',
-        'shared.title',
-        'shared.steps',
-        'shared.campaign-cta',
-        'shared.secondary-cta',
+        //'shared.title',
+        //'shared.steps',
+        //'shared.campaign-cta',
+        //'shared.secondary-cta',
         'shared.social',
         'shared.404'
     ]);

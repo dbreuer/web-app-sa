@@ -1,18 +1,4 @@
-// Footer Social icons
 
-.top-top .social {
-  height: 60px;
-}
-
-.to-top .social-icons li {
-  display: inline-block;
-  line-height: 5;
-}
-
-.to-top .social-icons li i {
-  font-size: 2em;
-  margin: 6px;
-}
 
 .to-top {
   height: 60px;
@@ -143,4 +129,47 @@ footer .footer-links .logo {
   color: $grey-light;
   padding-top: 2px;
   line-height: 70px;
+}
+
+// Footer Social icons
+.footer-social {
+
+  .social-link {
+    line-height: 30px;
+    margin-top: 2px;
+
+    font-family: 'Trade Gothic W01 Light', Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 18px;
+    display: inline-block;
+    list-style: none;
+    text-decoration: none;
+    transition: color .25s ease-in-out;
+    -moz-transition: color .25s ease-in-out;
+    -webkit-transition: color .25s ease-in-out;
+  }
+  .social-link:hover {
+    color: $aat-green;
+  }
+  ul.social-icons {
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: -5px;
+  }
+  ul.social-icons i {
+    font-size: 28px;
+    transition: color .25s ease-in-out;
+    -moz-transition: color .25s ease-in-out;
+    -webkit-transition: color .25s ease-in-out;
+  }
+  ul.social-icons i:hover {
+    color: $aat-green;
+  }
+  li {
+    text-decoration: none;
+    display: inline-block;
+    padding: 7px 3px;
+    vertical-align: middle;
+    line-height: 2;
+  }
 }

@@ -2,5 +2,63 @@
 // Core variables and mixins
 
 // @todo : removed the unused libs
-@import 'src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
+
+/*!
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// Core variables and mixins
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 @import "src/client/app/sass/base/variables";
+
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+// Reset and dependencies
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/print";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
+
+// Core CSS
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/code";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/grid";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/tables";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/forms";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+
+// Components
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/navs";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/navbar";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/pagination";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/pager";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/labels";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/badges";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/thumbnails";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/alerts";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/progress-bars";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/media";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/list-group";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/panels";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/wells";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/close";
+
+// Components w/ JavaScript
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/modals";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/popovers";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/carousel";
+
+// Utility classes
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+@import "src/client/app/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
