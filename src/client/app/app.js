@@ -36,6 +36,7 @@
       //'meta',
       //'menu',
       //'landing-page',
+      'header',
 
       // CUSTOM
       'project.frontpage',

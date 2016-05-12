@@ -82,6 +82,7 @@ var customJsFiles = [
 
   // COMPONENTS
   'src/client/app/components/myaat/myaat.js',
+  'src/client/app/components/header/header.js',
   'src/client/app/components/frontpage/frontpage.js',
   'src/client/app/components/news/news.js',
   'src/client/app/components/static-pages/static-pages.js',
