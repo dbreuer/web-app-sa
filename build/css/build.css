@@ -5941,9 +5941,6 @@ ul li {
 .grey-lightest {
   background-color: #eeeeee; }
 
-/* ==========================================================================
-Typography
-========================================================================== */
 p {
   font-size: 15px;
   line-height: 1.5;
@@ -5951,11 +5948,11 @@ p {
   font-family: "Trade Gothic W01", Arial, Helvetica, sans-serif; }
 
 h1 {
-  font-size: 60px;
+  font-size: 40px;
   font-family: "Trade Gothic W01", Arial, Helvetica, sans-serif; }
 
 h2 {
-  font-size: 40px;
+  font-size: 25px;
   font-weight: 300;
   font-family: "Trade Gothic W01", Arial, Helvetica, sans-serif; }
 
@@ -6162,6 +6159,7 @@ body {
       text-align: center; } }
 
 .to-top {
+  margin-top: 20px;
   height: 60px;
   background-color: #eeeeee; }
 
