@@ -105,3 +105,7 @@ crashlytics-build.properties
 /app/bower_components
 
 docs
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
