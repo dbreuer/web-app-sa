@@ -54,7 +54,7 @@ var vendorJsFiles = [
 // Source JS files
 var customJsFiles = [
 
-   //SHARED
+  //SHARED
   'src/client/app/shared/shared.js',
 
   //'src/client/app/shared/directives/component/component.js',
@@ -110,7 +110,9 @@ gulp.task('css', function() {
     .src(sassFiles)
     .pipe(concat('build.css'))
     //     .pipe(rename({suffix: '.min'}))
-    .pipe(sass({outputStyle: 'uncompressed'}).on('error', sass.logError))
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }).on('error', sass.logError))
     .pipe(gulp.dest(dest + '/css'));
 });
 
@@ -122,7 +124,7 @@ gulp.task('scripts', ['css'], function() {
     .pipe(addStream.obj(prepareTemplates()))
     .pipe(concat('build.js'))
     //.pipe(rename({suffix: '.min'}))
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest(dest + '/js'));
 
 });
@@ -167,7 +169,7 @@ gulp.task('docs', ['scripts'], function(callback) {
 });
 
 
-gulp.task('fontello', function () {
+gulp.task('fontello', function() {
   return gulp.src('./app/fontello.config.json')
     .pipe(fontello())
     .pipe(print())
