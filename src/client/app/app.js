@@ -42,11 +42,10 @@
       'project.myaat',
       'project.news',
       'project.static-pages',
-      //'project.qualifications',
-    //'project.contact',
-      //'project.api',
-
-      'shared'
+      'project.qualifications',
+      'project.employers',
+      'project.deliver',
+      'project.membership',
 
     ])
 
