@@ -42,7 +42,7 @@
       'project.myaat',
       'project.news',
       'project.static-pages',
-
+      'project.qualifications',
     //'project.contact',
       //'project.api',
 
