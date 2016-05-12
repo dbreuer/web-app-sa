@@ -1,43 +1,46 @@
-<nav class="navbar navbar-white navbar-fixed-top">
+<div class="header">
 
-    <div class="container-fluid">
 
-        <div class="navbar-header ">
+    <nav class="navbar navbar-white navbar-fixed-top">
 
-            <div class="logo-top-bar">
-                <a href="/frontpage">
-                    <svg width="50" height="40">
-                        <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/img/aat_logo.svg"
-                               src="/img/logo.png" alt="AAT Home" width="50px" height="40px"></image>
-                    </svg>
-                </a>
-            </div>
-
+        <div class="logo-top-bar">
+            <a href="/">
+                <svg width="50" height="40">
+                    <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/img/aat_logo.svg"
+                           src="/img/logo.png" alt="AAT Home" width="50px" height="40px"></image>
+                </svg>
+            </a>
         </div>
 
 
-        <!-- Desktop Menu  -->
-        <div class="hidden-sm hidden-xs">
+        <ul class="top-nav desktop-hide">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/my-aat">MyAAT</a>
+            </li>
+            <li>
+                <a href="/about-us">AboutUs</a>
+            </li>
+            <li>
+                <a href="">Qualifications</a>
+            </li>
+            <li>
+                <a href="">Employers</a>
+            </li>
+            <li>
+                <a href="">Deliver AAT(SA)</a>
+            </li>
+            <li>
+                <a href="">Membership/CPD</a>
+            </li>
+            <li>
+                <a href="">News</a>
+            </li>
+        </ul>
 
-            <menu position="top"></menu>
 
-            <!-- Login Component Directive -->
-            <div data-login-Directive-Top-Links></div>
-            <div search-bar></div>
+    </nav>
 
-        </div>
-
-
-        <!-- Mobile Menu  -->
-        <div class="account-utilities">
-
-            <!-- User Component Directive -->
-            <!--<div data-user-menu-top-bar></div>-->
-
-            <!-- Add hamburger + mobile menu overlay -->
-            <div data-mobile-menu toggle="menu"></div>
-
-        </div>
-    </div>
-
-</nav>
+</div>

@@ -1,0 +1,29 @@
+.header {
+
+  .logo-top-bar {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+
+    .top-nav {
+
+      position: absolute;
+      top: 15px;
+      left: 80px;
+
+      a {
+        text-transform: uppercase;
+        padding: 0 5px 0 5px;
+      }
+
+      li {
+        display: inline-block;
+      }
+
+    }
+  }
+
+}
