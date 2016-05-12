@@ -89,6 +89,7 @@ var customJsFiles = [
   'src/client/app/components/employers/employers.js',
   'src/client/app/components/deliver/deliver.js',
   'src/client/app/components/membership/membership.js',
+  'src/client/app/components/about/about.js',
   // MAIN
   'src/client/app/app.js'
 ];

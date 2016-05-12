@@ -2,10 +2,8 @@
  *
  * FRONTPAGE COMPONENT
  *
- *
- * @author David Breuer <David.Breuer@aat.org.uk>
- * @author Mark Rushton <mark@modernfidelity.co.uk>
- *
+ * @author
+ *    Mark Rushton <mark@modernfidelity.co.uk>
  *
  * @class app.Frontpage
  *

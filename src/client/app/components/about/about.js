@@ -1,15 +1,13 @@
 /**
  *
- * FRONTPAGE COMPONENT
- *
+ * ABOUT COMPONENT
  *
  * @author David Breuer <David.Breuer@aat.org.uk>
  * @author Mark Rushton <mark@modernfidelity.co.uk>
  *
+ * @class app.About
  *
- * @class app.Frontpage
- *
- * @description Provides the frontpage functionality for the site
+ * @description Provides the about-us functionality for the site
  *
  * @memberof app
  *
@@ -18,13 +16,13 @@
 (function() {
   'use strict';
 
-  angular.module('project.frontpage', ['ngRoute'])
+  angular.module('project.about', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
-      $routeProvider.when('/frontpage', {
-        pageTitle: 'AAT - Welcome',
-        templateUrl: 'components/frontpage/frontpage.tpl.html',
-        controller: 'FrontpageController',
+      $routeProvider.when('/about', {
+        pageTitle: 'AAT - about',
+        templateUrl: 'components/about/about.tpl.html',
+        controller: 'AboutController',
         controllerAs: 'vm',
         access: {
           requiresLogin: false,
@@ -33,10 +31,10 @@
       });
     }])
 
-    .controller('FrontpageController', FrontpageController);
+    .controller('AboutController', AboutController);
 
   // Inject Deps
-  FrontpageController.$inject = [];
+  AboutController.$inject = [];
 
   /**
    *
@@ -44,7 +42,7 @@
    *
    * @constructor
    */
-  function FrontpageController() {
+  function AboutController() {
 
     var vm = this;
     vm.pageContent = {};

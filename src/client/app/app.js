@@ -46,6 +46,7 @@
       'project.employers',
       'project.deliver',
       'project.membership',
+      'project.about',
 
     ])
 
