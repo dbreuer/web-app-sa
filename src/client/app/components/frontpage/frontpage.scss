@@ -1,25 +1,27 @@
 .frontpage {
 
+  width: 100%;
+
   .hero {
 
     position: relative;
     width: 100%;
     height: 300px;
     background: $primary-color;
+    margin-bottom: 20px;
   }
 
   .promo {
+    @extend .container;
+  }
 
+  .promo__cards {
     @extend .row;
   }
 
   .promo__card {
-
     @extend .col-md-4;
-
   }
-
-  //
 
   @media (min-width: $breakpoint-desktop) {
 
@@ -27,15 +29,6 @@
       text-align: center;
     }
 
-    .qualifications__case-study {
-      width: 50%;
-
-      .qualifications__study-img {
-        img {
-          width: 30%;
-        }
-      }
-    }
   }
 
 }
