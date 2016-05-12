@@ -41009,13 +41009,12 @@ return /******/ (function(modules) { // webpackBootstrap
  *
  * STATIC FILES COMPONENT
  *
- * @author
- *    David Breuer <David.Breuer@aat.org.uk>
- *    Mark Rushton <mark@modernfidelity.co.uk>
+ * @author David Breuer <David.Breuer@aat.org.uk>
+ * @author Mark Rushton <mark@modernfidelity.co.uk>
  *
- * @class App.Static-pages
+ * @class App.Staticpages
  *
- * @memberof App.Static-pages
+ * @memberof App.Staticpages
  *
  * @description Provides the static pages for the website.
  *
@@ -41027,52 +41026,22 @@ return /******/ (function(modules) { // webpackBootstrap
 
   angular.module('project.static-pages', ['ngRoute'])
 
-    .config(['$routeProvider', '$locationProvider', '$sceProvider',
-      function($routeProvider, $locationProvider, $sceProvider) {
-        $sceProvider.enabled(false);
-        $routeProvider.when('/about/:subpage', {
-          pageTitle: 'About',
-          metaDescription: 'Information about the AAT',
-          templateUrl: './site/components/about/about.tpl.html',
-          controller: 'StaticPageController',
-          controllerAs: 'vm',
-          access: {
-            requiresLogin: false,
-            roles: []
-          }
-        });
+    .config(['$routeProvider', '$locationProvider',
+      function($routeProvider, $locationProvider) {
 
         $routeProvider.when('/about', {
-          pageTitle: 'About',
+          title: 'About',
           metaDescription: 'Information about the AAT',
-          templateUrl: './site/components/about/about.tpl.html',
-          controller: 'StaticPageController',
-          controllerAs: 'vm',
+          templateUrl: 'components/static-pages/about.tpl.html',
           access: {
             requiresLogin: false,
             roles: []
           }
         });
 
-      }])
+      }]);
 
-    .controller('StaticPageController', StaticPageController);
-
-  /**
-   *
-   * About Controller
-   *
-   * @constructor
-   */
-  function StaticPageController($routeParams) {
-
-    var vm = this;
-
-    vm.link = 'This is set within the controller';
-    vm.pageContent = {};
-    vm.isPageLoading = true;
-  }
-
+  //
 })();
 
 /**
@@ -41221,8 +41190,8 @@ $templateCache.put("components/frontpage/frontpage.tpl.html","<div class=\"front
 $templateCache.put("components/header/header.tpl.html","<div class=\"header\">\n\n    <nav class=\"navbar navbar-white navbar-fixed-top\">\n\n        <div class=\"logo-top-bar\">\n            <a href=\"/\">\n                <svg width=\"50\" height=\"40\">\n                    <image xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"/img/aat_logo.svg\"\n                           src=\"/img/logo.png\" alt=\"AAT Home\" width=\"50px\" height=\"40px\"></image>\n                </svg>\n            </a>\n        </div>\n\n        <ul class=\"top-nav mobile-hide\">\n            <li>\n                <a href=\"/\">Home</a>\n            </li>\n            <li>\n                <a href=\"/my-aat\">MyAAT</a>\n            </li>\n            <li>\n                <a href=\"/about\">About</a>\n            </li>\n            <li>\n                <a href=\"/qualifications\">Qualifications</a>\n            </li>\n            <li>\n                <a href=\"/employers\">Employers</a>\n            </li>\n            <li>\n                <a href=\"/deliver\">Deliver AAT(SA)</a>\n            </li>\n            <li>\n                <a href=\"/membership\">Membership/CPD</a>\n            </li>\n            <li>\n                <a href=\"/news\">News</a>\n            </li>\n        </ul>\n\n    </nav>\n\n</div>");
 $templateCache.put("components/landing-pages/landing-pages.tpl.html","<!-- frontpage.tpl.html -->\n\n<!-- @todo : clean up 20151106 _mR -->\n\n<section class=\"hero\">\n\n    <div class=\"container\">\n\n        <div class=\"row\">\n\n            <div id=\"head-content\" class=\"col-xs-12 text-center\">\n\n                <h1>Achieve your potential</h1>\n\n                <h2>with finance and accounting skills</h2>\n\n            </div>\n            <!-- end col -->\n\n        </div>\n        <!-- end row -->\n\n\n    </div>\n    <!-- end head container -->\n\n</section>\n\n\n<section class=\"section-2 module\">\n    <div class=\"container\">\n        <div id=\"section-2-container\" class=\"row\">\n            <div class=\"col-xs-12 col-sm-4 col-md-4 section-2-cta cta-1\">\n                <h2>Choose where to study</h2>\n\n                <p>Search our directory of AAT approved colleges, centres and distance learning providers</p>\n\n                <div class=\"section-2-btn-wrap\"><a href=\"/training-providers/search\"\n                                                   class=\"btn btn-default section-2-btn frontpage-vbottom\">Find a\n                    training provider</a></div>\n\n            </div>\n\n            <div class=\"col-xs-12 col-sm-4 col-md-4 section-2-cta cta-2\">\n                <h2>Register with AAT</h2>\n\n                <p>You need to sign up to sit your assessments and access exclusive study materials</p>\n\n                <div class=\"section-2-btn-wrap\"><a href=\"/register/student\"\n                                                   class=\"btn btn-default section-2-btn frontpage-vbottom\">Register as a\n                    student</a></div>\n            </div>\n\n            <div class=\"col-xs-12 col-sm-4 col-md-4 section-2-cta cta-3\">\n                <h2>Need an accountant?</h2>\n\n                <p>AAT members in practice are approved to offer a wide range of accounting services</p>\n\n                <div class=\"section-2-btn-wrap\"><a href=\"/membership/member-in-practice/search\"\n                                                   class=\"btn btn-default section-2-btn frontpage-vbottom\">Search our\n                    directory</a></div>\n\n            </div>\n\n        </div>\n        <!-- end #section-2-container - row -->\n\n    </div>\n    <!-- end container -->\n\n\n</section>\n<!-- end section-2 -->\n\n\n");
 $templateCache.put("components/login/login.tpl.html","<!-- login.tpl.html -->\n<div class=\"page-content\">\n    <section id=\"login\">\n\n        <div class=\"container\">\n\n            <div class=\"row\">\n\n                <div class=\"col-sm-12\">\n\n                    <h3 id=\"page-title\">Login</h3>\n\n                    <div ng-if=\"vm.authUser\">\n                        <pre>{{ vm.authUser }}</pre>\n                    </div>\n\n                    <form ng-submit=\"vm.onSubmit()\" name=\"vm.form\" novalidate>\n                        <formly-form model=\"vm.model\" fields=\"vm.fields\" options=\"vm.options\">\n\n                            <button type=\"submit\" class=\"btn btn-primary submit-button\" ng-disabled=\"vm.form.$invalid\">\n                                Submit\n                            </button>\n\n                        </formly-form>\n                    </form>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </section>\n\n</div>");
-$templateCache.put("components/myaat/myaat.tpl.html","<div class=\"frontpage\">\n\n    <div class=\"hero\">\n\n\n        <div class=\"hero_message\">\n            <div class=\"hero_message__content\">\n                <h1>Practical finance and accounting courses<br>\n                    whatever your experience</h1>\n\n            </div>\n        </div>\n\n\n    </div>\n\n    <div class=\"promo\">\n\n        <div class=\"promo__cards\">\n\n            <div class=\"promo__card\">\n                <h2>\n                    Welcome to AAT (SA)\n                </h2>\n                <p>Eliminate the “what if” factor with AAT(SA), the professional home for accounting technicians.\n                    Find out more using the links below.</p>\n                <ul>\n                    <li><a href=\"\">About us</a></li>\n                    <li><a href=\"\">Deliver AAT(SA) qualifications</a></li>\n                    <li><a href=\"\">AAT(SA) training for your business</a></li>\n                </ul>\n\n                <h2>News</h2>\n\n                <ul>\n                    <li><a href=\"\">Voice of AAT(SA)</a></li>\n                    <li><a href=\"\">AAT Forums(UK)</a></li>\n                    <li><a href=\"\">UK news</a></li>\n                </ul>\n\n            </div>\n\n            <div class=\"promo__card\">\n                <img class=\"img-responsive\" src=\"img/frontpage/jessie_bosco_0.jpg\">\n                <h2>\n                    AAT qualifications\n                </h2>\n                <p>\n                    Move forward in your finance career with an AAT(SA) qualification.\n                    Choose a course that suits your needs.\n                </p>\n                <ul>\n                    <li><a href=\"\">Download our list of training providers (PDF)</a></li>\n                    <li><a href=\"\">The AAT(SA) Accounting Qualification</a></li>\n                    <li><a href=\"\">The AAT(SA) Learnerships</a></li>\n                </ul>\n            </div>\n\n            <div class=\"promo__card\">\n                <img class=\"img-responsive\" src=\"img/frontpage/lawrence_mtolo_0.jpg\">\n                <h2>\n                    AAT membership\n                </h2>\n                <p>Now you can belong to a professional body that cares about your career. Join the growing band of\n                    members\n                    with full MAAT(SA) status.</p>\n                <ul>\n                    <li><a href=\"\">About AAT(SA) membership</a></li>\n                    <li><a href=\"\">Benefits of membership</a></li>\n                    <li><a href=\"\">Apply for membership</a></li>\n                    <li><a href=\"\">CPD Services</a></li>\n                </ul>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>\n\n");
-$templateCache.put("components/static-pages/about.tpl.html","<!-- about.html  -->\n<div class=\"page-content\">\n\n        <landing-page ng-page=\"vm.pageContent\"></landing-page>\n\n</div>");
+$templateCache.put("components/myaat/myaat.tpl.html","<div class=\"frontpage\">\n\n    <div class=\"hero\">\n\n\n        <div class=\"hero_message\">\n            <div class=\"hero_message__content\">\n                <h1>MyAAT</h1>\n\n            </div>\n        </div>\n\n\n    </div>\n\n    <div class=\"promo\">\n\n        <div class=\"promo__cards\">\n\n            <div class=\"promo__card\">\n                <h2>\n                    Welcome to AAT (SA)\n                </h2>\n                <p>Eliminate the “what if” factor with AAT(SA), the professional home for accounting technicians.\n                    Find out more using the links below.</p>\n                <ul>\n                    <li><a href=\"\">About us</a></li>\n                    <li><a href=\"\">Deliver AAT(SA) qualifications</a></li>\n                    <li><a href=\"\">AAT(SA) training for your business</a></li>\n                </ul>\n\n                <h2>News</h2>\n\n                <ul>\n                    <li><a href=\"\">Voice of AAT(SA)</a></li>\n                    <li><a href=\"\">AAT Forums(UK)</a></li>\n                    <li><a href=\"\">UK news</a></li>\n                </ul>\n\n            </div>\n\n            <div class=\"promo__card\">\n                <img class=\"img-responsive\" src=\"img/frontpage/jessie_bosco_0.jpg\">\n                <h2>\n                    AAT qualifications\n                </h2>\n                <p>\n                    Move forward in your finance career with an AAT(SA) qualification.\n                    Choose a course that suits your needs.\n                </p>\n                <ul>\n                    <li><a href=\"\">Download our list of training providers (PDF)</a></li>\n                    <li><a href=\"\">The AAT(SA) Accounting Qualification</a></li>\n                    <li><a href=\"\">The AAT(SA) Learnerships</a></li>\n                </ul>\n            </div>\n\n            <div class=\"promo__card\">\n                <img class=\"img-responsive\" src=\"img/frontpage/lawrence_mtolo_0.jpg\">\n                <h2>\n                    AAT membership\n                </h2>\n                <p>Now you can belong to a professional body that cares about your career. Join the growing band of\n                    members\n                    with full MAAT(SA) status.</p>\n                <ul>\n                    <li><a href=\"\">About AAT(SA) membership</a></li>\n                    <li><a href=\"\">Benefits of membership</a></li>\n                    <li><a href=\"\">Apply for membership</a></li>\n                    <li><a href=\"\">CPD Services</a></li>\n                </ul>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>\n\n");
+$templateCache.put("components/static-pages/about.tpl.html","<div class=\"page-content\">\n\n       <h1>About AAT</h1>\n\n</div>");
 $templateCache.put("components/static-pages/maintenance.tpl.html","\n<div ng-controller=\"MaintenanceCtrl\">\n\n<div class=\"container maintenance-container\">\n\n    <div class=\"row\">\n\n        <section class=\"col-md-12 section-1\">\n            <h1>Website down for maintenance</h1>\n        </section>\n        <!--End col-->\n\n        <section class=\"col-md-6\">\n            <p>The AAT website is unavailable due to essential maintenance work. Please accept our apologies for any inconvenience this may cause.</p>\n            <p>\n            While the main AAT website is unavailable you can access the following services and content:</p>\n\n            <ul>\n                <li class=\"promo-link\"><a href=\"https://aat.secureassess.co.uk/secureassess/SecureAssessDelivery.html\">CBP - web access</a></li>\n                <li class=\"promo-link\"><a href=\"http://aat-interactive.org.uk/aat/practice_assessments/ \">Sample assessments</a></li>\n                <li class=\"promo-link\"><a href=\"http://forums.aat.org.uk/ \">AAT Forums</a></li>\n                <li class=\"promo-link\"><a href=\"http://www.aat-interactive.org.uk/cpd/ \">CPD Interactive</a></li>\n                <li class=\"promo-link\"><a href=\"https://www.facebook.com/youraat\">AAT Facebook page</a></li>\n                <li class=\"promo-link\"><a href=\"https://twitter.com/youraat\">Follow AAT on Twitter</a></li>\n            </ul>\n\n\n            <p><b>Contact AAT:</b> Call  +44 (0) 20 3735 2468 or email <a href=\"aat@aat.org.uk\" target=\"_top\">aat@aat.org.uk</a></p>\n\n\n            <a href=\"/about\">About Us</a>\n\n        </section>\n        <!--End col-->\n\n        <section class=\"col-md-6\">\n            <img src=\"http://aat-interactive.org.uk/aat/images/back_soon.gif\" width=\"190\" height=\"262\" alt=\"Be back soon\">\n        </section>\n        <!--End col-->\n\n\n    </div>\n    <!--End row-->\n\n</div>\n    <!-- End container -->\n\n</div>\n<!-- End controller -->\n");
 $templateCache.put("components/user/user.tpl.html","<!-- Dashboard Section -->\n<div class=\"page-content\">\n\n    <section class=\"dashboard-section\" id=\"dashboard\">\n\n        <div class=\"container\">\n\n            <div class=\"row\">\n\n                <!-- welcome message -->\n                <div class=\"col-sm-12\">\n\n                    <h1>Dashboard</h1>\n\n                    <pre>{{ vm.dashboard  }} {{ vm.userData }} </pre>\n\n                </div>\n\n                <!-- user data -->\n                <div ng-show=\"vm.user\" class=\"row\">\n\n                    <div class=\"col-md-8\">\n\n                        <!-- panel -->\n                        <h2>News</h2>\n\n                        <div class=\"panel\">\n\n                            <!-- latest news list directive goes here -->\n\n                        </div>\n\n                    </div>\n\n                    <div class=\"col-md-4\">\n\n                        <!-- panel -->\n                        <h2>User Info</h2>\n\n                        <div class=\"panel\">\n\n                            <!-- user info directive goes here -->\n\n                        </div>\n\n                        <!-- panel -->\n                        <h2>User Qual Progress</h2>\n\n                        <div class=\"panel\">\n\n                            <!-- user progress goes here -->\n\n                        </div>\n\n                    </div>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </section>\n    <!-- End Dashboard Section -->\n\n</div>");
 $templateCache.put("components/bookmarks/templates/bookmarks-user-list.tpl.html","<div>\n\n\n    Your latest bookmarks :\n\n   <pre>{{ bookmarks | json }}</pre>\n\n    <ul>\n        <li ng-repeat=\"bookmark in bookmarks\">{{bookmark}}</li>\n    </ul>\n\n\n</div>");
