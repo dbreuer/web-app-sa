@@ -1,4 +1,4 @@
-.frontpage {
+.myaat {
 
   width: 100%;
 
@@ -26,23 +26,160 @@
 
   }
 
-  .promo {
+  .myaat-page {
     @extend .container;
   }
 
-  .promo__cards {
+  .myaat-page__wrapper {
     @extend .row;
   }
 
-  .promo__card {
+  .sidebar {
     @extend .col-md-4;
   }
+  .page-content {
+    @extend .col-md-8;
+  }
+
+  .sidebar {
+
+    &__menu {
+      padding: 0px 0px 0px 0px;
+      margin: 0px 0px 0px 0px;
+      border: none;
+      list-style: none;
+      text-align: left;
+
+      > li {
+        list-style-type: none;
+        list-style-image: none;
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
+        background-image: none !important;
+
+        &.first {
+
+        }
+        &.last {
+
+        }
+
+        > a {
+          padding: 5px 20px 5px 0px;
+          margin: 0px 0px 0px 0px;
+          display: block;
+          border-bottom: 1px solid #B1B6BD;
+          background-repeat: no-repeat;
+          background-position: 165px 8px;
+          font-size: 1em;
+          color: #64696e;
+        }
+      }
+    }
+
+  }
+
+
+  .slideshow {
+    position: relative;
+    height: 235px;
+    margin-bottom: 25px;
+
+    &__slide {
+      width: 735px;
+      height: 235px;
+      border: 1px dashed purple;
+      position: absolute;
+      padding: 0px;
+      margin-bottom: 0px;
+
+      &--image {
+        width: 735px;
+        height: 235px;
+
+        > img {
+          width:100%
+        }
+      }
+
+      &--content {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        width: 300px;
+        height: 150px;
+        background: $brand-primary;
+      }
+
+      &--text {
+        margin: 20px 15px;
+        color: #fff;
+      }
+
+      &--button {    margin-top: -30px;
+
+      }
+
+    }
+    ::after {
+      clear: both;
+      float: none;
+    }
+  }
+
+  .spotlight-grid {
+    @extend .row;
+
+  }
+
+  .spotlight-item {
+    @extend .col-md-6;
+    padding: 0px 15px 15px 0px;
+
+    &--inner {
+      padding: 10px 20px;
+      border: 1px solid #E3E3E3;
+    }
+    &__header {
+      @extend .row;
+      h3 {
+        @extend .col-md-12;
+      }
+    }
+
+    &__body {
+      @extend .row;
+      &--text {
+        @extend .col-md-7;
+      }
+
+      &--image {
+        @extend .col-md-5;
+        img {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+    }
+
+    &__footer {
+      @extend .row;
+      a {
+        @extend .col-md-12;
+      }
+    }
+  }
+  //@todo: slideshow
+  //@todo: spotlight
+  //@todo: sidebar
+  //@todo: menu
+
+
+
 
   @media (min-width: $breakpoint-desktop) {
 
-    .qualifications__button {
-      text-align: center;
-    }
+
 
   }
 

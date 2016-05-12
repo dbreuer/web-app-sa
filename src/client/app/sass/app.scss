@@ -1,7 +1,8 @@
-// Base
-@import 'src/client/app/sass/base/_all.scss';
 // Vendor Libs (bower_components)
 @import "src/client/app/sass/_vendor.scss";
+// Base
+@import 'src/client/app/sass/base/_all.scss';
+
 // Layout
 @import "src/client/app/sass/layout/_all.scss";
 // Shared

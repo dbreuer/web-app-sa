@@ -25,7 +25,7 @@
         controller: 'DashboardController',
         controllerAs: 'vm',
         access: {
-          requiresLogin: true,
+          requiresLogin: false,
           roles: ['dashboard', 'auth']
         }
       });
@@ -78,11 +78,8 @@
      * @returns {*}
      */
     function getDashboardData() {
-
       //console.log("DashboardDataService.getDashboardData -> " + uuid);
-
       return $http.get(API_URL + '/user/' + uuid)
-
         .then(dataComplete)
         .catch(dataFailed);
 
@@ -109,9 +106,7 @@
       function dataFailed(error) {
         console.log('XHR Failed for getDashboardData.' + error.data);
       }
-
     }
-
 
     /**
      *

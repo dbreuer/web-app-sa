@@ -27,7 +27,7 @@
 
       //'formly',
       //'formlyBootstrap',
-      //'ui.bootstrap',
+      'ui.bootstrap',
 
       // SHARED
       //'mobile-menu',
