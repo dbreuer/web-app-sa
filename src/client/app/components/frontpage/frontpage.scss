@@ -1,0 +1,42 @@
+.frontpage {
+
+  .hero {
+
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: $primary-color;
+  }
+
+  .promo {
+
+    @extend .row;
+  }
+
+  .promo__card {
+
+    @extend .col-md-4;
+
+  }
+
+  //
+
+  @media (min-width: $breakpoint-desktop) {
+
+    .qualifications__button {
+      text-align: center;
+    }
+
+    .qualifications__case-study {
+      width: 50%;
+
+      .qualifications__study-img {
+        img {
+          width: 30%;
+        }
+      }
+    }
+  }
+
+}
+

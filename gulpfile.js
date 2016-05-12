@@ -99,19 +99,19 @@ var sourceJsFiles = vendorJsFiles.concat(customJsFiles);
 
 // Source SCSS files
 var sassFiles = [
-  './src/client/app/sass/app.scss'
+//   '!src/client/app/sass/_*.scss',
+//   '!src/client/app/sass/**/_*.scss',
+  'src/client/app/sass/app.scss',
+  'src/client/app/components/**/*.scss'
 ];
 
 // Compile CSS from SCSS files
 gulp.task('css', function() {
   return gulp
-    .src([
-      './src/client/app/sass/app.scss'
-    ])
-    .pipe(sass().on('error', sass.logError))
-    .pipe(minifyCSS())
-    .pipe(sourcemaps.write('source-maps'))
-    .pipe(rename('build.css'))
+    .src(sassFiles)
+    .pipe(concat('build.css'))
+    //     .pipe(rename({suffix: '.min'}))
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(gulp.dest(dest + '/css'));
 });
 
@@ -168,7 +168,6 @@ gulp.task('docs', ['scripts'], function(callback) {
 });
 
 
-
 // Angular Template Cache
 function prepareTemplates() {
   return gulp
@@ -184,6 +183,7 @@ gulp.task('watch', function() {
 
   gulp.watch([
       './src/client/app/sass/**/*.scss',
+      './src/client/app/components/**/*.scss',
       './src/client/app/shared/directives/**/*.scss'
     ],
     ['css']
