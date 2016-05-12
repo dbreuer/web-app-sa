@@ -81,11 +81,10 @@ var customJsFiles = [
   //'app/site/shared/directives/404/404.js',
 
   // CUSTOM
+  'src/client/app/components/myaat/myaat.js',
   'src/client/app/components/frontpage/frontpage.js',
-  //'app/site/components/bookmarks/bookmarks.js',
-  //'app/site/components/auth/auth.js',
-  //'app/site/components/news/news.js',
-  //'app/site/components/about/about.js',
+  'src/client/app/components/news/news.js',
+  'src/client/app/components/static-pages/static-pages.js',
   //'app/site/components/dashboard/dashboard.js',
   //'app/site/components/contact/contact.js',
   //'app/site/components/login/login.js',

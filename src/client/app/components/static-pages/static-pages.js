@@ -18,7 +18,7 @@
 
   'use strict';
 
-  angular.module('project.about', ['ngRoute', 'project.api'])
+  angular.module('project.static-pages', ['ngRoute'])
 
     .config(['$routeProvider', '$locationProvider', '$sceProvider',
       function($routeProvider, $locationProvider, $sceProvider) {
@@ -27,7 +27,7 @@
           pageTitle: 'About',
           metaDescription: 'Information about the AAT',
           templateUrl: './site/components/about/about.tpl.html',
-          controller: 'AboutController',
+          controller: 'StaticPageController',
           controllerAs: 'vm',
           access: {
             requiresLogin: false,
@@ -39,7 +39,7 @@
           pageTitle: 'About',
           metaDescription: 'Information about the AAT',
           templateUrl: './site/components/about/about.tpl.html',
-          controller: 'AboutController',
+          controller: 'StaticPageController',
           controllerAs: 'vm',
           access: {
             requiresLogin: false,
@@ -49,7 +49,7 @@
 
       }])
 
-    .controller('AboutController', AboutController);
+    .controller('StaticPageController', StaticPageController);
 
   /**
    *
@@ -57,23 +57,13 @@
    *
    * @constructor
    */
-  function AboutController(API, $routeParams) {
+  function StaticPageController($routeParams) {
 
     var vm = this;
 
     vm.link = 'This is set within the controller';
     vm.pageContent = {};
     vm.isPageLoading = true;
-
-    API.getPageById('static', $routeParams.subpage)
-      .then(function(response) {
-        console.log('get it', response.data.data);
-        vm.pageContent = response.data.data;
-        vm.isPageLoading = false;
-      }).catch(function(err) {
-      vm.isPageLoading = false;
-      vm.pageContent = {'error': 500};
-    });
   }
 
-})()
+})();
