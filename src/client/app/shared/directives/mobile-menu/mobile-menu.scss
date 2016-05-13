@@ -38,10 +38,6 @@
 
     min-height: auto;
 
-
-
-
-
     &__top-nav {
       display: none;
       overflow:hidden;
@@ -136,6 +132,7 @@
 
     .mobile-menu {
       min-height: auto;
+      display: none;
 
       &__top-nav {
         display: inline-block;

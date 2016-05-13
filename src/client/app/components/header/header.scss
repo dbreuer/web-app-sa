@@ -25,7 +25,10 @@
     &--user-links {
       position: absolute;
       top: 10px;
-      right: 10px;
+      right: 70px;
+      li {
+        display: inline-block;
+      }
     }
     &:before {
       content: " ";
@@ -60,6 +63,8 @@
         position: absolute;
         top: 10px;
         right: 15px;
+
+
 
       }
 
