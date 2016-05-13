@@ -1,0 +1,48 @@
+//Slideshow Style
+
+.slideshow {
+  position: relative;
+  height: 235px;
+  margin-bottom: 25px;
+
+  &__slide {
+    width: 735px;
+    height: 235px;
+
+    position: absolute;
+    padding: 0px;
+    margin-bottom: 0px;
+
+    &--image {
+      width: 735px;
+      height: 235px;
+
+      > img {
+        width:100%
+      }
+    }
+
+    &--content {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      width: 300px;
+      height: 150px;
+      background: $brand-primary;
+    }
+
+    &--text {
+      margin: 20px 15px;
+      color: #fff;
+    }
+
+    &--button {    margin-top: -30px;
+
+    }
+
+  }
+  ::after {
+    clear: both;
+    float: none;
+  }
+}
