@@ -1,5 +1,6 @@
 .mobile-hide {
   @extend .hidden-xs;
+  @extend .hidden-sm;
 }
 
 .desktop-hide {
