@@ -1,4 +1,5 @@
 .sidebar {
+  @extend .col-md-4;
 
   &__menu {
     padding: 0px 0px 0px 0px;
