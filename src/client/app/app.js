@@ -34,9 +34,10 @@
       //'search-bar',
       //'bookmarks',
       //'meta',
-      //'menu',
+      'menu',
       //'landing-page',
       'header',
+      'content-component',
 
       // CUSTOM
       'project.frontpage',

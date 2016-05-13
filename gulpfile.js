@@ -64,6 +64,7 @@ var customJsFiles = [
   //'src/client/app/shared/meta/meta.js',
 
   'src/client/app/shared/directives/menu/menu.js',
+  'src/client/app/shared/directives/content/content.js',
   //'src/client/app/shared/directives/landing-page/landing-page.js',
 
   'src/client/app/shared/directives/hero/hero.js',
@@ -91,6 +92,8 @@ var customJsFiles = [
   'src/client/app/components/deliver/deliver.js',
   'src/client/app/components/membership/membership.js',
   'src/client/app/components/about/about.js',
+  //SERVICES
+  'src/client/app/services/menu-service.js',
   // MAIN
   'src/client/app/app.js'
 ];
@@ -201,10 +204,11 @@ gulp.task('watch', function() {
   gulp.watch([
     './src/client/app/components/**/*.js',
     './src/client/app/shared/**/*.js',
+    './src/client/app/services/**/*.js',
     './src/client/app/app.js'
   ], ['lint', 'style', 'docs', 'scripts']);
 
-  gulp.watch('./src/client/app/**/*.tpl.html', ['lint', 'style', 'docs', 'scripts']);
+  gulp.watch('./src/client/app/**/*.html', ['lint', 'style', 'docs', 'scripts']);
 
   gulp.watch(['./src/client/app/index.html'], ['html']);
 
