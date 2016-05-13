@@ -59,7 +59,7 @@ var customJsFiles = [
 
   //'src/client/app/shared/directives/component/component.js',
   //
-  //'src/client/app/shared/directives/mobile-menu/mobile-menu.js',
+  'src/client/app/shared/directives/mobile-menu/mobile-menu.js',
   //'src/client/app/shared/directives/search-bar/search-bar.js',
   //'src/client/app/shared/meta/meta.js',
 
