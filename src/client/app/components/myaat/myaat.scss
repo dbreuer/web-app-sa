@@ -37,9 +37,7 @@
   .sidebar {
     @extend .col-md-4;
   }
-  .page-content {
-    @extend .col-md-8;
-  }
+
 
   .sidebar {
 
@@ -88,7 +86,7 @@
     &__slide {
       width: 735px;
       height: 235px;
-      border: 1px dashed purple;
+
       position: absolute;
       padding: 0px;
       margin-bottom: 0px;

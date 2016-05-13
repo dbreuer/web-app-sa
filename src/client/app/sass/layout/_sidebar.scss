@@ -1,0 +1,38 @@
+.sidebar {
+  @extend .col-md-4;
+
+  &__menu {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    border: none;
+    list-style: none;
+    text-align: left;
+
+    > li {
+      list-style-type: none;
+      list-style-image: none;
+      padding: 0px 0px 0px 0px;
+      margin: 0px 0px 0px 0px;
+      background-image: none !important;
+
+      &.first {
+
+      }
+      &.last {
+
+      }
+
+      > a {
+        padding: 5px 20px 5px 0px;
+        margin: 0px 0px 0px 0px;
+        display: block;
+        border-bottom: 1px solid #B1B6BD;
+        background-repeat: no-repeat;
+        background-position: 165px 8px;
+        font-size: 1em;
+        color: #64696e;
+      }
+    }
+  }
+
+}
