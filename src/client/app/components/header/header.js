@@ -20,14 +20,16 @@
   function HeaderController() {
     var vm = this;
     vm.title = 'HeaderController';
-
+    vm.isActive = false;
     vm.toggleMenu = toggleMenu;
+    vm.closeMenu = closeMenu;
 
-    ////////////////
-  //@todo: need to use the toggle function and see the result on page overlay menu.
     function toggleMenu() {
-
       vm.isActive = (vm.isActive) ? false : true;
+    }
+
+    function closeMenu() {
+      vm.isActive = false;
     }
   }
 

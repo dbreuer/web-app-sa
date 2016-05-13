@@ -106,7 +106,7 @@
       // Check token
       var token = localStorage.getItem('auth-token');
 
-      if (current.access.requiresLogin === true) {
+      if (current.access && current.access.requiresLogin === true) {
 
         if (!token) {
           console.log('REQUIRES LOGIN');
