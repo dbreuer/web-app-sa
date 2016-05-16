@@ -32,6 +32,18 @@
         font-size: 1em;
         color: #64696e;
       }
+      > a + ul {
+        margin: 0px 0px 0px 20px;
+        > li > a {
+          border-bottom: 1px dotted #B1B6BD;
+          padding: 5px 20px 5px 0px;
+          margin: 0px 0px 0px 0px;
+          display: block;
+          background-repeat: no-repeat;
+          background-position: 165px 8px;
+          color: #64696e;
+        }
+      }
     }
   }
 

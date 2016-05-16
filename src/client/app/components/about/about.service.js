@@ -42,7 +42,7 @@
    *
    * @constructor
    */
-  function FrontpageController() {
+  function FrontpageController(MenuSrv) {
 
     var vm = this;
     vm.pageContent = {};
