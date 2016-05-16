@@ -47,16 +47,95 @@
     vm.pageContent = {};
     vm.isPageLoading = true;
 
-    //API.getPageById('frontpage', false)
-    //    .then(function(response) {
-    //        console.log('get it', response.data.data);
-    //        vm.pageContent = response.data.data;
-    //        //$timeout(function(){vm.isPageLoading = false;}, 1000);
-    //        vm.isPageLoading = false;
-    //    }).catch(function(err) {
-    //    vm.isPageLoading = false;
-    //    vm.pageContent = {'error': 500};
-    //});
+    vm.pageContent = {
+      'slideshow': [
+        {
+          'id': 1,
+          'title': 'MyAAT - online tools for success',
+          'text': 'Assessment results, revision guides, career help, exclusive discounts, and more.',
+          'image': {
+            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/edith_bayoli_2.jpg',
+            'alt': 'MyAAT - online tools for success'
+          },
+          'button': {
+            'text': 'Log in to MyAAT',
+            'url': 'http://www.aat.org.uk/myaat'
+          }
+        },
+        {
+          'id': 2,
+          'title': 'MyAAT - training providers',
+          'text': 'Study support and e-learning content, marketing support, administration services, and more.',
+          'image': {
+            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/sebathu_bengani_2.jpg',
+            'alt': 'MyAAT - training providers'
+          },
+          'button': {
+            'text': 'Log in to MyAAT',
+            'url': 'http://www.aat.org.uk/myaat'
+          }
+        }
+      ],
+      'spotlights': [
+        {
+          'id': 1,
+          'title': 'What is MyAAT?',
+          'text': 'Tailored to you, MyAAT provides interactive services and ' +
+          'resources designed to help you get the most out of AAT.',
+          'image': {
+            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
+            'landing_page_content_box/public/landing_pages/tapiwa_obert_2.jpg?itok=jR1IsKOu',
+            'alt': 'What is MyAAT?'
+          },
+          'button': {
+            'text': 'Find out more about MyAAT',
+            'url': 'http://sa.aws.aat.org.uk/myaat/about'
+          }
+        },
+        {
+          'id': 2,
+          'title': 'Register for your MyAAT account',
+          'text': 'Registration is simple - you just need your email address and AAT membership number.',
+          'image': {
+            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
+            'landing_page_content_box/public/landing_pages/sylvia_segone_3.jpg?itok=AICzP4vt',
+            'alt': 'Register for your MyAAT account'
+          },
+          'button': {
+            'text': 'Register today',
+            'url': 'http://www.aat.org.uk/get-myaat/options'
+          }
+        },
+        {
+          'id': 3,
+          'title': 'Log in to MyAAT',
+          'text': 'Log in to MyAAT to access your exclusive member benefits and services.',
+          'image': {
+            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
+            'landing_page_content_box/public/landing_pages/jessie_bosco_2.jpg?itok=d33I8BNH',
+            'alt': 'Log in to MyAAT'
+          },
+          'button': {
+            'text': 'Log in now',
+            'url': 'http://www.aat.org.uk/myaat'
+          }
+        },
+        {
+          'id': 4,
+          'title': 'Log in help for MyAAT',
+          'text': 'Having problems logging in to MyAAT? Get help here.',
+          'image': {
+            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
+            'landing_page_content_box/public/landing_pages/lawrence_mtolo.jpg?itok=yZTt6ykX',
+            'alt': 'Log in help for MyAAT'
+          },
+          'button': {
+            'text': 'Forgotten your password?',
+            'url': 'http://www.aat.org.uk/user/password'
+          }
+        }
+      ]
+    };
 
   }
 
