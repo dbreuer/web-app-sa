@@ -1,16 +1,24 @@
 //Spotlight
-.spotlight-grid {
-  @extend .row;
+$min-width: 320px;
+$gutter: 10px;
+$last-equal: true;
+$max-cols: 2;
 
+
+.spotlight-grid {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .spotlight-item {
-  @extend .col-md-6;
-  padding: 0px 15px 15px 0px;
+  width: 49%;
+  margin: 1%;
+  padding: 10px;
+  border: 1px solid #eee;
 
   &--inner {
     padding: 10px 20px;
-    border: 1px solid #E3E3E3;
+
   }
   &__header {
     @extend .row;
@@ -23,6 +31,11 @@
     @extend .row;
     &--text {
       @extend .col-md-7;
+      p {
+        font-size: 1em;
+        line-height: 1.5;
+        margin: 0 0 1.5em 0;
+      }
     }
 
     &--image {
@@ -39,5 +52,12 @@
     a {
       @extend .col-md-12;
     }
+  }
+  &:nth-of-type(2n) {
+    margin-right: 0px;
+  }
+
+  &:nth-of-type(2n+1) {
+    margin-left: 0px;
   }
 }
