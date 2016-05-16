@@ -16,7 +16,7 @@
 (function() {
   'use strict';
 
-  angular.module('project.deliver', ['ngRoute'])
+  angular.module('project.deliver', ['ngRoute', 'menu-service'])
 
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.when('/deliver', {
@@ -34,7 +34,7 @@
     .controller('DeliverController', DeliverController);
 
   // Inject Deps
-  DeliverController.$inject = [];
+  DeliverController.$inject = ['menuService'];
 
   /**
    *
@@ -42,11 +42,35 @@
    *
    * @constructor
    */
-  function DeliverController() {
+  function DeliverController(menuService) {
 
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
+    menuService.setMenu(
+      {
+        'deliver': {
+          'data': [
+            {
+              'name': 'Deliver AAT(SA) qualifications',
+              'url': '/deliver/qualifications',
+              'id': 51
+            },
+            {
+              'name': 'Become a CBA venue',
+              'url': '/deliver/cba-venue',
+              'id': 52
+            },
+            {
+              'name': 'Marketing support',
+              'url': '/deliver/marketing',
+              'id': 53
+            },
+          ],
+          'title': 'Deliver AAT',
+          'class': 'sidebar__menu'
+        }
+      });
 
     vm.pageContent = {
       'slideshow': [

@@ -15,7 +15,7 @@
 (function() {
   'use strict';
 
-  angular.module('project.myaat', ['ngRoute'])
+  angular.module('project.myaat', ['ngRoute', 'menu-service'])
 
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.when('/myaat', {
@@ -33,7 +33,7 @@
     .controller('MyaatController', MyaatController);
 
   // Inject Deps
-  MyaatController.$inject = [];
+  MyaatController.$inject = ['menuService'];
 
   /**
    *
@@ -41,11 +41,27 @@
    *
    * @constructor
    */
-  function MyaatController() {
+  function MyaatController(menuService) {
 
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
+
+    menuService.setMenu(
+      {
+        'myaat': {
+          'data': [
+            {'name': 'What is MyAAT?', 'url': '/myaat/about', 'id': 11},
+            {'name': 'Register for your MyAAT account', 'url': 'http://www.aat.org.uk/get-myaat/options', 'id': 12},
+            {'name': 'AAT privacy policy', 'url': '/get-myaat/privacy', 'id': 13, external: true},
+            {'name': 'AAT use of cookies', 'url': '/get-myaat/cookies', 'id': 14},
+            {'name': 'Help logging in to MyAAT', 'url': '/get-myaat/help', 'id': 15}
+          ],
+          'title': 'MyAAT',
+          'class': 'sidebar__menu'
+        }
+      }
+    );
 
     vm.pageContent = {
       'slideshow': [

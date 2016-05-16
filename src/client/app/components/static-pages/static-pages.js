@@ -80,6 +80,18 @@
           }
         });
 
+        //Terms and conditions
+        $routeProvider.when('/get-myaat/help', {
+          pageTitle: 'Need help logging in to MyAAT?',
+          templateUrl: 'components/static-pages/help.tpl.html',
+          controller: 'MyaatController',
+          controllerAs: 'vm',
+          access: {
+            requiresLogin: false,
+            roles: []
+          }
+        });
+
       }]);
 
   //

@@ -34,7 +34,7 @@
       //'search-bar',
       //'bookmarks',
       //'meta',
-      //'menu',
+      'menu',
       //'landing-page',
       'header',
 

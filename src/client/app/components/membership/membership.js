@@ -16,7 +16,7 @@
 (function() {
   'use strict';
 
-  angular.module('project.membership', ['ngRoute'])
+  angular.module('project.membership', ['ngRoute', 'menu-service'])
 
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.when('/membership', {
@@ -34,7 +34,7 @@
     .controller('MembershipController', MembershipController);
 
   // Inject Deps
-  MembershipController.$inject = [];
+  MembershipController.$inject = ['menuService'];
 
   /**
    *
@@ -42,12 +42,50 @@
    *
    * @constructor
    */
-  function MembershipController() {
+  function MembershipController(menuService) {
 
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
-
+    menuService.setMenu(
+      {
+        'membership': {
+          'data': [
+            {
+              'name': 'About AAT(SA) membership',
+              'url': '/membership/about',
+              'id': 61
+            },
+            {
+              'name': 'Benefits of membership',
+              'url': '/membership/benefits',
+              'id': 62
+            },
+            {
+              'name': 'Apply for membership',
+              'url': '/membership/apply',
+              'id': 63
+            },
+            {
+              'name': 'Continuing professional development (CPD)',
+              'url': '/membership/cpd',
+              'id': 64,
+              'data': [
+                {'name': 'What counts as CPD?', 'url': '/membership/cpd/what-counts', 'id': 641},
+                {'name': 'Record your CPD', 'url': '/membership/cpd/record', 'id': 642},
+                {'name': 'CPD resources', 'url': '/membership/cpd/resources', 'id': 643}
+              ]
+            },
+            {
+              'name': 'Professional standards',
+              'url': '/membership/professional-standards',
+              'id': 65
+            }
+          ],
+          'title': 'AAT membership',
+          'class': 'sidebar__menu'
+        }
+      });
     vm.pageContent = {
       'slideshow': [
         {

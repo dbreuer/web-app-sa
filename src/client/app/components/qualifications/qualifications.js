@@ -15,7 +15,7 @@
 (function() {
   'use strict';
 
-  angular.module('project.qualifications', ['ngRoute'])
+  angular.module('project.qualifications', ['ngRoute', 'menu-service'])
 
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.when('/qualifications', {
@@ -33,7 +33,7 @@
     .controller('QualificationsController', QualificationsController);
 
   // Inject Deps
-  QualificationsController.$inject = [];
+  QualificationsController.$inject = ['menuService'];
 
   /**
    *
@@ -41,11 +41,44 @@
    *
    * @constructor
    */
-  function QualificationsController() {
+  function QualificationsController(menuService) {
 
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
+    menuService.setMenu(
+      {
+        'qualifications': {
+          'data': [
+            {
+              'name': 'The AAT(SA) Accounting Qualification',
+              'url': '/qualifications/accounting-qualification',
+              'id': 31,
+              'data': [
+                {'name': 'What you\'ll learn at L3', 'url': '/qualifications/level3', 'id': 321},
+                {'name': 'What you\'ll learn at L4', 'url': '/qualifications/level4', 'id': 322},
+                {'name': 'What you\'ll learn at L5', 'url': '/qualifications/level5', 'id': 323},
+                {'name': 'How you\'re assessed', 'url': '/qualifications/assessed', 'id': 324},
+                {'name': 'How long it takes to qualify', 'url': '/qualifications/how-long', 'id': 325},
+                {'name': 'Course fees', 'url': '/qualifications/fees', 'id': 326}
+              ]
+            },
+            {
+              'name': 'Becoming an AAT(SA) student member', 'url': '/qualifications/student-membership', 'id': 32,
+              'data': [
+                {
+                  'name': 'Find a training provider',
+                  'url': 'http://www.aatsa.org.za/sites/default/files/public/assets/AATSA-provider-list.pdf',
+                  'id': 321
+                }
+              ]
+            }
+          ],
+          'title': 'AAT(SA) qualification',
+          'class': 'sidebar__menu'
+        }
+      }
+    );
 
     vm.pageContent = {
       'slideshow': [
