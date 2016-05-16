@@ -77,26 +77,26 @@
 
   }
 
-
   .slideshow {
     position: relative;
     height: 235px;
+    width: 100%;
+    overflow: hidden;
     margin-bottom: 25px;
 
     &__slide {
-      width: 735px;
-      height: 235px;
+      width: 100%;
+      height: 100%;
 
       position: absolute;
       padding: 0px;
       margin-bottom: 0px;
 
       &--image {
-        width: 735px;
-        height: 235px;
+
 
         > img {
-          width:100%
+          width: 100%
         }
       }
 
@@ -114,7 +114,8 @@
         color: #fff;
       }
 
-      &--button {    margin-top: -30px;
+      &--button {
+        margin-top: -30px;
 
       }
 
@@ -126,16 +127,25 @@
   }
 
   .spotlight-grid {
-    @extend .row;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 
   }
 
   .spotlight-item {
-    @extend .col-md-6;
-    padding: 0px 15px 15px 0px;
+
+    display: inline-block;
+    margin-bottom: 8px;
+    width: calc(100%);
+
+    &:nth-of-type(2n) {
+      margin-right: 0;
+    }
 
     &--inner {
-      padding: 10px 20px;
+      padding: 10px;
+      min-height: 250px;
       border: 1px solid #E3E3E3;
     }
     &__header {
@@ -172,12 +182,25 @@
   //@todo: sidebar
   //@todo: menu
 
-
-
-
   @media (min-width: $breakpoint-desktop) {
 
+    .spotlight-item {
 
+      display: inline-block;
+      margin-bottom: 8px;
+      width: calc(50% - 4px);
+      margin-right: 8px;
+
+      &:nth-of-type(2n) {
+        margin-right: 0;
+      }
+
+      &--inner {
+        padding: 10px;
+        min-height: 250px;
+        border: 1px solid #E3E3E3;
+      }
+    }
 
   }
 
