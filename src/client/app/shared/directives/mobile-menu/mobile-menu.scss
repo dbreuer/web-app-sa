@@ -65,6 +65,10 @@
 
       &--text {
         display: none;
+        &.register {
+          display: block;
+          margin: 0px 5px;
+        }
       }
     }
 
@@ -164,6 +168,7 @@
 
         &--text {
           display: inline-block;
+
         }
       }
     }
