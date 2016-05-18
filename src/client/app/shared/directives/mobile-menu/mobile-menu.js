@@ -6,7 +6,7 @@
  *  Provides the mobile menu functionality for the site, including directives
  *
  */
-
+(function() {
 'use strict';
 
 angular.module('mobile-menu', [])
@@ -29,126 +29,28 @@ function mobileMenu() {
   return {
     replace: true,
     restrict: 'AE',
+    scope: {},
 
-    scope: {
-      toggle: '='
-    },
-
-    templateUrl: 'site/shared/directives/mobile-menu/mobile-menu.tpl.html',
+    templateUrl: 'shared/directives/mobile-menu/mobile-menu.tpl.html',
 
     link: function(scope, elem, attrs) {
 
       // Toggle Menu
-      scope.toggle = false;
+      scope.isActive = false;
+      scope.closeMenu = closeMenu;
+      scope.toggleMenu = toggleMenu;
 
-      scope.toggleOverlay = function() {
-        scope.toggle = scope.toggle === false ? true : false;
-      };
+      function toggleMenu() {
+        scope.isActive = (scope.isActive) ? false : true;
+      }
 
-
-      ///**
-      // *
-      // *
-      // */
-      //MenuDataService.getMobileMenu()
-      //
-      //    .then(function (response) {
-      //        scope.menu = response
-      //    })
-      //    .catch(function (error) {
-      //
-      //        console.log("Mobile Menu get error");
-      //
-      //    });
-      //
-
+      function closeMenu() {
+        scope.isActive = false;
+      }
 
     }
-  }
-
-
-}
-
-/**
- *
- * Mobile Menu Controller
- *
- * @constructor
- *
- */
-function MobileMenuController(MobileMenuDataService, jwtHelper, $location, $window, AuthTokenService) {
-
-  //var vm = this;
-  //
-  //
-  ///**
-  // *
-  // * Login form Submit handler w/ page redirect
-  // *
-  // */
-  //function onSubmit() {
-  //
-  //    var formSubmitted = true;
-  //
-  //    //console.log("ctrl : ", AuthTokenService);
-  //
-  //    MobileMenuDataService.login(vm.model.email, vm.model.password)
-  //        .then(function success(response) {
-  //
-  //            AuthTokenService.authStatus = true;
-  //
-  //            //console.log(AuthTokenService.authStatus);
-  //
-  //            // Redirect if succesful login
-  //            $window.location.href = '#/dashboard';
-  //            $window.location.reload();
-  //
-  //        });
-  //
-  //}
-
-
-}
-
-/**
- *
- * Mobile Menu Data Service
- *
- * @constructor
- */
-function MobileMenuDataService($http, $rootScope, API_URL, jwtHelper, $window, AuthTokenService) {
-
-  var endpointAPI = API_URL + "/mobile-menu";
-
-  return {
-    getMobileMenu: getMobileMenu
   };
 
-
-  /**
-   *
-   * Get the users bookmarks
-   *
-   * @param uuid
-   * @returns {*}
-   */
-  function getMobileMenu(uuid) {
-
-    return $http.get(endpointAPI + "/" + uuid)
-      .then(dataComplete)
-      .catch(dataFailed);
-
-    function dataComplete(response) {
-
-      console.log(response.data);
-      return response.data;
-
-    }
-
-    function dataFailed(error) {
-      console.log('XHR Failed for get data .' + error);
-    }
-  }
-
-
 }
+
+}());

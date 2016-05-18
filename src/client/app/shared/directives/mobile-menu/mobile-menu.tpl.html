@@ -1,59 +1,39 @@
-<div class="mobile-menu">
+<nav class="mobile-menu">
+    <button id="hamburger-button" class="hamburger hamburger--collapse hamburger--accessible js-hamburger"
+            ng-class="{'is-active': isActive}" ng-click="toggleMenu()" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+    </button>
+    <div id="top-nav-bar" class="mobile-menu__top-nav" ng-class="{'is-active': isActive}">
 
-    <div class="burger">
-        <div class="icon-menu toggle-menu" ng-click="toggleOverlay()">
-    </div>
+        <ul class="">
+            <li>
+                <a href="/" ng-click="closeMenu()">Home</a>
+            </li>
+            <li>
+                <a href="/myaat" ng-click="closeMenu()">MyAAT</a>
+            </li>
+            <li>
+                <a href="/about" ng-click="closeMenu()">About</a>
+            </li>
+            <li>
+                <a href="/qualifications" ng-click="closeMenu()">Qualifications</a>
+            </li>
+            <li>
+                <a href="/employers" ng-click="closeMenu()">Employers</a>
+            </li>
+            <li>
+                <a href="/deliver" ng-click="closeMenu()">Deliver AAT(SA)</a>
+            </li>
+            <li>
+                <a href="/membership" ng-click="closeMenu()">Membership/CPD</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="/news">News</a>-->
+            <!--</li>-->
+        </ul>
 
-
-    <div class="menu-overlay" ng-show="toggle">
-
-        <div class="overlay-close" ng-click="toggleOverlay()">
-           <div><img src="/img/img_toggle-close.png"></div>
-        </div>
-
-        <div class="content">
-
-
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-sm-12 text-center logo">
-                        <img src="/img/aat_logo_invert.svg" width="80px">
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <form class="navbar-form navbar-left" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-
-                <ul class="list-unstyled overlay-links" ng-click="toggleOverlay()">
-                    <li>
-                        <a href="#/dashboard">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="#/news">News</a>
-                    </li>
-                    <li>
-                        <a href="#/contact">Contact</a>
-                    </li>
-                    <li>
-                        <a href="#/about">About</a>
-                    </li>
-                </ul>
-
-            </div>
-
-        </div>
 
     </div>
-
-
-</div>
+</nav>

@@ -10,18 +10,15 @@
   'use strict';
 
   angular
-    .module('menu', ['project.api'])
+    .module('menu', ['menu-service'])
     .directive('menu', menuDirective);
 
-  menuDirective.$inject = ['API', '$location'];
+  menuDirective.$inject = ['menuService', '$location'];
 
   /* @ngInject */
-  function menuDirective(API, location) {
+  function menuDirective(menuService, location) {
     var directive = {
-      bindToController: true,
-      templateUrl: 'site/shared/directives/menu/menu.html',
-      controller: menuController,
-      controllerAs: 'menu',
+      templateUrl: 'shared/directives/menu/menu.tpl.html',
       link: link,
       restrict: 'E',
       replace: true,
@@ -31,9 +28,8 @@
 
     function link(scope, element, attrs) {
 
-      scope.menu.items = [];
-      scope.menu.class = '';
-      scope.menu.title = '';
+      scope.menu = menuService.getMenu(attrs.position);
+
       scope.menu.isActive = function(item) {
         if (!location.path()) {
           return false;
@@ -41,21 +37,7 @@
         return (item.url === location.path());
       };
 
-      API.getMenu(attrs.position).then(function(response) {
-        if (response.data) {
-          scope.menu.class = (response.data.class) ? response.data.class : '';
-          scope.menu.title = (response.data.title) ? response.data.title : '';
-          scope.menu.items = response.data.results;
-        }
-      });
     }
-  }
-
-  menuController.$inject = [];
-
-  /* @ngInject */
-  function menuController() {
-
   }
 
 })();

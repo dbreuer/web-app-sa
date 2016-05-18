@@ -30,11 +30,11 @@
       'ui.bootstrap',
 
       // SHARED
-      //'mobile-menu',
+      'mobile-menu',
       //'search-bar',
       //'bookmarks',
       //'meta',
-      //'menu',
+      'menu',
       //'landing-page',
       'header',
 

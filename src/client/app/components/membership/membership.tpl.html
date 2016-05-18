@@ -18,134 +18,60 @@
         <div class="membership-page__wrapper">
 
             <div class="sidebar">
-                <ul class="sidebar__menu">
-                    <li class="first"><a href="/myaat/about" title="">About AAT(SA) membership</a></li>
-                    <li class=""><a href="http://www.aat.org.uk/get-myaat/options" title="">Benefits of membership</a></li>
-                    <li class=""><a href="/myaat/privacy" title="">Apply for membership</a></li>
-                    <li class=""><a href="/myaat/cookies" title="">Continuing professional development (CPD)</a></li>
-                    <li class="last"><a href="/myaat/help" title="">Professional standards</a></li>
-
-                </ul>
+                <menu position="membership"></menu>
             </div>
 
             <div class="page-content">
 
                 <div class="slideshow">
-                    <div class="slideshow__slide">
+                    <!-- slide loop -->
+                    <div class="slideshow__slide" ng-repeat="slide in vm.pageContent.slideshow">
                         <div class="slideshow__slide--image">
-                            <img typeof="foaf:Image" src="http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/edith_bayoli_3.jpg" alt="" />
+                            <img typeof="foaf:Image" ng-src="{{slide.image.src}}" alt="slide.image.alt" />
                         </div>
                         <div class="slideshow__slide--content">
                             <div class="slideshow__slide--text">
-                                <p>Assessment results, revision guides, career help, exclusive discounts, and more.</p>
+                                <h4 ng-bind="slide.title"></h4>
+                                <p ng-bind="slide.text"></p>
                             </div>
-                            <div class="slideshow__slide--button"><a href="http://www.aat.org.uk/myaat">Log in to MyAAT</a></div>
+                            <div class="slideshow__slide--button"><a ng-href="slide.button.url" ng-bind="slide.button.text"></a></div>
                         </div>
-                    </div>
-                    <div class="slideshow__slide">
-                        <div class="slideshow__slide--image"><img typeof="foaf:Image" src="http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/sebathu_bengani_2.jpg" alt=""></div>
-                        <div class="slideshow__slide--content">
-                            <div class="slideshow__slide--text">
-                                <p>Study support and e-learning content, marketing support, administration services, and
-                                    more.</p>
-                            </div>
-                            <div class="slideshow__slide--button"><a class="btn btn-primary" href="http://www.aat.org.uk/myaat">Log in to MyAAT</a></div>
-                        </div>
-                    </div>
+                    </div><!-- end slide loop -->
+
                 </div>
 
 
                 <div class="spotlight-grid">
 
-                    <div class="spotlight-item">
+                    <!-- spotlight loop -->
+                    <div class="spotlight-item" ng-repeat="spotlight in vm.pageContent.spotlights">
                         <div class="spotlight-item--inner">
                             <div class="spotlight-item__header">
-                                <h3>MyAAT?</h3>
+                                <h3 ng-bind="spotlight.title">
+                                    <!-- spotlight title -->
+                                </h3>
                             </div>
                             <div class="spotlight-item__body">
                                 <div class="spotlight-item__body--text">
-                                    <p>Tailored to you, MyAAT provides interactive services and resources designed to help you get the most out of AAT.</p>
+                                    <p ng-bind="spotlight.text">
+                                        <!-- spotlight text -->
+                                    </p>
                                 </div>
                                 <div class="spotlight-item__body--image">
-                                    <a href="/myaat/about" title="What is MyAAT?">
-                                        <img src="http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/landing_page_content_box/public/landing_pages/tapiwa_obert_2.jpg?itok=jR1IsKOu" alt="What is MyAAT?">
+                                    <a ng-href="{{spotlight.button.url}}" title="{{spotlight.image.alt}}">
+                                        <img ng-src="{{spotlight.image.src}}"
+                                             alt="{{spotlight.image.alt}}">
                                     </a>
                                 </div>
                             </div>
                             <div class="spotlight-item__footer">
-                                <a href="http://sa.aws.aat.org.uk/myaat/about">
-                                    Find out more about MyAAT
+                                <a ng-href="{{spotlight.button.url}}" ng-bind="spotlight.button.text">
+                                    <!-- spotlight buton text -->
                                 </a>
                             </div>
                         </div>
                     </div><!-- end spotlight-item -->
-
-                    <div class="spotlight-item">
-                        <div class="spotlight-item--inner">
-                            <div class="spotlight-item__header">
-                                <h3>MyAAT?</h3>
-                            </div>
-                            <div class="spotlight-item__body">
-                                <div class="spotlight-item__body--text">
-                                    <p>Tailored to you, MyAAT provides interactive services and resources designed to help you get the most out of AAT.</p>
-                                </div>
-                                <div class="spotlight-item__body--image">
-                                    <a href="/myaat/about" title="What is MyAAT?">
-                                        <img src="http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/landing_page_content_box/public/landing_pages/tapiwa_obert_2.jpg?itok=jR1IsKOu" alt="What is MyAAT?">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="spotlight-item__footer">
-                                <a href="http://sa.aws.aat.org.uk/myaat/about">
-                                    Find out more about MyAAT
-                                </a>
-                            </div>
-                        </div>
-                    </div><!-- end spotlight-item -->
-                    <div class="spotlight-item">
-                        <div class="spotlight-item--inner">
-                            <div class="spotlight-item__header">
-                                <h3>MyAAT?</h3>
-                            </div>
-                            <div class="spotlight-item__body">
-                                <div class="spotlight-item__body--text">
-                                    <p>Tailored to you, MyAAT provides interactive services and resources designed to help you get the most out of AAT.</p>
-                                </div>
-                                <div class="spotlight-item__body--image">
-                                    <a href="/myaat/about" title="What is MyAAT?">
-                                        <img src="http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/landing_page_content_box/public/landing_pages/tapiwa_obert_2.jpg?itok=jR1IsKOu" alt="What is MyAAT?">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="spotlight-item__footer">
-                                <a href="http://sa.aws.aat.org.uk/myaat/about">
-                                    Find out more about MyAAT
-                                </a>
-                            </div>
-                        </div>
-                    </div><!-- end spotlight-item -->
-                    <div class="spotlight-item">
-                        <div class="spotlight-item--inner">
-                            <div class="spotlight-item__header">
-                                <h3>MyAAT?</h3>
-                            </div>
-                            <div class="spotlight-item__body">
-                                <div class="spotlight-item__body--text">
-                                    <p>Tailored to you, MyAAT provides interactive services and resources designed to help you get the most out of AAT.</p>
-                                </div>
-                                <div class="spotlight-item__body--image">
-                                    <a href="/myaat/about" title="What is MyAAT?">
-                                        <img src="http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/landing_page_content_box/public/landing_pages/tapiwa_obert_2.jpg?itok=jR1IsKOu" alt="What is MyAAT?">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="spotlight-item__footer">
-                                <a href="http://sa.aws.aat.org.uk/myaat/about">
-                                    Find out more about MyAAT
-                                </a>
-                            </div>
-                        </div>
-                    </div><!-- end spotlight-item -->
+                    <!-- end spotlight loop -->
 
                 </div><!-- end spotlight-grid -->
 

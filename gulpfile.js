@@ -59,7 +59,7 @@ var customJsFiles = [
 
   //'src/client/app/shared/directives/component/component.js',
   //
-  //'src/client/app/shared/directives/mobile-menu/mobile-menu.js',
+  'src/client/app/shared/directives/mobile-menu/mobile-menu.js',
   //'src/client/app/shared/directives/search-bar/search-bar.js',
   //'src/client/app/shared/meta/meta.js',
 
@@ -91,6 +91,10 @@ var customJsFiles = [
   'src/client/app/components/deliver/deliver.js',
   'src/client/app/components/membership/membership.js',
   'src/client/app/components/about/about.js',
+
+  //SERVICE
+  'src/client/app/services/menu-service.js',
+
   // MAIN
   'src/client/app/app.js'
 ];

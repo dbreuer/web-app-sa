@@ -9,98 +9,76 @@
  */
 
 angular.module('project.api', [])
-
-    .service('API', ["$http",  function ($http) {
-        const API_BASE = 'http://localhost:9099';
-        // Inject as service
-        const userEndpoint = API_BASE + '/api/user';
-        const searchEndpoint = API_BASE + '/api/search';
-        const menuEndpoint = API_BASE + '/api/menu/';
-        const pageEndpoint = API_BASE + '/api/page/';
-        /**
-         *
-         * Perform Search
-         *
-         * @param term
-         * @returns {*}
-         */
-
-        this.doSearch = function (term) {
-
-            var route = 'search';
-            var args = {
-                term: term
-
-            };
-
-            return $http.get(searchEndpoint).then(function (response) {
-                return response.data;
-            });
-        };
+  .service('API', ['$http', function($http) {
+    const API_BASE = 'http://localhost:9099';
+    // Inject as service
+    const userEndpoint = API_BASE + '/api/user';
+    const searchEndpoint = API_BASE + '/api/search';
+    const menuEndpoint = API_BASE + '/api/menu/';
+    const pageEndpoint = API_BASE + '/api/page/';
 
 
 
-        /**
-         *
-         * Get User Detail
-         *
-         * @param id
-         * @returns {HttpPromise}
-         */
+    return {
+      doSearch: doSearch,
+      getUser: getUser,
+      getMenu: getMenu,
+      getPageById: getPageById,
+    };
 
-        this.getUser = function (id) {
-            return $http.get(userEndpoint + '/' + id);
-        };
+    /**
+     *
+     * Perform Search
+     *
+     * @param term
+     * @returns {*}
+     */
 
+    function doSearch(term) {
 
-        /**
-         * Get menu object
-         *
-         */
+      var route = 'search';
+      var args = {
+        term: term
 
-        this.getMenu = function(menuid) {
-            return $http.get(menuEndpoint + menuid);
-        };
+      };
 
-        /**
-         * Get page object
-         * @param {string|number} page id
-         */
+      return $http.get(searchEndpoint).then(function(response) {
+        return response.data;
+      });
+    }
 
-        this.getPageById = function(pageid, subpageid) {
-            var page_path =pageEndpoint + pageid;
-            if (subpageid) {
-                page_path += '/'+subpageid;
-            }
-            return $http.get(page_path, {cache: true});
-        };
+    /**
+     *
+     * Get User Detail
+     *
+     * @param id
+     * @returns {HttpPromise}
+     */
 
-        /**
-         *
-         * Get Movie Detail (example $http call using promises)
-         *
-         * @param term
-         * @returns {{}}
-         */
-        this.fetchMovie = function (term) {
+    function getUser(id) {
+      return $http.get(userEndpoint + '/' + id);
+    }
 
-            var data = {};
+    /**
+     * Get menu object
+     *
+     */
 
-            $http.get("http://www.omdbapi.com/?t=" + term + "&tomatoes=true&plot=full")
-                .success(function(response) {
-                    data.details = response;
-                });
+    function getMenu(menuid) {
+      return $http.get(menuEndpoint + menuid);
+    }
 
-            $http.get("http://www.omdbapi.com/?s=" + term)
-                .success(function(response) {
-                    data.related = response;
-                });
+    /**
+     * Get page object
+     * @param {string|number} page id
+     */
 
+    function getPageById(pageid, subpageid) {
+      var pagePath = pageEndpoint + pageid;
+      if (subpageid) {
+        pagePath += '/' + subpageid;
+      }
+      return $http.get(pagePath, {cache: true});
+    }
 
-            return data;
-
-        }
-
-
-
-    }]);
+  }]);

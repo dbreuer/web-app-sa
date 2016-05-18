@@ -1,5 +1,10 @@
 @import "top-nav-bar";
 
+@import "sidebar";
+@import "slideshow";
+@import "spotlight";
+
+@import "page-content";
 body {
   overflow-x: hidden;
 }
