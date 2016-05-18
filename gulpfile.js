@@ -112,6 +112,7 @@ var sassFiles = [
 gulp.task('css', function() {
   return gulp
     .src(sassFiles)
+    .pipe(sourcemaps.write('.map'))
     .pipe(concat('build.css'))
     //     .pipe(rename({suffix: '.min'}))
     .pipe(sass({
