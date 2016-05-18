@@ -1,36 +1,54 @@
 .header {
 
-  //height:60px;
+  height: 60px;
+  border-bottom: 2px solid #e5e5e5;
 
   &__navbar {
 
 
     &--logo {
       position: absolute;
-      top: 5px;
+      top: 7px;
       left: 15px;
     }
 
     &--navigation {
       display: none;
       position: absolute;
-      top: 15px;
+      top: 18px;
       left: 80px;
 
       li {
         display: inline-block;
         a {
           padding: 0 5px 0 5px;
+          font-size: 1.1em;
         }
       }
     }
     &--user-links {
       position: absolute;
-      top: 10px;
+      top: 0px;
       right: 70px;
       li {
         display: inline-block;
+        a {
+          font-size: 1.1em;
+        }
       }
+    }
+    &--btn-login {
+      >.fa {
+        font-size: 2.3em;
+      }
+
+
+      > .header__navbar--text {
+        display: none;
+      }
+    }
+    &--text {
+      margin-right: 10px;
     }
     &:before {
       content: " ";
@@ -63,11 +81,30 @@
 
       &--user-links {
         position: absolute;
-        top: 10px;
+        top: 18px;
         right: 15px;
 
+      }
 
-
+      &--btn-login {
+        margin-top: -5px;
+        border: 1px solid $brand-primary;
+        padding: 6px 12px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        text-align: center;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        display: inline-block;
+        >.fa {
+          font-size: 1.1em;
+        }
+        > .header__navbar--text {
+          display: inline-block;
+        }
       }
 
       &--text {
