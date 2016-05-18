@@ -103,8 +103,7 @@ var sourceJsFiles = vendorJsFiles.concat(customJsFiles);
 
 // Source SCSS files
 var sassFiles = [
-//   '!src/client/app/sass/_*.scss',
-//   '!src/client/app/sass/**/_*.scss',
+  '!src/client/app/sass/**/_*.scss',
   'src/client/app/sass/app.scss',
   'src/client/app/components/**/*.scss'
 ];
