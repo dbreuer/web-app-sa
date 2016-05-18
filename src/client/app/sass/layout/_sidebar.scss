@@ -30,12 +30,17 @@
         padding: 5px 20px 5px 0px;
         margin: 0;
         display: block;
-        border-bottom: 1px solid #dde2e9;
+        border-bottom: 1px solid #e9eef5;
         background-repeat: no-repeat;
         background-position: 165px 8px;
         font-size: 1em;
         color: #64696e;
       }
+
+      //> a:last-child{
+      //  border-bottom: 0;
+      //}
+
       > a + ul {
 
         margin: 0px 0px 0px 20px;
