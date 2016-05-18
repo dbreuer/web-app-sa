@@ -2,10 +2,15 @@
 
   @extend .col-md-4;
 
+  h2 {
+    visibility: hidden;
+  }
+
+
   &__menu {
 
     padding: 0;
-    margin: 0;
+    margin: 0 0 20px 0;
     border: none;
     list-style: none;
     text-align: left;
@@ -63,5 +68,17 @@
 
     }
   }
+
+
+  @media (min-width: $breakpoint-desktop) {
+
+
+    h2 {
+      visibility: visible;
+    }
+
+
+  }
+
 
 }
