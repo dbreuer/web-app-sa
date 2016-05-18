@@ -1,0 +1,13 @@
+.list-group {
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    background-image: url('../img/menu_leaf_active.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+    padding: 0px 0px 0px 20px;
+    margin-bottom: 10px;
+    line-height: 1.2em;
+  }
+}
