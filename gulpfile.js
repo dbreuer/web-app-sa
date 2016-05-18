@@ -64,7 +64,7 @@ var customJsFiles = [
   //'src/client/app/shared/meta/meta.js',
 
   'src/client/app/shared/directives/menu/menu.js',
-  'src/client/app/shared/directives/content/content.js',
+
   //'src/client/app/shared/directives/landing-page/landing-page.js',
 
   'src/client/app/shared/directives/hero/hero.js',
@@ -83,6 +83,7 @@ var customJsFiles = [
 
   // COMPONENTS
   'src/client/app/components/myaat/myaat.js',
+  'src/client/app/components/node/node.js',
   'src/client/app/components/header/header.js',
   'src/client/app/components/frontpage/frontpage.js',
   'src/client/app/components/news/news.js',
@@ -95,6 +96,7 @@ var customJsFiles = [
 
   //SERVICE
   'src/client/app/services/menu-service.js',
+  'src/client/app/services/page-service.js',
 
   // MAIN
   'src/client/app/app.js'
@@ -130,7 +132,7 @@ gulp.task('scripts', ['css'], function() {
     .pipe(addStream.obj(prepareTemplates()))
     .pipe(concat('build.js'))
     //.pipe(rename({suffix: '.min'}))
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(gulp.dest(dest + '/js'));
 
 });

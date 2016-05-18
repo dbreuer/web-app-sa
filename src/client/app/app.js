@@ -37,7 +37,6 @@
       'menu',
       //'landing-page',
       'header',
-      'content-component',
 
       // CUSTOM
       'project.frontpage',
@@ -49,6 +48,7 @@
       'project.deliver',
       'project.membership',
       'project.about',
+      'project.node'
 
     ])
 
