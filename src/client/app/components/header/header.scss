@@ -1,5 +1,7 @@
 .header {
 
+  //height:60px;
+
   &__navbar {
 
 
@@ -39,7 +41,7 @@
   @media (min-width: $breakpoint-desktop) {
 
     &__navbar {
-      min-height: auto;
+      //min-height: auto;
 
 
       &--navigation {
