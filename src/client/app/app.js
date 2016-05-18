@@ -21,7 +21,7 @@
       'ngRoute',
       'templates',
       'ngSanitize',
-      //'ngAnimate',
+      'ngAnimate',
       'angular-jwt',
       'angular-storage',
 

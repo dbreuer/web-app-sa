@@ -34,6 +34,36 @@
     @extend .row;
   }
 
+  .page-signpost {
+    border-top: 1px solid #DCDCDC;
+    border-bottom: 1px solid #DCDCDC;
+    padding: 10px 10px 0px 5px;
+    margin: 10px 0px 10px 0px;
+
+    &__item {
+      background-image: url('../img/menu_leaf_solid_green.png');
+      background-repeat: no-repeat;
+      background-position: 0px 1px;
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+
+  }
+
+  .page-content {
+    
+
+    ul {
+
+      li {
+        background-image: url('../img/bullet.png');
+        background-repeat: no-repeat;
+        background-position: 0.1em 0.5em;
+        padding-left: 1.5em;
+      }
+    }
+  }
+
   @media (min-width: $breakpoint-desktop) {
 
 

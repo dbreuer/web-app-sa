@@ -8,12 +8,12 @@
 (function() {
   'use strict';
   angular
-    .module('page-service', [])
-    .provider('pageServiceProvider', pageServiceProvider);
+    .module('node-service', [])
+    .service('nodeService', nodeService);
 
-  pageServiceProvider.$inject = [];
+  nodeService.$inject = ['$http', '$sce'];
   /* @ngInject */
-  function pageServiceProvider() {
+  function nodeService($http, $sce) {
     var pages = {};
     /**
      * Menu Items
@@ -42,13 +42,20 @@
     }
 
     function getPage(pageID) {
-      if ($rootScope && pages) {
-        if (pages[pageID]) {
-          return pages[pageID];
-        }
-        return {'error': 'Page does not exist at: ' + pageID};
-      }
-      return {'error': 'No Route Scope'};
+      return $http.get('pagedata.json', {nodeid: pageID})
+        .then(function success(response) {
+          var out = response.data[pageID];
+          if (!response.data[pageID]) {
+            return {
+              data: {
+                body: 'The page not found! <br/>Error: 404.',
+                title: 'Something doesn\'t add up here...'
+              }
+            };
+          }
+          out.body = $sce.trustAsHtml(out.body);
+          return out;
+        });
     }
   }
 })();

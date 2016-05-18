@@ -6,7 +6,9 @@
         <div class="hero_message">
             <div class="hero_message__content">
                 <h1>
-                    <span>What you'll learn at level 3</span>
+                    <span ng-bind="vm.pageContent.title">
+                        <!-- content title -->
+                    </span>
                 </h1>
 
             </div>
@@ -22,12 +24,24 @@
             <div class="sidebar">
                 <menu position="qualifications"></menu>
             </div>
-
             <div class="page-content">
-                <p>Level 3 - Certificate: Accounting Technician covers a range of basic accounting practices and
-                    techniques; from costing and double-entry bookkeeping to computerised accounting. It's ideal
-                    if you’re new to working in finance or you’re looking to expand and develop your foundation
-                    knowledge and skills.</p>
+                <div class="page-content__body" ng-bind-html="vm.pageContent.body">
+
+                    <!-- HTML body -->
+
+                </div>
+                <uib-accordion close-others="true" ng-if="vm.pageContent.tabs">
+                    <uib-accordion-group heading="{{tab.title}}" ng-repeat="tab in vm.pageContent.tabs">
+                        <div ng-bind-html="tab.content"></div>
+                    </uib-accordion-group>
+                </uib-accordion>
+
+
+                <div class="page-signpost" ng-if="vm.pageContent.signpost">
+                    <div class="page-signpost__item" ng-repeat="signpost in vm.pageContent.signpost">
+                        <a ng-href="{{signpost.url}}" ng-bind="signpost.title"></a>
+                    </div>
+                </div>
             </div>
 
 

@@ -17,7 +17,7 @@
 (function() {
   'use strict';
 
-  angular.module('project.node', ['ngRoute', 'menu-service'])
+  angular.module('project.node', ['ngRoute', 'menu-service', 'node-service'])
     .config(['$routeProvider',
       function($routeProvider) {
       $routeProvider.when('/:sectionID/:nodeID', {
@@ -30,14 +30,16 @@
     .controller('NodeController', NodeController);
 
   // Inject Deps
-  NodeController.$inject = ['menuService', '$routeParams'];
+  NodeController.$inject = ['$rootScope', '$routeParams','menuService', 'nodeService'];
   /**
    *
    * Controller
    *
    * @constructor
    */
-  function NodeController(menuService, $routeParams) {
+  function NodeController($rootScope, $routeParams, menuService, nodeService) {
+    var vm = this;
+
     menuService.setMenu(
       {
         'qualifications': {
@@ -71,6 +73,11 @@
         }
       }
     );
+    nodeService.getPage($routeParams.nodeID).then(
+      function(response) {
+        vm.pageContent = response.data;
+        $rootScope.pageTitle = response.data.title;
+      });
   }
 
 }());
