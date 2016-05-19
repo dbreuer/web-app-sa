@@ -2,12 +2,12 @@
 
 .slideshow {
   position: relative;
-  height: 255px;
+  height: 273px;
   margin-bottom: 15px;
 
   &__slide {
     width: 100%;
-    height: 255px;
+    height: 273px;
     opacity:0;
     overflow: hidden;
     position: absolute;
@@ -15,8 +15,8 @@
     //margin: 0px -15px 0px -15px;
 
     &--image {
-      width: 765px;
-      height: 255px;
+      width: 100%;
+      height: 123px;
 
       > img {
         width:100%
@@ -27,7 +27,7 @@
       position: absolute;
       bottom: 0px;
       right: 0px;
-      width: 300px;
+      width: 100%;
       height: 150px;
       background: $brand-primary;
     }
@@ -36,10 +36,14 @@
       margin: 20px 15px;
       color: #fff;
       p {
-        font-size: 1em;
+        font-size: 12px;
         line-height: 1.5;
         margin: 0 0 1.5em 0;
       }
+      h4 {
+        font-size: 14px;
+      }
+
     }
 
     &--button {
@@ -62,11 +66,31 @@
     float: none;
   }
 
-  @media (min-width: $breakpoint-desktop) {
+  @media (min-width: $breakpoint-tablet) {
+    height: 255px;
     &__slide {
-      //width: 750px;
-      //height: 255px;
+      width: 100%;
+      height: 245px;
+      &--content {
+        width: 300px;
+      }
+      &--image {
+        width: 750px;
+        height: 255px;
+      }
+      &--text {
+        h4 {
+          font-size: 14px;
+        }
+        p {
+          font-size: 10px;
+        }
+      }
     }
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+
   }
 }
 

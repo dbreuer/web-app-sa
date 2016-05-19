@@ -3,19 +3,26 @@
 
   //Spotlight
   $min-width: 320px;
-  $gutter: 10px;
+  $gutter: 1%;
   $last-equal: true;
   $max-cols: 2;
 
   .spotlight-grid {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    margin-left: -$gutter;
   }
 
   .spotlight-item {
-    width: 49%;
-    margin: 1%;
     position: relative;
+    margin-left: 0px;
+    margin-top: $gutter;
+    flex: 0 0 100%;
     border: 1px solid #eee;
 
     &--inner {
@@ -32,17 +39,25 @@
     &__body {
       @extend .row;
       height: 100%;
+      margin-bottom: 50px;
+
       &--text {
-        @extend .col-md-7;
+        width: 100%;
+        height: 75px;
+        float: left;
+        padding: 0px 15px;
+
         p {
-          font-size: 1em;
-          line-height: 1.5;
-          margin: 0 0 1.5em 0;
+          font-size: 12px;
+          padding-bottom: 0px;
         }
       }
 
       &--image {
-        @extend .col-md-5;
+        width: 100%;
+        float: left;
+        padding: 0px 15px;
+
         img {
           width: 100%;
           max-width: 100%;
@@ -53,24 +68,48 @@
     &__footer {
       @extend .row;
       position: absolute;
-      bottom: 10px;
-      left: 10px;
-      right: 10px;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      padding-left: 0px;
 
       a {
         @extend .col-md-12;
       }
     }
-    &:nth-of-type(2n) {
-      margin-right: 0px;
-    }
 
-    &:nth-of-type(2n+1) {
-      margin-left: 0px;
+  }
+  /* Tablet (medium) screens */
+  @media (min-width: 30em) {
+    p {
+      font-size: 14px;
+      padding-bottom: 0px;
+    }
+  }
+
+  /* Large screens */
+  @media (min-width: 48em) {
+    .spotlight-item {
+      flex: 0 0 49%;
+      margin-left: $gutter;
+      &__body {
+        &--text {
+          width: 70%;
+
+          height: auto;
+        }
+        &--image {
+          width: 30%;
+          padding: 0px 15px 0px 0px;
+
+        }
+      }
     }
   }
 
   @media (min-width: $breakpoint-desktop) {
+
+
   }
 
 }

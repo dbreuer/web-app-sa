@@ -110,8 +110,7 @@
           'text': 'Find out how you can become approved to deliver AAT(SA) qualifications, ' +
           'and join our network of approved training providers.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/edward_makwana_saica_0.jpg?itok=Z4Vq3N6g',
+            'src': '../img/landing_pages/edward_makwana_saica.jpg?itok=Z4Vq3N6g',
             'alt': 'Deliver AAT(SA) qualifications'
           },
           'button': {
@@ -125,8 +124,7 @@
           'text': 'Become associated with one of the largest professional membership ' +
           'bodies by offering computer based assessments.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/lawrence_mtolo_1.jpg?itok=zknYNy3W',
+            'src': '../img/landing_pages/lawrence_mtolo.jpg?itok=zknYNy3W',
             'alt': 'Become a CBA venue'
           },
           'button': {
@@ -155,8 +153,7 @@
           'text': 'We\'ve provided a range of marketing materials designed ' +
           'to help you promote AAT(SA) to your students and members.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/sylvia_segone_1.jpg?itok=B-wDsPO4',
+            'src': '../img/landing_pages/sylvia_segone_2.jpg?itok=B-wDsPO4',
             'alt': 'Marketing support'
           },
           'button': {
