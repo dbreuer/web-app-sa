@@ -3,7 +3,8 @@
   @extend .col-md-4;
 
   h2 {
-    visibility: hidden;
+    //visibility: hidden;
+    display: none;
   }
 
 
@@ -74,8 +75,10 @@
 
 
     h2 {
-      visibility: visible;
+      //visibility: visible;
+      display: block;
     }
+
 
 
   }
