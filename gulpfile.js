@@ -28,6 +28,7 @@ var minifyCSS = require('gulp-minify-css');
 var minifyHTML = require('gulp-minify-html');
 var sourcemaps = require('gulp-sourcemaps');
 var gzip = require('gulp-gzip');
+var protractor = require('gulp-protractor');
 
 // Build Destination
 var dest = 'build';
@@ -212,6 +213,29 @@ gulp.task('watch', function() {
 
   gulp.watch(['./src/client/app/index.html'], ['html']);
 
+});
+
+
+// Unit Testing
+gulp.task('test', function(done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
+});
+
+
+//e2e testing
+gulp.task('webdriver_update', protractor.webdriver_update);
+
+// this run following task will keep running indefinitely.
+gulp.task('webdriver_standalone', ['webdriver_update'], protractor.webdriver_standalone);
+
+gulp.task('e2e', ['webdriver_update'], function(done) {
+  gulp.src(['src/test/**/*.spec.js'])
+    .pipe(protractor.protractor({
+      configFile: 'src/test/protractor.conf.js'
+    }), done());
 });
 
 // Default
