@@ -1,16 +1,22 @@
 'use strict';
 
-describe('project.frontpage module', function() {
+describe('DashboardController', function() {
 
-  beforeEach(module('project.frontpage'));
+  var $controller;
 
-  describe('frontpage controller', function() {
+  // load main app module
+  beforeEach(module('project'));
 
-    it('should ....', inject(function($controller) {
-      //spec body
-      var FrontpageController = $controller('FrontpageController');
-      expect(FrontpageController).toBeDefined();
-    }));
+  beforeEach(inject(function(_$controller_, _$injector_) {
+    $controller = _$controller_;
+    $injector = _$injector_;
+  }));
 
+  describe('instance', function() {
+    it('should be defined', function() {
+      var controller = $controller('DashboardController', {$scope: {}});
+      expect(controller).toBeDefined();
+    });
   });
+
 });
