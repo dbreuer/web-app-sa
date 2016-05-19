@@ -53,9 +53,8 @@
     "node": ">=5.0.0"
   },
   "scripts": {
-    "test": "gulp test",
-    "start": "node fake_api_server.js",
-    "poststart": "gulp",
+    "test": "node_modules/gulp/bin/gulp.js test",
+    "e2e": "node_modules/gulp/bin/gulp.js e2e",
     "protractor": "protractor tests/e2e/protractor.conf.js",
     "postinstall": "bower install",
     "install": "node node_modules/protractor/bin/webdriver-manager update --standalone --chrome"
