@@ -1,6 +1,4 @@
-'use strict';
-
-fdescribe('AboutController', function() {
+describe('AboutController', function() {
 
   var $controller;
 

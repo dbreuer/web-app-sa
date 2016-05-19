@@ -20,7 +20,7 @@
 
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.when('/about', {
-        pageTitle: 'AAT - about',
+        pageTitle: 'AAT - About Us',
         templateUrl: 'components/about/about.tpl.html',
         controller: 'AboutController',
         controllerAs: 'vm',

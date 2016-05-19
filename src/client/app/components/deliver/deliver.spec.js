@@ -1,5 +1,3 @@
-'use strict';
-
 describe('DeliverController', function() {
 
   var $controller;
