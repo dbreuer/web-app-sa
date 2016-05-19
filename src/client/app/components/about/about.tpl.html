@@ -5,8 +5,7 @@
 
         <div class="hero_message">
             <div class="hero_message__content">
-                <h1>About</h1>
-
+                <h1>About Us</h1>
             </div>
         </div>
 
@@ -27,14 +26,15 @@
                     <!-- slide loop -->
                     <div class="slideshow__slide" ng-repeat="slide in vm.pageContent.slideshow">
                         <div class="slideshow__slide--image">
-                            <img typeof="foaf:Image" ng-src="{{slide.image.src}}" alt="slide.image.alt" />
+                            <img typeof="foaf:Image" ng-src="{{slide.image.src}}" alt="slide.image.alt"/>
                         </div>
                         <div class="slideshow__slide--content">
-                        <div class="slideshow__slide--text">
-                            <h4 ng-bind="slide.title"></h4>
-                            <p ng-bind="slide.text"></p>
-                        </div>
-                        <div class="slideshow__slide--button"><a ng-href="slide.button.url" ng-bind="slide.button.text"></a></div>
+                            <div class="slideshow__slide--text">
+                                <h4 ng-bind="slide.title"></h4>
+                                <p ng-bind="slide.text"></p>
+                            </div>
+                            <div class="slideshow__slide--button"><a ng-href="slide.button.url"
+                                                                     ng-bind="slide.button.text"></a></div>
                         </div>
                     </div><!-- end slide loop -->
 
@@ -42,37 +42,39 @@
                 </div>
 
 
-                <div class="spotlight-grid">
-                    <!-- spotlight loop -->
-                    <div class="spotlight-item" ng-repeat="spotlight in vm.pageContent.spotlights">
-                        <div class="spotlight-item--inner">
-                            <div class="spotlight-item__header">
-                                <h3 ng-bind="spotlight.title">
-                                    <!-- spotlight title -->
-                                </h3>
-                            </div>
-                            <div class="spotlight-item__body">
-                                <div class="spotlight-item__body--text">
-                                    <p ng-bind="spotlight.text">
-                                        <!-- spotlight text -->
-                                    </p>
+                <div class="spotlight-container">
+                    <div class="spotlight-grid">
+                        <!-- spotlight loop -->
+                        <div class="spotlight-item" ng-repeat="spotlight in vm.pageContent.spotlights">
+                            <div class="spotlight-item--inner">
+                                <div class="spotlight-item__header">
+                                    <h3 ng-bind="spotlight.title">
+                                        <!-- spotlight title -->
+                                    </h3>
                                 </div>
-                                <div class="spotlight-item__body--image">
-                                    <a ng-href="{{spotlight.button.url}}" title="{{spotlight.image.alt}}">
-                                        <img ng-src="{{spotlight.image.src}}"
-                                             alt="{{spotlight.image.alt}}">
+                                <div class="spotlight-item__body">
+                                    <div class="spotlight-item__body--text">
+                                        <p ng-bind="spotlight.text">
+                                            <!-- spotlight text -->
+                                        </p>
+                                    </div>
+                                    <div class="spotlight-item__body--image">
+                                        <a ng-href="{{spotlight.button.url}}" title="{{spotlight.image.alt}}">
+                                            <img ng-src="{{spotlight.image.src}}"
+                                                 alt="{{spotlight.image.alt}}">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="spotlight-item__footer">
+                                    <a ng-href="{{spotlight.button.url}}" ng-bind="spotlight.button.text">
+                                        <!-- spotlight buton text -->
                                     </a>
                                 </div>
                             </div>
-                            <div class="spotlight-item__footer">
-                                <a ng-href="{{spotlight.button.url}}" ng-bind="spotlight.button.text">
-                                    <!-- spotlight buton text -->
-                                </a>
-                            </div>
-                        </div>
-                    </div><!-- end spotlight-item -->
-                    <!-- end spotlight loop -->
-                </div><!-- end spotlight-grid -->
+                        </div><!-- end spotlight-item -->
+                        <!-- end spotlight loop -->
+                    </div><!-- end spotlight-grid -->
+                </div>
 
 
             </div><!-- end page-content -->

@@ -1,6 +1,8 @@
 AAT WEB APP (SA)
 ===============
 
+[![Build Status](https://travis-ci.org/aat-labs/web-app-sa.svg?branch=master)](https://travis-ci.org/aat-labs/web-app-sa)
+
 This is the source for the frontend javascript client of AAT South Africa
 
 All data is sourced via requests to AAT SA Content REST API.   

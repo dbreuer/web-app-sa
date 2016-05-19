@@ -116,8 +116,7 @@
           'text': 'The AAT(SA) Accounting qualification can enable your career in finance and ' +
           'accounting and help you make a positive contribution to your business, department.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/sylvia_segone_0.jpg?itok=QNoYKYfq',
+            'src': '../img/landing_pages/sylvia_segone_2.jpg?itok=QNoYKYfq',
             'alt': 'The AAT(SA) Accounting qualification'
           },
           'button': {
@@ -146,8 +145,7 @@
           'text': 'We advise that you register with us as soon as you enrol with ' +
           'your training provider to avoid any delays in taking your assessments.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/tapiwa_obert_0.jpg?itok=KimL61vx',
+            'src': '../img/landing_pages/tapiwa_obert_2.jpg?itok=KimL61vx',
             'alt': 'Becoming a student member'
           },
           'button': {

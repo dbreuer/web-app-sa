@@ -123,8 +123,7 @@
           'text': 'Be part of a professional accountancy body that recognises' +
           ' your achievements and offers you a range of benefits.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/jessie_bosco_1.jpg?itok=8VpvQaCo',
+            'src': '../img/landing_pages/jessie_bosco_2.jpg?itok=8VpvQaCo',
             'alt': 'About AAT(SA) membership'
           },
           'button': {
@@ -138,8 +137,7 @@
           'text': 'Benefits include professional and career advice, ' +
           'networking opportunities, exclusive discounts and more.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/lawrence_mtolo_2.jpg?itok=pkqtVT-_',
+            'src': '../img/landing_pages/lawrence_mtolo.jpg?itok=pkqtVT-_',
             'alt': 'Benefits of membership'
           },
           'button': {
@@ -167,8 +165,7 @@
           'text': 'Continuing Professional Development (CPD) is any activity that helps ' +
           'you maintain your knowledge and skills related to your work.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/edward_makwana_saica_3.jpg?itok=lKC6Kry7',
+            'src': '../img/landing_pages/edward_makwana_saica.jpg?itok=lKC6Kry7',
             'alt': 'Marketing support'
           },
           'button': {

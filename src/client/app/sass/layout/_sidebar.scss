@@ -1,18 +1,28 @@
 .sidebar {
+
   @extend .col-md-4;
 
+  h2 {
+    //visibility: hidden;
+    display: none;
+  }
+
+
   &__menu {
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+
+    padding: 0;
+    margin: 0 0 20px 0;
     border: none;
     list-style: none;
     text-align: left;
 
+
+
     > li {
       list-style-type: none;
       list-style-image: none;
-      padding: 0px 0px 0px 0px;
-      margin: 0px 0px 0px 0px;
+      padding: 0;
+      margin: 0;
       background-image: none !important;
 
       &.first {
@@ -24,16 +34,23 @@
 
       > a {
         padding: 5px 20px 5px 0px;
-        margin: 0px 0px 0px 0px;
+        margin: 0;
         display: block;
-        border-bottom: 1px solid #B1B6BD;
+        border-bottom: 1px solid #e9eef5;
         background-repeat: no-repeat;
         background-position: 165px 8px;
         font-size: 1em;
         color: #64696e;
       }
+
+      //> a:last-child{
+      //  border-bottom: 0;
+      //}
+
       > a + ul {
+
         margin: 0px 0px 0px 20px;
+
         > li > a {
           border-bottom: 1px dotted #B1B6BD;
           padding: 5px 20px 5px 0px;
@@ -44,7 +61,27 @@
           color: #64696e;
         }
       }
+
+      > li > a:last-child {
+        border-bottom: 0;
+      }
+
+
     }
   }
+
+
+  @media (min-width: $breakpoint-desktop) {
+
+
+    h2 {
+      //visibility: visible;
+      display: block;
+    }
+
+
+
+  }
+
 
 }
