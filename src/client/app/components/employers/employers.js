@@ -134,8 +134,7 @@
           'text': 'We offer a range of flexible training options, carefully' +
           ' designed to suit the needs of your organisation and employees.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/israel_mogobe_0.jpg?itok=vH2K6Qn2',
+            'src': '../img/landing_pages/israel_mogobe.jpg?itok=vH2K6Qn2',
             'alt': 'Training for your business'
           },
           'button': {
@@ -149,8 +148,7 @@
           'text': 'We offer a range of benefits and services that will enable our ' +
           'members to continue their professional development.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/lawrence_mtolo_0.jpg?itok=6HqACUwI',
+            'src': '../img/landing_pages/lawrence_mtolo.jpg?itok=6HqACUwI',
             'alt': 'Membership for your staff'
           },
           'button': {
@@ -164,8 +162,7 @@
           'text': 'Aimed at learners who are employed or want to prepare themselves ' +
           'for employment in the accounting environment at technician level.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/jessie_bosco_0.jpg?itok=3z-GVVw8',
+            'src': '../img/landing_pages/jessie_bosco_2.jpg?itok=3z-GVVw8',
             'alt': 'The AAT(SA) learnerships'
           },
           'button': {
@@ -179,8 +176,7 @@
           'text': 'We have AAT(SA) approved training providers all over South Africa. ' +
           'Download our list below to contact a training provider in your province.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/tapiwa_obert_1.jpg?itok=kZmOK4q0',
+            'src': '../img/landing_pages/tapiwa_obert_2.jpg?itok=kZmOK4q0',
             'alt': 'Download our list of training providers (PDF)'
           },
           'button': {

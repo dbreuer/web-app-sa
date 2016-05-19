@@ -101,8 +101,7 @@
           'text': 'We are a professional body dedicated to the education, development,' +
           ' regulation and support of accounting technicians in South Africa.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/israel_mogobe.jpg?itok=vXbL54nk',
+            'src': '../img/landing_pages/israel_mogobe.jpg?itok=vXbL54nk',
             'alt': 'What we do'
           },
           'button': {
@@ -129,8 +128,7 @@
           'title': 'AAT UK',
           'text': 'Visit the Association of Accounting Technician\'s UK web site.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/edward_makwana_saica.jpg?itok=-35K2xUE',
+            'src': '../img/landing_pages/edward_makwana_saica.jpg?itok=-35K2xUE',
             'alt': 'AAT UK'
           },
           'button': {
@@ -144,8 +142,7 @@
           'text': 'Access to and use of AAT(SA)\'s website constitutes ' +
           'acceptance of the terms and conditions listed here.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/sylvia_segone_2.jpg?itok=OaqGU7O3',
+            'src': '../img/landing_pages/sylvia_segone_2.jpg?itok=OaqGU7O3',
             'alt': 'Ts & Cs'
           },
           'button': {
