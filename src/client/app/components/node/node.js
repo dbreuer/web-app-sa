@@ -1,3 +1,4 @@
+// jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 /**
  *
  * node COMPONENT
@@ -39,9 +40,55 @@
    */
   function NodeController($rootScope, $routeParams, menuService, nodeService) {
     var vm = this;
-
+    vm.menuNode = $routeParams.sectionID;
     menuService.setMenu(
       {
+        'employers': {
+          'data': [
+            {
+              'name': 'AAT(SA) training for your business',
+              'url': '/employers/business-training',
+              'id': 41
+            },
+            {
+              'name': 'AAT(SA) membership for your staff',
+              'url': '/employers/staff-membership',
+              'id': 42
+            },
+            {
+              'name': 'The AAT(SA) Learnerships', 'url': '/employers/learnerships', 'id': 43,
+              'data': [
+                {
+                  'name': 'Certificate: Accounting Technician - Level 3',
+                  'url': '/employers/level3',
+                  'id': 431
+                },
+                {
+                  'name': 'FET Certificate Accounting Technician - Level 4',
+                  'url': '/employers/level4',
+                  'id': 432
+                },
+                {
+                  'name': 'Certificate: Accounting - Level 5',
+                  'url': '/employers/level5',
+                  'id': 433
+                },
+                {
+                  'name': '(LGAC) Local Government Accounting Certificate',
+                  'url': '/employers/lgac',
+                  'id': 434
+                },
+                {
+                  'name': '(LGAAC) FET Certificate: Local Government Accounting - Level 4',
+                  'url': '/employers/lgaac-fet',
+                  'id': 435
+                }
+              ]
+            }
+          ],
+          'title': 'AAT(SA) qualification',
+          'class': 'sidebar__menu'
+        },
         'qualifications': {
           'data': [
             {
@@ -73,11 +120,33 @@
         }
       }
     );
-    nodeService.getPage($routeParams.nodeID).then(
-      function(response) {
-        vm.pageContent = response.data;
-        $rootScope.pageTitle = response.data.title;
-      });
+
+    nodeService.getPage($routeParams.sectionID, $routeParams.nodeID)
+      .then(
+        function(response) {
+          vm.pageContent = new PostType(response);
+          $rootScope.pageTitle = response.title;
+        }, function(err) {
+          console.log('error:', err);
+        });
+
+  }
+
+  function PostType(post) {
+    this.body = post.body.und[0].value;
+    this.title = post.title;
+    this.slug = post.slug;
+    this.date = new Date(post.created * 1000);
+    this.signpost = [];
+    if (post.field_page_signpost && post.field_page_signpost.und.length > 0) {/* jshint ignore:line */
+      var spl = post.field_page_signpost.und.length;/* jshint ignore:line */
+      while (spl--) {
+        this.signpost.push(post.field_page_signpost.und[spl]);/* jshint ignore:line */
+      }
+    }
+    return this;
   }
 
 }());
+
+// jscs:enable requireCamelCaseOrUpperCaseIdentifiers

@@ -33,7 +33,6 @@
      * @returns {items|{}}
      */
     function setMenu(menuObject) {
-      console.log('SET menu used ', menuObject);
       $rootScope.menus = angular.extend({}, $rootScope.menus, menuObject);
     }
 

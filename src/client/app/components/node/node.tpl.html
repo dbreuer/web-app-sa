@@ -22,7 +22,7 @@
         <div class="node-main-content__wrapper">
 
             <div class="sidebar">
-                <menu position="qualifications"></menu>
+                <menu position="{{vm.menuNode}}"></menu>
             </div>
             <div class="page-content">
                 <div class="page-content__body" ng-bind-html="vm.pageContent.body">
@@ -37,7 +37,7 @@
                 </uib-accordion>
 
 
-                <div class="page-signpost" ng-if="vm.pageContent.signpost">
+                <div class="page-signpost" ng-if="vm.pageContent.signpost.length > 0">
                     <div class="page-signpost__item" ng-repeat="signpost in vm.pageContent.signpost">
                         <a ng-href="{{signpost.url}}" ng-bind="signpost.title"></a>
                     </div>

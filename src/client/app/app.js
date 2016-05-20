@@ -24,6 +24,7 @@
       'ngAnimate',
       'angular-jwt',
       'angular-storage',
+      '720kb.socialshare',
 
       //'formly',
       //'formlyBootstrap',
@@ -34,6 +35,7 @@
       //'search-bar',
       //'bookmarks',
       //'meta',
+      'social',
       'menu',
       //'landing-page',
       'header',
@@ -80,12 +82,19 @@
       }])
 
     // Define App constants (ref env vars)
-    .constant('API_URL', 'https://api.aat-sa-prod.elasticbeanstalk.com/')
-
+    .constant('API_URL', 'http://sa.aws.aat.org.uk/api/v1')
+    .filter('slug',  function() {
+      return function(input) {
+        return input
+          .toLowerCase()
+          .replace(/ /g,'-')
+          .replace(/[^\w-]+/g,'');
+      };
+    })
     .run(appRun);
 
   // Inject Deps
-  appRun.$inject = ['$rootScope', '$location'];
+  appRun.$inject = ['$route', '$rootScope', '$location'];
 
   /**
    *
@@ -96,7 +105,18 @@
    *
    */
 
-  function appRun($rootScope, $location) {
+  function appRun($route, $rootScope, $location) {
+    //var original = $location.path;
+    //$location.path = function(path, reload) {
+    //  if (reload === false) {
+    //    var lastRoute = $route.current;
+    //    var un = $rootScope.$on('$locationChangeSuccess', function() {
+    //      $route.current = lastRoute;
+    //      un();
+    //    });
+    //  }
+    //  return original.apply($location, [path]);
+    //};
 
     // register listener to watch route changes
     $rootScope.$on('$routeChangeStart', function(event, current, next) {

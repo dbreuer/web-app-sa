@@ -10,16 +10,18 @@
   'use strict';
 
   angular
-    .module('shared.social', [])
-    .directive('socialContent', socialContent);
+    .module('social', [])
+    .directive('socialContent', socialContent)
+    .directive('socialShareButtons', socialShareButtons);
 
   socialContent.$inject = [];
+  socialShareButtons.$inject = [];
 
   /* @ngInject */
   function socialContent() {
     var directive = {
       bindToController: true,
-      templateUrl: 'site/shared/directives/social/social.html',
+      templateUrl: 'shared/directives/social/social.tpl.html',
       controller: socialController,
       controllerAs: 'sc',
       link: link,
@@ -30,6 +32,26 @@
 
     function link(scope, element, attrs) {
 
+    }
+  }
+
+  /* @ngInject */
+  function socialShareButtons() {
+    var directive = {
+      bindToController: true,
+      templateUrl: 'shared/directives/social/social-share-buttons.tpl.html',
+      controller: socialController,
+      controllerAs: 'sc',
+      link: link,
+      restrict: 'AE',
+      scope: {
+        'pageTitle': '=pageTitle',
+        'pageSlug': '=pageSlug'
+      }
+    };
+    return directive;
+
+    function link(scope, element, attrs) {
     }
   }
 

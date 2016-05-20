@@ -11,52 +11,79 @@
     .module('node-service', [])
     .service('nodeService', nodeService);
 
-  nodeService.$inject = ['$http', '$sce'];
+  nodeService.$inject = ['$http', '$sce', '$q'];
   /* @ngInject */
-  function nodeService($http, $sce) {
+  function nodeService($http, $sce, $q) {
+    var settings = {};
+    settings.apiBase = 'http://sa.aws.aat.org.uk/api/v1';
     var pages = {};
     /**
      * Menu Items
      */
     return {
       $get: isExist,
-      getPage: getPage,
-      setPage: setPage
+      api: api,
+      getPage: getPage
     };
 
-    function isExist(params) {
-      if (pages[params.sectionID][params.nodeID]) {
-        return true;
-      }
-      return false;
-    }
-    /**
-     *
-     * Get Menu
-     *
-     * @returns {items|{}}
-     */
-    function setPage(pageObject) {
-      console.log('SET menu used ', pageObject);
-      pages = angular.extend({}, pages, pageObject);
+    function api(endpoint, method, cache, params, data, headers) {
+      var deferred = $q.defer();
+
+      $http({
+        url: settings.apiBase + endpoint,
+        method: method ? method : 'GET',
+        params: params,
+        data: data,
+        headers: headers,
+        cache: cache ? cache : false,
+        withCredentials: false
+      })
+        .success(function(data) {
+          deferred.resolve(data);
+        })
+        .error(function(data) {
+          deferred.reject(data);
+        });
+      return deferred.promise;
     }
 
-    function getPage(pageID) {
-      return $http.get('pagedata.json', {nodeid: pageID})
-        .then(function success(response) {
-          var out = response.data[pageID];
-          if (!response.data[pageID]) {
-            return {
-              data: {
-                body: 'The page not found! <br/>Error: 404.',
-                title: 'Something doesn\'t add up here...'
-              }
-            };
-          }
-          out.body = $sce.trustAsHtml(out.body);
-          return out;
-        });
+    function isExist(params) {
+      return true;
     }
+
+    function getPage(parent, slug) {
+      var pageID = getNodeIDBySlug(parent, slug);
+      return this.api('/node/' + pageID, 'GET', true);
+    }
+  }
+
+  function getNodeIDBySlug(parent, slug) {
+    var pageMap = {
+      'qualifications': {
+        'accounting-qualification': 20072,
+        'level3': 20068,
+        'level4': 20082,
+        'level5': 20088,
+        'assessed': 20089,
+        'how-long': 20090,
+        'fees': 20091,
+        'student-membership': 20094
+      },
+      'employers': {
+        'business-training': 20100,
+        'staff-membership': 20069,
+        'learnerships': 20101,
+        'level3': 20108,
+        'level4': 20113,
+        'level5': 20117,
+        'lgac': 20123,
+        'lgaac-fet': 20135
+      }
+    };
+    if (!pageMap[parent]) {
+      return false;
+    }
+    return pageMap[parent][slug];
   }
 })();
 

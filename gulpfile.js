@@ -43,6 +43,7 @@ var vendorJsFiles = [
   'src/client/app/bower_components/a0-angular-storage/dist/angular-storage.js',
   'src/client/app/bower_components/angular-bootstrap/ui-bootstrap.js',
   'src/client/app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+  'src/client/app/bower_components/angular-socialshare/dist/angular-socialshare.js',
 
   'src/client/app/bower_components/api-check/dist/api-check.js',
   'src/client/app/bower_components/angular-formly/dist/formly.js',
@@ -99,6 +100,7 @@ var customJsFiles = [
   //SERVICE
   'src/client/app/services/menu-service.js',
   'src/client/app/services/node-service.js',
+  'src/client/app/services/news-service.js',
 
   // MAIN
   'src/client/app/app.js'
