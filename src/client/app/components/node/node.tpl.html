@@ -1,0 +1,53 @@
+<div class="node-content">
+
+    <div class="hero">
+
+
+        <div class="hero_message">
+            <div class="hero_message__content">
+                <h1>
+                    <span ng-bind="vm.pageContent.title">
+                        <!-- content title -->
+                    </span>
+                </h1>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="node-main-content">
+
+        <div class="node-main-content__wrapper">
+
+            <div class="sidebar">
+                <menu position="{{vm.menuNode}}"></menu>
+            </div>
+            <div class="page-content">
+                <div class="page-content__body" ng-bind-html="vm.pageContent.body">
+
+                    <!-- HTML body -->
+
+                </div>
+                <uib-accordion close-others="true" ng-if="vm.pageContent.tabs">
+                    <uib-accordion-group heading="{{tab.title}}" ng-repeat="tab in vm.pageContent.tabs">
+                        <div ng-bind-html="tab.content"></div>
+                    </uib-accordion-group>
+                </uib-accordion>
+
+
+                <div class="page-signpost" ng-if="vm.pageContent.signpost.length > 0">
+                    <div class="page-signpost__item" ng-repeat="signpost in vm.pageContent.signpost">
+                        <a ng-href="{{signpost.url}}" ng-bind="signpost.title"></a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div><!-- end myaat__wrapper -->
+
+    </div><!-- end myaat -->
+
+</div>
+

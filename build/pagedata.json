@@ -1,0 +1,78 @@
+{
+  "accounting-qualification": {
+    "nodeid": 20072,
+    "name": "accounting-qualification",
+    "parent": "qualifications",
+    "data": {
+      "title": "The AAT(SA) Accounting Qualification ",
+      "body": "<p>The AAT(SA) qualification can enable your career in finance and accounting and help you make a truly positive contribution to your business, department or unit.</p><h3>Professional skills to be proud of</h3><p>Our qualification is based on real-world knowledge, supported by in-depth expertise.</p><p>Its value is so widely known that firms like Vodafone, Telkom, and Toyota actively seek AAT qualified staff for their knowledge, skills, diligence and enthusiasm.</p><h3>Open to everyone</h3><p>AAT enables you to choose how, when and where you study. Training is flexible and open to everyone. &nbsp;You may be heading for your first job in accounting and finance, seeking a change of career, or already work in the industry.</p>",
+      "spotlight": [],
+      "signpost": [
+        {
+          "title": "Find out what you'll learn at Level 3 - Certificate: Accounting Technician",
+          "url": "qualifications/level3"
+        },
+        {
+          "title": "Find out what you'll learn at Level 4 - FET Certificate: Accounting Technician",
+          "url": "qualifications/level4"
+        },
+        {
+          "title": "Find out what you'll learn at Level 5 - Certificate: Accounting",
+          "url": "qualifications/level5"
+        },
+        {
+          "title": "",
+          "url": ""
+        }
+      ],
+      "targeted": [],
+      "downloads": [],
+      "heroImage": {
+        "src": "",
+        "alt": "",
+        "width": "",
+        "height": "",
+        "customClass": ""
+      }
+    }
+  },
+  "level3": {
+    "nodeid": 20068,
+    "name": "level3",
+    "parent": "qualifications",
+    "data": {
+      "title": "What you'll learn at level 3",
+      "body": "<p>Level 3 - Certificate: Accounting Technician covers a range of basic accounting practices and techniques; from costing and double-entry bookkeeping to computerised accounting. It&#39;s ideal if you&rsquo;re new to working in finance or you&rsquo;re looking to expand and develop your foundation knowledge and skills.</p><h3>Topics covered</h3>",
+      "spotlight": [],
+      "signpost": [
+        {
+          "title": "Download our list of AAT(SA) approved training providers to find one near you (PDF)",
+          "url": "http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/assets/AATSA-provider-list.pdf"
+        }
+      ],
+      "tabs": [
+        {
+          "title": "Basic Accounting I",
+          "content": "<ul><li>Principles and procedures related to processing business transactions, financial documents and payments for customers and suppliers.</li><li>Developing skills in processing ledger transactions and preparing an initial trial balance.</li></ul>"
+        },
+        {
+          "title": "Basic Accounting II",
+          "content": "<ul><li>Maintenance and reconciliation of a cash book by accurately entering receipts and payments, balancing off the book and reconciling with bank statements.</li><li>Knowledge and understanding of the UK banking system and related organisational activities.</li><li>Petty cash transactions and the importance of the Journal as a primary accounting record.</li><li>Maintaining control over debtors and creditors, aided by preparation and use of debtor and creditor control accounts.</li><li>Non-standard bookkeeping transactions and double-entry bookkeeping records.</li></ul>"
+        },
+        {
+          "title": "Work effectively in accounting and finance",
+          "content": "<ul><li>Developing transferable skills and effective working in an accounting environment.</li><li>Teamwork skills and the ability to work independently.</li><li>Demonstrating workplace-ready standards of literacy and numeracy.</li></ul>"
+        }
+      ],
+      "targeted": [],
+      "downloads": [],
+      "heroImage": {
+        "src": "",
+        "alt": "",
+        "width": "",
+        "height": "",
+        "customClass": ""
+      }
+    }
+  }
+}

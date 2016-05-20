@@ -42,6 +42,8 @@ var vendorJsFiles = [
   'src/client/app/bower_components/angular-jwt/dist/angular-jwt.js',
   'src/client/app/bower_components/a0-angular-storage/dist/angular-storage.js',
   'src/client/app/bower_components/angular-bootstrap/ui-bootstrap.js',
+  'src/client/app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+  'src/client/app/bower_components/angular-socialshare/dist/angular-socialshare.js',
 
   'src/client/app/bower_components/api-check/dist/api-check.js',
   'src/client/app/bower_components/angular-formly/dist/formly.js',
@@ -65,6 +67,7 @@ var customJsFiles = [
   //'src/client/app/shared/meta/meta.js',
 
   'src/client/app/shared/directives/menu/menu.js',
+
   //'src/client/app/shared/directives/landing-page/landing-page.js',
 
   'src/client/app/shared/directives/hero/hero.js',
@@ -83,6 +86,7 @@ var customJsFiles = [
 
   // COMPONENTS
   'src/client/app/components/myaat/myaat.js',
+  'src/client/app/components/node/node.js',
   'src/client/app/components/header/header.js',
   'src/client/app/components/frontpage/frontpage.js',
   'src/client/app/components/news/news.js',
@@ -95,6 +99,8 @@ var customJsFiles = [
 
   //SERVICE
   'src/client/app/services/menu-service.js',
+  'src/client/app/services/node-service.js',
+  'src/client/app/services/news-service.js',
 
   // MAIN
   'src/client/app/app.js'
@@ -130,7 +136,7 @@ gulp.task('scripts', ['css'], function() {
     .pipe(addStream.obj(prepareTemplates()))
     .pipe(concat('build.js'))
     //.pipe(rename({suffix: '.min'}))
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(gulp.dest(dest + '/js'));
 
 });
@@ -206,10 +212,11 @@ gulp.task('watch', function() {
   gulp.watch([
     './src/client/app/components/**/*.js',
     './src/client/app/shared/**/*.js',
+    './src/client/app/services/**/*.js',
     './src/client/app/app.js'
   ], ['lint', 'style', 'docs', 'scripts']);
 
-  gulp.watch('./src/client/app/**/*.tpl.html', ['lint', 'style', 'docs', 'scripts']);
+  gulp.watch('./src/client/app/**/*.html', ['lint', 'style', 'docs', 'scripts']);
 
   gulp.watch(['./src/client/app/index.html'], ['html']);
 

@@ -30,7 +30,6 @@
         }
       });
     }])
-
     .controller('AboutController', AboutController);
 
   // Inject Deps
