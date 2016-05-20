@@ -1,6 +1,4 @@
-'use strict';
-
-describe('DashboardController', function() {
+describe('AboutController', function() {
 
   var $controller;
 
@@ -14,7 +12,7 @@ describe('DashboardController', function() {
 
   describe('instance', function() {
     it('should be defined', function() {
-      var controller = $controller('DashboardController', {$scope: {}});
+      var controller = $controller('AboutController', {$scope: {}});
       expect(controller).toBeDefined();
     });
   });

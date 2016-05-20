@@ -17,41 +17,35 @@
   // Declare app level module which depends on views, and components
   angular.module('project', [
 
-      // CORE
-      'ngRoute',
-      'templates',
-      'ngSanitize',
-      //'ngAnimate',
-      'angular-jwt',
-      'angular-storage',
+    // CORE
+    'ngRoute',
+    'templates',
+    'ngSanitize',
+    //'ngAnimate',
+    'angular-jwt',
+    'angular-storage',
+    //'formly',
+    //'formlyBootstrap',
+    'ui.bootstrap',
 
-      //'formly',
-      //'formlyBootstrap',
-      'ui.bootstrap',
+    // CUSTOM
+    'mobile-menu',
+    'menu',
+    'header',
 
-      // SHARED
-      'mobile-menu',
-      //'search-bar',
-      //'bookmarks',
-      //'meta',
-      'menu',
-      //'landing-page',
-      'header',
+    'project.frontpage',
+    'project.myaat',
+    'project.news',
+    'project.static-pages',
+    'project.qualifications',
+    'project.employers',
+    'project.deliver',
+    'project.membership',
+    'project.about'
 
-      // CUSTOM
-      'project.frontpage',
-      'project.myaat',
-      'project.news',
-      'project.static-pages',
-      'project.qualifications',
-      'project.employers',
-      'project.deliver',
-      'project.membership',
-      'project.about',
+  ])
 
-    ])
-
-    // App config
+  // App config
     .config([
 
       '$routeProvider',
