@@ -71,9 +71,9 @@
               'url': '/membership/cpd',
               'id': 64,
               'data': [
-                {'name': 'What counts as CPD?', 'url': '/membership/cpd/what-counts', 'id': 641},
-                {'name': 'Record your CPD', 'url': '/membership/cpd/record', 'id': 642},
-                {'name': 'CPD resources', 'url': '/membership/cpd/resources', 'id': 643}
+                {'name': 'What counts as CPD?', 'url': '/membership/cpd--what-counts', 'id': 641},
+                {'name': 'Record your CPD', 'url': '/membership/cpd--record', 'id': 642},
+                {'name': 'CPD resources', 'url': '/membership/cpd--resources', 'id': 643}
               ]
             },
             {

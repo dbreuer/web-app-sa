@@ -65,7 +65,7 @@
               'name': 'Marketing support',
               'url': '/deliver/marketing',
               'id': 53
-            },
+            }
           ],
           'title': 'Deliver AAT',
           'class': 'sidebar__menu'

@@ -55,12 +55,18 @@
 
     ul {
 
-      li {
+      li:not(.nav-item) {
         background-image: url('../img/bullet.png');
         background-repeat: no-repeat;
         background-position: 0.1em 0.5em;
         padding-left: 1.5em;
       }
+    }
+    ol {
+      padding-left: 1.1em;
+    }
+    ol + ul {
+      margin-left: 20px;
     }
   }
 

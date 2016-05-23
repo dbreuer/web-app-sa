@@ -69,6 +69,7 @@
                 {
                   'name': 'Find a training provider',
                   'url': 'http://www.aatsa.org.za/sites/default/files/public/assets/AATSA-provider-list.pdf',
+                  'external': true,
                   'id': 321
                 }
               ]

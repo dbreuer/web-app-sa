@@ -30,15 +30,24 @@
                     <!-- HTML body -->
 
                 </div>
-                <uib-accordion close-others="true" ng-if="vm.pageContent.tabs">
+
+                <uib-accordion close-others="true" ng-if="vm.pageContent.tabs && vm.pageContent.tabsStyle == 'list_default'">
                     <uib-accordion-group heading="{{tab.title}}" ng-repeat="tab in vm.pageContent.tabs">
-                        <div ng-bind-html="tab.content"></div>
+                        <div class="" ng-bind-html="tab.body"></div>
                     </uib-accordion-group>
                 </uib-accordion>
 
 
+                <uib-tabset active="activeJustified" justified="true" ng-if="vm.pageContent.tabs && vm.pageContent.tabsStyle == 'tabs_default'">
+                    <uib-tab index="$index" heading="{{tab.title}}" ng-repeat="tab in vm.pageContent.tabs">
+                        <div class="well" ng-bind-html="tab.body"></div>
+                    </uib-tab>
+                </uib-tabset>
+
+
+
                 <div class="page-signpost" ng-if="vm.pageContent.signpost.length > 0">
-                    <div class="page-signpost__item" ng-repeat="signpost in vm.pageContent.signpost">
+                    <div class="page-signpost__item" ng-repeat="signpost in vm.pageContent.signpost | orderBy:'name':true track by $index">
                         <a ng-href="{{signpost.url}}" ng-bind="signpost.title"></a>
                     </div>
                 </div>

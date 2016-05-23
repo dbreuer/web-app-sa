@@ -51,14 +51,28 @@
       return true;
     }
 
-    function getPage(parent, slug) {
+    function getPage(parent, slug, hasParent) {
       var pageID = getNodeIDBySlug(parent, slug);
+      if (hasParent) {
+        pageID = parent;
+      }
       return this.api('/node/' + pageID, 'GET', true);
     }
   }
 
   function getNodeIDBySlug(parent, slug) {
     var pageMap = {
+      'myaat': {
+        'about': 20130,
+        'privacy': 20136,
+        'cookies': 20137,
+        'help': 179
+      },
+      'about': {
+        'what-we-do': 20070,
+        'contact-us': 20071,
+        'terms-conditions': 20144
+      },
       'qualifications': {
         'accounting-qualification': 20072,
         'level3': 20068,
@@ -78,6 +92,21 @@
         'level5': 20117,
         'lgac': 20123,
         'lgaac-fet': 20135
+      },
+      'deliver': {
+        'qualifications': 20124,
+        'cba-venue': 20126,
+        'marketing': 20181
+      },
+      'membership': {
+        'about': 20096,
+        'benefits': 20097,
+        'apply': 20098,
+        'cpd': 20146,
+        'cpd--what-counts': 20148,
+        'cpd--record': 20153,
+        'cpd--resources': 20154,
+        'professional-standards': 20226
       }
     };
     if (!pageMap[parent]) {

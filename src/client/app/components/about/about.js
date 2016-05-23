@@ -50,7 +50,7 @@
             {'name': 'Contact us', 'url': '/about/contact-us', 'id': 12},
             {'name': 'AAT UK', 'url': 'http://www.aat.org.uk', 'id': 13, external: true},
             {'name': 'Terms and conditions', 'url': '/about/terms-conditions', 'id': 14},
-            {'name': 'Link to the SAICA website', 'url': 'http://www.saica.co.za', 'id': 15, external: true},
+            {'name': 'Link to the SAICA website', 'url': 'http://www.saica.co.za', 'id': 15, external: true}
           ],
           'title': 'About Us',
           'class': 'sidebar__menu'
