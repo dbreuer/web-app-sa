@@ -61,9 +61,10 @@
       '$locationProvider',
       '$httpProvider',
       'jwtInterceptorProvider',
+      '$sceProvider',
 
-      function($routeProvider, $locationProvider, $httpProvider, jwtInterceptorProvider) {
-
+      function($routeProvider, $locationProvider, $httpProvider, jwtInterceptorProvider, $sceProvider) {
+        $sceProvider.enabled(false);
         $locationProvider.html5Mode({
           enabled: true,
           requireBase: false

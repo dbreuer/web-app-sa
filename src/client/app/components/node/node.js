@@ -134,7 +134,7 @@
   }
 
   function PostType(post, nodeService) {
-    this.body = post.body.und[0].value;
+    this.body = post.body.und[0].safe_value;
     this.title = post.title;
     this.slug = post.slug;
     this.date = new Date(post.created * 1000);
