@@ -33,7 +33,7 @@
     .controller('MyaatController', MyaatController);
 
   // Inject Deps
-  MyaatController.$inject = ['menuService'];
+  MyaatController.$inject = ['menuService', '$rootScope'];
 
   /**
    *
@@ -41,37 +41,12 @@
    *
    * @constructor
    */
-  function MyaatController(menuService) {
+  function MyaatController(menuService, $rootScope) {
 
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
-
-    vm.slickConfig = {
-      dots: true,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 1,
-      adaptiveHeight: true
-    };
-
-    menuService.setMenu(
-      {
-        'myaat': {
-          'data': [
-            {'name': 'What is MyAAT?', 'url': '/myaat/about', 'id': 11},
-            {'name': 'Register for your MyAAT account', 'url': 'http://www.aat.org.uk/get-myaat/options',
-              'id': 12, external: true},
-            {'name': 'AAT privacy policy', 'url': '/myaat/privacy', 'id': 13},
-            {'name': 'AAT use of cookies', 'url': '/myaat/cookies', 'id': 14},
-            {'name': 'Help logging in to MyAAT', 'url': '/myaat/help', 'id': 15}
-          ],
-          'title': 'MyAAT',
-          'class': 'sidebar__menu'
-        }
-      }
-    );
-
+    $rootScope.menu = menuService.getMenu('myaat');
     vm.pageContent = {
       'slideshow': [
         {

@@ -57,6 +57,8 @@
     vm.newsSinglePost = {};
     vm.currentPage = 0;
     vm.limit = 5;
+
+    $rootScope.menu = menuService.getMenu('news');
     $rootScope.params = {
       limit: 5,
       steps: 5,
@@ -67,22 +69,6 @@
     vm.getNewsListing = getNewsListing;
     vm.getSinglePost = getSinglePost;
     vm.goToNews = goToNews;
-
-    menuService.setMenu({
-        'news': {
-          'data': [
-            {'name': 'News', 'url': '/news', 'id': 71},
-            {
-              'name': 'Voice of AAT(SA) blog',
-              'url': 'http://www.voiceofaatsa.org.za/',
-              'id': 72,
-              external: true
-            }
-          ],
-          'title': 'News',
-          'class': 'sidebar__menu'
-        }
-      });
 
     function getNewsListing() {
       NewsService.getAllNews().then(function(response) {

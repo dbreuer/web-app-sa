@@ -1,19 +1,19 @@
 <div class="menu">
 
-    <h2 ng-if="menu.title" ng-bind="menu.title"></h2>
-    <ul ng-class="menu.class" >
-        <li ng-repeat="item in menu.data track by $index" ng-class="{'disabled': item.disabled}">
+    <h2 ng-if="$root.menu.title" ng-bind="$root.menu.title"></h2>
+    <ul ng-class="$root.menu.class" >
+        <li ng-repeat="item in $root.menu.data track by $index" ng-class="{'disabled': item.disabled}">
 
-            <a href="{{item.url}}" target="{{item.external ? '_blank' : ''}}" ng-class="{'active': menu.isActive(item)}" ng-if="!item.disabled">
+            <a href="{{item.url}}" target="{{item.external ? '_blank' : ''}}" ng-class="{'active': $root.menu.isActive(item)}" ng-if="!item.disabled">
                 <span style="{{(item.external) ? 'font-weight: 700;' : ''}}" ng-bind="item.name"></span>
-                <i class="fa fa-chevron-right" ng-if="item.data"></i>
+                <i class="fa fa-chevron-right" ng-if="item.data.length > 0"></i>
                 <i class="fa fa-chevron-down" ng-if="item.active"></i>
             </a>
             <a href="" ng-if="item.disabled">
                 <span ng-bind="item.name"></span>
             </a>
 
-            <ul ng-if="item.data && !item.disabled" class=" ">
+            <ul ng-if="item.data.length > 0 && !item.disabled" class=" ">
                 <li ng-repeat="subitem in item.data track by $index">
                     <a href="{{subitem.url}}" target="{{subitem.external ? '_blank' : ''}}" >
                         <span   style="{{(subitem.external) ? 'font-weight: 700;' : ''}}" ng-bind="subitem.name"></span>

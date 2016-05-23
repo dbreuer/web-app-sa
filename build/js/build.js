@@ -68524,14 +68524,14 @@ function mobileMenu() {
 
     function link(scope, element, attrs) {
 
-      scope.menu = menuService.getMenu(attrs.position);
-
-      scope.menu.isActive = function(item) {
-        if (!location.path()) {
-          return false;
-        }
-        return (item.url === location.path());
-      };
+      menuService.getMenu(attrs.position);
+      console.log('this type:', typeof scope.menu);
+      //scope.menu.isActive = function(item) {
+      //  if (!location.path()) {
+      //    return false;
+      //  }
+      //  return (item.url === location.path());
+      //};
 
     }
   }
@@ -68784,7 +68784,7 @@ function mobileMenu() {
     .controller('MyaatController', MyaatController);
 
   // Inject Deps
-  MyaatController.$inject = ['menuService'];
+  MyaatController.$inject = ['menuService', '$rootScope'];
 
   /**
    *
@@ -68792,37 +68792,12 @@ function mobileMenu() {
    *
    * @constructor
    */
-  function MyaatController(menuService) {
+  function MyaatController(menuService, $rootScope) {
 
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
-
-    vm.slickConfig = {
-      dots: true,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 1,
-      adaptiveHeight: true
-    };
-
-    menuService.setMenu(
-      {
-        'myaat': {
-          'data': [
-            {'name': 'What is MyAAT?', 'url': '/myaat/about', 'id': 11},
-            {'name': 'Register for your MyAAT account', 'url': 'http://www.aat.org.uk/get-myaat/options',
-              'id': 12, external: true},
-            {'name': 'AAT privacy policy', 'url': '/myaat/privacy', 'id': 13},
-            {'name': 'AAT use of cookies', 'url': '/myaat/cookies', 'id': 14},
-            {'name': 'Help logging in to MyAAT', 'url': '/myaat/help', 'id': 15}
-          ],
-          'title': 'MyAAT',
-          'class': 'sidebar__menu'
-        }
-      }
-    );
-
+    $rootScope.menu = menuService.getMenu('myaat');
     vm.pageContent = {
       'slideshow': [
         {
@@ -68956,86 +68931,8 @@ function mobileMenu() {
   function NodeController($rootScope, $routeParams, menuService, nodeService) {
     var vm = this;
     vm.menuNode = $routeParams.sectionID;
-    menuService.setMenu(
-      {
-        'employers': {
-          'data': [
-            {
-              'name': 'AAT(SA) training for your business',
-              'url': '/employers/business-training',
-              'id': 41
-            },
-            {
-              'name': 'AAT(SA) membership for your staff',
-              'url': '/employers/staff-membership',
-              'id': 42
-            },
-            {
-              'name': 'The AAT(SA) Learnerships', 'url': '/employers/learnerships', 'id': 43,
-              'data': [
-                {
-                  'name': 'Certificate: Accounting Technician - Level 3',
-                  'url': '/employers/level3',
-                  'id': 431
-                },
-                {
-                  'name': 'FET Certificate Accounting Technician - Level 4',
-                  'url': '/employers/level4',
-                  'id': 432
-                },
-                {
-                  'name': 'Certificate: Accounting - Level 5',
-                  'url': '/employers/level5',
-                  'id': 433
-                },
-                {
-                  'name': '(LGAC) Local Government Accounting Certificate',
-                  'url': '/employers/lgac',
-                  'id': 434
-                },
-                {
-                  'name': '(LGAAC) FET Certificate: Local Government Accounting - Level 4',
-                  'url': '/employers/lgaac-fet',
-                  'id': 435
-                }
-              ]
-            }
-          ],
-          'title': 'AAT(SA) qualification',
-          'class': 'sidebar__menu'
-        },
-        'qualifications': {
-          'data': [
-            {
-              'name': 'The AAT(SA) Accounting Qualification',
-              'url': '/qualifications/accounting-qualification',
-              'id': 31,
-              'data': [
-                {'name': 'What you\'ll learn at L3', 'url': '/qualifications/level3', 'id': 321},
-                {'name': 'What you\'ll learn at L4', 'url': '/qualifications/level4', 'id': 322},
-                {'name': 'What you\'ll learn at L5', 'url': '/qualifications/level5', 'id': 323},
-                {'name': 'How you\'re assessed', 'url': '/qualifications/assessed', 'id': 324},
-                {'name': 'How long it takes to qualify', 'url': '/qualifications/how-long', 'id': 325},
-                {'name': 'Course fees', 'url': '/qualifications/fees', 'id': 326}
-              ]
-            },
-            {
-              'name': 'Becoming an AAT(SA) student member', 'url': '/qualifications/student-membership', 'id': 32,
-              'data': [
-                {
-                  'name': 'Find a training provider',
-                  'url': 'http://www.aatsa.org.za/sites/default/files/public/assets/AATSA-provider-list.pdf',
-                  'external': true,
-                  'id': 321
-                }
-              ]
-            }
-          ],
-          'title': 'AAT(SA) qualification',
-          'class': 'sidebar__menu'
-        }
-      }
-    );
+
+    $rootScope.menu = menuService.getMenu($routeParams.sectionID);
 
     nodeService.getPage($routeParams.sectionID, $routeParams.nodeID)
       .then(
@@ -69085,10 +68982,11 @@ function mobileMenu() {
 
   function PostTabs(tabidarray, nodeService) {
     var Tabs = [];
+    function successTabsDetails(response) {
+      Tabs.push(new PostType(response));
+    }
     for (var tb = 0; tb < tabidarray.length; tb++) {
-      nodeService.getPage(tabidarray[tb].nid, '', true).then(function(response) {
-        Tabs.push(new PostType(response));
-      });
+      nodeService.getPage(tabidarray[tb].nid, '', true).then(successTabsDetails);
     }
     return Tabs;
   }
@@ -69261,6 +69159,8 @@ function mobileMenu() {
     vm.newsSinglePost = {};
     vm.currentPage = 0;
     vm.limit = 5;
+
+    $rootScope.menu = menuService.getMenu('news');
     $rootScope.params = {
       limit: 5,
       steps: 5,
@@ -69271,22 +69171,6 @@ function mobileMenu() {
     vm.getNewsListing = getNewsListing;
     vm.getSinglePost = getSinglePost;
     vm.goToNews = goToNews;
-
-    menuService.setMenu({
-        'news': {
-          'data': [
-            {'name': 'News', 'url': '/news', 'id': 71},
-            {
-              'name': 'Voice of AAT(SA) blog',
-              'url': 'http://www.voiceofaatsa.org.za/',
-              'id': 72,
-              external: true
-            }
-          ],
-          'title': 'News',
-          'class': 'sidebar__menu'
-        }
-      });
 
     function getNewsListing() {
       NewsService.getAllNews().then(function(response) {
@@ -69481,7 +69365,7 @@ function mobileMenu() {
     .controller('QualificationsController', QualificationsController);
 
   // Inject Deps
-  QualificationsController.$inject = ['menuService'];
+  QualificationsController.$inject = ['menuService', '$rootScope'];
 
   /**
    *
@@ -69489,45 +69373,12 @@ function mobileMenu() {
    *
    * @constructor
    */
-  function QualificationsController(menuService) {
+  function QualificationsController(menuService, $rootScope) {
 
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
-    menuService.setMenu(
-      {
-        'qualifications': {
-          'data': [
-            {
-              'name': 'The AAT(SA) Accounting Qualification',
-              'url': '/qualifications/accounting-qualification',
-              'id': 31,
-              'data': [
-                {'name': 'What you\'ll learn at L3', 'url': '/qualifications/level3', 'id': 321},
-                {'name': 'What you\'ll learn at L4', 'url': '/qualifications/level4', 'id': 322},
-                {'name': 'What you\'ll learn at L5', 'url': '/qualifications/level5', 'id': 323},
-                {'name': 'How you\'re assessed', 'url': '/qualifications/assessed', 'id': 324},
-                {'name': 'How long it takes to qualify', 'url': '/qualifications/how-long', 'id': 325},
-                {'name': 'Course fees', 'url': '/qualifications/fees', 'id': 326}
-              ]
-            },
-            {
-              'name': 'Becoming an AAT(SA) student member', 'url': '/qualifications/student-membership', 'id': 32,
-              'data': [
-                {
-                  'name': 'Find a training provider',
-                  'url': 'http://www.aatsa.org.za/sites/default/files/public/assets/AATSA-provider-list.pdf',
-                  'external': true,
-                  'id': 321
-                }
-              ]
-            }
-          ],
-          'title': 'AAT(SA) qualification',
-          'class': 'sidebar__menu'
-        }
-      }
-    );
+    $rootScope.menu = menuService.getMenu('qualifications');
 
     vm.pageContent = {
       'slideshow': [
@@ -69659,7 +69510,7 @@ function mobileMenu() {
     .controller('EmployersController', EmployersController);
 
   // Inject Deps
-  EmployersController.$inject = ['menuService'];
+  EmployersController.$inject = ['menuService', '$rootScope'];
 
   /**
    *
@@ -69667,61 +69518,12 @@ function mobileMenu() {
    *
    * @constructor
    */
-  function EmployersController(menuService) {
+  function EmployersController(menuService, $rootScope) {
 
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
-    menuService.setMenu(
-      {
-        'employers': {
-          'data': [
-            {
-              'name': 'AAT(SA) training for your business',
-              'url': '/employers/business-training',
-              'id': 41
-            },
-            {
-              'name': 'AAT(SA) membership for your staff',
-              'url': '/employers/staff-membership',
-              'id': 42
-            },
-            {
-              'name': 'The AAT(SA) Learnerships', 'url': '/employers/learnerships', 'id': 43,
-              'data': [
-                {
-                  'name': 'Certificate: Accounting Technician - Level 3',
-                  'url': '/employers/level3',
-                  'id': 431
-                },
-                {
-                  'name': 'FET Certificate Accounting Technician - Level 4',
-                  'url': '/employers/level4',
-                  'id': 432
-                },
-                {
-                  'name': 'Certificate: Accounting - Level 5',
-                  'url': '/employers/level5',
-                  'id': 433
-                },
-                {
-                  'name': '(LGAC) Local Government Accounting Certificate',
-                  'url': '/employers/lgac',
-                  'id': 434
-                },
-                {
-                  'name': '(LGAAC) FET Certificate: Local Government Accounting - Level 4',
-                  'url': '/employers/lgaac-fet',
-                  'id': 435
-                }
-              ]
-            }
-          ],
-          'title': 'AAT(SA) qualification',
-          'class': 'sidebar__menu'
-        }
-      }
-    );
+    $rootScope.menu = menuService.getMenu('employers');
     vm.pageContent = {
       'slideshow': [
         {
@@ -69852,7 +69654,7 @@ function mobileMenu() {
     .controller('DeliverController', DeliverController);
 
   // Inject Deps
-  DeliverController.$inject = ['menuService'];
+  DeliverController.$inject = ['menuService', '$rootScope'];
 
   /**
    *
@@ -69860,36 +69662,12 @@ function mobileMenu() {
    *
    * @constructor
    */
-  function DeliverController(menuService) {
+  function DeliverController(menuService, $rootScope) {
 
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
-    menuService.setMenu(
-      {
-        'deliver': {
-          'data': [
-            {
-              'name': 'Deliver AAT(SA) qualifications',
-              'url': '/deliver/qualifications',
-              'id': 51
-            },
-            {
-              'name': 'Become a CBA venue',
-              'url': '/deliver/cba-venue',
-              'id': 52
-            },
-            {
-              'name': 'Marketing support',
-              'url': '/deliver/marketing',
-              'id': 53
-            }
-          ],
-          'title': 'Deliver AAT',
-          'class': 'sidebar__menu'
-        }
-      });
-
+    $rootScope.menu = menuService.getMenu('deliver');
     vm.pageContent = {
       'slideshow': [
         {
@@ -70022,7 +69800,7 @@ function mobileMenu() {
     .controller('MembershipController', MembershipController);
 
   // Inject Deps
-  MembershipController.$inject = ['menuService'];
+  MembershipController.$inject = ['menuService', '$rootScope'];
 
   /**
    *
@@ -70030,50 +69808,12 @@ function mobileMenu() {
    *
    * @constructor
    */
-  function MembershipController(menuService) {
+  function MembershipController(menuService, $rootScope) {
 
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
-    menuService.setMenu(
-      {
-        'membership': {
-          'data': [
-            {
-              'name': 'About AAT(SA) membership',
-              'url': '/membership/about',
-              'id': 61
-            },
-            {
-              'name': 'Benefits of membership',
-              'url': '/membership/benefits',
-              'id': 62
-            },
-            {
-              'name': 'Apply for membership',
-              'url': '/membership/apply',
-              'id': 63
-            },
-            {
-              'name': 'Continuing professional development (CPD)',
-              'url': '/membership/cpd',
-              'id': 64,
-              'data': [
-                {'name': 'What counts as CPD?', 'url': '/membership/cpd--what-counts', 'id': 641},
-                {'name': 'Record your CPD', 'url': '/membership/cpd--record', 'id': 642},
-                {'name': 'CPD resources', 'url': '/membership/cpd--resources', 'id': 643}
-              ]
-            },
-            {
-              'name': 'Professional standards',
-              'url': '/membership/professional-standards',
-              'id': 65
-            }
-          ],
-          'title': 'AAT membership',
-          'class': 'sidebar__menu'
-        }
-      });
+    $rootScope.menu = menuService.getMenu('membership');
     vm.pageContent = {
       'slideshow': [
         {
@@ -70202,7 +69942,7 @@ function mobileMenu() {
     .controller('AboutController', AboutController);
 
   // Inject Deps
-  AboutController.$inject = ['menuService'];
+  AboutController.$inject = ['menuService', '$rootScope'];
 
   /**
    *
@@ -70210,26 +69950,12 @@ function mobileMenu() {
    *
    * @constructor
    */
-  function AboutController(menuService) {
-    menuService.setMenu(
-      {
-        'about': {
-          'data': [
-            {'name': 'What we do', 'url': '/about/what-we-do', 'id': 11},
-            {'name': 'Contact us', 'url': '/about/contact-us', 'id': 12},
-            {'name': 'AAT UK', 'url': 'http://www.aat.org.uk', 'id': 13, external: true},
-            {'name': 'Terms and conditions', 'url': '/about/terms-conditions', 'id': 14},
-            {'name': 'Link to the SAICA website', 'url': 'http://www.saica.co.za', 'id': 15, external: true}
-          ],
-          'title': 'About Us',
-          'class': 'sidebar__menu'
-        }
-      }
-    );
-
+  function AboutController(menuService, $rootScope) {
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
+
+    $rootScope.menu = menuService.getMenu('about');
 
     vm.pageContent = {
       'slideshow': [
@@ -70324,6 +70050,7 @@ function mobileMenu() {
 
 }());
 
+// jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 /**
  * Created by David Breuer on 13/05/2016.
  *
@@ -70337,10 +70064,12 @@ function mobileMenu() {
     .module('menu-service', [])
     .service('menuService', menuService);
 
-  menuService.$inject = ['$rootScope'];
+  menuService.$inject = ['$rootScope', '$http', '$q'];
   /* @ngInject */
-  function menuService($rootScope) {
-    console.log('service Init');
+  function menuService($rootScope, $http, $q) {
+    var settings = {};
+    settings.apiBase = 'http://sa.aws.aat.org.uk/api/v1';
+
     if ($rootScope && $rootScope.menus === 'undefined') {
       $rootScope.menus = {};
     }
@@ -70349,9 +70078,32 @@ function mobileMenu() {
      * Menu Items
      */
     return {
+      api: api,
       setMenu: setMenu,
       getMenu: getMenu
     };
+
+    function api(endpoint, method, cache, params, data, headers) {
+      var deferred = $q.defer();
+
+      $http({
+        url: settings.apiBase + endpoint,
+        method: method ? method : 'GET',
+        params: params,
+        data: data,
+        headers: headers,
+        cache: cache ? cache : false,
+        withCredentials: false
+      })
+        .success(function(data) {
+          deferred.resolve(data);
+        })
+        .error(function(data) {
+          deferred.reject(data);
+        });
+      return deferred.promise;
+    }
+
     /**
      *
      * Get Menu
@@ -70359,20 +70111,201 @@ function mobileMenu() {
      * @returns {items|{}}
      */
     function setMenu(menuObject) {
-      $rootScope.menus = angular.extend({}, $rootScope.menus, menuObject);
+      $rootScope.menu = angular.extend({}, $rootScope.menus, menuObject);
     }
 
-    function getMenu(menuID) {
-      if ($rootScope && $rootScope.menus) {
-        if ($rootScope.menus[menuID]) {
-          return $rootScope.menus[menuID];
-        }
-        return {'error': 'Menu does not exist at: ' + menuID};
-      }
-      return {'error': 'No Route Scope'};
+    function getMenu(slug) {
+      //@todo: Menu list API
+      return getMenuMachineNameBySlug(slug);
     }
   }
+
+  /**
+   *
+   * @param slug
+   * @returns {*}
+   */
+  function getMenuMachineNameBySlug(slug) {
+    var menuMap = {
+      'myaat': {
+        'data': [
+          {'name': 'What is MyAAT?', 'url': '/myaat/about', 'id': 11},
+          {
+            'name': 'Register for your MyAAT account', 'url': 'http://www.aat.org.uk/get-myaat/options',
+            'id': 12, external: true
+          },
+          {'name': 'AAT privacy policy', 'url': '/myaat/privacy', 'id': 13},
+          {'name': 'AAT use of cookies', 'url': '/myaat/cookies', 'id': 14},
+          {'name': 'Help logging in to MyAAT', 'url': '/myaat/help', 'id': 15}
+        ],
+        'title': 'MyAAT',
+        'class': 'sidebar__menu'
+      },
+      'about': {
+        'data': [
+          {'name': 'What we do', 'url': '/about/what-we-do', 'id': 11},
+          {'name': 'Contact us', 'url': '/about/contact-us', 'id': 12},
+          {'name': 'AAT UK', 'url': 'http://www.aat.org.uk', 'id': 13, external: true},
+          {'name': 'Terms and conditions', 'url': '/about/terms-conditions', 'id': 14},
+          {'name': 'Link to the SAICA website', 'url': 'http://www.saica.co.za', 'id': 15, external: true}
+        ],
+        'title': 'About Us',
+        'class': 'sidebar__menu'
+      },
+      'qualifications': {
+        'data': [
+          {
+            'name': 'The AAT(SA) Accounting Qualification',
+            'url': '/qualifications/accounting-qualification',
+            'id': 31,
+            'data': [
+              {'name': 'What you\'ll learn at L3', 'url': '/qualifications/level3', 'id': 321},
+              {'name': 'What you\'ll learn at L4', 'url': '/qualifications/level4', 'id': 322},
+              {'name': 'What you\'ll learn at L5', 'url': '/qualifications/level5', 'id': 323},
+              {'name': 'How you\'re assessed', 'url': '/qualifications/assessed', 'id': 324},
+              {'name': 'How long it takes to qualify', 'url': '/qualifications/how-long', 'id': 325},
+              {'name': 'Course fees', 'url': '/qualifications/fees', 'id': 326}
+            ]
+          },
+          {
+            'name': 'Becoming an AAT(SA) student member', 'url': '/qualifications/student-membership', 'id': 32,
+            'data': [
+              {
+                'name': 'Find a training provider',
+                'url': 'http://www.aatsa.org.za/sites/default/files/public/assets/AATSA-provider-list.pdf',
+                'external': true,
+                'id': 321
+              }
+            ]
+          }
+        ],
+        'title': 'AAT(SA) qualification',
+        'class': 'sidebar__menu'
+      },
+      'employers': {
+        'data': [
+          {
+            'name': 'AAT(SA) training for your business',
+            'url': '/employers/business-training',
+            'id': 41
+          },
+          {
+            'name': 'AAT(SA) membership for your staff',
+            'url': '/employers/staff-membership',
+            'id': 42
+          },
+          {
+            'name': 'The AAT(SA) Learnerships', 'url': '/employers/learnerships', 'id': 43,
+            'data': [
+              {
+                'name': 'Certificate: Accounting Technician - Level 3',
+                'url': '/employers/level3',
+                'id': 431
+              },
+              {
+                'name': 'FET Certificate Accounting Technician - Level 4',
+                'url': '/employers/level4',
+                'id': 432
+              },
+              {
+                'name': 'Certificate: Accounting - Level 5',
+                'url': '/employers/level5',
+                'id': 433
+              },
+              {
+                'name': '(LGAC) Local Government Accounting Certificate',
+                'url': '/employers/lgac',
+                'id': 434
+              },
+              {
+                'name': '(LGAAC) FET Certificate: Local Government Accounting - Level 4',
+                'url': '/employers/lgaac-fet',
+                'id': 435
+              }
+            ]
+          }
+        ],
+        'title': 'AAT for employers',
+        'class': 'sidebar__menu'
+      },
+      'deliver': {
+        'data': [
+          {
+            'name': 'Deliver AAT(SA) qualifications',
+            'url': '/deliver/qualifications',
+            'id': 51
+          },
+          {
+            'name': 'Become a CBA venue',
+            'url': '/deliver/cba-venue',
+            'id': 52
+          },
+          {
+            'name': 'Marketing support',
+            'url': '/deliver/marketing',
+            'id': 53
+          }
+        ],
+        'title': 'Deliver AAT',
+        'class': 'sidebar__menu'
+      },
+      'membership': {
+        'data': [
+          {
+            'name': 'About AAT(SA) membership',
+            'url': '/membership/about',
+            'id': 61
+          },
+          {
+            'name': 'Benefits of membership',
+            'url': '/membership/benefits',
+            'id': 62
+          },
+          {
+            'name': 'Apply for membership',
+            'url': '/membership/apply',
+            'id': 63
+          },
+          {
+            'name': 'Continuing professional development (CPD)',
+            'url': '/membership/cpd',
+            'id': 64,
+            'data': [
+              {'name': 'What counts as CPD?', 'url': '/membership/cpd--what-counts', 'id': 641},
+              {'name': 'Record your CPD', 'url': '/membership/cpd--record', 'id': 642},
+              {'name': 'CPD resources', 'url': '/membership/cpd--resources', 'id': 643}
+            ]
+          },
+          {
+            'name': 'Professional standards',
+            'url': '/membership/professional-standards',
+            'id': 65
+          }
+        ],
+        'title': 'AAT membership',
+        'class': 'sidebar__menu'
+      },
+      'news': {
+        'data': [
+          {'name': 'News', 'url': '/news', 'id': 71},
+          {
+            'name': 'Voice of AAT(SA) blog',
+            'url': 'http://www.voiceofaatsa.org.za/',
+            'id': 72,
+            external: true
+          }
+        ],
+        'title': 'News',
+        'class': 'sidebar__menu'
+      }
+    };
+
+    return menuMap[slug];
+  }
+
 })();
+
+// jscs:enable requireCamelCaseOrUpperCaseIdentifiers
 
 
 /**
@@ -70731,8 +70664,8 @@ function mobileMenu() {
 angular.module("templates").run(["$templateCache", function($templateCache) {$templateCache.put("bower_components/angularUtils-pagination/dirPagination.tpl.html","<ul class=\"pagination\" ng-if=\"1 < pages.length || !autoHide\">\n    <li ng-if=\"boundaryLinks\" ng-class=\"{ disabled : pagination.current == 1 }\">\n        <a href=\"\" ng-click=\"setCurrent(1)\">&laquo;</a>\n    </li>\n    <li ng-if=\"directionLinks\" ng-class=\"{ disabled : pagination.current == 1 }\">\n        <a href=\"\" ng-click=\"setCurrent(pagination.current - 1)\">&lsaquo;</a>\n    </li>\n    <li ng-repeat=\"pageNumber in pages track by tracker(pageNumber, $index)\" ng-class=\"{ active : pagination.current == pageNumber, disabled : pageNumber == \'...\' }\">\n        <a href=\"\" ng-click=\"setCurrent(pageNumber)\">{{ pageNumber }}</a>\n    </li>\n\n    <li ng-if=\"directionLinks\" ng-class=\"{ disabled : pagination.current == pagination.last }\">\n        <a href=\"\" ng-click=\"setCurrent(pagination.current + 1)\">&rsaquo;</a>\n    </li>\n    <li ng-if=\"boundaryLinks\"  ng-class=\"{ disabled : pagination.current == pagination.last }\">\n        <a href=\"\" ng-click=\"setCurrent(pagination.last)\">&raquo;</a>\n    </li>\n</ul>");
 $templateCache.put("components/about/about.tpl.html","<div class=\"about\">\n\n    <div class=\"hero\">\n\n\n        <div class=\"hero_message\">\n            <div class=\"hero_message__content\">\n                <h1>About Us</h1>\n            </div>\n        </div>\n\n\n    </div>\n\n    <div class=\"about-page\">\n\n        <div class=\"about-page__wrapper\">\n\n            <div class=\"sidebar\">\n                <menu position=\"about\"></menu>\n            </div>\n\n            <div class=\"page-content\">\n\n                <slideshow-content slideshow=\"vm.pageContent.slideshow\"></slideshow-content>\n\n\n                <div class=\"spotlight-container\">\n                    <div class=\"spotlight-grid\">\n                        <!-- spotlight loop -->\n                        <div class=\"spotlight-item\" ng-repeat=\"spotlight in vm.pageContent.spotlights\">\n                            <div class=\"spotlight-item--inner\">\n                                <div class=\"spotlight-item__header\">\n                                    <h3 ng-bind=\"spotlight.title\">\n                                        <!-- spotlight title -->\n                                    </h3>\n                                </div>\n                                <div class=\"spotlight-item__body\">\n                                    <div class=\"spotlight-item__body--text\">\n                                        <p ng-bind=\"spotlight.text\">\n                                            <!-- spotlight text -->\n                                        </p>\n                                    </div>\n                                    <div class=\"spotlight-item__body--image\">\n                                        <a ng-href=\"{{spotlight.button.url}}\" title=\"{{spotlight.image.alt}}\">\n                                            <img ng-src=\"{{spotlight.image.src}}\"\n                                                 alt=\"{{spotlight.image.alt}}\">\n                                        </a>\n                                    </div>\n                                </div>\n                                <div class=\"spotlight-item__footer\">\n                                    <a ng-href=\"{{spotlight.button.url}}\" ng-bind=\"spotlight.button.text\">\n                                        <!-- spotlight buton text -->\n                                    </a>\n                                </div>\n                            </div>\n                        </div><!-- end spotlight-item -->\n                        <!-- end spotlight loop -->\n                    </div><!-- end spotlight-grid -->\n                </div>\n\n\n            </div><!-- end page-content -->\n\n        </div><!-- end myaat__wrapper -->\n\n    </div><!-- end myaat -->\n\n</div>\n\n");
 $templateCache.put("components/deliver/deliver.tpl.html","<div class=\"deliver\">\n\n    <div class=\"hero\">\n\n\n        <div class=\"hero_message\">\n            <div class=\"hero_message__content\">\n                <h1>Deliver</h1>\n\n            </div>\n        </div>\n\n\n    </div>\n\n    <div class=\"deliver-page\">\n\n        <div class=\"deliver-page__wrapper\">\n\n            <div class=\"sidebar\">\n                <menu position=\"deliver\"></menu>\n            </div>\n\n            <div class=\"page-content\">\n\n                <slideshow-content slideshow=\"vm.pageContent.slideshow\"></slideshow-content>\n\n                <div class=\"spotlight-container\">\n                    <div class=\"spotlight-grid\">\n                        <!-- spotlight loop -->\n                        <div class=\"spotlight-item\" ng-repeat=\"spotlight in vm.pageContent.spotlights\">\n                            <div class=\"spotlight-item--inner\">\n                                <div class=\"spotlight-item__header\">\n                                    <h3 ng-bind=\"spotlight.title\">\n                                        <!-- spotlight title -->\n                                    </h3>\n                                </div>\n                                <div class=\"spotlight-item__body\">\n                                    <div class=\"spotlight-item__body--text\">\n                                        <p ng-bind=\"spotlight.text\">\n                                            <!-- spotlight text -->\n                                        </p>\n                                    </div>\n                                    <div class=\"spotlight-item__body--image\">\n                                        <a ng-href=\"{{spotlight.button.url}}\" title=\"{{spotlight.image.alt}}\">\n                                            <img ng-src=\"{{spotlight.image.src}}\"\n                                                 alt=\"{{spotlight.image.alt}}\">\n                                        </a>\n                                    </div>\n                                </div>\n                                <div class=\"spotlight-item__footer\">\n                                    <a ng-href=\"{{spotlight.button.url}}\" ng-bind=\"spotlight.button.text\">\n                                        <!-- spotlight buton text -->\n                                    </a>\n                                </div>\n                            </div>\n                        </div><!-- end spotlight-item -->\n                        <!-- end spotlight loop -->\n\n                    </div><!-- end spotlight-grid -->\n                </div>\n\n            </div><!-- end page-content -->\n\n        </div><!-- end myaat__wrapper -->\n\n    </div><!-- end myaat -->\n\n</div>\n\n");
-$templateCache.put("components/footer/footer.tpl.html","<section class=\"to-top\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"to-top__footer-social\">\n\n                <ul class=\"social-icons\">\n                    <li><a href=\"http://forums.aat.org.uk\" title=\"Visit forums.aat.org.uk\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-comments\"></i></a></li>\n                    <li><a href=\"http://www.aatcomment.org.uk\" title=\"Visit aatcomment.org.uk\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-comment\"></i></a></li>\n                    <li><a href=\"http://www.facebook.com/youraat\" title=\"Visit facebook.com/youraat\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-facebook-square\"></i></a></li>\n                    <li><a href=\"http://www.twitter.com/youraat\" title=\"Visit twitter.com/youraat\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-twitter\"></i></a></li>\n                    <li><a href=\"http://www.linkedin.com/company/aat\" title=\"Visit linkedin.com/company/aat\"\n                           target=\"_blank\"><i class=\"social brandwhite fa fa-linkedin-square\"></i></a></li>\n                    <li><a href=\"http://www.youtube.com/user/yourbigfutureaat\"\n                           title=\"Visit youtube.com/user/yourbigfutureaat\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-youtube-play\"></i></a></li>\n                    <li><a href=\"http://instagram.com/youraat\" title=\"Visit instagram.com/youraat\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-instagram\"></i></a></li>\n                    <li><a href=\"https://storify.com/YourAAT\" title=\"Visit storify.com/YourAAT\" target=\"_blank\"><img\n                            class=\"social brandwhite storify\"></a></li>\n                </ul>\n            </div>\n\n            <div class=\"to-top__wrap\">\n                <a href=\"#top\" class=\"to-to__wrap--button\"><i class=\"fa fa-chevron-up\"></i></a>\n            </div>\n\n        </div>\n    </div>\n</section>\n\n<footer>\n    <div class=\"container\">\n        <div class=\"footer-links row\">\n            <div class=\"col-xs-12 col-sm-2\">\n\n                <div class=\"footer-links__logo\">\n                    <!-- needs sizing -->\n                    <a href=\"/\"><img src=\"img/svg/aat_logo.svg\" alt=\"AAT logo\"></a>\n                </div>\n\n                <p class=\"text-wrap\">©AAT 2016</p>\n\n            </div>\n\n            <div class=\"col-xs-12 col-sm-7\">\n                <h5>The Association of Accounting Technicians.</h5>\n\n                <p class=\"text-wrap\">\n                    17 Fricker Place, Illovo Sandton<br/>\n                    Johannesburg 2196<br/>\n                    Registered charity no.1050724. <br/>\n                    A company limited by guarantee (No. 1518983).</p>\n            </div>\n\n            <!--<menu position=\"footer\"></menu>-->\n\n            <div class=\"col-xs-12 col-sm-3\">\n                <h5>Find a training provider</h5>\n\n                <p>Download our comprehensive list to find an AAT(SA) approved training provider in your area.</p>\n                <a href=\"http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/assets/AATSA-provider-list.pdf\">\n                    <div class=\"btn btn-primary\"> Download training providers (PDF)</div>\n                </a>\n            </div>\n        </div>\n    </div>\n</footer>\n\n<div class=\"footer-terms\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-xs-12\">\n                <ul class=\"list-inline\">\n                    <li><a href=\"/get-myaat/privacy-policy\" title=\"Privacy policy\">Privacy policy</a></li>\n                    <li><a href=\"/get-myaat/aat-cookie-policy\" title=\"Cookie policy\">Cookie policy</a></li>\n                    <li><a href=\"/get-myaat/aat-equal-opportunities-policy\" title=\"Equality of opportunity\">Equality of\n                        opportunity</a></li>\n                    <li><a href=\"/get-myaat/aat-website-terms-and-conditions\" title=\"Terms and conditions\">Terms and\n                        conditions</a></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>");
 $templateCache.put("components/employers/employers.tpl.html","<div class=\"employers\">\n\n    <div class=\"hero\">\n\n\n        <div class=\"hero_message\">\n            <div class=\"hero_message__content\">\n                <h1>Employers</h1>\n\n            </div>\n        </div>\n\n\n    </div>\n\n    <div class=\"employers-page\">\n\n        <div class=\"employers-page__wrapper\">\n\n            <div class=\"sidebar\">\n                <menu position=\"employers\"></menu>\n            </div>\n\n            <div class=\"page-content\">\n\n                <slideshow-content slideshow=\"vm.pageContent.slideshow\"></slideshow-content>\n\n                <div class=\"spotlight-container\">\n                    <div class=\"spotlight-grid\">\n                        <!-- spotlight loop -->\n                        <div class=\"spotlight-item\" ng-repeat=\"spotlight in vm.pageContent.spotlights\">\n                            <div class=\"spotlight-item--inner\">\n                                <div class=\"spotlight-item__header\">\n                                    <h3 ng-bind=\"spotlight.title\">\n                                        <!-- spotlight title -->\n                                    </h3>\n                                </div>\n                                <div class=\"spotlight-item__body\">\n                                    <div class=\"spotlight-item__body--text\">\n                                        <p ng-bind=\"spotlight.text\">\n                                            <!-- spotlight text -->\n                                        </p>\n                                    </div>\n                                    <div class=\"spotlight-item__body--image\">\n                                        <a ng-href=\"{{spotlight.button.url}}\" title=\"{{spotlight.image.alt}}\">\n                                            <img ng-src=\"{{spotlight.image.src}}\"\n                                                 alt=\"{{spotlight.image.alt}}\">\n                                        </a>\n                                    </div>\n                                </div>\n                                <div class=\"spotlight-item__footer\">\n                                    <a ng-href=\"{{spotlight.button.url}}\" ng-bind=\"spotlight.button.text\">\n                                        <!-- spotlight buton text -->\n                                    </a>\n                                </div>\n                            </div>\n                        </div><!-- end spotlight-item -->\n                        <!-- end spotlight loop -->\n\n                    </div><!-- end spotlight-grid -->\n                </div>\n\n            </div><!-- end page-content -->\n\n        </div><!-- end myaat__wrapper -->\n\n    </div><!-- end myaat -->\n\n</div>\n\n");
+$templateCache.put("components/footer/footer.tpl.html","<section class=\"to-top\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"to-top__footer-social\">\n\n                <ul class=\"social-icons\">\n                    <li><a href=\"http://forums.aat.org.uk\" title=\"Visit forums.aat.org.uk\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-comments\"></i></a></li>\n                    <li><a href=\"http://www.aatcomment.org.uk\" title=\"Visit aatcomment.org.uk\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-comment\"></i></a></li>\n                    <li><a href=\"http://www.facebook.com/youraat\" title=\"Visit facebook.com/youraat\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-facebook-square\"></i></a></li>\n                    <li><a href=\"http://www.twitter.com/youraat\" title=\"Visit twitter.com/youraat\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-twitter\"></i></a></li>\n                    <li><a href=\"http://www.linkedin.com/company/aat\" title=\"Visit linkedin.com/company/aat\"\n                           target=\"_blank\"><i class=\"social brandwhite fa fa-linkedin-square\"></i></a></li>\n                    <li><a href=\"http://www.youtube.com/user/yourbigfutureaat\"\n                           title=\"Visit youtube.com/user/yourbigfutureaat\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-youtube-play\"></i></a></li>\n                    <li><a href=\"http://instagram.com/youraat\" title=\"Visit instagram.com/youraat\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-instagram\"></i></a></li>\n                    <li><a href=\"https://storify.com/YourAAT\" title=\"Visit storify.com/YourAAT\" target=\"_blank\"><img\n                            class=\"social brandwhite storify\"></a></li>\n                </ul>\n            </div>\n\n            <div class=\"to-top__wrap\">\n                <a href=\"#top\" class=\"to-to__wrap--button\"><i class=\"fa fa-chevron-up\"></i></a>\n            </div>\n\n        </div>\n    </div>\n</section>\n\n<footer>\n    <div class=\"container\">\n        <div class=\"footer-links row\">\n            <div class=\"col-xs-12 col-sm-2\">\n\n                <div class=\"footer-links__logo\">\n                    <!-- needs sizing -->\n                    <a href=\"/\"><img src=\"img/svg/aat_logo.svg\" alt=\"AAT logo\"></a>\n                </div>\n\n                <p class=\"text-wrap\">©AAT 2016</p>\n\n            </div>\n\n            <div class=\"col-xs-12 col-sm-7\">\n                <h5>The Association of Accounting Technicians.</h5>\n\n                <p class=\"text-wrap\">\n                    17 Fricker Place, Illovo Sandton<br/>\n                    Johannesburg 2196<br/>\n                    Registered charity no.1050724. <br/>\n                    A company limited by guarantee (No. 1518983).</p>\n            </div>\n\n            <!--<menu position=\"footer\"></menu>-->\n\n            <div class=\"col-xs-12 col-sm-3\">\n                <h5>Find a training provider</h5>\n\n                <p>Download our comprehensive list to find an AAT(SA) approved training provider in your area.</p>\n                <a href=\"http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/assets/AATSA-provider-list.pdf\">\n                    <div class=\"btn btn-primary\"> Download training providers (PDF)</div>\n                </a>\n            </div>\n        </div>\n    </div>\n</footer>\n\n<div class=\"footer-terms\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-xs-12\">\n                <ul class=\"list-inline\">\n                    <li><a href=\"/get-myaat/privacy-policy\" title=\"Privacy policy\">Privacy policy</a></li>\n                    <li><a href=\"/get-myaat/aat-cookie-policy\" title=\"Cookie policy\">Cookie policy</a></li>\n                    <li><a href=\"/get-myaat/aat-equal-opportunities-policy\" title=\"Equality of opportunity\">Equality of\n                        opportunity</a></li>\n                    <li><a href=\"/get-myaat/aat-website-terms-and-conditions\" title=\"Terms and conditions\">Terms and\n                        conditions</a></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>");
 $templateCache.put("components/frontpage/frontpage.tpl.html","<div class=\"frontpage\">\n\n    <div class=\"hero\">\n\n\n        <div class=\"hero_message\">\n            <div class=\"hero_message__content\">\n                <h1>Practical finance and accounting <br>courses whatever your experience</h1>\n\n                <a href=\"https://www.aat.org.uk/get-myaat/options\" target=\"_blank\" class=\"btn btn-primary hero_message__content--cta-button\">Register for the AAT</a>\n\n            </div>\n        </div>\n\n\n    </div>\n\n    <div class=\"promo\">\n\n        <div class=\"promo__cards\">\n\n            <div class=\"promo__card\">\n                <h2>\n                    Welcome to AAT (SA)\n                </h2>\n                <p>Eliminate the “what if” factor with AAT(SA), the professional home for accounting technicians.\n                    Find out more using the links below.</p>\n                <ul class=\"list-group\">\n                    <li class=\"list-group__item\"><a href=\"/about/what-we-do\">About us</a></li>\n                    <li class=\"list-group__item\"><a href=\"/deliver/qualifications\">Deliver AAT(SA) qualifications</a></li>\n                    <li class=\"list-group__item\"><a href=\"/employers/business-training\">AAT(SA) training for your business</a></li>\n                </ul>\n\n                <h2 class=\"promo__card--title\">News</h2>\n\n                <ul class=\"list-group\">\n                    <li class=\"list-group__item\"><a href=\"http://www.voiceofaatsa.org.za/\">Voice of AAT(SA)</a></li>\n                    <li class=\"list-group__item\"><a href=\"http://forums.aat.org.uk/\">AAT Forums(UK)</a></li>\n                    <li class=\"list-group__item\"><a href=\"/news\">UK news</a></li>\n                </ul>\n\n            </div>\n\n            <div class=\"promo__card\">\n                <img class=\"img-responsive\" src=\"img/frontpage/jessie_bosco_735_385.jpg\">\n                <h2 class=\"promo__card--title\">\n                    AAT qualifications\n                </h2>\n                <p>\n                    Move forward in your finance career with an AAT(SA) qualification.\n                    Choose a course that suits your needs.\n                </p>\n                <ul class=\"list-group\">\n                    <li class=\"list-group__item\"><a href=\"http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/assets/AATSA-provider-list.pdf\">Download our list of training providers (PDF)</a></li>\n                    <li class=\"list-group__item\"><a href=\"/qualifications/accounting-qualification\">The AAT(SA) Accounting Qualification</a></li>\n                    <li class=\"list-group__item\"><a href=\"/employers/learnerships\">The AAT(SA) Learnerships</a></li>\n                </ul>\n            </div>\n\n            <div class=\"promo__card\">\n                <img class=\"img-responsive\" src=\"img/frontpage/lawrence_mtolo_735_385.jpg\">\n                <h2 class=\"promo__card--title\">\n                    AAT membership\n                </h2>\n                <p>Now you can belong to a professional body that cares about your career. Join the growing band of\n                    members\n                    with full MAAT(SA) status.</p>\n                <ul class=\"list-group\">\n                    <li class=\"list-group__item\"><a href=\"/membership/about\">About AAT(SA) membership</a></li>\n                    <li class=\"list-group__item\"><a href=\"/membership/benefits\">Benefits of membership</a></li>\n                    <li class=\"list-group__item\"><a href=\"/membership/apply\">Apply for membership</a></li>\n                    <li class=\"list-group__item\"><a href=\"/membership/cpd\">CPD Services</a></li>\n                </ul>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>\n\n");
 $templateCache.put("components/header/header.tpl.html","<div class=\"header\">\n\n    <nav class=\"header__navbar\">\n\n        <div class=\"header__navbar--logo\">\n            <a href=\"/\">\n                <svg width=\"50\" height=\"40\">\n                    <image xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"/img/aat_logo.svg\"\n                           src=\"/img/logo.png\" alt=\"AAT Home\" width=\"50px\" height=\"40px\"></image>\n                </svg>\n            </a>\n        </div>\n\n        <ul class=\"header__navbar--navigation\">\n            <li>\n                <a href=\"/myaat\">MyAAT</a>\n            </li>\n            <li>\n                <a href=\"/about\">About</a>\n            </li>\n            <li>\n                <a href=\"/qualifications\">Qualifications</a>\n            </li>\n            <li>\n                <a href=\"/employers\">Employers</a>\n            </li>\n            <li>\n                <a href=\"/deliver\">Deliver AAT(SA)</a>\n            </li>\n            <li>\n                <a href=\"/membership\">Membership/CPD</a>\n            </li>\n            <li>\n            <a href=\"/news\">News</a>\n            </li>\n        </ul>\n\n        <ul class=\"header__navbar--user-links\">\n            <li>\n                <a href=\"https://www.aat.org.uk/get-myaat/options\" target=\"_blank\">\n                    <span class=\"header__navbar--text register\">Register</span>\n                </a>\n            </li>\n            <li>\n                <a href=\"http://aat.org.uk/cas\" class=\"header__navbar--btn-login\">\n                    <span class=\"header__navbar--text\">Login</span>\n                    <i class=\"fa fa-user\"></i>\n                </a>\n            </li>\n        </ul>\n\n    </nav>\n\n    <mobile-menu></mobile-menu>\n\n</div>");
 $templateCache.put("components/landing-pages/landing-pages.tpl.html","<!-- frontpage.tpl.html -->\n\n<!-- @todo : clean up 20151106 _mR -->\n\n<section class=\"hero\">\n\n    <div class=\"container\">\n\n        <div class=\"row\">\n\n            <div id=\"head-content\" class=\"col-xs-12 text-center\">\n\n                <h1>Achieve your potential</h1>\n\n                <h2>with finance and accounting skills</h2>\n\n            </div>\n            <!-- end col -->\n\n        </div>\n        <!-- end row -->\n\n\n    </div>\n    <!-- end head container -->\n\n</section>\n\n\n<section class=\"section-2 module\">\n    <div class=\"container\">\n        <div id=\"section-2-container\" class=\"row\">\n            <div class=\"col-xs-12 col-sm-4 col-md-4 section-2-cta cta-1\">\n                <h2>Choose where to study</h2>\n\n                <p>Search our directory of AAT approved colleges, centres and distance learning providers</p>\n\n                <div class=\"section-2-btn-wrap\"><a href=\"/training-providers/search\"\n                                                   class=\"btn btn-default section-2-btn frontpage-vbottom\">Find a\n                    training provider</a></div>\n\n            </div>\n\n            <div class=\"col-xs-12 col-sm-4 col-md-4 section-2-cta cta-2\">\n                <h2>Register with AAT</h2>\n\n                <p>You need to sign up to sit your assessments and access exclusive study materials</p>\n\n                <div class=\"section-2-btn-wrap\"><a href=\"/register/student\"\n                                                   class=\"btn btn-default section-2-btn frontpage-vbottom\">Register as a\n                    student</a></div>\n            </div>\n\n            <div class=\"col-xs-12 col-sm-4 col-md-4 section-2-cta cta-3\">\n                <h2>Need an accountant?</h2>\n\n                <p>AAT members in practice are approved to offer a wide range of accounting services</p>\n\n                <div class=\"section-2-btn-wrap\"><a href=\"/membership/member-in-practice/search\"\n                                                   class=\"btn btn-default section-2-btn frontpage-vbottom\">Search our\n                    directory</a></div>\n\n            </div>\n\n        </div>\n        <!-- end #section-2-container - row -->\n\n    </div>\n    <!-- end container -->\n\n\n</section>\n<!-- end section-2 -->\n\n\n");
@@ -70750,7 +70683,7 @@ $templateCache.put("components/static-pages/maintenance.tpl.html","\n<div ng-con
 $templateCache.put("components/static-pages/privacy.tpl.html","<div class=\"membership\">\n\n    <div class=\"hero\">\n\n\n        <div class=\"hero_message\">\n            <div class=\"hero_message__content\">\n                <h1>AAT privacy policy</h1>\n\n            </div>\n        </div>\n\n\n    </div>\n\n    <div class=\"membership-page\">\n\n        <div class=\"membership-page__wrapper\">\n\n            <div class=\"sidebar\">\n                <ul class=\"sidebar__menu\">\n                    <li class=\"first\"><a href=\"/myaat/about\" title=\"\">About AAT(SA) membership</a></li>\n                    <li class=\"\"><a href=\"/get-myaat/privacy-policy\" title=\"\">AAT privacy policy</a></li>\n                    <li class=\"\"><a href=\"/get-myaat/aat-cookie-policy\" title=\"\">AAT cookie policy</a></li>\n                    <li class=\"\"><a href=\"/get-myaat/aat-equal-opportunities-policy\" title=\"\">Equality of opportunity</a></li>\n                    <li class=\"\"><a href=\"/get-myaat/aat-website-terms-and-conditions\" title=\"\">Terms and conditions</a></li>\n                    <li class=\"last\"><a href=\"/get-myaat/help\" title=\"\">Help logging in to MyAAT</a></li>\n\n                </ul>\n            </div>\n\n            <div class=\"page-content\">\n\n                <p>AAT carries a firm commitment to the privacy of your personal data.</p>\n\n                <div>This privacy policy describes the information we collect through this website (www.aat.org.uk), and:</div>\n\n                <ul>\n                    <li>What we do with it</li>\n                    <li>Who we share parts of it with</li>\n                    <li>The information we collect and how we use it.</li>\n                </ul>\n\n                <div>We believe it is essential to respect the privacy of all visitors and to make safe and ethical use of the information provided to the website. We aim to give you as much control as possible over the information you give us, and in all cases the disclosure of your personal details is voluntary.</div>\n\n                <div>&nbsp;</div>\n\n                <div>Where we ask for information we do so in order to offer you better services, both on the website and in the rest of our operations.</div>\n\n                <div>&nbsp;</div>\n\n                <div>If you believe that any information we hold about you is inaccurate, you can update your details in your MyAAT account or&nbsp;contact us to update it.</div>\n\n                <div>&nbsp;</div>\n\n                <div>Some of the information you give will be held in databases: we ensure that these are highly secure and can only be accessed by authorised people.</div>\n\n                <div>&nbsp;</div>\n\n                <p>We will ask for your email address to:</p>\n\n                <ul>\n                    <li>Set up your MyAAT account</li>\n                    <li>Update you with information&nbsp;and newsletters&nbsp;relevant to your studies and membership</li>\n                    <li>Send you occasional invitations to participate in surveys to help us enhance and improve our service.</li>\n                </ul>\n\n                <p>You can change your email address or choose not to receive further information at any time.</p>\n\n                <h3>Who will have access to the information</h3>\n\n                <div>Any information you give will be available to AAT. We will never share your email address with&nbsp;third parties&nbsp;except select parties we commission to undertake research on our behalf.</div>\n\n                <div>&nbsp;</div>\n\n                <div>Information you give in response to surveys and questionnaires on the website will be used in two ways:</div>\n\n                <ul>\n                    <li>By AAT itself to help determine policy and to help improve its services to members</li>\n                    <li>By third parties that AAT may make the information available for market research - in this case, the information will be made available only in the form of anonymous qualitative and statistical reports.</li>\n                </ul>\n\n                <div>We may follow up some survey responses by phone or email, but only where you have given your permission for us to do so as part of the initial research.</div>\n\n                <h3>Technical information</h3>\n\n                <div>Like most websites, our server gathers limited information about you during a session, including the IP address and domain name from which you are accessing the server and your browser configuration. This information is only used to help us improve the content, design and performance of the site, and is not linked to the identity of any individual user.</div>\n\n                <div>&nbsp;</div>\n\n                <div><a href=\"/get-myaat/aat-cookie-policy\">Our site uses cookies.</a> Cookies are small pieces of information that are transferred to and stored by your browser on your computer.</div>\n\n                <div>&nbsp;</div>\n\n                <div>In no circumstances do we collect any data that is not directly related to the use of the website (for example, we do not record other sites that you have visited).</div>\n\n                <div>&nbsp;</div>\n\n                <div>The log files or any information they contain about your use of the site will not be made available to any third parties other than as anonymous usage statistics.</div>\n\n                <div>&nbsp;</div>\n\n                <div>Our site uses the following two Google Analytics advertising features:</div>\n\n                <ul>\n                    <li>DoubleClick platform integration</li>\n                    <li>Demographics and interest reporting.</li>\n                </ul>\n\n                <div>Google Analytics collects data about our site&rsquo;s traffic via the use of Google advertising cookies. We will never match any personally identifiable information with non-personally identifiable information through the use of these Google Advertising features. You can&nbsp;<a href=\"https://tools.google.com/dlpage/gaoptout/\">opt out of the use of Google Analytics advertising features</a>&nbsp;if you wish.</div>\n\n                <h3>Other websites</h3>\n\n                <div>The website contains external links to other sites. AAT is not responsible for the privacy policies, content or practices of these sites.</div>\n\n                <h3>Data Protection Act</h3>\n\n                <div>This privacy statement forms part of AAT&#39;s commitment to the principles of the Data Protection Act 1998.</div>\n\n                <div>&nbsp;</div>\n\n                <div>If you wish to exercise your rights of access to your personal data processed by AAT then please contact the co-ordinator in writing at the address below:</div>\n\n                <div>&nbsp;</div>\n\n                <div><span style=\"line-height: 1.5;\">Data Protection<br />\n	AAT</span></div>\n\n                <div>140 Aldersgate Street</div>\n\n                <div>London</div>\n\n                <div>EC1A 4HY</div>\n\n                <div>&nbsp;</div>\n\n                <div>Alternatively, please email us at dataprotection@aat.org.uk</div>\n\n                <h3>General</h3>\n\n                <div>The terms and conditions contained in this legal notice shall be governed by English law. You may access the website from anywhere in the world; however, this legal notice shall apply regardless of how you access the website and from where.</div>\n\n                <div>&nbsp;</div>\n\n                <div>AAT is sponsored by CIPFA, ICAEW, CIMA &amp; ICAS.</div>\n\n                <div>&nbsp;</div>\n\n                <div>A company limited by guarantee (NO. 1518983) and registered as a charity (NO. 1050724)</div>\n\n                <div>&nbsp;</div>\n\n                <div>Registered in England and Wales, Registered Office:<br />\n                    140 Aldersgate Street London EC1A 4HY</div>\n\n                <div>\n                    <p>&nbsp;</p>\n\n                    <p>AAT is security accredited by <a href=\"https://www.cyberstreetwise.com/cyberessentials/\">Cyber Essentials Plus</a>.&nbsp;Cyber Essentials is a &nbsp;Government-backed and industry supported scheme to guide businesses in protecting themselves against cyber threats.</p>\n                    &nbsp;\n\n                    <p><a href=\"https://www.cyberstreetwise.com/cyberessentials/\"><img src=\"https://www.aat.org.uk/prod/s3fs-public/assets/CyberEssPlus.jpg\" /></a></p>\n\n                    <p>&nbsp;</p>\n\n                    <p>&nbsp;</p>\n                </div>\n\n\n\n\n\n            </div><!-- end page-content -->\n\n        </div><!-- end myaat__wrapper -->\n\n    </div><!-- end myaat -->\n\n</div>\n\n");
 $templateCache.put("components/static-pages/terms.tpl.html","<div class=\"membership\">\n\n    <div class=\"hero\">\n\n\n        <div class=\"hero_message\">\n            <div class=\"hero_message__content\">\n                <h1>Terms and conditions</h1>\n\n            </div>\n        </div>\n\n\n    </div>\n\n    <div class=\"membership-page\">\n\n        <div class=\"membership-page__wrapper\">\n\n            <div class=\"sidebar\">\n                <ul class=\"sidebar__menu\">\n                    <li class=\"first\"><a href=\"/myaat/about\" title=\"\">About AAT(SA) membership</a></li>\n                    <li class=\"\"><a href=\"/get-myaat/privacy-policy\" title=\"\">AAT privacy policy</a></li>\n                    <li class=\"\"><a href=\"/get-myaat/aat-cookie-policy\" title=\"\">AAT cookie policy</a></li>\n                    <li class=\"\"><a href=\"/get-myaat/aat-equal-opportunities-policy\" title=\"\">Equality of opportunity</a></li>\n                    <li class=\"\"><a href=\"/get-myaat/aat-website-terms-and-conditions\" title=\"\">Terms and conditions</a></li>\n                    <li class=\"last\"><a href=\"/get-myaat/help\" title=\"\">Help logging in to MyAAT</a></li>\n\n                </ul>\n            </div>\n\n            <div class=\"page-content\">\n\n\n                <p>Access to and use of AAT&#39;s website constitutes acceptance of the following terms and conditions:</p>\n\n                <h3>Copyright</h3>\n\n                <p>All rights, including copyright and database right, in AAT&#39;s website and its contents are owned by or licensed to AAT or otherwise used by AAT as permitted by applicable law.</p>\n\n                <p>You may download and make copies of the content of this site for your own personal use only. Unless expressly noted on the page, you are not permitted to copy, download, store (including on any other website), distribute, transmit, broadcast, adapt or change in any way the content of these web pages for any other purpose without prior written permission from AAT.</p>\n\n                <p>&copy; 2012 AAT, 140 Aldersgate Street, London EC1A 4HY. All rights reserved.</p>\n\n                <h3>Accuracy of information</h3>\n\n                <p>While AAT makes reasonable effort to ensure that the website information is correct and up to date, AAT makes no warranties or representations as to its accuracy, and accepts no liability or responsibility for any loss due to errors or omissions in the website content, or caused by reliance on this information.</p>\n\n                <p>The&nbsp; information on the AAT website is provided &quot;as is&quot; and on an &quot;as available&quot; basis without any representations or any kind of warranty made (whether express or implied by law), including the implied warranties of satisfactory quality, fitness for a particular purpose, non-infringement, compatibility, security and accuracy.</p>\n\n                <p>As a user of the site, you agree to release, indemnify and hold harmless AAT, its affiliates, business partners, partners, officers, agents and employees from any and all claims, demands and damages (whether actual and/or consequential), resulting from or associated in any way with any supplied content. It is advised that users check any information before acting or relying on it.</p>\n\n                <p>Functions embodied on, or in the materials of, this website are not warranted to be uninterrupted or without error.</p>\n\n                <h3>Privacy policy</h3>\n\n                <p>AAT carries a firm commitment to the privacy of your personal data. Find out more about <a href=\"/get-myaat/privacy-policy\">AAT&#39;s privacy policy</a>.</p>\n\n\n\n            </div><!-- end page-content -->\n\n        </div><!-- end myaat__wrapper -->\n\n    </div><!-- end myaat -->\n\n</div>\n\n");
 $templateCache.put("shared/directives/lp-grid/lp-grid.tpl.html","<div class=\"lp-grid\">\n\n\n    <!-- loop thru data set and create panes -->\n    <div>\n        <div>\n\n        </div>\n\n    </div>\n\n</div>");
-$templateCache.put("shared/directives/menu/menu.tpl.html","<div class=\"menu\">\n\n    <h2 ng-if=\"menu.title\" ng-bind=\"menu.title\"></h2>\n    <ul ng-class=\"menu.class\" >\n        <li ng-repeat=\"item in menu.data track by $index\" ng-class=\"{\'disabled\': item.disabled}\">\n\n            <a href=\"{{item.url}}\" target=\"{{item.external ? \'_blank\' : \'\'}}\" ng-class=\"{\'active\': menu.isActive(item)}\" ng-if=\"!item.disabled\">\n                <span style=\"{{(item.external) ? \'font-weight: 700;\' : \'\'}}\" ng-bind=\"item.name\"></span>\n                <i class=\"fa fa-chevron-right\" ng-if=\"item.data\"></i>\n                <i class=\"fa fa-chevron-down\" ng-if=\"item.active\"></i>\n            </a>\n            <a href=\"\" ng-if=\"item.disabled\">\n                <span ng-bind=\"item.name\"></span>\n            </a>\n\n            <ul ng-if=\"item.data && !item.disabled\" class=\" \">\n                <li ng-repeat=\"subitem in item.data track by $index\">\n                    <a href=\"{{subitem.url}}\" target=\"{{subitem.external ? \'_blank\' : \'\'}}\" >\n                        <span   style=\"{{(subitem.external) ? \'font-weight: 700;\' : \'\'}}\" ng-bind=\"subitem.name\"></span>\n                        <i class=\"fa fa-chevron-right\" ng-if=\"subitem.data\"></i>\n                    </a>\n                    <ul ng-if=\"subitem.data\" class=\"\">\n                        <li ng-repeat=\"subsubitem in subitem.data track by $index\">\n                            <a href=\"{{subsubitem.url}}\">\n                                <span ng-bind=\"subsubitem.name\"></span>\n                                <i class=\"fa fa-chevron-right\" ng-if=\"subsubitem.data\"></i>\n                            </a>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        </li>\n    </ul>\n</div>");
+$templateCache.put("shared/directives/menu/menu.tpl.html","<div class=\"menu\">\n\n    <h2 ng-if=\"$root.menu.title\" ng-bind=\"$root.menu.title\"></h2>\n    <ul ng-class=\"$root.menu.class\" >\n        <li ng-repeat=\"item in $root.menu.data track by $index\" ng-class=\"{\'disabled\': item.disabled}\">\n\n            <a href=\"{{item.url}}\" target=\"{{item.external ? \'_blank\' : \'\'}}\" ng-class=\"{\'active\': $root.menu.isActive(item)}\" ng-if=\"!item.disabled\">\n                <span style=\"{{(item.external) ? \'font-weight: 700;\' : \'\'}}\" ng-bind=\"item.name\"></span>\n                <i class=\"fa fa-chevron-right\" ng-if=\"item.data.length > 0\"></i>\n                <i class=\"fa fa-chevron-down\" ng-if=\"item.active\"></i>\n            </a>\n            <a href=\"\" ng-if=\"item.disabled\">\n                <span ng-bind=\"item.name\"></span>\n            </a>\n\n            <ul ng-if=\"item.data.length > 0 && !item.disabled\" class=\" \">\n                <li ng-repeat=\"subitem in item.data track by $index\">\n                    <a href=\"{{subitem.url}}\" target=\"{{subitem.external ? \'_blank\' : \'\'}}\" >\n                        <span   style=\"{{(subitem.external) ? \'font-weight: 700;\' : \'\'}}\" ng-bind=\"subitem.name\"></span>\n                        <i class=\"fa fa-chevron-right\" ng-if=\"subitem.data\"></i>\n                    </a>\n                    <ul ng-if=\"subitem.data\" class=\"\">\n                        <li ng-repeat=\"subsubitem in subitem.data track by $index\">\n                            <a href=\"{{subsubitem.url}}\">\n                                <span ng-bind=\"subsubitem.name\"></span>\n                                <i class=\"fa fa-chevron-right\" ng-if=\"subsubitem.data\"></i>\n                            </a>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        </li>\n    </ul>\n</div>");
 $templateCache.put("shared/directives/mobile-menu/mobile-menu.tpl.html","<nav class=\"mobile-menu\">\n    <button id=\"hamburger-button\" class=\"hamburger hamburger--collapse hamburger--accessible js-hamburger\"\n            ng-class=\"{\'is-active\': isActive}\" ng-click=\"toggleMenu()\" type=\"button\">\n              <span class=\"hamburger-box\">\n                <span class=\"hamburger-inner\"></span>\n              </span>\n    </button>\n    <div id=\"top-nav-bar\" class=\"mobile-menu__top-nav\" ng-class=\"{\'is-active\': isActive}\">\n\n        <ul class=\"\">\n            <li>\n                <a href=\"/\" ng-click=\"closeMenu()\">Home</a>\n            </li>\n            <li>\n                <a href=\"/myaat\" ng-click=\"closeMenu()\">MyAAT</a>\n            </li>\n            <li>\n                <a href=\"/about\" ng-click=\"closeMenu()\">About</a>\n            </li>\n            <li>\n                <a href=\"/qualifications\" ng-click=\"closeMenu()\">Qualifications</a>\n            </li>\n            <li>\n                <a href=\"/employers\" ng-click=\"closeMenu()\">Employers</a>\n            </li>\n            <li>\n                <a href=\"/deliver\" ng-click=\"closeMenu()\">Deliver AAT(SA)</a>\n            </li>\n            <li>\n                <a href=\"/membership\" ng-click=\"closeMenu()\">Membership/CPD</a>\n            </li>\n            <!--<li>-->\n            <!--<a href=\"/news\">News</a>-->\n            <!--</li>-->\n        </ul>\n\n\n    </div>\n</nav>");
 $templateCache.put("shared/directives/search-bar/search-bar.tpl.html","<div class=\"search-bar\">\n    <form class=\"search-container\">\n        <input id=\"search-box\" type=\"text\" class=\"search-box\" name=\"q\" />\n        <label for=\"search-box\"><span class=\"icon-search search-icon\"></span></label>\n        <input type=\"submit\" id=\"search-submit\" />\n    </form>\n</div>");
 $templateCache.put("shared/directives/slideshow/slideshow.tpl.html","<div class=\"slideshow-section\">\n    <slick class=\"slideshow\" init-onload=\"true\" autoplay=\"true\" autoplay-speed=\"5000\" data=\"slideshow\" >\n        <div class=\"slideshow__slide\" ng-repeat=\"slide in slideshow track by $index\" >\n            <div class=\"slideshow__slide--image\">\n                <img typeof=\"foaf:Image\" ng-src=\"{{slide.image.src}}\" width=\"735\" alt=\"slide.image.alt\"/>\n            </div>\n            <div class=\"slideshow__slide--content\">\n                <div class=\"slideshow__slide--text\">\n                    <h4 ng-bind=\"slide.title\"></h4>\n                    <p ng-bind=\"slide.text\"></p>\n                </div>\n                <div class=\"slideshow__slide--button\">\n                    <a ng-href=\"slide.button.url\" ng-bind=\"slide.button.text\"></a>\n                </div>\n            </div>\n        </div>\n    </slick>\n</div>");

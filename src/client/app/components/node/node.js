@@ -41,86 +41,8 @@
   function NodeController($rootScope, $routeParams, menuService, nodeService) {
     var vm = this;
     vm.menuNode = $routeParams.sectionID;
-    menuService.setMenu(
-      {
-        'employers': {
-          'data': [
-            {
-              'name': 'AAT(SA) training for your business',
-              'url': '/employers/business-training',
-              'id': 41
-            },
-            {
-              'name': 'AAT(SA) membership for your staff',
-              'url': '/employers/staff-membership',
-              'id': 42
-            },
-            {
-              'name': 'The AAT(SA) Learnerships', 'url': '/employers/learnerships', 'id': 43,
-              'data': [
-                {
-                  'name': 'Certificate: Accounting Technician - Level 3',
-                  'url': '/employers/level3',
-                  'id': 431
-                },
-                {
-                  'name': 'FET Certificate Accounting Technician - Level 4',
-                  'url': '/employers/level4',
-                  'id': 432
-                },
-                {
-                  'name': 'Certificate: Accounting - Level 5',
-                  'url': '/employers/level5',
-                  'id': 433
-                },
-                {
-                  'name': '(LGAC) Local Government Accounting Certificate',
-                  'url': '/employers/lgac',
-                  'id': 434
-                },
-                {
-                  'name': '(LGAAC) FET Certificate: Local Government Accounting - Level 4',
-                  'url': '/employers/lgaac-fet',
-                  'id': 435
-                }
-              ]
-            }
-          ],
-          'title': 'AAT(SA) qualification',
-          'class': 'sidebar__menu'
-        },
-        'qualifications': {
-          'data': [
-            {
-              'name': 'The AAT(SA) Accounting Qualification',
-              'url': '/qualifications/accounting-qualification',
-              'id': 31,
-              'data': [
-                {'name': 'What you\'ll learn at L3', 'url': '/qualifications/level3', 'id': 321},
-                {'name': 'What you\'ll learn at L4', 'url': '/qualifications/level4', 'id': 322},
-                {'name': 'What you\'ll learn at L5', 'url': '/qualifications/level5', 'id': 323},
-                {'name': 'How you\'re assessed', 'url': '/qualifications/assessed', 'id': 324},
-                {'name': 'How long it takes to qualify', 'url': '/qualifications/how-long', 'id': 325},
-                {'name': 'Course fees', 'url': '/qualifications/fees', 'id': 326}
-              ]
-            },
-            {
-              'name': 'Becoming an AAT(SA) student member', 'url': '/qualifications/student-membership', 'id': 32,
-              'data': [
-                {
-                  'name': 'Find a training provider',
-                  'url': 'http://www.aatsa.org.za/sites/default/files/public/assets/AATSA-provider-list.pdf',
-                  'external': true,
-                  'id': 321
-                }
-              ]
-            }
-          ],
-          'title': 'AAT(SA) qualification',
-          'class': 'sidebar__menu'
-        }
-      }
-    );
+
+    $rootScope.menu = menuService.getMenu($routeParams.sectionID);
 
     nodeService.getPage($routeParams.sectionID, $routeParams.nodeID)
       .then(
@@ -170,10 +92,11 @@
 
   function PostTabs(tabidarray, nodeService) {
     var Tabs = [];
+    function successTabsDetails(response) {
+      Tabs.push(new PostType(response));
+    }
     for (var tb = 0; tb < tabidarray.length; tb++) {
-      nodeService.getPage(tabidarray[tb].nid, '', true).then(function(response) {
-        Tabs.push(new PostType(response));
-      });
+      nodeService.getPage(tabidarray[tb].nid, '', true).then(successTabsDetails);
     }
     return Tabs;
   }

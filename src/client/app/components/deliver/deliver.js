@@ -34,7 +34,7 @@
     .controller('DeliverController', DeliverController);
 
   // Inject Deps
-  DeliverController.$inject = ['menuService'];
+  DeliverController.$inject = ['menuService', '$rootScope'];
 
   /**
    *
@@ -42,36 +42,12 @@
    *
    * @constructor
    */
-  function DeliverController(menuService) {
+  function DeliverController(menuService, $rootScope) {
 
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
-    menuService.setMenu(
-      {
-        'deliver': {
-          'data': [
-            {
-              'name': 'Deliver AAT(SA) qualifications',
-              'url': '/deliver/qualifications',
-              'id': 51
-            },
-            {
-              'name': 'Become a CBA venue',
-              'url': '/deliver/cba-venue',
-              'id': 52
-            },
-            {
-              'name': 'Marketing support',
-              'url': '/deliver/marketing',
-              'id': 53
-            }
-          ],
-          'title': 'Deliver AAT',
-          'class': 'sidebar__menu'
-        }
-      });
-
+    $rootScope.menu = menuService.getMenu('deliver');
     vm.pageContent = {
       'slideshow': [
         {
