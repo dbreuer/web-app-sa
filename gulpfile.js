@@ -47,10 +47,12 @@ var vendorJsFiles = [
 
   'src/client/app/bower_components/api-check/dist/api-check.js',
   'src/client/app/bower_components/angular-formly/dist/formly.js',
-  'src/client/app/bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js'
+  'src/client/app/bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js',
 
   //'app/bower_components/slick-carousel/slick/slick.js',
-  //'app/bower_components/angular-slick/dist/slick.js',
+  'src/client/app/bower_components/jquery/dist/jquery.js',
+  'src/client/app/bower_components/slick-carousel/slick/slick.js',
+  'src/client/app/bower_components/angular-slick/dist/slick.js'
 
 ];
 

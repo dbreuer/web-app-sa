@@ -24,6 +24,7 @@
       'ngAnimate',
       'angular-jwt',
       'angular-storage',
+      'slick',
       '720kb.socialshare',
 
       //'formly',
@@ -35,6 +36,7 @@
       //'search-bar',
       //'bookmarks',
       //'meta',
+      'slideshow',
       'social',
       'menu',
       //'landing-page',

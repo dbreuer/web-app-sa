@@ -47,6 +47,14 @@
     vm.pageContent = {};
     vm.isPageLoading = true;
 
+    vm.slickConfig = {
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      adaptiveHeight: true
+    };
+
     menuService.setMenu(
       {
         'myaat': {

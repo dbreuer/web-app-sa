@@ -23,23 +23,7 @@
 
             <div class="page-content">
 
-                <div class="slideshow">
-                    <!-- slide loop -->
-                    <div class="slideshow__slide" ng-repeat="slide in vm.pageContent.slideshow">
-                        <div class="slideshow__slide--image">
-                            <img typeof="foaf:Image" ng-src="{{slide.image.src}}" alt="slide.image.alt"/>
-                        </div>
-                        <div class="slideshow__slide--content">
-                            <div class="slideshow__slide--text">
-                                <h4 ng-bind="slide.title"></h4>
-                                <p ng-bind="slide.text"></p>
-                            </div>
-                            <div class="slideshow__slide--button"><a ng-href="slide.button.url"
-                                                                     ng-bind="slide.button.text"></a></div>
-                        </div>
-                    </div><!-- end slide loop -->
-
-                </div>
+                <slideshow-content slideshow="vm.pageContent.slideshow"></slideshow-content>
 
                 <div class="spotlight-container">
                     <div class="spotlight-grid">
