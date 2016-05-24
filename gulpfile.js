@@ -125,7 +125,7 @@ gulp.task('css', function() {
     .src(sassFiles)
     .pipe(sourcemaps.write('.map'))
     .pipe(concat('build.css'))
-    //     .pipe(rename({suffix: '.min'}))
+     .pipe(rename({suffix: '.min'}))
     .pipe(sass({
       outputStyle: 'compressed'
     }).on('error', sass.logError))
@@ -139,8 +139,8 @@ gulp.task('scripts', ['css'], function() {
     //.pipe(sourcemaps.write('.map'))
     .pipe(addStream.obj(prepareTemplates()))
     .pipe(concat('build.js'))
-    //.pipe(rename({suffix: '.min'}))
-    //.pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(uglify())
     .pipe(gulp.dest(dest + '/js'));
 
 });

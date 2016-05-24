@@ -84,7 +84,7 @@
           'text': 'The AAT(SA) Accounting qualification can enable your career in finance and ' +
           'accounting and help you make a positive contribution to your business, department.',
           'image': {
-            'src': '../img/landing_pages/sylvia_segone_2.jpg?itok=QNoYKYfq',
+            'src': '../img/landing_pages/sylvia_segone_2.jpg',
             'alt': 'The AAT(SA) Accounting qualification'
           },
           'button': {
@@ -99,7 +99,7 @@
           'online - so how long you take to qualify is up to you.',
           'image': {
             'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/event.jpg?itok=tq_vtYjt',
+            'landing_page_content_box/public/landing_pages/event.jpg',
             'alt': 'How long does it take to qualify?'
           },
           'button': {
@@ -113,7 +113,7 @@
           'text': 'We advise that you register with us as soon as you enrol with ' +
           'your training provider to avoid any delays in taking your assessments.',
           'image': {
-            'src': '../img/landing_pages/tapiwa_obert_2.jpg?itok=KimL61vx',
+            'src': '../img/landing_pages/tapiwa_obert_2.jpg',
             'alt': 'Becoming a student member'
           },
           'button': {
@@ -127,7 +127,7 @@
           'text': 'Download our comprehensive list to find an AAT(SA) approved training provider in your area.',
           'image': {
             'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/styles/' +
-            'landing_page_content_box/public/landing_pages/ashgar_ali_hassim_0.jpg?itok=5P2xwBka',
+            'landing_page_content_box/public/landing_pages/ashgar_ali_hassim_0.jpg',
             'alt': 'Download our list of training providers (PDF)'
           },
           'button': {
