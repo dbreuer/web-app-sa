@@ -37,6 +37,7 @@
       //'bookmarks',
       //'meta',
       'slideshow',
+      'spotlights',
       'social',
       'menu',
       //'landing-page',

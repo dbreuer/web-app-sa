@@ -9,20 +9,31 @@
   'use strict';
 
   angular
-    .module('shared.spotlights', [])
+    .module('spotlights', [])
+    .controller('spotlightsController', spotlightsController)
     .directive('spotlightsContent', spotlightsDirective);
 
+  spotlightsController.$inject = [];
   spotlightsDirective.$inject = [];
 
   /* @ngInject */
   function spotlightsDirective() {
     var directive = {
       bindToController: true,
-      templateUrl: 'site/shared/directives/spotlights/spotlights.html',
+      templateUrl: 'shared/directives/spotlights/spotlights.tpl.html',
+      controller: 'spotlightsController',
+      controllerAs: 'vm',
       replace: true,
+      scope: {
+        spotlights: '='
+      },
       restrict: 'E'
     };
     return directive;
+  }
+
+  function spotlightsController() {
+
   }
 
 })();
