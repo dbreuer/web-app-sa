@@ -11,9 +11,9 @@
     .module('node-service', [])
     .service('nodeService', nodeService);
 
-  nodeService.$inject = ['$http', '$sce', '$q'];
+  nodeService.$inject = ['$http', '$sce', '$q', '$rootScope'];
   /* @ngInject */
-  function nodeService($http, $sce, $q) {
+  function nodeService($http, $sce, $q, $rootScope) {
     var settings = {};
     settings.apiBase = 'http://sa.aws.aat.org.uk/api/v1';
     var pages = {};
@@ -39,9 +39,11 @@
         withCredentials: false
       })
         .success(function(data) {
+          $rootScope.progressbar.complete();
           deferred.resolve(data);
         })
         .error(function(data) {
+          $rootScope.progressbar.stop();
           deferred.reject(data);
         });
       return deferred.promise;
@@ -56,6 +58,7 @@
       if (hasParent) {
         pageID = parent;
       }
+      $rootScope.progressbar.start();
       return this.api('/node/' + pageID, 'GET', true);
     }
   }
