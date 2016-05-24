@@ -54,7 +54,7 @@
           'title': 'MyAAT - online tools for success',
           'text': 'Assessment results, revision guides, career help, exclusive discounts, and more.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/edith_bayoli_2.jpg',
+            'src': '../img/hero/edith_bayoli_2.jpg',
             'alt': 'MyAAT - online tools for success'
           },
           'button': {
@@ -67,7 +67,7 @@
           'title': 'MyAAT - training providers',
           'text': 'Study support and e-learning content, marketing support, administration services, and more.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/sebathu_bengani_2.jpg',
+            'src': '../img/hero/sebathu_bengani_2.jpg',
             'alt': 'MyAAT - training providers'
           },
           'button': {

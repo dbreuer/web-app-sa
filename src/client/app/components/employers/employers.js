@@ -56,7 +56,7 @@
           'text': 'We offer a range of benefits and services to our members long ' +
           'after they have completed their initial qualification.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/ayton_namwaza_banda.jpg',
+            'src': '../img/hero/ayton_namwaza_banda.jpg',
             'alt': 'Membership for your staff'
           },
           'button': {
@@ -69,7 +69,7 @@
           'title': 'Training for your business',
           'text': 'We offer a range of flexible training options, designed to suit your organisation and employees.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/edith_bayoli.jpg',
+            'src': '../img/hero/edith_bayoli_2.jpg',
             'alt': 'Training for your business'
           },
           'button': {
