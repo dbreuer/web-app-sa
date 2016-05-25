@@ -60,11 +60,11 @@
       return this.api('/node/' + news, 'GET', true);
     }
 
-    function getAllNews() {
+    function getAllNews(params) {
       $rootScope.progressbar.start();
       return this.api('/views/api_news', 'GET', true, {
-        limit: settings.limit ? settings.limit : 5,
-        page: settings.page ? settings.page : 0
+        limit: (params && params.limit) ? params.limit : 5,
+        page: (params && params.page) ? params.page : 0
       });
     }
 

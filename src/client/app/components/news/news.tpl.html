@@ -30,8 +30,17 @@
                 <!--<div ng-show="vm.isPageLoading" class="col-xs-12 text-center">-->
                     <!--<i class="fa fa-circle-notch fa-spin" style="font-size: 3em"></i>-->
                 <!--</div>-->
-
-                <div class="news-listing">
+                <div class="row">
+<div class="button-group pull-right">
+    <button class="btn btn-xs" ng-class="{'btn-primary': !$root.newsGridStyle, 'btn-default': $root.newsGridStyle}" ng-click="$root.newsGridStyle = false">
+        List
+    </button>
+    <button class="btn btn-xs" ng-class="{'btn-primary': $root.newsGridStyle, 'btn-default': !$root.newsGridStyle}" ng-click="$root.newsGridStyle = true">
+        Grid
+    </button>
+</div>
+                </div>
+                <div class="news-listing" ng-if="!$root.newsGridStyle">
                     <a href="/news/{{item.node_title | slug}}" ng-click="vm.goToNews(item.nid)" rel="{{item.nid}}" class="" ng-repeat="item in vm.news | limitTo: vm.limit track by $index">
                         <h4 class="" ng-bind="item.node_title">
 
@@ -40,15 +49,45 @@
                         <p class=""  ng-bind="item.body">
 
                         </p>
-                        <div class="" ng-bind-html="item.image">
+                        <div class="" ng-bind="item.images | json">
                             <!-- here is the images -->
                         </div>
                         <hr/>
                     </a>
 
-                    <button ng-hide="vm.nomore" class="btn btn-primary" ng-click="vm.currentPage=vm.currentPage+1"> Load more </button>
+                    <button ng-show="$root.params.page > 0" class="btn btn-primary" ng-click="vm.prevPage()"> Prev page </button>
+                    <button ng-show="$root.params.hasNext" class="btn btn-primary pull-right" ng-click="vm.nextPage()"> Next page </button>
                 </div>
 
+                <div class="news-grid" ng-if="$root.newsGridStyle">
+
+                    <div class="news-grid-item" ng-repeat="item in vm.news track by $index">
+                        <div class="news-grid-item--inner">
+                            <div class="news-grid-item__header">
+                                <a href="/news/{{item.node_title | slug}}" ng-click="vm.goToNews(item.nid)">
+                                    <h3 ng-bind="item.node_title">
+                                        <!-- spotlight title -->
+                                    </h3>
+                                </a>
+                            </div>
+                            <div class="news-grid-item__body">
+                                <div class="news-grid-item__body--text">
+                                    <p ng-bind="item.body">
+                                        <!-- spotlight text -->
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="news-grid-item__footer">
+                                <a href="/news/{{item.node_title | slug}}" ng-click="vm.goToNews(item.nid)" >
+                                    Read more
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+                <button ng-show="$root.params.hasMore && $root.newsGridStyle" class="btn btn-primary pull-right" ng-click="vm.showMore()"> Show more </button>
 
             </div>
         </div><!-- end myaat__wrapper -->
