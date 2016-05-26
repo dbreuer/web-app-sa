@@ -1,6 +1,6 @@
 {
   "name": "AATSA",
-  "version": "0.0.8",
+  "version": "1.1.9",
   "dependencies": {},
   "devDependencies": {
     "add-stream": "1.0.0",
@@ -55,9 +55,7 @@
   "scripts": {
     "test": "node_modules/gulp/bin/gulp.js test",
     "e2e": "node_modules/gulp/bin/gulp.js e2e",
-    "protractor": "protractor tests/e2e/protractor.conf.js",
-    "postinstall": "bower install",
-    "install": "node node_modules/protractor/bin/webdriver-manager update --standalone --chrome"
+    "postinstall": "node_modules/bower/bin/bower install --allow-root",
   },
   "testserver": "http://localhost:8080"
 }
