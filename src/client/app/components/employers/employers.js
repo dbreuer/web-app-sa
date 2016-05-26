@@ -34,7 +34,7 @@
     .controller('EmployersController', EmployersController);
 
   // Inject Deps
-  EmployersController.$inject = ['menuService'];
+  EmployersController.$inject = ['menuService', '$rootScope'];
 
   /**
    *
@@ -42,61 +42,12 @@
    *
    * @constructor
    */
-  function EmployersController(menuService) {
+  function EmployersController(menuService, $rootScope) {
 
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
-    menuService.setMenu(
-      {
-        'employers': {
-          'data': [
-            {
-              'name': 'AAT(SA) training for your business',
-              'url': 'http://sa.aws.aat.org.uk/employers/business-training',
-              'id': 41
-            },
-            {
-              'name': 'AAT(SA) membership for your staff',
-              'url': 'http://sa.aws.aat.org.uk/employers/staff-membership',
-              'id': 42
-            },
-            {
-              'name': 'The AAT(SA) Learnerships', 'url': '/employers/learnerships', 'id': 43,
-              'data': [
-                {
-                  'name': 'Certificate: Accounting Technician - Level 3',
-                  'url': 'http://sa.aws.aat.org.uk/employers/level3',
-                  'id': 431
-                },
-                {
-                  'name': 'FET Certificate Accounting Technician - Level 4',
-                  'url': 'http://sa.aws.aat.org.uk/employers/level4',
-                  'id': 432
-                },
-                {
-                  'name': 'Certificate: Accounting - Level 5',
-                  'url': 'http://sa.aws.aat.org.uk/employers/level5',
-                  'id': 433
-                },
-                {
-                  'name': '(LGAC) Local Government Accounting Certificate',
-                  'url': 'http://sa.aws.aat.org.uk/employers/lgac',
-                  'id': 434
-                },
-                {
-                  'name': '(LGAAC) FET Certificate: Local Government Accounting - Level 4',
-                  'url': 'http://sa.aws.aat.org.uk/employers/lgaac-fet',
-                  'id': 435
-                }
-              ]
-            }
-          ],
-          'title': 'AAT(SA) qualification',
-          'class': 'sidebar__menu'
-        }
-      }
-    );
+    $rootScope.menu = menuService.getMenu('employers');
     vm.pageContent = {
       'slideshow': [
         {

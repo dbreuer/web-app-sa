@@ -10,7 +10,7 @@
   'use strict';
 
   angular
-    .module('shared.slideshow', [])
+    .module('slideshow', [])
     .directive('slideshowContent', slideshowDirective);
 
   slideshowDirective.$inject = [];
@@ -18,10 +18,12 @@
   /* @ngInject */
   function slideshowDirective() {
     var directive = {
-      bindToController: true,
-      templateUrl: 'site/shared/directives/slideshow/slideshow.html',
+      templateUrl: 'shared/directives/slideshow/slideshow.tpl.html',
       replace: true,
-      restrict: 'E'
+      restrict: 'E',
+      scope: {
+        slideshow: '='
+      }
     };
     return directive;
   }

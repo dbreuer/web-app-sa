@@ -30,11 +30,10 @@
         }
       });
     }])
-
     .controller('AboutController', AboutController);
 
   // Inject Deps
-  AboutController.$inject = ['menuService'];
+  AboutController.$inject = ['menuService', '$rootScope'];
 
   /**
    *
@@ -42,26 +41,12 @@
    *
    * @constructor
    */
-  function AboutController(menuService) {
-    menuService.setMenu(
-      {
-        'about': {
-          'data': [
-            {'name': 'What we do', 'url': '/about/what-we-do', 'id': 11},
-            {'name': 'Contact us', 'url': '/about/contact-us', 'id': 12},
-            {'name': 'AAT UK', 'url': 'http://www.aat.org.uk', 'id': 13, external: true},
-            {'name': 'Terms and conditions', 'url': '/about/terms-conditions', 'id': 14},
-            {'name': 'Link to the SAICA website', 'url': 'http://www.saica.co.za', 'id': 15, external: true},
-          ],
-          'title': 'About Us',
-          'class': 'sidebar__menu'
-        }
-      }
-    );
-
+  function AboutController(menuService, $rootScope) {
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
+
+    $rootScope.menu = menuService.getMenu('about');
 
     vm.pageContent = {
       'slideshow': [

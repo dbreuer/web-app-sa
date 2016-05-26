@@ -57,8 +57,8 @@
   100% { opacity: 0; }
 }
 
-.ng-enter           { animation: fadeIn 1.0s both ease-in; z-index: 8888; }
-.ng-leave           { animation: fadeOut 0.5s both ease-in; z-index: 9999; }
+.ng-enter           { animation: fadeIn 0.3s both ease-in-out; z-index: 8888; }
+.ng-leave           { animation: fadeOut 0.2s both ease-in-out; z-index: 9999; }
 
 .no-animate {
   -webkit-transition: none !important;

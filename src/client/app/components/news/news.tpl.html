@@ -1,0 +1,59 @@
+<div class="myaat">
+
+    <div class="hero">
+
+
+        <div class="hero_message">
+            <div class="hero_message__content">
+                <h1>MyAAT</h1>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="myaat-page">
+
+        <div class="myaat-page__wrapper">
+
+            <div class="sidebar">
+
+                <!-- menu place -->
+                <menu position="news"></menu>
+
+            </div>
+
+            <div class="page-content" ng-init="vm.getNewsListing($rootScope.params)">
+
+                <!-- here come the news media list -->
+                <!--<div ng-show="vm.isPageLoading" class="col-xs-12 text-center">-->
+                    <!--<i class="fa fa-circle-notch fa-spin" style="font-size: 3em"></i>-->
+                <!--</div>-->
+
+                <div class="news-listing">
+                    <a href="/news/{{item.node_title | slug}}" ng-click="vm.goToNews(item.nid)" rel="{{item.nid}}" class="" ng-repeat="item in vm.news | limitTo: vm.limit track by $index">
+                        <h4 class="" ng-bind="item.node_title">
+
+                        </h4>
+
+                        <p class=""  ng-bind="item.body">
+
+                        </p>
+                        <div class="" ng-bind-html="item.image">
+                            <!-- here is the images -->
+                        </div>
+                        <hr/>
+                    </a>
+
+                    <button ng-hide="vm.nomore" class="btn btn-primary" ng-click="vm.currentPage=vm.currentPage+1"> Load more </button>
+                </div>
+
+
+            </div>
+        </div><!-- end myaat__wrapper -->
+
+    </div><!-- end myaat -->
+
+</div>
+

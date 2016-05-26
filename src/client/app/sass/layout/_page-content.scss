@@ -1,3 +1,32 @@
 .page-content {
   @extend .col-md-8;
+
+  /* Tables */
+
+
+  table {
+    /*   border: 1px solid #333; */
+    margin-bottom: 15px;
+  }
+
+  th {
+    background-color: #333;
+    color: white;
+    padding: 6px;
+
+  }
+
+  td {
+    border: 1px solid #DCDCDC;
+    padding: 6px;
+  }
+
+  th a {
+    color: white;
+  }
+
+  th a:hover {
+    color: white;
+    text-decoration: underline;
+  }
 }

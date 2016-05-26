@@ -1,0 +1,58 @@
+<div class="myaat">
+
+    <div class="hero">
+
+
+        <div class="hero_message">
+            <div class="hero_message__content">
+                <h1>MyAAT</h1>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="myaat-page">
+
+        <div class="myaat-page__wrapper">
+
+            <div class="sidebar">
+
+                <!-- menu place -->
+                <menu position="news"></menu>
+
+            </div>
+
+            <div class="page-content" ng-init="vm.getSinglePost()">
+
+                <!-- here come the news media list -->
+                <!--<div ng-show="vm.isPageLoading" class="">-->
+                    <!--<i class="fa fa-circle-notch fa-spin" style="font-size: 3em"></i>-->
+                <!--</div>-->
+
+                <social-share-buttons page-title="vm.newsSinglePost.title" page-slug="vm.newsSinglePost.slug"></social-share-buttons>
+
+                <div class="news-single-post">
+                    <h2 ng-bind="vm.newsSinglePost.title"></h2>
+                    <!--<small ng-bind="vm.newsSinglePost.date | date: 'd/m/y'"></small>-->
+                    <div class="" ng-bind-html="vm.newsSinglePost.body"></div>
+                </div>
+
+                <div class="row" ng-show="vm.newsSinglePost.images">
+                    <div class="col-sm-3" ng-repeat="image in vm.newsSinglePost.images">
+                        <div class="" ng-bind-html="image">
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div><!-- end myaat__wrapper -->
+
+    </div><!-- end myaat -->
+
+</div>
+

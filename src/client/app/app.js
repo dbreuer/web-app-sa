@@ -17,31 +17,43 @@
   // Declare app level module which depends on views, and components
   angular.module('project', [
 
-    // CORE
-    'ngRoute',
-    'templates',
-    'ngSanitize',
-    //'ngAnimate',
-    'angular-jwt',
-    'angular-storage',
-    //'formly',
-    //'formlyBootstrap',
-    'ui.bootstrap',
+      // CORE
+      'ngRoute',
+      'templates',
+      'ngSanitize',
+      'ngAnimate',
+      'angular-jwt',
+      'angular-storage',
+      'slick',
+      '720kb.socialshare',
 
-    // CUSTOM
-    'mobile-menu',
-    'menu',
-    'header',
+      //'formly',
+      //'formlyBootstrap',
+      'ui.bootstrap',
 
-    'project.frontpage',
-    'project.myaat',
-    'project.news',
-    'project.static-pages',
-    'project.qualifications',
-    'project.employers',
-    'project.deliver',
-    'project.membership',
-    'project.about'
+      // SHARED
+      'mobile-menu',
+      //'search-bar',
+      //'bookmarks',
+      //'meta',
+      'slideshow',
+      'spotlights',
+      'social',
+      'menu',
+      //'landing-page',
+      'header',
+
+      // CUSTOM
+      'project.frontpage',
+      'project.myaat',
+      'project.news',
+      'project.static-pages',
+      'project.qualifications',
+      'project.employers',
+      'project.deliver',
+      'project.membership',
+      'project.about',
+      'project.node'
 
   ])
 
@@ -52,9 +64,10 @@
       '$locationProvider',
       '$httpProvider',
       'jwtInterceptorProvider',
+      '$sceProvider',
 
-      function($routeProvider, $locationProvider, $httpProvider, jwtInterceptorProvider) {
-
+      function($routeProvider, $locationProvider, $httpProvider, jwtInterceptorProvider, $sceProvider) {
+        $sceProvider.enabled(false);
         $locationProvider.html5Mode({
           enabled: true,
           requireBase: false
@@ -73,12 +86,19 @@
       }])
 
     // Define App constants (ref env vars)
-    .constant('API_URL', 'https://api.aat-sa-prod.elasticbeanstalk.com/')
-
+    .constant('API_URL', 'http://sa.aws.aat.org.uk/api/v1')
+    .filter('slug',  function() {
+      return function(input) {
+        return input
+          .toLowerCase()
+          .replace(/ /g,'-')
+          .replace(/[^\w-]+/g,'');
+      };
+    })
     .run(appRun);
 
   // Inject Deps
-  appRun.$inject = ['$rootScope', '$location'];
+  appRun.$inject = ['$route', '$rootScope', '$location'];
 
   /**
    *
@@ -89,7 +109,18 @@
    *
    */
 
-  function appRun($rootScope, $location) {
+  function appRun($route, $rootScope, $location) {
+    //var original = $location.path;
+    //$location.path = function(path, reload) {
+    //  if (reload === false) {
+    //    var lastRoute = $route.current;
+    //    var un = $rootScope.$on('$locationChangeSuccess', function() {
+    //      $route.current = lastRoute;
+    //      un();
+    //    });
+    //  }
+    //  return original.apply($location, [path]);
+    //};
 
     // register listener to watch route changes
     $rootScope.$on('$routeChangeStart', function(event, current, next) {
