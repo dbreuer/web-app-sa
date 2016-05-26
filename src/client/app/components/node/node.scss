@@ -2,30 +2,6 @@
 
   width: 100%;
 
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 125px;
-    background: $primary-color;
-    margin-bottom: 20px;
-  }
-
-  .hero_message {
-    display: table;
-    width: 100%;
-    height: 100%;
-    color: white;
-    text-align: center;
-  }
-
-  .hero_message__content {
-
-    display: table-cell;
-    vertical-align: middle;
-    h1 {
-
-    }
-  }
   .node-main-content {
     @extend .container;
   }
