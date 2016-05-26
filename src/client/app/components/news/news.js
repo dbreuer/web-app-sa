@@ -52,7 +52,6 @@
     var vm = this;
     vm.pageContent = {};
     vm.isPageLoading = true;
-    vm.nomore = false;
     vm.news = [];
     vm.newsSinglePost = {};
     vm.currentPage = 0;
@@ -63,17 +62,27 @@
       limit: 5,
       steps: 5,
       page: 0,
-      maxpage: 0
+      hasNext: false,
+      hasMore: true
     };
 
     vm.getNewsListing = getNewsListing;
     vm.getSinglePost = getSinglePost;
     vm.goToNews = goToNews;
+    vm.nextPage = nextPage;
+    vm.prevPage = prevPage;
+    vm.showMore = showMore;
 
     function getNewsListing() {
-      NewsService.getAllNews().then(function(response) {
+      NewsService.getAllNews({page: $rootScope.params.page, limit: $rootScope.params.limit}).then(function(response) {
         vm.news = response;
         vm.isPageLoading = false;
+        NewsService.getAllNews({page: $rootScope.params.page + 1}).then(function(response) {
+
+          $rootScope.params.hasNext = (response.length > 0) ? true : false;
+          $rootScope.params.hasMore = (response.length > 0 && vm.news.length >= $rootScope.params.limit) ? true : false;
+          console.log(response.length, vm.news.length, $rootScope.params);
+        });
       });
     }
 
@@ -94,6 +103,35 @@
       $location.path('/news/' + slug);
     }
 
+    function nextPage() {
+      if ($rootScope.params.hasNext) {
+        $rootScope.params.page += 1;
+      }
+      $rootScope.params.limit = 5;
+      getNewsListing();
+      console.log($rootScope.params);
+    }
+
+    function prevPage() {
+      if ($rootScope.params.page > 0) {
+        $rootScope.params.page -= 1;
+      }
+      $rootScope.params.limit = 5;
+      getNewsListing();
+      console.log($rootScope.params);
+    }
+
+    function showMore() {
+      if ($rootScope.params.page > 0) {
+        $rootScope.params.limit = $rootScope.params.page * $rootScope.params.limit;
+        $rootScope.params.page = 0;
+      } else {
+        $rootScope.params.limit += 5;
+      };
+      getNewsListing();
+      console.log($rootScope.params);
+    }
+
   }
 
   function PostImages(images) {
@@ -102,7 +140,7 @@
       out.push('<img src="http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/' +
         'styles/news_thumb/public/' + images[im].filename + '?itok=Mmd7w4oG" alt="' + images[im].alt + '" />');
     }
-    return out;
+    return out[0];
   }
 
   function PostType(post) {
