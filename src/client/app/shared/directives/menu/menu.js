@@ -27,16 +27,7 @@
     return directive;
 
     function link(scope, element, attrs) {
-
       menuService.getMenu(attrs.position);
-      console.log('this type:', typeof scope.menu);
-      //scope.menu.isActive = function(item) {
-      //  if (!location.path()) {
-      //    return false;
-      //  }
-      //  return (item.url === location.path());
-      //};
-
     }
   }
 

@@ -17,7 +17,7 @@
 
     </div>
 
-    <div class="node-main-content">
+    <div class="node-main-content" ng-init="vm.init()">
 
         <div class="node-main-content__wrapper">
 
@@ -25,6 +25,9 @@
                 <menu position="{{vm.menuNode}}"></menu>
             </div>
             <div class="page-content">
+
+                <spinner show="vm.isLoading"></spinner>
+
                 <div class="page-content__body" ng-bind-html="vm.pageContent.body">
 
                     <!-- HTML body -->
@@ -51,8 +54,8 @@
                         <a ng-href="{{signpost.url}}" ng-bind="signpost.title"></a>
                     </div>
                 </div>
-            </div>
 
+            </div><!-- page content -->
 
         </div><!-- end myaat__wrapper -->
 

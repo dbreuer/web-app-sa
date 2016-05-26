@@ -27,6 +27,7 @@
       'slick',
       '720kb.socialshare',
       'ngProgress',
+      'spinner',
 
       //'formly',
       //'formlyBootstrap',

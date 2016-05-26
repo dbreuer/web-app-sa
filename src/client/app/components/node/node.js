@@ -41,17 +41,43 @@
   function NodeController($rootScope, $routeParams, menuService, nodeService) {
     var vm = this;
     vm.menuNode = $routeParams.sectionID;
+    vm.isLoading = true;
+    vm.pageContent = {};
+    vm.pageError = false;
 
-    $rootScope.menu = menuService.getMenu($routeParams.sectionID);
+    vm.init = init;
 
-    nodeService.getPage($routeParams.sectionID, $routeParams.nodeID)
-      .then(
-        function(response) {
+    function init() {
+      getMenuItems();
+      pageLoadContent();
+    }
+
+    function getMenuItems() {
+      $rootScope.menu = menuService.getMenu($routeParams.sectionID);
+    }
+
+    function pageLoadContent() {
+      nodeService.getPage($routeParams.sectionID, $routeParams.nodeID)
+        .then(function(response) {
           vm.pageContent = new PostType(response, nodeService);
           $rootScope.pageTitle = response.title;
-        }, function(err) {
-          console.log('error:', err);
+          console.log('success:', response);
+          vm.isLoading = false;
+        })
+        .catch(function(err) {
+          console.log('catch:', err);
+          $rootScope.pageTitle = 'Page not Found: 404';
+          vm.isLoading = false;
+          vm.pageError = true;
+          vm.pageContent = {
+            title: 'Something doesn\'t add up here...',
+            body: '<h4>There seems to be an error on this page.</h4> <ul> <li>If you followed a link to get here,' +
+            ' it must be broken. Please <a href="/about-aat/contact-aat">contact us</a> ' +
+            'and we\'ll fix it.</li> <li>If you typed in the address, ' +
+            'please check you typed it in correctly.</li> </ul>'
+          };
         });
+    }
 
   }
 
