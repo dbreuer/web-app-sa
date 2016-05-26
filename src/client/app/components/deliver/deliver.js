@@ -56,7 +56,7 @@
           'text': 'Find out how you can become approved to deliver AAT(SA) qualifications,' +
           ' and join our network of approved training providers.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/sebathu_bengani.jpg',
+            'src': '../img/hero/sebathu_bengani_2.jpg',
             'alt': 'Deliver AAT(SA)qualifications'
           },
           'button': {
@@ -70,7 +70,7 @@
           'text': 'Become associated with one of the largest professional' +
           ' membership bodies by offering computer based assessments.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/lungile_mawonga.jpg',
+            'src': '../img/hero/lungile_mawonga.jpg',
             'alt': 'Become a CBA venue'
           },
           'button': {

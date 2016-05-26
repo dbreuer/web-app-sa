@@ -56,7 +56,7 @@
           'text': 'Benefits include professional and career advice, networking' +
           ' opportunities, exclusive discounts and more.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/edith_bayoli_2.jpg',
+            'src': '../img/hero/edith_bayoli_2.jpg',
             'alt': 'Benefits of membership'
           },
           'button': {
@@ -69,7 +69,7 @@
           'title': 'Apply for AAT(SA) membership',
           'text': 'Join a professional accountancy body that recognises your achievements and hard work.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/lungile_mawonga_0.jpg',
+            'src': '../img/hero/lungile_mawonga.jpg',
             'alt': 'Apply for AAT(SA) membership'
           },
           'button': {

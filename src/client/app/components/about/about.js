@@ -56,7 +56,7 @@
           'text': 'Join a professional accountancy body that recognises your ' +
           'achievements and provides you with a range of benefits.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/lungile_mawonga_2.jpg',
+            'src': '../img/hero/lungile_mawonga.jpg',
             'alt': ''
           },
           'button': {
@@ -70,7 +70,7 @@
           'text': 'The AAT(SA) qualification can enable your career in finance and accounting' +
           ' and help you make a truly positive contribution to your business, department or unit.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/ayton_namwaza_banda_1.jpg',
+            'src': '../img/hero/ayton_namwaza_banda.jpg',
             'alt': ''
           },
           'button': {
