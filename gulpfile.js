@@ -84,6 +84,7 @@ var customJsFiles = [
   //'src/client/app/shared/directives/module/module.js',
   'src/client/app/shared/directives/slideshow/slideshow.js',
   'src/client/app/shared/directives/spotlights/spotlights.js',
+  'src/client/app/shared/directives/spinner/spinner.js',
   //'src/client/app/shared/directives/title/title.js',
   //
   'src/client/app/shared/directives/404/404.js',
@@ -116,7 +117,8 @@ var sourceJsFiles = vendorJsFiles.concat(customJsFiles);
 var sassFiles = [
   '!src/client/app/sass/**/_*.scss',
   'src/client/app/sass/app.scss',
-  'src/client/app/components/**/*.scss'
+  'src/client/app/components/**/*.scss',
+  'src/client/app/shared/**/*.scss'
 ];
 
 // Compile CSS from SCSS files
