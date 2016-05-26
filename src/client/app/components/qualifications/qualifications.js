@@ -55,7 +55,7 @@
           'title': 'Find a training provider',
           'text': 'Use our online search tool to find an AAT(SA) approved training provider in your area.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/edith_bayoli_1.jpg',
+            'src': '../img/hero/edith_bayoli_2.jpg',
             'alt': 'Find a training provider'
           },
           'button': {
@@ -68,7 +68,7 @@
           'title': 'The AAT(SA) Accounting Qualification',
           'text': 'Based on practical, real world accounting knowledge you can put to use from day one.',
           'image': {
-            'src': 'http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/hero/sebathu_bengani_1.jpg',
+            'src': '../img/hero/sebathu_bengani_2.jpg',
             'alt': 'The AAT(SA) Accounting Qualification'
           },
           'button': {
