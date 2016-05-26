@@ -12,7 +12,7 @@
   angular.module('news-service', [])
     .service('NewsService', NewsService);
 
-  NewsService.$inject = ['$http', '$q'];
+  NewsService.$inject = ['$http', '$q', '$rootScope'];
   /**
    * News API service
    * @param $http
@@ -20,7 +20,7 @@
    * @returns {{api: api, getNews: getNews, getAllNews: getAllNews}}
    * @constructor
    */
-  function NewsService($http, $q) {
+  function NewsService($http, $q, $rootScope) {
     var settings = {};
     settings.apiBase = 'http://sa.aws.aat.org.uk/api/v1';
     settings.limit = 5;
@@ -45,20 +45,23 @@
         withCredentials: false
       })
         .success(function(data) {
+          $rootScope.progressbar.complete();
           deferred.resolve(data);
         })
         .error(function(data) {
+          $rootScope.progressbar.stop();
           deferred.reject(data);
         });
       return deferred.promise;
     }
 
     function getNews(news) {
+      $rootScope.progressbar.start();
       return this.api('/node/' + news, 'GET', true);
     }
 
     function getAllNews() {
-
+      $rootScope.progressbar.start();
       return this.api('/views/api_news', 'GET', true, {
         limit: settings.limit ? settings.limit : 5,
         page: settings.page ? settings.page : 0
