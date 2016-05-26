@@ -26,6 +26,7 @@
       'angular-storage',
       'slick',
       '720kb.socialshare',
+      'ngProgress',
 
       //'formly',
       //'formlyBootstrap',
@@ -98,7 +99,7 @@
     .run(appRun);
 
   // Inject Deps
-  appRun.$inject = ['$route', '$rootScope', '$location'];
+  appRun.$inject = ['$route', '$rootScope', '$location', 'ngProgressFactory'];
 
   /**
    *
@@ -109,7 +110,7 @@
    *
    */
 
-  function appRun($route, $rootScope, $location) {
+  function appRun($route, $rootScope, $location, ngProgressFactory) {
     //var original = $location.path;
     //$location.path = function(path, reload) {
     //  if (reload === false) {
@@ -121,7 +122,8 @@
     //  }
     //  return original.apply($location, [path]);
     //};
-
+    $rootScope.progressbar = ngProgressFactory.createInstance();
+    $rootScope.progressbar.setColor('#00746f');
     // register listener to watch route changes
     $rootScope.$on('$routeChangeStart', function(event, current, next) {
 
