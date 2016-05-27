@@ -80,7 +80,7 @@ gulp.task('scripts', ['css'], function() {
 // Linting
 gulp.task('lint', [], function() {
   return gulp
-    .src(customJsFiles)
+    .src(customJsFiles, {cwd: base})
     .pipe(jshint())
     .pipe(jshint.reporter('default', {verbose: true}));
 });
@@ -88,7 +88,7 @@ gulp.task('lint', [], function() {
 // Code styling
 gulp.task('style', ['scripts', 'css', 'docs', 'lint'], function() {
   return gulp
-    .src(customJsFiles)
+    .src(customJsFiles, {cwd: base})
     .pipe(jscs())
     .pipe(jscs.reporter());
 });
@@ -137,7 +137,7 @@ gulp.task('templates', function() {
 
 // Angular Template Cache
 function prepareTemplates() {
-  return gulp.src('src/app/**/*.tpl.html', {cwd: base})
+  return gulp.src('src/client/app/**/*.tpl.html', {cwd: base})
     .pipe(angularTemplateCache());
 }
 
@@ -193,7 +193,9 @@ gulp.task('e2e', ['webdriver_update'], function(done) {
 
 // Default
 gulp.task('default', [
-  'scripts', 'css', 'lint', 'style', 'docs', 'html', 'watch'
+//   'scripts', 'css', 'lint', 'style', 'docs', 'html', 'watch'
+  'scripts', 'css', 'lint', 'docs', 'html', 'watch'
 ]);
 
-// @todo : deployment task
+// Deployment Task
+gulp.task('deploy', ['scripts', 'css', 'lint', 'style', 'docs', 'html']);
