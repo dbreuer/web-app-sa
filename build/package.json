@@ -1,0 +1,69 @@
+{
+  "name": "AATSA",
+  "version": "1.2.10",
+  "description": "AAT South Africa Web App",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aat-labs/web-app-sa.git"
+  },
+  "license": "(MIT)",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-cli": "^1.2.1"
+  },
+  "devDependencies": {
+    "add-stream": "1.0.0",
+    "aws-sdk": "^2.2.1",
+    "bower": "1.7.7",
+    "browser-sync": "^2.9.6",
+    "cors": "^2.7.1",
+    "corsproxy": "^1.3.1",
+    "cucumber": "^0.7.0",
+    "faker": "^3.0.1",
+    "gulp": "3.9.0",
+    "gulp-angular-templatecache": "1.8.0",
+    "gulp-cli": "^1.2.1",
+    "gulp-concat": "2.6.0",
+    "gulp-filter": "4.0.0",
+    "gulp-gzip": "^1.2.0",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jsdoc3": "^0.2.1",
+    "gulp-jshint": "2.0.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-protractor": "2.3.0",
+    "gulp-rename": "1.2.2",
+    "gulp-sass": "2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "1.5.3",
+    "gulp-watch": "^4.3.5",
+    "http-proxy": "^1.11.2",
+    "http-route-proxy": "^0.2.1",
+    "jasmine-core": "^2.2.0",
+    "jshint": "2.9.1",
+    "jsonwebtoken": "^5.0.5",
+    "karma": "0.13.22",
+    "karma-chrome-launcher": "0.2.3",
+    "karma-coverage": "0.5.4",
+    "karma-jasmine": "0.3.7",
+    "karma-junit-reporter": "0.4.1",
+    "karma-phantomjs-launcher": "1.0.0",
+    "live-server": "^0.8.1",
+    "nodemon": "^1.7.1",
+    "phantomjs-prebuilt": "2.1.7",
+    "protractor": "^2.3.0",
+    "protractor-jasmine2-screenshot-reporter": "0.3.1",
+    "request": "^2.64.0"
+  },
+  "engines": {
+    "node": ">=5.0.0"
+  },
+  "scripts": {
+    "test": "node_modules/gulp/bin/gulp.js test",
+    "e2e": "node_modules/gulp/bin/gulp.js e2e",
+    "postinstall": "node_modules/bower/bin/bower install --allow-root"
+  },
+  "testserver": "http://localhost:8080"
+}

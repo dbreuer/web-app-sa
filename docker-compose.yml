@@ -1,12 +1,12 @@
 #
 # Nginx webserver for the web apps (js)
 #
-custom_nginx:
+aat_webapp_sa:
     env_file: ./.env
     build: ./
     restart: always
     ports:
         - 8000:80
     volumes:
-        - ./build:/var/www/nginx-default
+        - ./deploy:/var/www/nginx-default
 
