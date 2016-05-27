@@ -1,6 +1,12 @@
 {
   "name": "AATSA",
-  "version": "1.1.9",
+  "version": "1.2.10",
+  "description": "AAT South Africa Web App",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aat-labs/web-app-sa.git"
+  },
+  "license": "(MIT)",
   "dependencies": {},
   "devDependencies": {
     "add-stream": "1.0.0",
