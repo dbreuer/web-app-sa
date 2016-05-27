@@ -1,46 +1,43 @@
-// Karma configuration
-// http://karma-runner.github.io/0.10/config/configuration-file.html
+/**
+ *
+ * KARMA CONF
+ *
+ * @param config
+ */
 
 module.exports = function(config) {
-  config.set({
-    // base path, that will be used to resolve files and exclude
-    basePath: '',
 
-    // testing framework to use
+  var files = require('./includes/vendor.js');
+  var sourceFiles = require('./includes/source.js');
+  for (var i = 0; i < sourceFiles.length; i++) {
+    files.push(sourceFiles[i]);
+  }
+  files.push(
+    "build/tmp/js/templates.js",
+    "src/bower_components/angular-mocks/angular-mocks.js",
+    "src/app/**/*spec.js"
+  );
+
+  config.set({
+
+    // base path that will be used to resolve all patterns (eg. files, exclude)
+    basePath: '../',
+
+    // frameworks to use
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
-//     files: [
-//
-//       'src/client/app/bower_components/angular/angular.js',
-//       'src/client/app/bower_components/angular-mocks/angular-mocks.js',
-//       'src/client/app/bower_components/angular-route/angular-route.js',
-//
-//       'src/client/app/app.js',
-//       'src/client/app/components/**/*.js',
-//       'src/client/app/services/**/*.js',
-//       'src/client/app/shared/**/*.js'
-//
-// //       'test/e2e/**/*.js',
-// //       'test/unit/**/*.js'
-//     ],
+    files: files,
 
-
-    files: [
-      'build/js/build.js',
-      'src/client/app/bower_components/angular-mocks/angular-mocks.js',
-      'src/client/app/**/*.spec.js'
+    // list of files to exclude
+    exclude: [
     ],
-
-    // list of files / patterns to exclude
-    exclude: [],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      // 'src/app/**/*.js': 'coverage',
-
-//       'src/app/**/!(.spec).js': 'coverage'
+      'src/app/**/!(*spec).js': 'coverage'
     },
 
     // test results reporter to use
@@ -49,24 +46,16 @@ module.exports = function(config) {
     reporters: ['dots', 'progress', 'junit', 'coverage'],
 
     junitReporter: {
-      outputDir: 'build/logs',
-      outputFile: 'junit.xml'
+      outputDir: 'build/test/logs',
+      outputFile: 'junit.xml',
     },
 
     coverageReporter: {
-      dir: 'build/logs',
+      dir: 'build/test/logs/coverage',
       reporters: [
-        {
-          type: 'html',
-          dir: 'report-html/'
-        },
-        {
-          type: 'cobertura',
-          file: 'coverage.xml'
-        }
-
+        {type: 'html', subdir: 'html'},
+        {type: 'cobertura', subdir: 'xml'}
       ]
-
     },
 
     // web server port
@@ -92,6 +81,13 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+
+    captureTimeout: 60000,
+
+    browserDisconnectTimeout : 10000,
+    browserDisconnectTolerance : 1,
+    browserNoActivityTimeout : 60000,
+
   });
 };

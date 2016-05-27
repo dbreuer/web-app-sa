@@ -1,6 +1,6 @@
 /***
  *
- * AAT GulpJS file v.0.6
+ * AAT GulpJS file v.1.7
  *
  * @author : Mark Rushton <mark@modernfidelity.co.uk>
  *
@@ -9,6 +9,20 @@
  */
 
 'use strict';
+
+// Base folder
+var base = './../';
+
+// Build Destination
+var dest = '../deploy/assets/';
+
+// Vendor JS files
+var vendorJsFiles = require('./includes/vendor');
+
+// Source JS files
+var customJsFiles = require('./includes/source');
+
+var sourceJsFiles = vendorJsFiles.concat(customJsFiles);
 
 // Include Gulp
 var gulp = require('gulp');
@@ -28,25 +42,14 @@ var minifyCSS = require('gulp-minify-css');
 var minifyHTML = require('gulp-minify-html');
 var sourcemaps = require('gulp-sourcemaps');
 var gzip = require('gulp-gzip');
+var clean = require('gulp-clean');
 var protractor = require('gulp-protractor');
 
-// Build Destination
-var dest = '../deploy/assets/';
-
-// Vendor JS files
-var vendorJsFiles = require('./includes/vendor');
-
-// Source JS files
-var customJsFiles =  require('./includes/source');
-
-var sourceJsFiles = vendorJsFiles.concat(customJsFiles);
 
 // Source SCSS files
 var sassFiles = [
-  '!src/client/app/sass/**/_*.scss',
-  'src/client/app/sass/app.scss',
-  'src/client/app/components/**/*.scss',
-  'src/client/app/shared/**/*.scss'
+  'src/client/sass/app.scss',
+  'src/client/app/**/*.scss'
 ];
 
 // Compile CSS from SCSS files
@@ -59,19 +62,19 @@ gulp.task('css', function() {
     .pipe(sass({
       outputStyle: 'compressed'
     }).on('error', sass.logError))
-    .pipe(gulp.dest(dest + '/css'));
+    .pipe(gulp.dest(dest + 'css'));
 });
 
 // Concatenate/Uglify JS Files
 gulp.task('scripts', ['css'], function() {
   return gulp
-    .src(sourceJsFiles)
+    .src(sourceJsFiles, {cwd: base})
     //.pipe(sourcemaps.write('.map'))
     .pipe(addStream.obj(prepareTemplates()))
     .pipe(concat('build.js'))
     //.pipe(rename({suffix: '.min'}))
     //.pipe(uglify())
-    .pipe(gulp.dest(dest + '/js'));
+    .pipe(gulp.dest(dest + 'js'));
 
 });
 
@@ -105,14 +108,13 @@ gulp.task('html', function() {
 });
 
 
-/// Documentation (JSDoc)
-gulp.task('docs', ['scripts'], function(callback) {
-  gulp
-    .src(
-      ['README.md'].concat(customJsFiles)
-      , {read: false})
-    .pipe(jsdoc(callback));
+// Documentation (JSDoc)
+gulp.task('docs', ['scripts'], function() {
+  return gulp
+    .src(sourceJsFiles, {cwd: base, read: false})
+    .pipe(jsdoc(require('./jsdoc.json')));
 });
+
 
 
 gulp.task('fontello', function() {
