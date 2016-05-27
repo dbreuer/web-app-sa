@@ -54,7 +54,7 @@
           'title': 'MyAAT - online tools for success',
           'text': 'Assessment results, revision guides, career help, exclusive discounts, and more.',
           'image': {
-            'src': '../img/hero/edith_bayoli_2.jpg',
+            'src': '/assets/img/hero/edith_bayoli_2.jpg',
             'alt': 'MyAAT - online tools for success'
           },
           'button': {
@@ -67,7 +67,7 @@
           'title': 'MyAAT - training providers',
           'text': 'Study support and e-learning content, marketing support, administration services, and more.',
           'image': {
-            'src': '../img/hero/sebathu_bengani_2.jpg',
+            'src': '/assets/img/hero/sebathu_bengani_2.jpg',
             'alt': 'MyAAT - training providers'
           },
           'button': {
@@ -83,7 +83,7 @@
           'text': 'Tailored to you, MyAAT provides interactive services and ' +
           'resources designed to help you get the most out of AAT.',
           'image': {
-            'src': '../img/landing_pages/tapiwa_obert_2.jpg?itok=jR1IsKOu',
+            'src': '/assets/img/landing_pages/tapiwa_obert_2.jpg?itok=jR1IsKOu',
             'alt': 'What is MyAAT?'
           },
           'button': {
@@ -96,7 +96,7 @@
           'title': 'Register for your MyAAT account',
           'text': 'Registration is simple - you just need your email address and AAT membership number.',
           'image': {
-            'src': '../img/landing_pages/sylvia_segone_2.jpg?itok=AICzP4vt',
+            'src': '/assets/img/landing_pages/sylvia_segone_2.jpg?itok=AICzP4vt',
             'alt': 'Register for your MyAAT account'
           },
           'button': {
@@ -109,7 +109,7 @@
           'title': 'Log in to MyAAT',
           'text': 'Log in to MyAAT to access your exclusive member benefits and services.',
           'image': {
-            'src': '../img/landing_pages/jessie_bosco_2.jpg?itok=d33I8BNH',
+            'src': '/assets/img/landing_pages/jessie_bosco_2.jpg?itok=d33I8BNH',
             'alt': 'Log in to MyAAT'
           },
           'button': {
@@ -122,7 +122,7 @@
           'title': 'Log in help for MyAAT',
           'text': 'Having problems logging in to MyAAT? Get help here.',
           'image': {
-            'src': '../img/landing_pages/lawrence_mtolo.jpg?itok=yZTt6ykX',
+            'src': '/assets/img/landing_pages/lawrence_mtolo.jpg?itok=yZTt6ykX',
             'alt': 'Log in help for MyAAT'
           },
           'button': {

@@ -70220,7 +70220,7 @@ angular.module('slick', []).directive('slick', [
           'title': 'MyAAT - online tools for success',
           'text': 'Assessment results, revision guides, career help, exclusive discounts, and more.',
           'image': {
-            'src': '../img/hero/edith_bayoli_2.jpg',
+            'src': '/assets/img/hero/edith_bayoli_2.jpg',
             'alt': 'MyAAT - online tools for success'
           },
           'button': {
@@ -70233,7 +70233,7 @@ angular.module('slick', []).directive('slick', [
           'title': 'MyAAT - training providers',
           'text': 'Study support and e-learning content, marketing support, administration services, and more.',
           'image': {
-            'src': '../img/hero/sebathu_bengani_2.jpg',
+            'src': '/assets/img/hero/sebathu_bengani_2.jpg',
             'alt': 'MyAAT - training providers'
           },
           'button': {
@@ -70249,7 +70249,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'Tailored to you, MyAAT provides interactive services and ' +
           'resources designed to help you get the most out of AAT.',
           'image': {
-            'src': '../img/landing_pages/tapiwa_obert_2.jpg?itok=jR1IsKOu',
+            'src': '/assets/img/landing_pages/tapiwa_obert_2.jpg?itok=jR1IsKOu',
             'alt': 'What is MyAAT?'
           },
           'button': {
@@ -70262,7 +70262,7 @@ angular.module('slick', []).directive('slick', [
           'title': 'Register for your MyAAT account',
           'text': 'Registration is simple - you just need your email address and AAT membership number.',
           'image': {
-            'src': '../img/landing_pages/sylvia_segone_2.jpg?itok=AICzP4vt',
+            'src': '/assets/img/landing_pages/sylvia_segone_2.jpg?itok=AICzP4vt',
             'alt': 'Register for your MyAAT account'
           },
           'button': {
@@ -70275,7 +70275,7 @@ angular.module('slick', []).directive('slick', [
           'title': 'Log in to MyAAT',
           'text': 'Log in to MyAAT to access your exclusive member benefits and services.',
           'image': {
-            'src': '../img/landing_pages/jessie_bosco_2.jpg?itok=d33I8BNH',
+            'src': '/assets/img/landing_pages/jessie_bosco_2.jpg?itok=d33I8BNH',
             'alt': 'Log in to MyAAT'
           },
           'button': {
@@ -70288,7 +70288,7 @@ angular.module('slick', []).directive('slick', [
           'title': 'Log in help for MyAAT',
           'text': 'Having problems logging in to MyAAT? Get help here.',
           'image': {
-            'src': '../img/landing_pages/lawrence_mtolo.jpg?itok=yZTt6ykX',
+            'src': '/assets/img/landing_pages/lawrence_mtolo.jpg?itok=yZTt6ykX',
             'alt': 'Log in help for MyAAT'
           },
           'button': {
@@ -70839,7 +70839,7 @@ angular.module('slick', []).directive('slick', [
           'title': 'Find a training provider',
           'text': 'Use our online search tool to find an AAT(SA) approved training provider in your area.',
           'image': {
-            'src': '../img/hero/edith_bayoli_2.jpg',
+            'src': '/assets/img/hero/edith_bayoli_2.jpg',
             'alt': 'Find a training provider'
           },
           'button': {
@@ -70852,7 +70852,7 @@ angular.module('slick', []).directive('slick', [
           'title': 'The AAT(SA) Accounting Qualification',
           'text': 'Based on practical, real world accounting knowledge you can put to use from day one.',
           'image': {
-            'src': '../img/hero/sebathu_bengani_2.jpg',
+            'src': '/assets/img/hero/sebathu_bengani_2.jpg',
             'alt': 'The AAT(SA) Accounting Qualification'
           },
           'button': {
@@ -70868,7 +70868,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'The AAT(SA) Accounting qualification can enable your career in finance and ' +
           'accounting and help you make a positive contribution to your business, department.',
           'image': {
-            'src': '../img/landing_pages/sylvia_segone_2.jpg?itok=QNoYKYfq',
+            'src': '/assets/img/landing_pages/sylvia_segone_2.jpg?itok=QNoYKYfq',
             'alt': 'The AAT(SA) Accounting qualification'
           },
           'button': {
@@ -70897,7 +70897,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'We advise that you register with us as soon as you enrol with ' +
           'your training provider to avoid any delays in taking your assessments.',
           'image': {
-            'src': '../img/landing_pages/tapiwa_obert_2.jpg?itok=KimL61vx',
+            'src': '/assets/img/landing_pages/tapiwa_obert_2.jpg?itok=KimL61vx',
             'alt': 'Becoming a student member'
           },
           'button': {
@@ -70984,7 +70984,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'We offer a range of benefits and services to our members long ' +
           'after they have completed their initial qualification.',
           'image': {
-            'src': '../img/hero/ayton_namwaza_banda.jpg',
+            'src': '/assets/img/hero/ayton_namwaza_banda.jpg',
             'alt': 'Membership for your staff'
           },
           'button': {
@@ -70997,7 +70997,7 @@ angular.module('slick', []).directive('slick', [
           'title': 'Training for your business',
           'text': 'We offer a range of flexible training options, designed to suit your organisation and employees.',
           'image': {
-            'src': '../img/hero/edith_bayoli_2.jpg',
+            'src': '/assets/img/hero/edith_bayoli_2.jpg',
             'alt': 'Training for your business'
           },
           'button': {
@@ -71013,7 +71013,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'We offer a range of flexible training options, carefully' +
           ' designed to suit the needs of your organisation and employees.',
           'image': {
-            'src': '../img/landing_pages/israel_mogobe.jpg?itok=vH2K6Qn2',
+            'src': '/assets/img/landing_pages/israel_mogobe.jpg?itok=vH2K6Qn2',
             'alt': 'Training for your business'
           },
           'button': {
@@ -71027,7 +71027,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'We offer a range of benefits and services that will enable our ' +
           'members to continue their professional development.',
           'image': {
-            'src': '../img/landing_pages/lawrence_mtolo.jpg?itok=6HqACUwI',
+            'src': '/assets/img/landing_pages/lawrence_mtolo.jpg?itok=6HqACUwI',
             'alt': 'Membership for your staff'
           },
           'button': {
@@ -71041,7 +71041,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'Aimed at learners who are employed or want to prepare themselves ' +
           'for employment in the accounting environment at technician level.',
           'image': {
-            'src': '../img/landing_pages/jessie_bosco_2.jpg?itok=3z-GVVw8',
+            'src': '/assets/img/landing_pages/jessie_bosco_2.jpg?itok=3z-GVVw8',
             'alt': 'The AAT(SA) learnerships'
           },
           'button': {
@@ -71055,7 +71055,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'We have AAT(SA) approved training providers all over South Africa. ' +
           'Download our list below to contact a training provider in your province.',
           'image': {
-            'src': '../img/landing_pages/tapiwa_obert_2.jpg?itok=kZmOK4q0',
+            'src': '/assets/img/landing_pages/tapiwa_obert_2.jpg?itok=kZmOK4q0',
             'alt': 'Download our list of training providers (PDF)'
           },
           'button': {
@@ -71128,7 +71128,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'Find out how you can become approved to deliver AAT(SA) qualifications,' +
           ' and join our network of approved training providers.',
           'image': {
-            'src': '../img/hero/sebathu_bengani_2.jpg',
+            'src': '/assets/img/hero/sebathu_bengani_2.jpg',
             'alt': 'Deliver AAT(SA)qualifications'
           },
           'button': {
@@ -71142,7 +71142,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'Become associated with one of the largest professional' +
           ' membership bodies by offering computer based assessments.',
           'image': {
-            'src': '../img/hero/lungile_mawonga.jpg',
+            'src': '/assets/img/hero/lungile_mawonga.jpg',
             'alt': 'Become a CBA venue'
           },
           'button': {
@@ -71158,7 +71158,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'Find out how you can become approved to deliver AAT(SA) qualifications, ' +
           'and join our network of approved training providers.',
           'image': {
-            'src': '../img/landing_pages/edward_makwana_saica.jpg?itok=Z4Vq3N6g',
+            'src': '/assets/img/landing_pages/edward_makwana_saica.jpg?itok=Z4Vq3N6g',
             'alt': 'Deliver AAT(SA) qualifications'
           },
           'button': {
@@ -71172,7 +71172,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'Become associated with one of the largest professional membership ' +
           'bodies by offering computer based assessments.',
           'image': {
-            'src': '../img/landing_pages/lawrence_mtolo.jpg?itok=zknYNy3W',
+            'src': '/assets/img/landing_pages/lawrence_mtolo.jpg?itok=zknYNy3W',
             'alt': 'Become a CBA venue'
           },
           'button': {
@@ -71201,7 +71201,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'We\'ve provided a range of marketing materials designed ' +
           'to help you promote AAT(SA) to your students and members.',
           'image': {
-            'src': '../img/landing_pages/sylvia_segone_2.jpg?itok=B-wDsPO4',
+            'src': '/assets/img/landing_pages/sylvia_segone_2.jpg?itok=B-wDsPO4',
             'alt': 'Marketing support'
           },
           'button': {
@@ -71274,7 +71274,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'Benefits include professional and career advice, networking' +
           ' opportunities, exclusive discounts and more.',
           'image': {
-            'src': '../img/hero/edith_bayoli_2.jpg',
+            'src': '/assets/img/hero/edith_bayoli_2.jpg',
             'alt': 'Benefits of membership'
           },
           'button': {
@@ -71287,7 +71287,7 @@ angular.module('slick', []).directive('slick', [
           'title': 'Apply for AAT(SA) membership',
           'text': 'Join a professional accountancy body that recognises your achievements and hard work.',
           'image': {
-            'src': '../img/hero/lungile_mawonga.jpg',
+            'src': '/assets/img/hero/lungile_mawonga.jpg',
             'alt': 'Apply for AAT(SA) membership'
           },
           'button': {
@@ -71303,7 +71303,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'Be part of a professional accountancy body that recognises' +
           ' your achievements and offers you a range of benefits.',
           'image': {
-            'src': '../img/landing_pages/jessie_bosco_2.jpg?itok=8VpvQaCo',
+            'src': '/assets/img/landing_pages/jessie_bosco_2.jpg?itok=8VpvQaCo',
             'alt': 'About AAT(SA) membership'
           },
           'button': {
@@ -71317,7 +71317,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'Benefits include professional and career advice, ' +
           'networking opportunities, exclusive discounts and more.',
           'image': {
-            'src': '../img/landing_pages/lawrence_mtolo.jpg?itok=pkqtVT-_',
+            'src': '/assets/img/landing_pages/lawrence_mtolo.jpg?itok=pkqtVT-_',
             'alt': 'Benefits of membership'
           },
           'button': {
@@ -71345,7 +71345,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'Continuing Professional Development (CPD) is any activity that helps ' +
           'you maintain your knowledge and skills related to your work.',
           'image': {
-            'src': '../img/landing_pages/edward_makwana_saica.jpg?itok=lKC6Kry7',
+            'src': '/assets/img/landing_pages/edward_makwana_saica.jpg?itok=lKC6Kry7',
             'alt': 'Marketing support'
           },
           'button': {
@@ -71417,7 +71417,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'Join a professional accountancy body that recognises your ' +
           'achievements and provides you with a range of benefits.',
           'image': {
-            'src': '../img/hero/lungile_mawonga.jpg',
+            'src': '/assets/img/hero/lungile_mawonga.jpg',
             'alt': ''
           },
           'button': {
@@ -71431,7 +71431,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'The AAT(SA) qualification can enable your career in finance and accounting' +
           ' and help you make a truly positive contribution to your business, department or unit.',
           'image': {
-            'src': '../img/hero/ayton_namwaza_banda.jpg',
+            'src': '/assets/img/hero/ayton_namwaza_banda.jpg',
             'alt': ''
           },
           'button': {
@@ -71447,7 +71447,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'We are a professional body dedicated to the education, development,' +
           ' regulation and support of accounting technicians in South Africa.',
           'image': {
-            'src': '../img/landing_pages/israel_mogobe.jpg?itok=vXbL54nk',
+            'src': '/assets/img/landing_pages/israel_mogobe.jpg?itok=vXbL54nk',
             'alt': 'What we do'
           },
           'button': {
@@ -71474,7 +71474,7 @@ angular.module('slick', []).directive('slick', [
           'title': 'AAT UK',
           'text': 'Visit the Association of Accounting Technician\'s UK web site.',
           'image': {
-            'src': '../img/landing_pages/edward_makwana_saica.jpg?itok=-35K2xUE',
+            'src': '/assets/img/landing_pages/edward_makwana_saica.jpg?itok=-35K2xUE',
             'alt': 'AAT UK'
           },
           'button': {
@@ -71488,7 +71488,7 @@ angular.module('slick', []).directive('slick', [
           'text': 'Access to and use of AAT(SA)\'s website constitutes ' +
           'acceptance of the terms and conditions listed here.',
           'image': {
-            'src': '../img/landing_pages/sylvia_segone_2.jpg?itok=OaqGU7O3',
+            'src': '/assets/img/landing_pages/sylvia_segone_2.jpg?itok=OaqGU7O3',
             'alt': 'Ts & Cs'
           },
           'button': {
@@ -71879,8 +71879,8 @@ function mobileMenu() {
 
 angular.module("templates").run(["$templateCache", function($templateCache) {$templateCache.put("components/about/about.tpl.html","<div class=\"about\">\n\n    <div class=\"hero\">\n\n\n        <div class=\"hero_message\">\n            <div class=\"hero_message__content\">\n                <h1>About Us</h1>\n            </div>\n        </div>\n\n\n    </div>\n\n    <div class=\"about-page\">\n\n        <div class=\"about-page__wrapper\">\n\n            <div class=\"sidebar\">\n\n                <menu position=\"about\"></menu>\n\n            </div>\n\n            <div class=\"page-content\">\n\n                <slideshow-content slideshow=\"vm.pageContent.slideshow\"></slideshow-content>\n\n                <spotlights-content spotlights=\"vm.pageContent.spotlights\"></spotlights-content>\n\n            </div><!-- end page-content -->\n\n        </div><!-- end myaat__wrapper -->\n\n    </div><!-- end myaat -->\n\n</div>\n\n");
 $templateCache.put("components/deliver/deliver.tpl.html","<div class=\"deliver\">\n\n    <div class=\"hero\">\n\n\n        <div class=\"hero_message\">\n            <div class=\"hero_message__content\">\n                <h1>Deliver</h1>\n            </div>\n        </div>\n\n\n    </div>\n\n    <div class=\"deliver-page\">\n\n        <div class=\"deliver-page__wrapper\">\n\n            <div class=\"sidebar\">\n\n                <menu position=\"deliver\"></menu>\n\n            </div>\n\n            <div class=\"page-content\">\n\n                <slideshow-content slideshow=\"vm.pageContent.slideshow\"></slideshow-content>\n\n                <spotlights-content spotlights=\"vm.pageContent.spotlights\"></spotlights-content>\n\n            </div><!-- end page-content -->\n\n        </div><!-- end myaat__wrapper -->\n\n    </div><!-- end myaat -->\n\n</div>\n\n");
-$templateCache.put("components/footer/footer.tpl.html","<section class=\"to-top\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"to-top__footer-social\">\n\n                <ul class=\"social-icons\">\n                    <li><a href=\"http://www.voiceofaatsa.org.za/\" title=\"Visit voiceofaatsa.org.za/\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-comments\"></i></a></li>\n                    <li><a href=\"http://www.aatcomment.org.uk\" title=\"Visit aatcomment.org.uk\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-comment\"></i></a></li>\n                    <li><a href=\"https://www.facebook.com/AAT-South-Africa-319943408050249\" title=\"Visit facebook.com/AAT-South-Africa\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-facebook-square\"></i></a></li>\n                    <li><a href=\"https://twitter.com/_AATSA\" title=\"Visit twitter.com/_AATSA\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-twitter\"></i></a></li>\n                    <li><a href=\"http://www.linkedin.com/company/aat\" title=\"Visit linkedin.com/company/aat\"\n                           target=\"_blank\"><i class=\"social brandwhite fa fa-linkedin-square\"></i></a></li>\n                    <li><a href=\"http://www.youtube.com/user/yourbigfutureaat\"\n                           title=\"Visit youtube.com/user/yourbigfutureaat\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-youtube-play\"></i></a></li>\n                    <li><a href=\"http://instagram.com/youraat\" title=\"Visit instagram.com/youraat\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-instagram\"></i></a></li>\n                    <li><a href=\"https://storify.com/YourAAT\" title=\"Visit storify.com/YourAAT\" target=\"_blank\"><img\n                            class=\"social brandwhite storify\"></a></li>\n                </ul>\n            </div>\n\n            <div class=\"to-top__wrap\">\n                <a href=\"#top\" class=\"to-to__wrap--button\"><i class=\"fa fa-chevron-up\"></i></a>\n            </div>\n\n        </div>\n    </div>\n</section>\n\n<footer>\n    <div class=\"container\">\n        <div class=\"footer-links row\">\n            <div class=\"col-xs-12 col-sm-2\">\n\n                <div class=\"footer-links__logo\">\n                    <!-- needs sizing -->\n                    <a href=\"/\"><img src=\"/assets/img/svg/aat_logo.svg\" alt=\"AAT logo\"></a>\n                </div>\n\n                <p class=\"text-wrap\">©AAT 2016</p>\n\n            </div>\n\n            <div class=\"col-xs-12 col-sm-7\">\n                <h5>The Association of Accounting Technicians.</h5>\n\n                <p class=\"text-wrap\">\n                    17 Fricker Place, Illovo Sandton<br/>\n                    Johannesburg 2196<br/>\n                    Registered charity no.1050724. <br/>\n                    A company limited by guarantee (No. 1518983).</p>\n            </div>\n\n            <!--<menu position=\"footer\"></menu>-->\n\n            <div class=\"col-xs-12 col-sm-3\">\n                <h5>Find a training provider</h5>\n\n                <p>Download our comprehensive list to find an AAT(SA) approved training provider in your area.</p>\n                <a href=\"http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/assets/AATSA-provider-list.pdf\">\n                    <div class=\"btn btn-primary\"> Download training providers (PDF)</div>\n                </a>\n            </div>\n        </div>\n    </div>\n</footer>\n\n<div class=\"footer-terms\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-xs-12\">\n                <ul class=\"list-inline\">\n                    <li><a href=\"/myaat/privacy\" title=\"Privacy policy\">Privacy policy</a></li>\n                    <li><a href=\"/myaat/cookies\" title=\"Cookie policy\">Cookie policy</a></li>\n                    <li><a href=\"/get-myaat/aat-equal-opportunities-policy\" title=\"Equality of opportunity\">Equality of\n                        opportunity</a></li>\n                    <li><a href=\"/about/terms-conditions\" title=\"Terms and conditions\">Terms and\n                        conditions</a></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>");
 $templateCache.put("components/employers/employers.tpl.html","<div class=\"employers\">\n\n    <div class=\"hero\">\n\n\n        <div class=\"hero_message\">\n            <div class=\"hero_message__content\">\n                <h1>Employers</h1>\n            </div>\n        </div>\n\n\n    </div>\n\n    <div class=\"employers-page\">\n\n        <div class=\"employers-page__wrapper\">\n\n            <div class=\"sidebar\">\n\n                <menu position=\"employers\"></menu>\n\n            </div>\n\n            <div class=\"page-content\">\n\n                <slideshow-content slideshow=\"vm.pageContent.slideshow\"></slideshow-content>\n\n                <spotlights-content spotlights=\"vm.pageContent.spotlights\"></spotlights-content>\n\n            </div><!-- end page-content -->\n\n        </div><!-- end myaat__wrapper -->\n\n    </div><!-- end myaat -->\n\n</div>\n\n");
+$templateCache.put("components/footer/footer.tpl.html","<section class=\"to-top\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"to-top__footer-social\">\n\n                <ul class=\"social-icons\">\n                    <li><a href=\"http://www.voiceofaatsa.org.za/\" title=\"Visit voiceofaatsa.org.za/\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-comments\"></i></a></li>\n                    <li><a href=\"http://www.aatcomment.org.uk\" title=\"Visit aatcomment.org.uk\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-comment\"></i></a></li>\n                    <li><a href=\"https://www.facebook.com/AAT-South-Africa-319943408050249\" title=\"Visit facebook.com/AAT-South-Africa\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-facebook-square\"></i></a></li>\n                    <li><a href=\"https://twitter.com/_AATSA\" title=\"Visit twitter.com/_AATSA\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-twitter\"></i></a></li>\n                    <li><a href=\"http://www.linkedin.com/company/aat\" title=\"Visit linkedin.com/company/aat\"\n                           target=\"_blank\"><i class=\"social brandwhite fa fa-linkedin-square\"></i></a></li>\n                    <li><a href=\"http://www.youtube.com/user/yourbigfutureaat\"\n                           title=\"Visit youtube.com/user/yourbigfutureaat\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-youtube-play\"></i></a></li>\n                    <li><a href=\"http://instagram.com/youraat\" title=\"Visit instagram.com/youraat\" target=\"_blank\"><i\n                            class=\"social brandwhite fa fa-instagram\"></i></a></li>\n                    <li><a href=\"https://storify.com/YourAAT\" title=\"Visit storify.com/YourAAT\" target=\"_blank\"><img\n                            class=\"social brandwhite storify\"></a></li>\n                </ul>\n            </div>\n\n            <div class=\"to-top__wrap\">\n                <a href=\"#top\" class=\"to-to__wrap--button\"><i class=\"fa fa-chevron-up\"></i></a>\n            </div>\n\n        </div>\n    </div>\n</section>\n\n<footer>\n    <div class=\"container\">\n        <div class=\"footer-links row\">\n            <div class=\"col-xs-12 col-sm-2\">\n\n                <div class=\"footer-links__logo\">\n                    <!-- needs sizing -->\n                    <a href=\"/\"><img src=\"/assets/img/svg/aat_logo.svg\" alt=\"AAT logo\"></a>\n                </div>\n\n                <p class=\"text-wrap\">©AAT 2016</p>\n\n            </div>\n\n            <div class=\"col-xs-12 col-sm-7\">\n                <h5>The Association of Accounting Technicians.</h5>\n\n                <p class=\"text-wrap\">\n                    17 Fricker Place, Illovo Sandton<br/>\n                    Johannesburg 2196<br/>\n                    Registered charity no.1050724. <br/>\n                    A company limited by guarantee (No. 1518983).</p>\n            </div>\n\n            <!--<menu position=\"footer\"></menu>-->\n\n            <div class=\"col-xs-12 col-sm-3\">\n                <h5>Find a training provider</h5>\n\n                <p>Download our comprehensive list to find an AAT(SA) approved training provider in your area.</p>\n                <a href=\"http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/assets/AATSA-provider-list.pdf\">\n                    <div class=\"btn btn-primary\"> Download training providers (PDF)</div>\n                </a>\n            </div>\n        </div>\n    </div>\n</footer>\n\n<div class=\"footer-terms\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-xs-12\">\n                <ul class=\"list-inline\">\n                    <li><a href=\"/myaat/privacy\" title=\"Privacy policy\">Privacy policy</a></li>\n                    <li><a href=\"/myaat/cookies\" title=\"Cookie policy\">Cookie policy</a></li>\n                    <li><a href=\"/get-myaat/aat-equal-opportunities-policy\" title=\"Equality of opportunity\">Equality of\n                        opportunity</a></li>\n                    <li><a href=\"/about/terms-conditions\" title=\"Terms and conditions\">Terms and\n                        conditions</a></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>");
 $templateCache.put("components/frontpage/frontpage.tpl.html","<div class=\"frontpage\">\n\n    <div class=\"hero\">\n\n\n        <div class=\"hero_message\">\n            <div class=\"hero_message__content\">\n                <h1>Practical finance and accounting <br>courses whatever your experience</h1>\n\n                <a href=\"https://www.aat.org.uk/get-myaat/options\" target=\"_blank\" class=\"btn btn-primary hero_message__content--cta-button\">Register for the AAT</a>\n\n            </div>\n        </div>\n\n\n    </div>\n\n    <div class=\"promo\">\n\n        <div class=\"promo__cards\">\n\n            <div class=\"promo__card\">\n                <h2>\n                    Welcome to AAT (SA)\n                </h2>\n                <p>Eliminate the “what if” factor with AAT(SA), the professional home for accounting technicians.\n                    Find out more using the links below.</p>\n                <ul class=\"list-group\">\n                    <li class=\"list-group__item\"><a href=\"/about/what-we-do\">About us</a></li>\n                    <li class=\"list-group__item\"><a href=\"/deliver/qualifications\">Deliver AAT(SA) qualifications</a></li>\n                    <li class=\"list-group__item\"><a href=\"/employers/business-training\">AAT(SA) training for your business</a></li>\n                </ul>\n\n                <h2 class=\"promo__card--title\">News</h2>\n\n                <ul class=\"list-group\">\n                    <li class=\"list-group__item\"><a href=\"http://www.voiceofaatsa.org.za/\">Voice of AAT(SA)</a></li>\n                    <li class=\"list-group__item\"><a href=\"http://forums.aat.org.uk/\">AAT Forums(UK)</a></li>\n                    <li class=\"list-group__item\"><a href=\"/news\">UK news</a></li>\n                </ul>\n\n            </div>\n\n            <div class=\"promo__card\">\n                <img class=\"img-responsive\" src=\"/assets/img/frontpage/jessie_bosco_735_385.jpg\">\n                <h2 class=\"promo__card--title\">\n                    AAT qualifications\n                </h2>\n                <p>\n                    Move forward in your finance career with an AAT(SA) qualification.\n                    Choose a course that suits your needs.\n                </p>\n                <ul class=\"list-group\">\n                    <li class=\"list-group__item\"><a href=\"http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/assets/AATSA-provider-list.pdf\">Download our list of training providers (PDF)</a></li>\n                    <li class=\"list-group__item\"><a href=\"/qualifications/accounting-qualification\">The AAT(SA) Accounting Qualification</a></li>\n                    <li class=\"list-group__item\"><a href=\"/employers/learnerships\">The AAT(SA) Learnerships</a></li>\n                </ul>\n            </div>\n\n            <div class=\"promo__card\">\n                <img class=\"img-responsive\" src=\"/assets/img/frontpage/lawrence_mtolo_735_385.jpg\">\n                <h2 class=\"promo__card--title\">\n                    AAT membership\n                </h2>\n                <p>Now you can belong to a professional body that cares about your career. Join the growing band of\n                    members\n                    with full MAAT(SA) status.</p>\n                <ul class=\"list-group\">\n                    <li class=\"list-group__item\"><a href=\"/membership/about\">About AAT(SA) membership</a></li>\n                    <li class=\"list-group__item\"><a href=\"/membership/benefits\">Benefits of membership</a></li>\n                    <li class=\"list-group__item\"><a href=\"/membership/apply\">Apply for membership</a></li>\n                    <li class=\"list-group__item\"><a href=\"/membership/cpd\">CPD Services</a></li>\n                </ul>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>\n\n");
 $templateCache.put("components/header/header.tpl.html","<div class=\"header\">\n\n    <nav class=\"header__navbar\">\n\n        <div class=\"header__navbar--logo\">\n            <a href=\"/\">\n                <svg width=\"50\" height=\"40\">\n                    <image xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"/assets/img/aat_logo.svg\"\n                           src=\"/img/logo.png\" alt=\"AAT Home\" width=\"50px\" height=\"40px\"></image>\n                </svg>\n            </a>\n        </div>\n\n        <ul class=\"header__navbar--navigation\">\n            <li>\n                <a href=\"/myaat\">MyAAT</a>\n            </li>\n            <li>\n                <a href=\"/about\">About</a>\n            </li>\n            <li>\n                <a href=\"/qualifications\">Qualifications</a>\n            </li>\n            <li>\n                <a href=\"/employers\">Employers</a>\n            </li>\n            <li>\n                <a href=\"/deliver\">Deliver AAT(SA)</a>\n            </li>\n            <li>\n                <a href=\"/membership\">Membership/CPD</a>\n            </li>\n            <li>\n            <a href=\"/news\">News</a>\n            </li>\n        </ul>\n\n        <ul class=\"header__navbar--user-links\">\n            <li class=\"register\">\n                <a href=\"https://www.aat.org.uk/get-myaat/options\" target=\"_blank\">\n                    <span class=\"header__navbar--text\">Register</span>\n                </a>\n            </li>\n            <li>\n                <a href=\"http://aat.org.uk/cas\" class=\"header__navbar--btn-login\">\n                    <span class=\"header__navbar--text\">Login</span>\n                    <i class=\"fa fa-user\"></i>\n                </a>\n            </li>\n        </ul>\n\n    </nav>\n\n    <mobile-menu></mobile-menu>\n\n</div>");
 $templateCache.put("components/landing-pages/landing-pages.tpl.html","<!-- frontpage.tpl.html -->\n\n<!-- @todo : clean up 20151106 _mR -->\n\n<section class=\"hero\">\n\n    <div class=\"container\">\n\n        <div class=\"row\">\n\n            <div id=\"head-content\" class=\"col-xs-12 text-center\">\n\n                <h1>Achieve your potential</h1>\n\n                <h2>with finance and accounting skills</h2>\n\n            </div>\n            <!-- end col -->\n\n        </div>\n        <!-- end row -->\n\n\n    </div>\n    <!-- end head container -->\n\n</section>\n\n\n<section class=\"section-2 module\">\n    <div class=\"container\">\n        <div id=\"section-2-container\" class=\"row\">\n            <div class=\"col-xs-12 col-sm-4 col-md-4 section-2-cta cta-1\">\n                <h2>Choose where to study</h2>\n\n                <p>Search our directory of AAT approved colleges, centres and distance learning providers</p>\n\n                <div class=\"section-2-btn-wrap\"><a href=\"/training-providers/search\"\n                                                   class=\"btn btn-default section-2-btn frontpage-vbottom\">Find a\n                    training provider</a></div>\n\n            </div>\n\n            <div class=\"col-xs-12 col-sm-4 col-md-4 section-2-cta cta-2\">\n                <h2>Register with AAT</h2>\n\n                <p>You need to sign up to sit your assessments and access exclusive study materials</p>\n\n                <div class=\"section-2-btn-wrap\"><a href=\"/register/student\"\n                                                   class=\"btn btn-default section-2-btn frontpage-vbottom\">Register as a\n                    student</a></div>\n            </div>\n\n            <div class=\"col-xs-12 col-sm-4 col-md-4 section-2-cta cta-3\">\n                <h2>Need an accountant?</h2>\n\n                <p>AAT members in practice are approved to offer a wide range of accounting services</p>\n\n                <div class=\"section-2-btn-wrap\"><a href=\"/membership/member-in-practice/search\"\n                                                   class=\"btn btn-default section-2-btn frontpage-vbottom\">Search our\n                    directory</a></div>\n\n            </div>\n\n        </div>\n        <!-- end #section-2-container - row -->\n\n    </div>\n    <!-- end container -->\n\n\n</section>\n<!-- end section-2 -->\n\n\n");

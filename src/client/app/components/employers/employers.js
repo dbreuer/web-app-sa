@@ -56,7 +56,7 @@
           'text': 'We offer a range of benefits and services to our members long ' +
           'after they have completed their initial qualification.',
           'image': {
-            'src': '../img/hero/ayton_namwaza_banda.jpg',
+            'src': '/assets/img/hero/ayton_namwaza_banda.jpg',
             'alt': 'Membership for your staff'
           },
           'button': {
@@ -69,7 +69,7 @@
           'title': 'Training for your business',
           'text': 'We offer a range of flexible training options, designed to suit your organisation and employees.',
           'image': {
-            'src': '../img/hero/edith_bayoli_2.jpg',
+            'src': '/assets/img/hero/edith_bayoli_2.jpg',
             'alt': 'Training for your business'
           },
           'button': {
@@ -85,7 +85,7 @@
           'text': 'We offer a range of flexible training options, carefully' +
           ' designed to suit the needs of your organisation and employees.',
           'image': {
-            'src': '../img/landing_pages/israel_mogobe.jpg?itok=vH2K6Qn2',
+            'src': '/assets/img/landing_pages/israel_mogobe.jpg?itok=vH2K6Qn2',
             'alt': 'Training for your business'
           },
           'button': {
@@ -99,7 +99,7 @@
           'text': 'We offer a range of benefits and services that will enable our ' +
           'members to continue their professional development.',
           'image': {
-            'src': '../img/landing_pages/lawrence_mtolo.jpg?itok=6HqACUwI',
+            'src': '/assets/img/landing_pages/lawrence_mtolo.jpg?itok=6HqACUwI',
             'alt': 'Membership for your staff'
           },
           'button': {
@@ -113,7 +113,7 @@
           'text': 'Aimed at learners who are employed or want to prepare themselves ' +
           'for employment in the accounting environment at technician level.',
           'image': {
-            'src': '../img/landing_pages/jessie_bosco_2.jpg?itok=3z-GVVw8',
+            'src': '/assets/img/landing_pages/jessie_bosco_2.jpg?itok=3z-GVVw8',
             'alt': 'The AAT(SA) learnerships'
           },
           'button': {
@@ -127,7 +127,7 @@
           'text': 'We have AAT(SA) approved training providers all over South Africa. ' +
           'Download our list below to contact a training provider in your province.',
           'image': {
-            'src': '../img/landing_pages/tapiwa_obert_2.jpg?itok=kZmOK4q0',
+            'src': '/assets/img/landing_pages/tapiwa_obert_2.jpg?itok=kZmOK4q0',
             'alt': 'Download our list of training providers (PDF)'
           },
           'button': {

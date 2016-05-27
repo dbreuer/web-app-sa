@@ -56,7 +56,7 @@
           'text': 'Find out how you can become approved to deliver AAT(SA) qualifications,' +
           ' and join our network of approved training providers.',
           'image': {
-            'src': '../img/hero/sebathu_bengani_2.jpg',
+            'src': '/assets/img/hero/sebathu_bengani_2.jpg',
             'alt': 'Deliver AAT(SA)qualifications'
           },
           'button': {
@@ -70,7 +70,7 @@
           'text': 'Become associated with one of the largest professional' +
           ' membership bodies by offering computer based assessments.',
           'image': {
-            'src': '../img/hero/lungile_mawonga.jpg',
+            'src': '/assets/img/hero/lungile_mawonga.jpg',
             'alt': 'Become a CBA venue'
           },
           'button': {
@@ -86,7 +86,7 @@
           'text': 'Find out how you can become approved to deliver AAT(SA) qualifications, ' +
           'and join our network of approved training providers.',
           'image': {
-            'src': '../img/landing_pages/edward_makwana_saica.jpg?itok=Z4Vq3N6g',
+            'src': '/assets/img/landing_pages/edward_makwana_saica.jpg?itok=Z4Vq3N6g',
             'alt': 'Deliver AAT(SA) qualifications'
           },
           'button': {
@@ -100,7 +100,7 @@
           'text': 'Become associated with one of the largest professional membership ' +
           'bodies by offering computer based assessments.',
           'image': {
-            'src': '../img/landing_pages/lawrence_mtolo.jpg?itok=zknYNy3W',
+            'src': '/assets/img/landing_pages/lawrence_mtolo.jpg?itok=zknYNy3W',
             'alt': 'Become a CBA venue'
           },
           'button': {
@@ -129,7 +129,7 @@
           'text': 'We\'ve provided a range of marketing materials designed ' +
           'to help you promote AAT(SA) to your students and members.',
           'image': {
-            'src': '../img/landing_pages/sylvia_segone_2.jpg?itok=B-wDsPO4',
+            'src': '/assets/img/landing_pages/sylvia_segone_2.jpg?itok=B-wDsPO4',
             'alt': 'Marketing support'
           },
           'button': {

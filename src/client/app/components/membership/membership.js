@@ -56,7 +56,7 @@
           'text': 'Benefits include professional and career advice, networking' +
           ' opportunities, exclusive discounts and more.',
           'image': {
-            'src': '../img/hero/edith_bayoli_2.jpg',
+            'src': '/assets/img/hero/edith_bayoli_2.jpg',
             'alt': 'Benefits of membership'
           },
           'button': {
@@ -69,7 +69,7 @@
           'title': 'Apply for AAT(SA) membership',
           'text': 'Join a professional accountancy body that recognises your achievements and hard work.',
           'image': {
-            'src': '../img/hero/lungile_mawonga.jpg',
+            'src': '/assets/img/hero/lungile_mawonga.jpg',
             'alt': 'Apply for AAT(SA) membership'
           },
           'button': {
@@ -85,7 +85,7 @@
           'text': 'Be part of a professional accountancy body that recognises' +
           ' your achievements and offers you a range of benefits.',
           'image': {
-            'src': '../img/landing_pages/jessie_bosco_2.jpg?itok=8VpvQaCo',
+            'src': '/assets/img/landing_pages/jessie_bosco_2.jpg?itok=8VpvQaCo',
             'alt': 'About AAT(SA) membership'
           },
           'button': {
@@ -99,7 +99,7 @@
           'text': 'Benefits include professional and career advice, ' +
           'networking opportunities, exclusive discounts and more.',
           'image': {
-            'src': '../img/landing_pages/lawrence_mtolo.jpg?itok=pkqtVT-_',
+            'src': '/assets/img/landing_pages/lawrence_mtolo.jpg?itok=pkqtVT-_',
             'alt': 'Benefits of membership'
           },
           'button': {
@@ -127,7 +127,7 @@
           'text': 'Continuing Professional Development (CPD) is any activity that helps ' +
           'you maintain your knowledge and skills related to your work.',
           'image': {
-            'src': '../img/landing_pages/edward_makwana_saica.jpg?itok=lKC6Kry7',
+            'src': '/assets/img/landing_pages/edward_makwana_saica.jpg?itok=lKC6Kry7',
             'alt': 'Marketing support'
           },
           'button': {
