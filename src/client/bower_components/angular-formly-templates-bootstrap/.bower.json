@@ -43,7 +43,7 @@
     "tag": "v6.1.7",
     "commit": "4610b7741407f48e9cbde45c9775adc711ba1ea1"
   },
-  "_source": "git://github.com/formly-js/angular-formly-templates-bootstrap.git",
+  "_source": "https://github.com/formly-js/angular-formly-templates-bootstrap.git",
   "_target": "~6.1.4",
   "_originalSource": "angular-formly-templates-bootstrap"
 }

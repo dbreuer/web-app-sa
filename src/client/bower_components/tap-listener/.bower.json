@@ -36,7 +36,7 @@
     "tag": "v1.1.2",
     "commit": "60f3fe621f480021feb78746bd6db34660fff886"
   },
-  "_source": "git://github.com/metafizzy/tap-listener.git",
+  "_source": "https://github.com/metafizzy/tap-listener.git",
   "_target": "~1.1.1",
   "_originalSource": "tap-listener"
 }

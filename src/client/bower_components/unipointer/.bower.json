@@ -36,7 +36,7 @@
     "tag": "v1.1.0",
     "commit": "48b0420cd58ca6c74dc19d1bdcbe66dd3f1a9ea5"
   },
-  "_source": "git://github.com/metafizzy/unipointer.git",
+  "_source": "https://github.com/metafizzy/unipointer.git",
   "_target": "~1.1.0",
   "_originalSource": "unipointer"
 }

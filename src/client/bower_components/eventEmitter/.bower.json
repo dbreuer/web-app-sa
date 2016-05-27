@@ -33,7 +33,7 @@
     "tag": "v4.2.11",
     "commit": "5da7b55b628b210f2e9b8bd87ae6e4035321d72b"
   },
-  "_source": "git://github.com/Olical/EventEmitter.git",
+  "_source": "https://github.com/Olical/EventEmitter.git",
   "_target": "~4.2.11",
   "_originalSource": "eventEmitter"
 }

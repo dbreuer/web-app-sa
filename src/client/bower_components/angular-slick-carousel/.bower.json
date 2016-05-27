@@ -38,7 +38,7 @@
     "tag": "3.0.11",
     "commit": "bd38c4166d904e000083538803ded5ac8268eb49"
   },
-  "_source": "git://github.com/devmark/angular-slick-carousel.git",
+  "_source": "https://github.com/devmark/angular-slick-carousel.git",
   "_target": "~3.0.10",
   "_originalSource": "angular-slick-carousel"
 }

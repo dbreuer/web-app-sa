@@ -58,7 +58,7 @@
     "tag": "v1.1.2",
     "commit": "07025819c4a8cc3bafff1bfe68a94502b5ee6d70"
   },
-  "_source": "git://github.com/metafizzy/flickity.git",
+  "_source": "https://github.com/metafizzy/flickity.git",
   "_target": "~1.1.1",
   "_originalSource": "flickity"
 }

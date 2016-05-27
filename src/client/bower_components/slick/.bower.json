@@ -8,7 +8,7 @@
     "branch": "master",
     "commit": "ce20afabd1898e002c4a5a9b0c21281a2592889d"
   },
-  "_source": "git://github.com/shashankmehta/slick.js.git",
+  "_source": "https://github.com/shashankmehta/slick.js.git",
   "_target": "*",
   "_originalSource": "slick"
 }
