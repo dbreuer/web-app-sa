@@ -1,13 +1,9 @@
 // Vendor Libs (bower_components)
-@import "src/client/app/sass/_vendor.scss";
+@import '../src/client/bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
 // Base
-@import 'src/client/app/sass/base/_all.scss';
-
+@import '../src/client/sass/base/_all.scss';
 // Layout
-@import "src/client/app/sass/layout/_all.scss";
-// Shared
-@import "src/client/app/sass/shared";
-
+@import '../src/client/sass/layout/_all.scss';
 
 #page-wrapper {
   margin-top: 60px;

@@ -45,11 +45,10 @@ var gzip = require('gulp-gzip');
 var clean = require('gulp-clean');
 var protractor = require('gulp-protractor');
 
-
 // Source SCSS files
 var sassFiles = [
-  'src/client/sass/app.scss',
-  'src/client/app/**/*.scss'
+  '../src/client/sass/app.scss',
+  '../src/client/app/**/*.scss'
 ];
 
 // Compile CSS from SCSS files
@@ -101,10 +100,10 @@ gulp.task('html', function() {
     spare: true
   };
   return gulp
-    .src('./app/index.html')
+    .src('../src/client/app/index.html')
     //.pipe(minifyHTML(opts))
     .pipe(rename('index.html'))
-    .pipe(gulp.dest('./build/'));
+    .pipe(gulp.dest('../deploy/'));
 });
 
 
@@ -115,7 +114,11 @@ gulp.task('docs', ['scripts'], function() {
     .pipe(jsdoc(require('./jsdoc.json')));
 });
 
-
+// Clean template
+gulp.task('clean-template', function() {
+  return gulp.src('build/tmp', {cwd: base, read: false})
+    .pipe(clean());
+});
 
 gulp.task('fontello', function() {
   return gulp.src('./app/fontello.config.json')
@@ -124,23 +127,27 @@ gulp.task('fontello', function() {
     .pipe(gulp.dest('./build/'));
 });
 
+gulp.task('templates', function() {
+  return gulp
+    .src('templates.js')
+    .pipe(addStream.obj(prepareTemplates()))
+    .pipe(concat('templates.js'))
+    .pipe(gulp.dest('tmp/js'));
+});
+
 // Angular Template Cache
 function prepareTemplates() {
-  return gulp
-    .src([
-      './src/client/app/**/*.tpl.html'
-    ])
+  return gulp.src('src/app/**/*.tpl.html', {cwd: base})
     .pipe(angularTemplateCache());
 }
-
 
 // WATCHERS
 gulp.task('watch', function() {
 
   gulp.watch([
-      './src/client/app/sass/**/*.scss',
+      './src/client/sass/**/*.scss',
       './src/client/app/components/**/*.scss',
-      './src/client/app/shared/directives/**/*.scss'
+      './src/client/app/shared/**/*.scss'
     ],
     ['css']
   );
@@ -159,7 +166,11 @@ gulp.task('watch', function() {
 });
 
 // Unit Testing
-gulp.task('test', function(done) {
+gulp.task('test', ['karma'], function(done) {
+  gulp.start('clean-template');
+});
+
+gulp.task('karma', ['templates'], function(done) {
   new Server({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
