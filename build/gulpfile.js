@@ -31,85 +31,13 @@ var gzip = require('gulp-gzip');
 var protractor = require('gulp-protractor');
 
 // Build Destination
-var dest = 'build';
+var dest = '../deploy/assets/';
 
 // Vendor JS files
-var vendorJsFiles = [
-  'src/client/app/bower_components/angular/angular.js',
-  'src/client/app/bower_components/angular-route/angular-route.js',
-  'src/client/app/bower_components/angular-animate/angular-animate.js',
-  'src/client/app/bower_components/angular-sanitize/angular-sanitize.js',
-  'src/client/app/bower_components/angular-jwt/dist/angular-jwt.js',
-  'src/client/app/bower_components/a0-angular-storage/dist/angular-storage.js',
-  'src/client/app/bower_components/angular-bootstrap/ui-bootstrap.js',
-  'src/client/app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-  'src/client/app/bower_components/angular-socialshare/dist/angular-socialshare.js',
-
-  'src/client/app/bower_components/api-check/dist/api-check.js',
-  'src/client/app/bower_components/angular-formly/dist/formly.js',
-  'src/client/app/bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js',
-
-  //'app/bower_components/slick-carousel/slick/slick.js',
-  'src/client/app/bower_components/ngprogress/build/ngprogress.js',
-
-  'src/client/app/bower_components/jquery/dist/jquery.js',
-  'src/client/app/bower_components/slick-carousel/slick/slick.js',
-  'src/client/app/bower_components/angular-slick/dist/slick.js'
-
-];
+var vendorJsFiles = require('./includes/vendor');
 
 // Source JS files
-var customJsFiles = [
-
-  //SHARED
-  'src/client/app/shared/shared.js',
-
-  //'src/client/app/shared/directives/component/component.js',
-  //
-  'src/client/app/shared/directives/mobile-menu/mobile-menu.js',
-  //'src/client/app/shared/directives/search-bar/search-bar.js',
-  //'src/client/app/shared/meta/meta.js',
-
-  'src/client/app/shared/directives/menu/menu.js',
-
-  //'src/client/app/shared/directives/landing-page/landing-page.js',
-
-  'src/client/app/shared/directives/hero/hero.js',
-  //'src/client/app/shared/directives/steps/steps.js',
-  //'src/client/app/shared/directives/campaign-cta/campaign-cta.js',
-  //'src/client/app/shared/directives/secondary-cta/secondary-cta.js',
-  //'src/client/app/shared/directives/html/html.js',
-  'src/client/app/shared/directives/social/social.js',
-  //'src/client/app/shared/directives/image/image.js',
-  //'src/client/app/shared/directives/module/module.js',
-  'src/client/app/shared/directives/slideshow/slideshow.js',
-  'src/client/app/shared/directives/spotlights/spotlights.js',
-  'src/client/app/shared/directives/spinner/spinner.js',
-  //'src/client/app/shared/directives/title/title.js',
-  //
-  'src/client/app/shared/directives/404/404.js',
-
-  // COMPONENTS
-  'src/client/app/components/myaat/myaat.js',
-  'src/client/app/components/node/node.js',
-  'src/client/app/components/header/header.js',
-  'src/client/app/components/frontpage/frontpage.js',
-  'src/client/app/components/news/news.js',
-  'src/client/app/components/static-pages/static-pages.js',
-  'src/client/app/components/qualifications/qualifications.js',
-  'src/client/app/components/employers/employers.js',
-  'src/client/app/components/deliver/deliver.js',
-  'src/client/app/components/membership/membership.js',
-  'src/client/app/components/about/about.js',
-
-  //SERVICE
-  'src/client/app/services/menu-service.js',
-  'src/client/app/services/node-service.js',
-  'src/client/app/services/news-service.js',
-
-  // MAIN
-  'src/client/app/app.js'
-];
+var customJsFiles =  require('./includes/source');
 
 var sourceJsFiles = vendorJsFiles.concat(customJsFiles);
 
