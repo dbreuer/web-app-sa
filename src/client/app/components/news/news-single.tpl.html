@@ -5,7 +5,7 @@
 
         <div class="hero_message">
             <div class="hero_message__content">
-                <h1>MyAAT</h1>
+                <h1>AAT News</h1>
 
             </div>
         </div>
@@ -26,12 +26,9 @@
 
             <div class="page-content" ng-init="vm.getSinglePost()">
 
-                <!-- here come the news media list -->
-                <!--<div ng-show="vm.isPageLoading" class="">-->
-                    <!--<i class="fa fa-circle-notch fa-spin" style="font-size: 3em"></i>-->
-                <!--</div>-->
+                <spinner show="vm.isLoading"></spinner>
 
-                <social-share-buttons page-title="vm.newsSinglePost.title" page-slug="vm.newsSinglePost.slug"></social-share-buttons>
+
 
                 <div class="news-single-post">
                     <h2 ng-bind="vm.newsSinglePost.title"></h2>
@@ -44,6 +41,13 @@
                         <div class="" ng-bind-html="image">
 
                         </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr/>
+                        <social-share-buttons page-title="vm.newsSinglePost.title" page-slug="vm.newsSinglePost.slug"></social-share-buttons>
                     </div>
                 </div>
 

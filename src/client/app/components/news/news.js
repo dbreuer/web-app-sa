@@ -48,10 +48,17 @@
    * @constructor
    */
   function NewsController(menuService, $http, $location, $routeParams, $rootScope, $scope, $timeout, NewsService) {
+    var errorMessage = {
+      title: 'Something doesn\'t add up here...',
+      body: '<h4>There seems to be an error on this page.</h4> <ul> <li>If you followed a link to get here,' +
+      ' it must be broken. Please <a href="/about-aat/contact-aat">contact us</a> ' +
+      'and we\'ll fix it.</li> <li>If you typed in the address, ' +
+      'please check you typed it in correctly.</li> </ul>'
+    };
 
     var vm = this;
     vm.pageContent = {};
-    vm.isPageLoading = true;
+    vm.isLoading = true;
     vm.news = [];
     vm.newsSinglePost = {};
     vm.currentPage = 0;
@@ -74,28 +81,52 @@
     vm.showMore = showMore;
 
     function getNewsListing() {
-      NewsService.getAllNews({page: $rootScope.params.page, limit: $rootScope.params.limit}).then(function(response) {
-        vm.news = response;
-        vm.isPageLoading = false;
-        NewsService.getAllNews({page: $rootScope.params.page + 1}).then(function(response) {
-
-          $rootScope.params.hasNext = (response.length > 0) ? true : false;
-          $rootScope.params.hasMore = (response.length > 0 && vm.news.length >= $rootScope.params.limit) ? true : false;
-          console.log(response.length, vm.news.length, $rootScope.params);
+      NewsService.getAllNews({page: $rootScope.params.page, limit: $rootScope.params.limit})
+        .then(function(response) {
+          vm.news = response;
+          vm.isLoading = false;
+          NewsService.getAllNews({page: $rootScope.params.page + 1})
+            .then(function(response) {
+              $rootScope.params.hasNext = (response.length > 0) ? true : false;
+              $rootScope.params.hasMore =
+                (response.length > 0 && vm.news.length >= $rootScope.params.limit) ? true : false;
+            })
+            .catch(function(err) {
+              console.log('catch:', err);
+              $rootScope.pageTitle = 'Page not Found: 404';
+              vm.isLoading = false;
+              vm.pageError = true;
+              vm.pageContent = errorMessage;
+            });
+        })
+        .catch(function(err) {
+          console.log('catch:', err);
+          $rootScope.pageTitle = 'Page not Found: 404';
+          vm.isLoading = false;
+          vm.pageError = true;
+          vm.pageContent = errorMessage;
         });
-      });
     }
 
     function getSinglePost() {
-      NewsService.getNews($rootScope.nodeid).then(function(response) {
-
-        vm.newsSinglePost = new PostType(response);
-        if (response.field_news_photos.length > 0) {/* jshint ignore:line */
-          vm.newsSinglePost.images = new PostImages(response.field_news_photos.und);/* jshint ignore:line */
-        }
-
-        vm.isPageLoading = false;
-      });
+      if (!$rootScope.nodeid) {
+        $location.path('/news');
+      }
+      NewsService.getNews($rootScope.nodeid)
+        .then(function(response) {
+          vm.newsSinglePost = new PostType(response);
+          if (response.field_news_photos.length > 0) {/* jshint ignore:line */
+            vm.newsSinglePost.images = new PostImages(response.field_news_photos.und);/* jshint ignore:line */
+          }
+          vm.isLoading = false;
+        })
+        .catch(function(err) {
+          console.log('catch:', err);
+          $rootScope.pageTitle = 'Page not Found: 404';
+          vm.isLoading = false;
+          vm.pageError = true;
+          vm.pageContent = errorMessage;
+        });
     }
 
     function goToNews(nodeid, slug) {
