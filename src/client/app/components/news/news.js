@@ -158,7 +158,7 @@
         $rootScope.params.page = 0;
       } else {
         $rootScope.params.limit += 5;
-      };
+      }
       getNewsListing();
       console.log($rootScope.params);
     }

@@ -1,12 +1,13 @@
+
 /**
  * Created by David Breuer on 13/05/2016.
  *
- * @file menu-service.js
- * @description Menu service
+ * @name node-service
+ * @description Node service
  *
  */
 (function() {
-  'use strict';
+
   angular
     .module('node-service', [])
     .service('nodeService', nodeService);
@@ -54,16 +55,15 @@
     }
 
     function getPage(parent, slug, hasParent) {
-      var pageID = getNodeIDBySlug(parent, slug);
-      if (hasParent) {
-        pageID = parent;
-      }
+      /*jshint validthis:true */
+      var pageID = (hasParent) ? parent : getNodeIDBySlug(parent, slug);
       $rootScope.progressbar.start();
       return this.api('/node/' + pageID, 'GET', true);
     }
   }
 
   function getNodeIDBySlug(parent, slug) {
+    /*jshint validthis:true */
     var pageMap = {
       'myaat': {
         'about': 20130,
