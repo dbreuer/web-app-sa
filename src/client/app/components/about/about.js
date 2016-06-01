@@ -56,7 +56,7 @@
           'text': 'Join a professional accountancy body that recognises your ' +
           'achievements and provides you with a range of benefits.',
           'image': {
-            'src': '../img/hero/lungile_mawonga.jpg',
+            'src': '/assets/img/hero/lungile_mawonga.jpg',
             'alt': ''
           },
           'button': {
@@ -70,7 +70,7 @@
           'text': 'The AAT(SA) qualification can enable your career in finance and accounting' +
           ' and help you make a truly positive contribution to your business, department or unit.',
           'image': {
-            'src': '../img/hero/ayton_namwaza_banda.jpg',
+            'src': '/assets/img/hero/ayton_namwaza_banda.jpg',
             'alt': ''
           },
           'button': {
@@ -86,7 +86,7 @@
           'text': 'We are a professional body dedicated to the education, development,' +
           ' regulation and support of accounting technicians in South Africa.',
           'image': {
-            'src': '../img/landing_pages/israel_mogobe.jpg?itok=vXbL54nk',
+            'src': '/assets/img/landing_pages/israel_mogobe.jpg?itok=vXbL54nk',
             'alt': 'What we do'
           },
           'button': {
@@ -113,7 +113,7 @@
           'title': 'AAT UK',
           'text': 'Visit the Association of Accounting Technician\'s UK web site.',
           'image': {
-            'src': '../img/landing_pages/edward_makwana_saica.jpg?itok=-35K2xUE',
+            'src': '/assets/img/landing_pages/edward_makwana_saica.jpg?itok=-35K2xUE',
             'alt': 'AAT UK'
           },
           'button': {
@@ -127,7 +127,7 @@
           'text': 'Access to and use of AAT(SA)\'s website constitutes ' +
           'acceptance of the terms and conditions listed here.',
           'image': {
-            'src': '../img/landing_pages/sylvia_segone_2.jpg?itok=OaqGU7O3',
+            'src': '/assets/img/landing_pages/sylvia_segone_2.jpg?itok=OaqGU7O3',
             'alt': 'Ts & Cs'
           },
           'button': {

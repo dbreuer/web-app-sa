@@ -110,7 +110,7 @@ gulp.task('html', function() {
 // Documentation (JSDoc)
 gulp.task('docs', ['scripts'], function() {
   return gulp
-    .src(sourceJsFiles, {cwd: base, read: false})
+    .src(customJsFiles, {cwd: base, read: false})
     .pipe(jsdoc(require('./jsdoc.json')));
 });
 
