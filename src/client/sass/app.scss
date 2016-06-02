@@ -1,10 +1,10 @@
-@import "base/variables";
+@import '../src/client/sass/base/_variables.scss';
 // Vendor Libs (bower_components)
 @import '../src/client/bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
 // Base
-@import 'base/all';
+@import '../src/client/sass/base/_all.scss';
 // Layout
-@import 'layout/all';
+@import '../src/client/sass/layout/_all.scss';
 
 #page-wrapper {
   margin-top: 60px;

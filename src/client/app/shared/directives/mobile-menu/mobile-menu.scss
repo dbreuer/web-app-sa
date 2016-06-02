@@ -125,7 +125,7 @@
   }
 
 
-  @media (min-width: $breakpoint-desktop) {
+  @media (min-width: $screen-desktop) {
     .hamburger {
       display: none;
       &.is-active {
