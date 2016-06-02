@@ -37,7 +37,7 @@
       'mobile-menu',
       //'search-bar',
       //'bookmarks',
-      //'meta',
+      'metatags',
       'slideshow',
       'spotlights',
       'social',

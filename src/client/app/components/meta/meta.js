@@ -1,73 +1,114 @@
 /**
- *
  * Meta Module
- *
  * @file Handles page meta data content i.e. MetaTags, PageTitles, OpenGraph, Twitter Cards etc...
  *
  */
+(function() {
+  'use strict';
 
-'use strict';
+  angular.module('metatags', [])
+    .provider('MetaTags', MetaTags);
 
+  function MetaTags() {
 
-angular.module('meta', [])
+    var routes = {};
+    var otherwise = {};
 
+    this.when = when;
+    this.otherwise = otherwise;
+    this.$get = MetaTagsFactory;
 
-  // Define services
-  .service('MetaDataService', MetaDataService)
+    function when(path, metatags) {
+      routes[path] = metatags;
+      return this;
+    }
 
+    function otherwise(metatags) {
+      otherwise = metatags;
+      return this;
+    }
 
-// Define Injectables
-MetaDataService.$inject = [];
+    function getMetaTags(path) {
+      var info = {};
+      var routesArray = Object.keys(routes);
+      var routesLength = routesArray.length;
+      var placeholder = {};
 
+      for (var i = 0; i < routesLength; i++) {
 
-/**
- *
- * PageTitle Service
- */
-function MetaDataService() {
+        var routeName = routesArray[i];
+        var routeMetaTagsObject = routes[routeName];
+        var routeMetaTagsArray = Object.keys(routeMetaTagsObject);
+        var routeArgs = routeName.split('/').filter(Boolean);
+        var routeArgsLength = routeArgs.length;
+        var pathArgs = path.split('/').filter(Boolean);
+        var pathArgsLength = pathArgs.length;
+        var flag = true;
 
-  var title = 'AAT';
-  var metaDescription = '';
-  var metaKeywords = '';
-
-
-  console.log(title);
-
-  return {
-
-    // Page Title
-    pageTitle: function() {
-      return title;
-    },
-    setPageTitle: function(newTitle) {
-      title = newTitle;
-    },
-
-
-    //
-    metaDescription: function() {
-      return metaDescription;
-    },
-    metaKeywords: function() {
-      return metaKeywords;
-    },
-    reset: function() {
-      metaDescription = '';
-      metaKeywords = '';
-    },
-    setMetaDescription: function(newMetaDescription) {
-      metaDescription = newMetaDescription;
-    },
-    appendMetaKeywords: function(newKeywords) {
-      for (var key in newKeywords) {
-        if (metaKeywords === '') {
-          metaKeywords += newKeywords[key].name;
-        } else {
-          metaKeywords += ', ' + newKeywords[key].name;
+        if (routeArgsLength !== pathArgsLength) {
+          flag = false;
+          continue;
         }
+
+        for (var j = 0; j < pathArgsLength; j++) {
+          if (routeArgs[j].indexOf(':') === 0) {
+            placeholder[pathArgs[j]] = routeArgs[j];
+            continue;
+          }
+          if (pathArgs[j] !== routeArgs[j]) {
+            flag = false;
+            placeholder = [];
+            break;
+          }
+        }
+
+        var routeMetaTagsLength = routeMetaTagsArray.length;
+        if (flag) {
+          for (var ii = 0; ii < routeMetaTagsLength; ii++) {
+            var tag = routeMetaTagsArray[ii];
+            if (typeof(routeMetaTagsObject[tag]) === 'string')
+              info[tag] = routeMetaTagsObject[tag];
+            if (typeof(routeMetaTagsObject[tag]) === 'function') {
+              var functionResponse = routeMetaTagsObject[tag].apply(this, Object.keys(placeholder));
+              if (typeof(functionResponse) !== 'string')
+                throw new Error(routeMetaTagsObject[tag].toString() + ' should return a string');
+              else
+                info[tag] = functionResponse;
+            }
+          }
+
+          for (var p in placeholder) {
+            for (var t in info) {
+              info[t] = info[t].replace(placeholder[p], p);
+            }
+          }
+        }
+        else {
+          for (var o in otherwise) {
+            info[o] = otherwise[o];
+          }
+        }
+        return info;
       }
     }
-  };
 
+    function MetaTagsFactory($rootScope, $location) {
 
-}
+      var update = function () {
+        var path = $location.path();
+        var info = getMetaTags(path);
+        for (var tt in info) {
+          $rootScope.metatags[tt] = info[tt];
+        }
+      };
+
+      return {
+        initialize: function () {
+          $rootScope.metatags = {};
+          $rootScope.$on('$routeChangeSuccess', update);
+        }
+      };
+    }
+  }
+
+}());
