@@ -56,11 +56,13 @@
     }
 
     function getNews(news) {
+      /* jshint validthis: true */
       $rootScope.progressbar.start();
       return this.api('/node/' + news, 'GET', true);
     }
 
     function getAllNews(params) {
+      /* jshint validthis: true */
       $rootScope.progressbar.start();
       return this.api('/views/api_news', 'GET', true, {
         limit: (params && params.limit) ? params.limit : 5,

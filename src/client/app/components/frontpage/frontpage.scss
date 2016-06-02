@@ -61,7 +61,7 @@
     }
   }
 
-  @media (min-width: $breakpoint-desktop) {
+  @media (min-width: $screen-md-min) {
 
     .qualifications__button {
       text-align: center;

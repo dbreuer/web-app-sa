@@ -54,6 +54,7 @@
     }
 
     function getPage(parent, slug, hasParent) {
+      /* jshint validthis: true */
       var pageID = getNodeIDBySlug(parent, slug);
       if (hasParent) {
         pageID = parent;

@@ -1,4 +1,4 @@
-// @todo - add a global table breakpoint like $breakpoint-desktop instead of *em...
+// @todo - add a global table breakpoint like $screen-md-min instead of *em...
 
 .spotlight-container {
 
@@ -108,7 +108,7 @@
     }
   }
 
-  @media (min-width: $breakpoint-desktop) {
+  @media (min-width: $screen-md-min) {
 
 
   }
