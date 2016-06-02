@@ -1,73 +1,137 @@
 /**
- *
  * Meta Module
- *
  * @file Handles page meta data content i.e. MetaTags, PageTitles, OpenGraph, Twitter Cards etc...
  *
  */
+(function() {
 
-'use strict';
+  angular.module('metatags', [])
+    .provider('MetaTags', function() {
 
+      var routes = {};
+      var otherwise = {};
 
-angular.module('meta', [])
+      this.when = function(path, metatags) {
+        routes[path] = metatags;
+        return this;
+      };
 
+      this.otherwise = function(metatags) {
+        otherwise = metatags;
+        return this;
+      };
 
-  // Define services
-  .service('MetaDataService', MetaDataService)
+      var getMetaTags = function(path) {
+        var info = {};
+        var routesArray = Object.keys(routes);
+        var routesLength = routesArray.length;
+        var placeholder = {};
+        var routeName;
+        var routeMetaTagsObject = {};
+        var routeMetaTagsArray = [];
+        var routeArgs = [];
+        var routeArgsLength;
+        var pathArgs = [];
+        var pathArgsLength;
+        var flag1;
+        var flag2;
 
+        for (var i = 0; i < routesLength; i++) {
 
-// Define Injectables
-MetaDataService.$inject = [];
+          routeName = routesArray[i];
+          routeMetaTagsObject = routes[routeName];
+          routeMetaTagsArray = Object.keys(routeMetaTagsObject);
+          routeArgs = routeName.split('/').filter(Boolean);
+          routeArgsLength = routeArgs.length;
+          pathArgs = path.split('/').filter(Boolean);
+          pathArgsLength = pathArgs.length;
+          flag1 = true;
+          flag2 = false;
 
+          if (routeArgsLength !== pathArgsLength) {
+            continue;
+          }
 
-/**
- *
- * PageTitle Service
- */
-function MetaDataService() {
+          for (var j = 0; j < pathArgsLength; j++) {
+            if (routeArgs[j].indexOf(':') === 0) {
+              placeholder[pathArgs[j]] = routeArgs[j];
+              continue;
+            }
+            if (pathArgs[j] !== routeArgs[j]) {
+              placeholder = {};
+              flag1 = false;
+              break;
+            }
+          }
 
-  var title = 'AAT';
-  var metaDescription = '';
-  var metaKeywords = '';
+          var routeMetaTagsLength = routeMetaTagsArray.length;
+          var placeHolderLength = Object.keys(placeholder).length;
 
+          if (placeHolderLength > 0) {
+            for (var ii = 0; ii < routeMetaTagsLength; ii++) {
+              var tag = routeMetaTagsArray[ii];
+              if (typeof(routeMetaTagsObject[tag]) === 'string') {
+                info[tag] = routeMetaTagsObject[tag];
+              }
+              if (typeof(routeMetaTagsObject[tag]) === 'function') {
+                var functionResponse = routeMetaTagsObject[tag].apply(this, Object.keys(placeholder));
+                if (typeof(functionResponse) !== 'string') {
+                  throw new Error(routeMetaTagsObject[tag].toString() + ' should return a string');
+                } else {
+                  info[tag] = functionResponse;
+                }
+              }
+            }
 
-  console.log(title);
+            for (var p in placeholder) {
+              for (var t in info) {
+                info[t] = info[t].replace(placeholder[p], p);
+              }
+            }
+            return info;
+          } else {
+            for (var o in otherwise) {
+              info[o] = otherwise[o];
+            }
 
-  return {
-
-    // Page Title
-    pageTitle: function() {
-      return title;
-    },
-    setPageTitle: function(newTitle) {
-      title = newTitle;
-    },
-
-
-    //
-    metaDescription: function() {
-      return metaDescription;
-    },
-    metaKeywords: function() {
-      return metaKeywords;
-    },
-    reset: function() {
-      metaDescription = '';
-      metaKeywords = '';
-    },
-    setMetaDescription: function(newMetaDescription) {
-      metaDescription = newMetaDescription;
-    },
-    appendMetaKeywords: function(newKeywords) {
-      for (var key in newKeywords) {
-        if (metaKeywords === '') {
-          metaKeywords += newKeywords[key].name;
-        } else {
-          metaKeywords += ', ' + newKeywords[key].name;
+            if (routeArgs[routeArgsLength - 1] === pathArgs[routeArgsLength - 1]) {
+              flag2 = true;
+              break;
+            }
+          }
         }
-      }
-    }
-  };
+        if (flag1 && flag2) {
+          for (var r in routeMetaTagsObject) {
+            info[r] = routeMetaTagsObject[r];
+          }
+          return info;
+        } else {
+          return info;
+        }
+      };
 
+      this.$get = ['$rootScope', '$location', function($rootScope, $location) {
 
-}
+        var update = function() {
+          var path = $location.path();
+          var info = getMetaTags(path);
+          for (var tt in info) {
+            $rootScope.metatags[tt] = info[tt];
+          }
+        };
+
+        return {
+          initialize: function() {
+            $rootScope.metatags = {};
+            try {
+              angular.module('ngRoute');
+              $rootScope.$on('$routeChangeSuccess', update);
+            } catch (err) {
+              $rootScope.$on('$stateChangeSuccess', update);
+            }
+          }
+        };
+      }];
+    });
+
+}());

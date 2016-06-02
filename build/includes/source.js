@@ -21,6 +21,7 @@ module.exports = [
   'src/client/app/components/deliver/deliver.js',
   'src/client/app/components/membership/membership.js',
   'src/client/app/components/about/about.js',
+  'src/client/app/components/meta/meta.js',
 
   //SHARED
   'src/client/app/shared/shared.js',
@@ -29,7 +30,7 @@ module.exports = [
   //
   'src/client/app/shared/directives/mobile-menu/mobile-menu.js',
   //'src/client/app/shared/directives/search-bar/search-bar.js',
-  //'src/client/app/shared/meta/meta.js',
+
 
   'src/client/app/shared/directives/menu/menu.js',
 
@@ -49,6 +50,5 @@ module.exports = [
   //'src/client/app/shared/directives/title/title.js',
   //
   'src/client/app/shared/directives/404/404.js'
-
 
 ];

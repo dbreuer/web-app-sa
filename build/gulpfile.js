@@ -71,12 +71,13 @@ gulp.task('css:dev', function() {
 gulp.task('scripts', ['css'], function() {
   return gulp
     .src(sourceJsFiles, {cwd: base})
-    //.pipe(sourcemaps.init())
+    .pipe($.sourcemaps.init())
     .pipe(addStream.obj(prepareTemplates()))
     .pipe($.concat('build.js'))
-    //.pipe(sourcemaps.write('.map'))
+
     //.pipe(rename({suffix: '.min'}))
     .pipe($.uglify())
+    .pipe($.sourcemaps.write('./map'))
     .pipe(gulp.dest(dest + 'js'));
 });
 
