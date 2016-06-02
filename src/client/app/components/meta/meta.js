@@ -4,111 +4,134 @@
  *
  */
 (function() {
-  'use strict';
 
   angular.module('metatags', [])
-    .provider('MetaTags', MetaTags);
+    .provider('MetaTags', function() {
 
-  function MetaTags() {
+      var routes = {};
+      var otherwise = {};
 
-    var routes = {};
-    var otherwise = {};
+      this.when = function(path, metatags) {
+        routes[path] = metatags;
+        return this;
+      };
 
-    this.when = when;
-    this.otherwise = otherwise;
-    this.$get = MetaTagsFactory;
+      this.otherwise = function(metatags) {
+        otherwise = metatags;
+        return this;
+      };
 
-    function when(path, metatags) {
-      routes[path] = metatags;
-      return this;
-    }
+      var getMetaTags = function(path) {
+        var info = {};
+        var routesArray = Object.keys(routes);
+        var routesLength = routesArray.length;
+        var placeholder = {};
+        var routeName;
+        var routeMetaTagsObject = {};
+        var routeMetaTagsArray = [];
+        var routeArgs = [];
+        var routeArgsLength;
+        var pathArgs = [];
+        var pathArgsLength;
+        var flag1;
+        var flag2;
 
-    function otherwise(metatags) {
-      otherwise = metatags;
-      return this;
-    }
+        for (var i = 0; i < routesLength; i++) {
 
-    function getMetaTags(path) {
-      var info = {};
-      var routesArray = Object.keys(routes);
-      var routesLength = routesArray.length;
-      var placeholder = {};
+          routeName = routesArray[i];
+          routeMetaTagsObject = routes[routeName];
+          routeMetaTagsArray = Object.keys(routeMetaTagsObject);
+          routeArgs = routeName.split('/').filter(Boolean);
+          routeArgsLength = routeArgs.length;
+          pathArgs = path.split('/').filter(Boolean);
+          pathArgsLength = pathArgs.length;
+          flag1 = true;
+          flag2 = false;
 
-      for (var i = 0; i < routesLength; i++) {
-
-        var routeName = routesArray[i];
-        var routeMetaTagsObject = routes[routeName];
-        var routeMetaTagsArray = Object.keys(routeMetaTagsObject);
-        var routeArgs = routeName.split('/').filter(Boolean);
-        var routeArgsLength = routeArgs.length;
-        var pathArgs = path.split('/').filter(Boolean);
-        var pathArgsLength = pathArgs.length;
-        var flag = true;
-
-        if (routeArgsLength !== pathArgsLength) {
-          flag = false;
-          continue;
-        }
-
-        for (var j = 0; j < pathArgsLength; j++) {
-          if (routeArgs[j].indexOf(':') === 0) {
-            placeholder[pathArgs[j]] = routeArgs[j];
+          if (routeArgsLength !== pathArgsLength) {
             continue;
           }
-          if (pathArgs[j] !== routeArgs[j]) {
-            flag = false;
-            placeholder = [];
-            break;
-          }
-        }
 
-        var routeMetaTagsLength = routeMetaTagsArray.length;
-        if (flag) {
-          for (var ii = 0; ii < routeMetaTagsLength; ii++) {
-            var tag = routeMetaTagsArray[ii];
-            if (typeof(routeMetaTagsObject[tag]) === 'string')
-              info[tag] = routeMetaTagsObject[tag];
-            if (typeof(routeMetaTagsObject[tag]) === 'function') {
-              var functionResponse = routeMetaTagsObject[tag].apply(this, Object.keys(placeholder));
-              if (typeof(functionResponse) !== 'string')
-                throw new Error(routeMetaTagsObject[tag].toString() + ' should return a string');
-              else
-                info[tag] = functionResponse;
+          for (var j = 0; j < pathArgsLength; j++) {
+            if (routeArgs[j].indexOf(':') === 0) {
+              placeholder[pathArgs[j]] = routeArgs[j];
+              continue;
+            }
+            if (pathArgs[j] !== routeArgs[j]) {
+              placeholder = {};
+              flag1 = false;
+              break;
             }
           }
 
-          for (var p in placeholder) {
-            for (var t in info) {
-              info[t] = info[t].replace(placeholder[p], p);
+          var routeMetaTagsLength = routeMetaTagsArray.length;
+          var placeHolderLength = Object.keys(placeholder).length;
+
+          if (placeHolderLength > 0) {
+            for (var ii = 0; ii < routeMetaTagsLength; ii++) {
+              var tag = routeMetaTagsArray[ii];
+              if (typeof(routeMetaTagsObject[tag]) === 'string') {
+                info[tag] = routeMetaTagsObject[tag];
+              }
+              if (typeof(routeMetaTagsObject[tag]) === 'function') {
+                var functionResponse = routeMetaTagsObject[tag].apply(this, Object.keys(placeholder));
+                if (typeof(functionResponse) !== 'string') {
+                  throw new Error(routeMetaTagsObject[tag].toString() + ' should return a string');
+                } else {
+                  info[tag] = functionResponse;
+                }
+              }
+            }
+
+            for (var p in placeholder) {
+              for (var t in info) {
+                info[t] = info[t].replace(placeholder[p], p);
+              }
+            }
+            return info;
+          } else {
+            for (var o in otherwise) {
+              info[o] = otherwise[o];
+            }
+
+            if (routeArgs[routeArgsLength - 1] === pathArgs[routeArgsLength - 1]) {
+              flag2 = true;
+              break;
             }
           }
         }
-        else {
-          for (var o in otherwise) {
-            info[o] = otherwise[o];
+        if (flag1 && flag2) {
+          for (var r in routeMetaTagsObject) {
+            info[r] = routeMetaTagsObject[r];
           }
-        }
-        return info;
-      }
-    }
-
-    function MetaTagsFactory($rootScope, $location) {
-
-      var update = function () {
-        var path = $location.path();
-        var info = getMetaTags(path);
-        for (var tt in info) {
-          $rootScope.metatags[tt] = info[tt];
+          return info;
+        } else {
+          return info;
         }
       };
 
-      return {
-        initialize: function () {
-          $rootScope.metatags = {};
-          $rootScope.$on('$routeChangeSuccess', update);
-        }
-      };
-    }
-  }
+      this.$get = ['$rootScope', '$location', function($rootScope, $location) {
+
+        var update = function() {
+          var path = $location.path();
+          var info = getMetaTags(path);
+          for (var tt in info) {
+            $rootScope.metatags[tt] = info[tt];
+          }
+        };
+
+        return {
+          initialize: function() {
+            $rootScope.metatags = {};
+            try {
+              angular.module('ngRoute');
+              $rootScope.$on('$routeChangeSuccess', update);
+            } catch (err) {
+              $rootScope.$on('$stateChangeSuccess', update);
+            }
+          }
+        };
+      }];
+    });
 
 }());

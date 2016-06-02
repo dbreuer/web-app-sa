@@ -18,9 +18,13 @@
 
   angular.module('project.about', ['ngRoute', 'menu-service'])
 
-    .config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider', 'MetaTagsProvider', function($routeProvider, MetaTagsProvider) {
+      MetaTagsProvider.when(
+        '/about', {
+          title: 'AAT (SA) - About'
+        }
+      );
       $routeProvider.when('/about', {
-        pageTitle: 'AAT - About Us',
         templateUrl: 'components/about/about.tpl.html',
         controller: 'AboutController',
         controllerAs: 'vm',

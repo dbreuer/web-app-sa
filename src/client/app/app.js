@@ -67,8 +67,34 @@
       '$httpProvider',
       'jwtInterceptorProvider',
       '$sceProvider',
+      'MetaTagsProvider',
 
-      function($routeProvider, $locationProvider, $httpProvider, jwtInterceptorProvider, $sceProvider) {
+      function($routeProvider, $locationProvider, $httpProvider, jwtInterceptorProvider,
+                $sceProvider, MetaTagsProvider) {
+
+        MetaTagsProvider
+          .when('/:page', {
+            title: 'AAT (SA) | The professional body for accounting technicians',
+            description: 'The Association of Accounting Technician\'s web site with information about' +
+            ' the Association, benefits of membership, and student information.',
+            keywords: 'accontant, qualifications, bookkeeping, computerised, membership, professional, ' +
+            'training providers, case study',
+            fb_title: 'AAT | The professional body for accounting technicians',
+            fb_site_name: 'AAT South Africa',
+            fb_url: 'http://sa.aws.aat.org.uk',
+            fb_description: 'The Association of Accounting Technician\'s web site with information about' +
+            ' the Association, benefits of membership, and student information.',
+            fb_type: 'Educational Organization',
+            fb_image: 'fb_share_image.jpg'
+          })
+          .when('/:page/:subpage', {
+            title: 'AAT (SA) | The professional body for accounting technicians',
+            description: 'The Association of Accounting Technician\'s web site with information about' +
+            ' the Association, benefits of membership, and student information.',
+            keywords: 'accontant, qualifications, bookkeeping, computerised, membership, professional, ' +
+            'training providers, case study',
+          });
+
         $sceProvider.enabled(false);
         $locationProvider.html5Mode({
           enabled: true,
@@ -93,14 +119,14 @@
       return function(input) {
         return input
           .toLowerCase()
-          .replace(/ /g,'-')
-          .replace(/[^\w-]+/g,'');
+          .replace(/ /g, '-')
+          .replace(/[^\w-]+/g, '');
       };
     })
     .run(appRun);
 
   // Inject Deps
-  appRun.$inject = ['$route', '$rootScope', '$location', 'ngProgressFactory'];
+  appRun.$inject = ['$route', '$rootScope', '$location', 'ngProgressFactory', 'MetaTags'];
 
   /**
    *
@@ -111,7 +137,9 @@
    *
    */
 
-  function appRun($route, $rootScope, $location, ngProgressFactory) {
+  function appRun($route, $rootScope, $location, ngProgressFactory, MetaTags) {
+    // Initialise metaTagsProvider
+    MetaTags.initialize();
     //var original = $location.path;
     //$location.path = function(path, reload) {
     //  if (reload === false) {
