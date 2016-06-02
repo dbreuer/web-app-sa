@@ -1,6 +1,6 @@
 /**
  *
- * WEB APP SA
+ * WEB APP CONFIG
  *
  * @author David Breuer <David.Breuer@aat.org.uk>
  * @author Mark Rushton <mark@modernfidelity.co.uk>
@@ -15,55 +15,45 @@
   'use strict';
 
   // Declare app level module which depends on views, and components
-  angular.module('project', [
+  angular.module('project')
 
-      // CORE
-      'ngRoute',
-      'templates',
-      'ngSanitize',
-      //'ngAnimate',
-      'angular-jwt',
-      'angular-storage',
-
-      //'formly',
-      //'formlyBootstrap',
-      //'ui.bootstrap',
-
-      // SHARED
-      //'mobile-menu',
-      //'search-bar',
-      //'bookmarks',
-      //'meta',
-      //'menu',
-      //'landing-page',
-
-      // CUSTOM
-      //'project.auth',
-      'project.frontpage',
-      //'project.news',
-      //'project.about',
-      //'project.maintenance',
-      //'project.dashboard',
-      //'project.contact',
-      //'project.login',
-      //'project.auth',
-      //'project.user',
-      //'project.api',
-
-      //'shared'
-
-    ])
-
-    // App config
+  // App config
     .config([
 
       '$routeProvider',
       '$locationProvider',
       '$httpProvider',
       'jwtInterceptorProvider',
+      '$sceProvider',
+      'MetaTagsProvider',
 
-      function($routeProvider, $locationProvider, $httpProvider, jwtInterceptorProvider) {
+      function($routeProvider, $locationProvider, $httpProvider, jwtInterceptorProvider,
+               $sceProvider, MetaTagsProvider) {
 
+        MetaTagsProvider
+          .when('/:page', {
+            title: 'AAT (SA) | The professional body for accounting technicians',
+            description: 'The Association of Accounting Technician\'s web site with information about' +
+            ' the Association, benefits of membership, and student information.',
+            keywords: 'accontant, qualifications, bookkeeping, computerised, membership, professional, ' +
+            'training providers, case study',
+            fb_title: 'AAT | The professional body for accounting technicians',
+            fb_site_name: 'AAT South Africa',
+            fb_url: 'http://sa.aws.aat.org.uk',
+            fb_description: 'The Association of Accounting Technician\'s web site with information about' +
+            ' the Association, benefits of membership, and student information.',
+            fb_type: 'Educational Organization',
+            fb_image: 'fb_share_image.jpg'
+          })
+          .when('/:page/:subpage', {
+            title: 'AAT (SA) | The professional body for accounting technicians',
+            description: 'The Association of Accounting Technician\'s web site with information about' +
+            ' the Association, benefits of membership, and student information.',
+            keywords: 'accontant, qualifications, bookkeeping, computerised, membership, professional, ' +
+            'training providers, case study',
+          });
+
+        $sceProvider.enabled(false);
         $locationProvider.html5Mode({
           enabled: true,
           requireBase: false
@@ -82,12 +72,19 @@
       }])
 
     // Define App constants (ref env vars)
-    .constant('API_URL', 'https://api.aat-sa-prod.elasticbeanstalk.com/')
-
+    .constant('API_URL', 'http://sa.aws.aat.org.uk/api/v1')
+    .filter('slug', function() {
+      return function(input) {
+        return input
+          .toLowerCase()
+          .replace(/ /g, '-')
+          .replace(/[^\w-]+/g, '');
+      };
+    })
     .run(appRun);
 
   // Inject Deps
-  appRun.$inject = ['$rootScope', '$location'];
+  appRun.$inject = ['$route', '$rootScope', '$location', 'ngProgressFactory', 'MetaTags'];
 
   /**
    *
@@ -98,19 +95,19 @@
    *
    */
 
-  function appRun($rootScope, $location) {
-
+  function appRun($route, $rootScope, $location, ngProgressFactory, MetaTags) {
+    // Initialise metaTagsProvider
+    MetaTags.initialize();
+    $rootScope.progressbar = ngProgressFactory.createInstance();
+    $rootScope.progressbar.setColor('#00746f');
     // register listener to watch route changes
     $rootScope.$on('$routeChangeStart', function(event, current, next) {
 
-      // Page Title
-      //$rootScope.pageTitle = MetaDataService.pageTitle();
-      //$rootScope.metaDescription = MetaDataService.pageTitle();
 
       // Check token
       var token = localStorage.getItem('auth-token');
 
-      if (current.access.requiresLogin === true) {
+      if (current.access && current.access.requiresLogin === true) {
 
         if (!token) {
           console.log('REQUIRES LOGIN');
@@ -134,8 +131,5 @@
     });
 
   }
-
-  // Precompile .tpls
-  angular.module('templates', []);
 
 }());

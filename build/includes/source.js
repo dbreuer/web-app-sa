@@ -3,6 +3,7 @@ module.exports = [
   // CUSTOM CODE
   // MAIN
   'src/client/app/app.js',
+  'src/client/app/app.config.js',
 
   //SERVICE
   'src/client/app/services/menu-service.js',
