@@ -42,13 +42,28 @@ var sassFiles = [
 
 // Compile CSS from SCSS files
 gulp.task('css', function() {
-  return gulp.src(sassFiles)
-    .pipe($.debug({name: 'css:'}))
+  return gulp
+    .src(sassFiles)
+    //.pipe($.sourcemaps.init())
+    .pipe($.concat('build.css'))
+    //     .pipe(rename({suffix: '.min'}))
+    .pipe($.sass({
+      outputStyle: 'compressed'
+    }).on('error', $.sass.logError))
+    //.pipe($.sourcemaps.write('./maps'))
+    .pipe(gulp.dest(dest + 'css'));
+});
+
+gulp.task('css:dev', function() {
+  return gulp
+    .src(sassFiles)
     .pipe($.sourcemaps.init())
-    //.pipe($.concat('build.min.css'))
-    .pipe($.sass({outputStyle: 'compressed'}).on('error', $.sass.logError))
-    .pipe($.rename({suffix: '.min'}))
-    .pipe($.sourcemaps.write())
+    .pipe($.concat('build.css'))
+    //     .pipe(rename({suffix: '.min'}))
+    .pipe($.sass({
+      outputStyle: 'compressed'
+    }).on('error', $.sass.logError))
+    .pipe($.sourcemaps.write('./maps'))
     .pipe(gulp.dest(dest + 'css'));
 });
 
@@ -63,7 +78,6 @@ gulp.task('scripts', ['css'], function() {
     //.pipe(rename({suffix: '.min'}))
     .pipe($.uglify())
     .pipe(gulp.dest(dest + 'js'));
-
 });
 
 // Linting
