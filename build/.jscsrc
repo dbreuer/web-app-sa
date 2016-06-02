@@ -7,5 +7,6 @@
     "checkAnnotations": "jsdoc3"
   },
   "maxErrors": null,
-  "maximumLineLength": 120
+  "maximumLineLength": 120,
+  "requireCamelCaseOrUpperCaseIdentifiers": false
 }

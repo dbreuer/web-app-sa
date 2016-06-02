@@ -10,9 +10,8 @@
     @extend .row;
   }
 
-  @media (min-width: $breakpoint-desktop) {
+  @media (min-width: $screen-md-min) {
 
   }
 
 }
-

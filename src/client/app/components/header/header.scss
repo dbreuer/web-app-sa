@@ -74,7 +74,7 @@
 
   }
 
-  @media (min-width: $breakpoint-desktop) {
+  @media (min-width: $screen-md-min) {
 
     &__navbar {
       //min-height: auto;

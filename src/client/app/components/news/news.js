@@ -158,7 +158,7 @@
         $rootScope.params.page = 0;
       } else {
         $rootScope.params.limit += 5;
-      };
+      }
       getNewsListing();
       console.log($rootScope.params);
     }
@@ -190,10 +190,10 @@
   function convertToSlug(Text) {
     return Text
       .toLowerCase()
-      .replace(/ /g,'-')
-      .replace(/[^\w-]+/g,'');
+      .replace(/ /g, '-')
+      .replace(/[^\w-]+/g, '');
   }
 
 }());
 
-  // jscs:enable requireCamelCaseOrUpperCaseIdentifiers
+// jscs:enable requireCamelCaseOrUpperCaseIdentifiers
