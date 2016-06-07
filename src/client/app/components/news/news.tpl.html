@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="page-content__body" ng-bind-html="vm.pageContent.body" ng-if="vm.pageError"></div>
-                <div class="news-listing" ng-if="!$root.newsGridStyle">
+                <div class="news-listing" ng-if="!$root.newsGridStyle" autoscroll="true">
                     <a href="/news/{{item.node_title | slug}}" ng-click="vm.goToNews(item.nid)" rel="{{item.nid}}"
                        class="" ng-repeat="item in vm.news | limitTo: vm.limit track by $index">
                         <h4 class="" ng-bind="item.node_title">
@@ -95,9 +95,15 @@
                     <div class="clearfix"></div>
 
                 </div>
-                <button ng-show="$root.params.hasMore && $root.newsGridStyle" class="btn btn-primary pull-right"
-                        ng-click="vm.showMore()"> Show more
-                </button>
+                <div class="row">
+                   <div class="col-md-12 text-center">
+                       <br/>
+                       <button ng-show="$root.params.hasMore && $root.newsGridStyle" class="btn btn-primary "
+                               ng-click="vm.showMore()"> Show more
+                       </button>
+                   </div>
+                </div>
+
 
             </div>
         </div><!-- end myaat__wrapper -->

@@ -65,11 +65,11 @@
         text-decoration: none;
         display: inline-block;
         vertical-align: middle;
-        line-height: 2;
+        line-height: 2.4;
         margin-left: -5px;
 
         i {
-          font-size: 30px;
+          font-size: 24px;
           transition: color .25s ease-in-out;
           -moz-transition: color .25s ease-in-out;
           -webkit-transition: color .25s ease-in-out;
@@ -123,3 +123,20 @@
   padding: 10px;
 }
 
+
+@media (min-width: $screen-sm-min) {
+  .to-top {
+    &__footer-social {
+      ul.social-icons {
+        li {
+          line-height: 2;
+          i {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-md-min) {}

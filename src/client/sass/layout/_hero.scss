@@ -8,20 +8,53 @@
   height: 125px;
   background: $hero-background-color;
   margin-bottom: 20px;
+
+  .hero_message {
+    display: table;
+    width: 100%;
+    height: 100%;
+    //color: $hero-text-color;
+    color: $brand-primary-color;
+    text-align: center;
+
+    &__content {
+
+      display: table-cell;
+      vertical-align: middle;
+
+      h1 {
+        font-size: 22px;
+        line-height: 32px;
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+
+    }
+  }
+
+  @media (min-width: $screen-sm-min) {
+    .hero_message {
+      &__content {
+        h1 {
+          font-size: 32px;
+          line-height: 42px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+    .hero_message {
+      &__content {
+        h1 {
+          font-size: 42px;
+          line-height: 52px;
+        }
+      }
+    }
+
+  }
+
 }
 
-.hero_message {
-  display: table;
-  width: 100%;
-  height: 100%;
-  //color: $hero-text-color;
-  color: $brand-primary-color;
-  text-align: center;
-}
 
-.hero_message__content {
-
-  display: table-cell;
-  vertical-align: middle;
-
-}

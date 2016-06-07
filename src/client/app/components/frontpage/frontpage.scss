@@ -23,21 +23,23 @@
     height: 100%;
     color: white;
     text-align: center;
+
+    &__content {
+
+      display: table-cell;
+      vertical-align: middle;
+      h1 {
+        text-shadow: 2px 2px 4px #333;
+      }
+      &--cta-button {
+        padding: 15px 25px;
+        font-size: 1.3em;
+        margin: 30px;
+      }
+    }
   }
 
-  .hero_message__content {
 
-    display: table-cell;
-    vertical-align: middle;
-    h1 {
-      text-shadow: 2px 2px 4px #333;
-    }
-    &--cta-button {
-      padding: 15px 25px;
-      font-size: 2em;
-      margin: 30px;
-    }
-  }
 
   .promo {
     @extend .container;
@@ -55,10 +57,30 @@
     &--title {
       border-bottom: 1px solid #dcdcdc;
       padding: 0px 0px 5px 0px;
-      margin: 10px 0px 10px 0px;
+      margin-top: 20px;
+      margin-bottom: 10px;
       font-size: 1.7em;
       font-weight: 400;
+
+      &.first {
+        margin-top: 0px;
+        border-bottom: none;
+      }
     }
+  }
+
+  @media (min-width: $screen-sm-min) {
+
+    .hero_message {
+      &__content {
+        &--cta-button {
+          padding: 15px 25px;
+          font-size: 2em;
+          margin: 30px;
+        }
+      }
+    }
+
   }
 
   @media (min-width: $screen-md-min) {

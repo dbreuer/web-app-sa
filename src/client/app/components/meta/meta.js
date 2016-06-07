@@ -65,7 +65,7 @@
         var flag1;
         var flag2;
 
-        for(var i = 0; i < routesLength; i++) {
+        for (var i = 0; i < routesLength; i++) {
 
           routeName = routesArray[i];
           routeMetaTagsObject = routes[routeName];
@@ -81,7 +81,7 @@
             continue;
           }
 
-          for(var j = 0; j < pathArgsLength; j++) {
+          for (var j = 0; j < pathArgsLength; j++) {
             if (routeArgs[j].indexOf(':') === 0) {
               placeholder[pathArgs[j]] = routeArgs[j];
               continue;
@@ -97,7 +97,7 @@
           var placeHolderLength = Object.keys(placeholder).length;
 
           if (placeHolderLength > 0) {
-            for(var ii = 0; ii < routeMetaTagsLength; ii++) {
+            for (var ii = 0; ii < routeMetaTagsLength; ii++) {
               var tag = routeMetaTagsArray[ii];
               if (typeof(routeMetaTagsObject[tag]) === 'string') {
                 info[tag] = routeMetaTagsObject[tag];
@@ -112,14 +112,14 @@
               }
             }
 
-            for(var p in placeholder) {
-              for(var t in info) {
+            for (var p in placeholder) {
+              for (var t in info) {
                 info[t] = info[t].replace(placeholder[p], p);
               }
             }
             return info;
           } else {
-            for(var o in otherwise) {
+            for (var o in otherwise) {
               info[o] = otherwise[o];
             }
 
@@ -130,7 +130,7 @@
           }
         }
         if (flag1 && flag2) {
-          for(var r in routeMetaTagsObject) {
+          for (var r in routeMetaTagsObject) {
             info[r] = routeMetaTagsObject[r];
           }
           return info;
@@ -144,7 +144,7 @@
         var update = function() {
           var path = $location.path();
           var info = getMetaTags(path);
-          for(var tt in info) {
+          for (var tt in info) {
             $rootScope.metatags[tt] = info[tt];
           }
         };
@@ -155,7 +155,7 @@
             try {
               angular.module('ngRoute');
               $rootScope.$on('$routeChangeSuccess', update);
-            } catch(err) {
+            } catch (err) {
               $rootScope.$on('$stateChangeSuccess', update);
             }
           }
