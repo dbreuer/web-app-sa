@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="project" class="no-js">
+<html lang="en" data-ng-app="project" class="no-js">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
 
-    <!-- generated meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- generated meta tags -->
     <title>{{ metatags.title }}</title>
     <meta name="description" content="{{ metatags.description }}" >
     <meta name="robots" content="{{ metatags.robots }}" >
@@ -49,21 +51,21 @@
 
 
 <!--HEADER-->
-<div ng-include="'components/header/header.tpl.html'"></div>
+<div data-ng-include="'components/header/header.tpl.html'"></div>
 <!--/HEADER-->
 
 
 <!-- MAIN -->
 <div id="page-wrapper">
-    <div ng-view autoscroll="true"></div>
+    <div data-ng-view data-autoscroll="true"></div>
 </div>
 <!-- /MAIN -->
 
 <!-- FOOTER -->
-<div ng-include="'components/footer/footer.tpl.html'"></div>
+<div data-ng-include="'components/footer/footer.tpl.html'"></div>
 <!-- /FOOTER -->
 
-<!-- Fontello CSS -- http://fontello.com -->
+<!-- Fontello CSS | http://fontello.com -->
 <link rel="stylesheet" type="text/css" href="./assets/fonts/fontello/css/animation.css">
 <link rel="stylesheet" type="text/css" href="./assets/fonts/fontello/css/fontello.css">
 <link rel="stylesheet" type="text/css" href="./assets/fonts/fontello/css/fontello-codes.css">
