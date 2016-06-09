@@ -21,6 +21,7 @@
     'ngRoute',
     'templates',
     'ngSanitize',
+    'ngAria',
     'ngAnimate',
     'angular-jwt',
     'angular-storage',

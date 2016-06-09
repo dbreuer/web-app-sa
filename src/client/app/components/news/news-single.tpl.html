@@ -24,21 +24,21 @@
 
             </div>
 
-            <div class="page-content" ng-init="vm.getSinglePost()">
+            <div class="page-content" data-ng-init="vm.getSinglePost()">
 
                 <spinner show="vm.isLoading"></spinner>
 
 
 
                 <div class="news-single-post">
-                    <h2 ng-bind="vm.newsSinglePost.title"></h2>
-                    <!--<small ng-bind="vm.newsSinglePost.date | date: 'd/m/y'"></small>-->
-                    <div class="" ng-bind-html="vm.newsSinglePost.body"></div>
+                    <h2 data-ng-bind="vm.newsSinglePost.title"></h2>
+                    <!--<small data-ng-bind="vm.newsSinglePost.date | date: 'd/m/y'"></small>-->
+                    <div class="" data-ng-bind-html="vm.newsSinglePost.body"></div>
                 </div>
 
-                <div class="row" ng-show="vm.newsSinglePost.images">
-                    <div class="col-sm-3" ng-repeat="image in vm.newsSinglePost.images">
-                        <div class="" ng-bind-html="image">
+                <div class="row" data-ng-show="vm.newsSinglePost.images">
+                    <div class="col-sm-3" data-ng-repeat="image in vm.newsSinglePost.images">
+                        <div class="" data-ng-bind-html="image">
 
                         </div>
                     </div>

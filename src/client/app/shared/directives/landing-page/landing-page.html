@@ -1,8 +1,8 @@
 <section class="landing-page main">
-    <h1 class="text-center" ng-show="vm.isPageLoading" ><i class="fa fa-circle-o-notch fa-spin"></i> Loading</h1>
-    <div ng-hide="vm.isPageLoading"  ng-class="{'container': !vm.pageContent.fullwidth}">
+    <h1 class="text-center" data-ng-show="vm.isPageLoading" ><i class="fa fa-circle-o-notch fa-spin"></i> Loading</h1>
+    <div data-ng-hide="vm.isPageLoading"  data-ng-class="{'container': !vm.pageContent.fullwidth}">
 
-        <div class="col-sm-3 aat-secondarynav-parent" position="left" ng-if="vm.pageContent.sidebar.left">
+        <div class="col-sm-3 aat-secondarynav-parent" position="left" data-ng-if="vm.pageContent.sidebar.left">
             <div class="aat-secondarynav">
                 <menu position="{{vm.pageContent.sidebar.left}}"></menu>
             </div>
@@ -11,30 +11,30 @@
         </div>
 
 
-        <div ng-class="{'col-sm-9': vm.pageContent.sidebar}" ng-if="vm.pageContent.content">
-            <div ng-repeat="section in vm.pageContent.content" ng-if="section.type" ng-switch="section.type">
-                <hero-content ng-switch-when="hero-content"></hero-content>
-                <html-content ng-switch-when="html-content"></html-content>
-                <image-content ng-switch-when="image-content"></image-content>
-                <module-content ng-switch-when="module-content"></module-content>
-                <slideshow-content ng-switch-when="slideshow-content"></slideshow-content>
-                <spotlights-content ng-switch-when="spotlights-content"></spotlights-content>
-                <ccta-content ng-switch-when="campaign-cta-content"></ccta-content>
-                <scta-content ng-switch-when="secondary-cta-content"></scta-content>
-                <social-content ng-switch-when="social-content"></social-content>
-                <steps-content ng-switch-when="steps-content"></steps-content>
-                <title-content ng-switch-when="title-content"></title-content>
+        <div data-ng-class="{'col-sm-9': vm.pageContent.sidebar}" data-ng-if="vm.pageContent.content">
+            <div data-ng-repeat="section in vm.pageContent.content" data-ng-if="section.type" data-ng-switch="section.type">
+                <hero-content data-ng-switch-when="hero-content"></hero-content>
+                <html-content data-ng-switch-when="html-content"></html-content>
+                <image-content data-ng-switch-when="image-content"></image-content>
+                <module-content data-ng-switch-when="module-content"></module-content>
+                <slideshow-content data-ng-switch-when="slideshow-content"></slideshow-content>
+                <spotlights-content data-ng-switch-when="spotlights-content"></spotlights-content>
+                <ccta-content data-ng-switch-when="campaign-cta-content"></ccta-content>
+                <scta-content data-ng-switch-when="secondary-cta-content"></scta-content>
+                <social-content data-ng-switch-when="social-content"></social-content>
+                <steps-content data-ng-switch-when="steps-content"></steps-content>
+                <title-content data-ng-switch-when="title-content"></title-content>
             </div>
         </div>
 
-        <div position="right" ng-if="vm.pageContent.sidebar.right">
+        <div position="right" data-ng-if="vm.pageContent.sidebar.right">
 
             <menu position="{{vm.pageContent.sidebar.right}}"></menu>
 
         </div>
 
     </div>
-    <page-not-found ng-if="vm.pageContent.error"></page-not-found>
+    <page-not-found data-ng-if="vm.pageContent.error"></page-not-found>
 
 </section>
 

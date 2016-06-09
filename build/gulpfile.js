@@ -175,6 +175,11 @@ gulp.task('default', [
   'scripts', 'css', 'lint', 'docs', 'html', 'watch'
 ]);
 
+gulp.task('dev', [
+//   'scripts', 'css', 'lint', 'style', 'docs', 'html', 'watch'
+  'scripts', 'css:dev', 'lint', 'docs', 'html', 'watch'
+]);
+
 // Deployment Task
 gulp.task('deploy', ['scripts', 'css', 'lint', 'style', 'docs', 'html']);
 

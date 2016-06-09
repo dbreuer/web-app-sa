@@ -6,7 +6,7 @@
         <div class="hero_message">
             <div class="hero_message__content">
                 <h1>
-                    <span ng-bind="vm.pageContent.title">
+                    <span data-ng-bind="vm.pageContent.title">
                         <!-- content title -->
                     </span>
                 </h1>
@@ -17,7 +17,7 @@
 
     </div>
 
-    <div class="node-main-content" ng-init="vm.init()">
+    <div class="node-main-content" data-ng-init="vm.init()">
 
         <div class="node-main-content__wrapper">
 
@@ -28,30 +28,30 @@
 
                 <spinner show="vm.isLoading"></spinner>
 
-                <div class="page-content__body" ng-bind-html="vm.pageContent.body">
+                <div class="page-content__body" data-ng-bind-html="vm.pageContent.body">
 
                     <!-- HTML body -->
 
                 </div>
 
-                <uib-accordion close-others="true" ng-if="vm.pageContent.tabs && vm.pageContent.tabsStyle == 'list_default'">
-                    <uib-accordion-group heading="{{tab.title}}" ng-repeat="tab in vm.pageContent.tabs">
-                        <div class="" ng-bind-html="tab.body"></div>
+                <uib-accordion close-others="true" data-ng-if="vm.pageContent.tabs && vm.pageContent.tabsStyle == 'list_default'">
+                    <uib-accordion-group heading="{{tab.title}}" data-ng-repeat="tab in vm.pageContent.tabs">
+                        <div class="" data-ng-bind-html="tab.body"></div>
                     </uib-accordion-group>
                 </uib-accordion>
 
 
-                <uib-tabset active="activeJustified" justified="true" ng-if="vm.pageContent.tabs && vm.pageContent.tabsStyle == 'tabs_default'">
-                    <uib-tab index="$index" heading="{{tab.title}}" ng-repeat="tab in vm.pageContent.tabs">
-                        <div class="well" ng-bind-html="tab.body"></div>
+                <uib-tabset active="activeJustified" justified="true" data-ng-if="vm.pageContent.tabs && vm.pageContent.tabsStyle == 'tabs_default'">
+                    <uib-tab index="$index" heading="{{tab.title}}" data-ng-repeat="tab in vm.pageContent.tabs">
+                        <div class="well" data-ng-bind-html="tab.body"></div>
                     </uib-tab>
                 </uib-tabset>
 
 
 
-                <div class="page-signpost" ng-if="vm.pageContent.signpost.length > 0">
-                    <div class="page-signpost__item" ng-repeat="signpost in vm.pageContent.signpost | orderBy:'name':true track by $index">
-                        <a ng-href="{{signpost.url}}" ng-bind="signpost.title"></a>
+                <div class="page-signpost" data-ng-if="vm.pageContent.signpost.length > 0">
+                    <div class="page-signpost__item" data-ng-repeat="signpost in vm.pageContent.signpost | orderBy:'name':true track by $index">
+                        <a data-ng-href="{{signpost.url}}" data-ng-bind="signpost.title"></a>
                     </div>
                 </div>
 
