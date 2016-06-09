@@ -89,7 +89,7 @@
           },
           'button': {
             'text': 'Find out more',
-            'url': 'http://sa.aws.aat.org.uk/qualifications/accounting-qualification'
+            'url': '/qualifications/accounting-qualification'
           }
         },
         {
@@ -132,7 +132,7 @@
           },
           'button': {
             'text': 'Download our list of training providers (PDF)',
-            'url': 'http://sa.aws.aat.org.uk/sites/default/files/public/assets/AATSA-provider-list.pdf'
+            'url': '/sites/default/files/public/assets/AATSA-provider-list.pdf'
           }
         }
       ]
