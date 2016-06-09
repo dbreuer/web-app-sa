@@ -101,8 +101,7 @@
     $rootScope.progressbar = ngProgressFactory.createInstance();
     $rootScope.progressbar.setColor('#00746f');
     // register listener to watch route changes
-    $rootScope.$on('$routeChangeStart', function(event, current, next) {
-
+    $rootScope.$on('$routeChangeStart', function(event, current) {
 
       // Check token
       var token = localStorage.getItem('auth-token');
