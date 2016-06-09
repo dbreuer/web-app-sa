@@ -168,6 +168,7 @@ So my example :
 *Some other useful Docker commands to stop / remove all of Docker containers:*
 
 docker rm $(docker ps -a -q)
+
 docker rmi $(docker images -q)
 
 
