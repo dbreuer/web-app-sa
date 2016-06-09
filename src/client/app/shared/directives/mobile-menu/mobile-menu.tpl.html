@@ -1,37 +1,37 @@
 <nav class="mobile-menu">
     <button id="hamburger-button" class="hamburger hamburger--collapse hamburger--accessible js-hamburger"
-            ng-class="{'is-active': isActive}" ng-click="toggleMenu()" type="button">
+            data-ng-class="{'is-active': isActive}" data-ng-click="toggleMenu()" type="button">
               <span class="hamburger-box">
                 <span class="hamburger-inner"></span>
               </span>
     </button>
-    <div id="top-nav-bar" class="mobile-menu__top-nav" ng-class="{'is-active': isActive}">
+    <div id="top-nav-bar" class="mobile-menu__top-nav" data-ng-class="{'is-active': isActive}">
 
         <ul class="">
             <li>
-                <a href="/" title="AAT SA Home" ng-click="closeMenu()">Home</a>
+                <a href="/" data-ng-click="closeMenu()">Home</a>
             </li>
             <li>
-                <a href="/myaat" title="MyAAT" ng-click="closeMenu()">MyAAT</a>
+                <a href="/myaat" data-ng-click="closeMenu()">MyAAT</a>
             </li>
             <li>
-                <a href="/about" title="About" ng-click="closeMenu()">About</a>
+                <a href="/about" data-ng-click="closeMenu()">About</a>
             </li>
             <li>
-                <a href="/qualifications" title="Qualifications" ng-click="closeMenu()">Qualifications</a>
+                <a href="/qualifications" data-ng-click="closeMenu()">Qualifications</a>
             </li>
             <li>
-                <a href="/employers" title="Employers" ng-click="closeMenu()">Employers</a>
+                <a href="/employers" data-ng-click="closeMenu()">Employers</a>
             </li>
             <li>
-                <a href="/deliver" title="Deliver AAT(SA)" ng-click="closeMenu()">Deliver AAT(SA)</a>
+                <a href="/deliver" data-ng-click="closeMenu()">Deliver AAT(SA)</a>
             </li>
             <li>
-                <a href="/membership" title="Membership/CPD" ng-click="closeMenu()">Membership/CPD</a>
+                <a href="/membership" data-ng-click="closeMenu()">Membership/CPD</a>
             </li>
-            <li>
-            <a href="/news" title="News" ng-click="closeMenu()">News</a>
-            </li>
+            <!--<li>-->
+            <!--<a href="/news">News</a>-->
+            <!--</li>-->
         </ul>
 
 

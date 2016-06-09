@@ -1,16 +1,16 @@
 <div class="slideshow-section">
     <slick class="slideshow" init-onload="true" autoplay="true" autoplay-speed="5000" data="slideshow" >
-        <div class="slideshow__slide" ng-repeat="slide in slideshow track by $index" >
+        <div class="slideshow__slide" data-ng-repeat="slide in slideshow track by $index" >
             <div class="slideshow__slide--image">
-                <img typeof="foaf:Image" ng-src="{{slide.image.src}}" width="735" alt="slide.image.alt"/>
+                <img typeof="foaf:Image" data-ng-src="{{slide.image.src}}" width="735" alt="slide.image.alt"/>
             </div>
             <div class="slideshow__slide--content">
                 <div class="slideshow__slide--text">
-                    <h4 ng-bind="slide.title"></h4>
-                    <p ng-bind="slide.text"></p>
+                    <h4 data-ng-bind="slide.title"></h4>
+                    <p data-ng-bind="slide.text"></p>
                 </div>
                 <div class="slideshow__slide--button">
-                    <a ng-href="slide.button.url" ng-bind="slide.button.text"></a>
+                    <a data-ng-href="slide.button.url" data-ng-bind="slide.button.text"></a>
                 </div>
             </div>
         </div>
