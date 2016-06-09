@@ -88,7 +88,7 @@
           },
           'button': {
             'text': 'Find out more about MyAAT',
-            'url': 'http://sa.aws.aat.org.uk/myaat/about'
+            'url': '/myaat/about'
           }
         },
         {

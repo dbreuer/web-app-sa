@@ -136,7 +136,7 @@
           },
           'button': {
             'text': 'Read our terms and conditions',
-            'url': 'http://sa.aws.aat.org.uk/about/terms-conditions'
+            'url': '/about/terms-conditions'
           }
         }
       ]
