@@ -17,7 +17,7 @@
 
   angular.module('metatags', [])
     .provider('MetaTags', function() {
-
+      var self = this;
       var routes = {};
       var otherwise = {};
 
@@ -28,7 +28,7 @@
        * @param {object} metatags
        * @returns {app.Meta}
        */
-      this.when = function(path, metatags) {
+      self.when = function(path, metatags) {
         routes[path] = metatags;
         return this;
       };
@@ -39,7 +39,7 @@
        * @param {object} metatags
        * @returns {app.Meta}
        */
-      this.otherwise = function(metatags) {
+      self.otherwise = function(metatags) {
         otherwise = metatags;
         return this;
       };
@@ -50,7 +50,7 @@
        * @param {object} path
        * @returns {{}}
        */
-      var getMetaTags = function(path) {
+      self.getMetaTags = function(path) {
         var info = {};
         var routesArray = Object.keys(routes);
         var routesLength = routesArray.length;
@@ -76,6 +76,8 @@
           pathArgsLength = pathArgs.length;
           flag1 = true;
           flag2 = false;
+
+
 
           if (routeArgsLength !== pathArgsLength) {
             continue;
@@ -139,11 +141,11 @@
         }
       };
 
-      this.$get = ['$rootScope', '$location', function($rootScope, $location) {
+      self.$get = ['$rootScope', '$location', function($rootScope, $location) {
 
         var update = function() {
           var path = $location.path();
-          var info = getMetaTags(path);
+          var info = self.getMetaTags(path);
           for (var tt in info) {
             $rootScope.metatags[tt] = info[tt];
           }

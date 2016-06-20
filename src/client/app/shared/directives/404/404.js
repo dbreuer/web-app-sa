@@ -24,7 +24,7 @@
   function error404Directive() {
     var directive = {
       bindToController: true,
-      templateUrl: 'site/shared/directives/404/404.html',
+      templateUrl: 'shared/directives/404/404.html',
       controller: error404Controller,
       controllerAs: 'error',
       link: link,

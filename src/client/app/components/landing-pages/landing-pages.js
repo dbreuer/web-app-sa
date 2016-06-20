@@ -15,18 +15,18 @@
 
     angular.module('project.landing-pages', ['ngRoute'])
 
-        .config(['$routeProvider', function($routeProvider) {
-            $routeProvider.when('/frontpage', {
-                pageTitle: 'AAT - Welcome',
-                templateUrl: './site/components/frontpage/frontpage.tpl.html',
-                controller: 'FrontpageController',
-                controllerAs: 'vm',
-                access: {
-                    requiresLogin: false,
-                    roles: []
+      .config(['$routeProvider', function ($routeProvider) {
+          $routeProvider.when('/frontpage', {
+              pageTitle: 'AAT - Welcome',
+              templateUrl: './site/components/frontpage/frontpage.tpl.html',
+              controller: 'FrontpageController',
+              controllerAs: 'vm',
+              access: {
+                requiresLogin: false,
+                roles: []
                 }
-            });
-        }])
+          });
+      }])
 
         .controller('FrontpageController', FrontpageController);
 

@@ -11,7 +11,7 @@
   'use strict';
 
   angular
-    .module('header',[])
+    .module('header', [])
     .controller('HeaderController', HeaderController);
 
   HeaderController.$inject = [];

@@ -51,6 +51,20 @@
             ' the Association, benefits of membership, and student information.',
             keywords: 'accontant, qualifications, bookkeeping, computerised, membership, professional, ' +
             'training providers, case study',
+          })
+          .otherwise({
+            title: 'AAT (SA) | The professional body for accounting technicians',
+            description: 'The Association of Accounting Technician\'s web site with information about' +
+            ' the Association, benefits of membership, and student information.',
+            keywords: 'accontant, qualifications, bookkeeping, computerised, membership, professional, ' +
+            'training providers, case study',
+            fb_title: 'AAT | The professional body for accounting technicians',
+            fb_site_name: 'AAT South Africa',
+            fb_url: 'http://sa.aws.aat.org.uk',
+            fb_description: 'The Association of Accounting Technician\'s web site with information about' +
+            ' the Association, benefits of membership, and student information.',
+            fb_type: 'Educational Organization',
+            fb_image: 'fb_share_image.jpg'
           });
 
         $sceProvider.enabled(false);
@@ -73,18 +87,20 @@
 
     // Define App constants (ref env vars)
     .constant('API_URL', 'http://sa.aws.aat.org.uk/api/v1')
-    .filter('slug', function() {
-      return function(input) {
-        return input
-          .toLowerCase()
-          .replace(/ /g, '-')
-          .replace(/[^\w-]+/g, '');
-      };
-    })
+    .filter('slug', slugFilter)
     .run(appRun);
 
   // Inject Deps
   appRun.$inject = ['$route', '$rootScope', '$location', 'ngProgressFactory', 'MetaTags'];
+
+  function slugFilter() {
+    return function(input) {
+      return input
+        .toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '');
+    };
+  }
 
   /**
    *
@@ -98,28 +114,32 @@
   function appRun($route, $rootScope, $location, ngProgressFactory, MetaTags) {
     // Initialise metaTagsProvider
     MetaTags.initialize();
+
     $rootScope.progressbar = ngProgressFactory.createInstance();
     $rootScope.progressbar.setColor('#00746f');
     // register listener to watch route changes
-    $rootScope.$on('$routeChangeStart', function(event, current) {
+    $rootScope.$on('$routeChangeStart', $routeChangeStart);
+
+    function $routeChangeStart(event, current) {
 
       // Check token
       var token = localStorage.getItem('auth-token');
-
+      //console.log('token', token);
       if (current.access && current.access.requiresLogin === true) {
 
         if (!token) {
-          console.log('REQUIRES LOGIN');
+          //console.log('REQUIRES LOGIN');
           event.preventDefault();
           $location.path('/login');
         }
 
       }
-
-    });
+    }
 
     // Page Title
-    $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
+    $rootScope.$on('$routeChangeSuccess', $routeChangeSuccess);
+
+    function $routeChangeSuccess(event, current, previous) {
 
       //console.log(current.hasOwnProperty('$$route'));
 
@@ -127,7 +147,7 @@
         $rootScope.pageTitle = current.$$route.pageTitle;
         $rootScope.metaDescription = current.$$route.metaDescription;
       }
-    });
+    };
 
   }
 

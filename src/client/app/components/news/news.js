@@ -80,53 +80,59 @@
     vm.prevPage = prevPage;
     vm.showMore = showMore;
 
+    vm.PostImages = PostImages;
+    vm.PostType = PostType;
+    vm.convertToSlug = convertToSlug;
+
+
     function getNewsListing() {
-      NewsService.getAllNews({page: $rootScope.params.page, limit: $rootScope.params.limit})
-        .then(function(response) {
-          vm.news = response;
-          vm.isLoading = false;
-          NewsService.getAllNews({page: $rootScope.params.page + 1})
-            .then(function(response) {
-              $rootScope.params.hasNext = (response.length > 0) ? true : false;
-              $rootScope.params.hasMore =
-                (response.length > 0 && vm.news.length >= $rootScope.params.limit) ? true : false;
-            })
-            .catch(function(err) {
-              console.log('catch:', err);
-              $rootScope.pageTitle = 'Page not Found: 404';
-              vm.isLoading = false;
-              vm.pageError = true;
-              vm.pageContent = errorMessage;
-            });
-        })
-        .catch(function(err) {
-          console.log('catch:', err);
-          $rootScope.pageTitle = 'Page not Found: 404';
-          vm.isLoading = false;
-          vm.pageError = true;
-          vm.pageContent = errorMessage;
-        });
+      NewsService.getAllNews(
+          {
+            page: $rootScope.params.page,
+            limit: $rootScope.params.limit
+          }
+        )
+        .then(_successNewsCallback)
+        .catch(_errorNewsCallback);
+    }
+
+    function _successNewsCallback(response) {
+      vm.news = response;
+      vm.isLoading = false;
+    }
+
+    function _errorNewsCallback(err) {
+      //console.log('catch:', err);
+      $rootScope.pageTitle = 'Page not Found: 404';
+      vm.isLoading = false;
+      vm.pageError = true;
+      vm.pageContent = errorMessage;
     }
 
     function getSinglePost() {
       if (!$rootScope.nodeid) {
         $location.path('/news');
+        return false;
       }
       NewsService.getNews($rootScope.nodeid)
-        .then(function(response) {
-          vm.newsSinglePost = new PostType(response);
-          if (response.field_news_photos.length > 0) {/* jshint ignore:line */
-            vm.newsSinglePost.images = new PostImages(response.field_news_photos.und);/* jshint ignore:line */
-          }
-          vm.isLoading = false;
-        })
-        .catch(function(err) {
-          console.log('catch:', err);
-          $rootScope.pageTitle = 'Page not Found: 404';
-          vm.isLoading = false;
-          vm.pageError = true;
-          vm.pageContent = errorMessage;
-        });
+        .then(_successPostCallback)
+        .catch(_errorPostCallback);
+    }
+
+    function _successPostCallback(response) {
+      vm.newsSinglePost = new PostType(response);
+      if (response.field_news_photos.und && response.field_news_photos.und.length > 0) {/* jshint ignore:line */
+        vm.newsSinglePost.images = new PostImages(response.field_news_photos.und);/* jshint ignore:line */
+      }
+      vm.isLoading = false;
+    }
+
+    function _errorPostCallback(err) {
+      //console.log('catch:', err);
+      $rootScope.pageTitle = 'Page not Found: 404';
+      vm.isLoading = false;
+      vm.pageError = true;
+      vm.pageContent = errorMessage;
     }
 
     function goToNews(nodeid, slug) {
@@ -140,7 +146,7 @@
       }
       $rootScope.params.limit = 5;
       getNewsListing();
-      console.log($rootScope.params);
+      //console.log($rootScope.params);
     }
 
     function prevPage() {
@@ -149,7 +155,7 @@
       }
       $rootScope.params.limit = 5;
       getNewsListing();
-      console.log($rootScope.params);
+      //console.log($rootScope.params);
     }
 
     function showMore() {
@@ -160,39 +166,42 @@
         $rootScope.params.limit += 5;
       }
       getNewsListing();
-      console.log($rootScope.params);
+      //console.log($rootScope.params);
+    }
+
+    function PostImages(images) {
+      var out = [];
+      for (var im = 0; im < images.length; im++) {
+        out.push('<img src="http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/' +
+          'styles/news_thumb/public/' + images[im].filename + '?itok=Mmd7w4oG" alt="' + images[im].alt + '" />');
+      }
+      return out[0];
+    }
+
+    function PostType(post) {
+      this.body = post.body.und[0].value;
+      this.title = post.title;
+      this.slug = post.slug;
+      this.date = new Date(post.created * 1000);
+      this.images = [];
+
+      if (post.field_news_photos.und && post.field_news_photos.und.length > 0) {/* jshint ignore:line */
+        this.images = new PostImages(post.field_news_photos.und);/* jshint ignore:line */
+      }
+
+      return this;
+    }
+
+    function convertToSlug(Text) {
+      return Text
+        .toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '');
     }
 
   }
 
-  function PostImages(images) {
-    var out = [];
-    for (var im = 0; im < images.length; im++) {
-      out.push('<img src="http://aatsa-web.s3-eu-west-1.amazonaws.com/sa-prod/s3fs-public/' +
-        'styles/news_thumb/public/' + images[im].filename + '?itok=Mmd7w4oG" alt="' + images[im].alt + '" />');
-    }
-    return out[0];
-  }
 
-  function PostType(post) {
-    this.body = post.body.und[0].value;
-    this.title = post.title;
-    this.slug = post.slug;
-    this.date = new Date(post.created * 1000);
-    this.images = [];
-    if (post.field_news_photos.length > 0) {/* jshint ignore:line */
-      this.images = new PostImages(post.field_news_photos.und);/* jshint ignore:line */
-    }
-
-    return this;
-  }
-
-  function convertToSlug(Text) {
-    return Text
-      .toLowerCase()
-      .replace(/ /g, '-')
-      .replace(/[^\w-]+/g, '');
-  }
 
 }());
 

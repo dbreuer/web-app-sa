@@ -18,10 +18,10 @@
     var settings = {};
     settings.apiBase = 'http://sa.aws.aat.org.uk/api/v1';
 
-    if ($rootScope && $rootScope.menus === 'undefined') {
-      $rootScope.menus = {};
-    }
-    console.log('service Init');
+
+    $rootScope.menus = $rootScope.menus || {};
+
+    //console.log('service Init');
     /**
      * Menu Items
      */
@@ -43,12 +43,17 @@
         cache: cache ? cache : false,
         withCredentials: false
       })
-        .success(function(data) {
-          deferred.resolve(data);
-        })
-        .error(function(data) {
-          deferred.reject(data);
-        });
+        .success(_successAPICallback)
+        .error(_errorAPICallback);
+
+      function _successAPICallback(data) {
+        deferred.resolve(data);
+      }
+
+      function _errorAPICallback(data) {
+        deferred.reject(data);
+      }
+
       return deferred.promise;
     }
 

@@ -38,16 +38,23 @@
         cache: cache ? cache : false,
         withCredentials: false
       })
-        .success(function(data) {
-          $rootScope.progressbar.complete();
-          deferred.resolve(data);
-        })
-        .error(function(data) {
-          $rootScope.progressbar.stop();
-          deferred.reject(data);
-        });
+        .success(_successAPICallback)
+        .error(_errorAPICallback);
+
+      function _successAPICallback(data) {
+        $rootScope.progressbar.complete();
+        deferred.resolve(data);
+      }
+
+      function _errorAPICallback(data) {
+        $rootScope.progressbar.stop();
+        deferred.reject(data);
+      }
+
       return deferred.promise;
     }
+
+
 
     function isExist(params) {
       return true;
@@ -55,6 +62,7 @@
 
     function getPage(parent, slug, hasParent) {
       /* jshint validthis: true */
+
       var pageID = getNodeIDBySlug(parent, slug);
       if (hasParent) {
         pageID = parent;

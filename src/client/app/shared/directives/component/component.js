@@ -17,7 +17,7 @@
 
   /* @ngInject */
   function component($compile, $timeout) {
-    console.log(scope);
+    //console.log(scope);
     var directive = {
       link: link,
       bindToController: true,

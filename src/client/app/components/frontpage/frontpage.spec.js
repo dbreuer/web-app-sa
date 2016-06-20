@@ -1,18 +1,19 @@
 describe('FrontpageController', function() {
 
-  var $controller;
+  var $controller, $rootScope, $scope;
 
   // load main app module
   beforeEach(module('project'));
 
-  beforeEach(inject(function(_$controller_, _$injector_) {
-    $controller = _$controller_;
-    $injector = _$injector_;
+  beforeEach(inject(function($injector) {
+    $controller = $injector.get('$controller');
+    $rootScope = $injector.get('$rootScope');
+    $scope = $rootScope.$new();
   }));
 
   describe('instance', function() {
     it('should be defined', function() {
-      var controller = $controller('FrontpageController', {$scope: {}});
+      var controller = $controller('FrontpageController', {$scope: $scope});
       expect(controller).toBeDefined();
     });
   });

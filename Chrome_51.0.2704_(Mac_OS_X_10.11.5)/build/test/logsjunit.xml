@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome 51.0.2704 (Mac OS X 10.11.5)" package="unit" timestamp="2016-06-20T16:34:47" id="0" hostname="AATs-MacBook-Pro-2.local" tests="63" errors="1" failures="0" time="0.456">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"/>
+  </properties>
+  <testcase name="App config should be defined" time="0.07" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.App"/>
+  <testcase name="App constant should be defined" time="0.015" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.App"/>
+  <testcase name="App constant should return true if the input is not equal to  or an empty array " time="0.012" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.App"/>
+  <testcase name="App appRun should initialize MetaTags service" time="0.009" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.App"/>
+  <testcase name="App appRun should $routeChangeStart access false" time="0.012" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.App"/>
+  <testcase name="App appRun should $routeChangeStart access requires true" time="0.008" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.App"/>
+  <testcase name="App appRun should $routeChangeStart access requires true" time="0.008" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.App"/>
+  <testcase name="App appRun should $routeChangeSuccess access false" time="0.009" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.App"/>
+  <testcase name="App appRun should $routeChangeSuccess access requires true" time="0.009" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.App"/>
+  <testcase name="AboutController instance should be defined" time="0.013" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.AboutController"/>
+  <testcase name="DeliverController instance should be defined" time="0.011" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.DeliverController"/>
+  <testcase name="project.employers module frontpage controller should ...." time="0.005" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.project.employers module"/>
+  <testcase name="FrontpageController instance should be defined" time="0.007" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.FrontpageController"/>
+  <testcase name="header module header controller should ...." time="0" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.header module"/>
+  <testcase name="header module header controller should toggleMenu" time="0" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.header module"/>
+  <testcase name="header module header controller should closeMenu" time="0.001" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.header module"/>
+  <testcase name="membership module membership controller should ...." time="0.002" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.membership module"/>
+  <testcase name="meta tests the providers internal function" time="0.002" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.meta"/>
+  <testcase name="myaat module myaat controller should ...." time="0.001" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.myaat module"/>
+  <testcase name="NewsController instance should be defined" time="0.006" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController instance should be getNewsListing" time="0.013" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController instance should be getSinglePost" time="0.008" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController instance should be goToNews" time="0.007" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController instance should be nextPage" time="0.007" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController instance should be nextPage and has next" time="0.01" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController instance should be prevPage" time="0.005" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController instance should be prevPage and has prev" time="0.005" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController instance should be showMore" time="0.005" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController instance should be showMore has more page" time="0.005" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController instance should be PostImages" time="0.009" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController instance should be PostType" time="0.005" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController instance should be PostType with images" time="0.006" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController instance should be convertToSlug" time="0.006" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController httpBackend should getNewsListing success" time="0.009" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController httpBackend should getNewsListing error" time="0.006" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController httpBackend should getSinglePost success with images" time="0.008" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController httpBackend should getSinglePost success" time="0.006" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NewsController httpBackend should getSinglePost error" time="0.006" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NewsController"/>
+  <testcase name="NodeController instance should be defined" time="0.013" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NodeController"/>
+  <testcase name="NodeController instance should be defined" time="0.007" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NodeController"/>
+  <testcase name="NodeController instance should be PostType" time="0.004" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NodeController"/>
+  <testcase name="NodeController instance should be PostTabs" time="0.006" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NodeController"/>
+  <testcase name="NodeController httpBackend should pageLoadContent success" time="0.007" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NodeController"/>
+  <testcase name="NodeController httpBackend should pageLoadContent success sign post links" time="0.006" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NodeController"/>
+  <testcase name="NodeController httpBackend should pageLoadContent success sign tabs links" time="0.006" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NodeController"/>
+  <testcase name="NodeController httpBackend should pageLoadContent success tabs page" time="0.007" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NodeController"/>
+  <testcase name="NodeController httpBackend should pageLoadContent error" time="0.013" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.NodeController"/>
+  <testcase name="qualifications module qualifications controller should ...." time="0.002" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.qualifications module"/>
+  <testcase name="Services  Node  should be nodeService defined" time="0.004" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.Services"/>
+  <testcase name="Services  Node  should be nodeService api defined" time="0.005" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.Services"/>
+  <testcase name="Services  News  should be newsService api defined" time="0.005" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.Services"/>
+  <testcase name="Services  Menu  should be menuService api defined" time="0.011" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.Services"/>
+  <testcase name="Services  Menu  should be menuService api defined" time="0.004" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.Services"/>
+  <testcase name="shared 404 module 404 directive should ...." time="0.006" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.shared 404 module"/>
+  <testcase name="hero module hero directive should ...." time="0.003" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.hero module"/>
+  <testcase name="menu module menu directive should ...." time="0.003" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.menu module"/>
+  <testcase name="mobile-menu module mobile-menu directive should element isActive defined" time="0.003" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.mobile-menu module"/>
+  <testcase name="mobile-menu module mobile-menu directive should element closeMenu defined" time="0.003" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.mobile-menu module"/>
+  <testcase name="mobile-menu module mobile-menu directive should element closeMenu defined" time="0.008" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.mobile-menu module"/>
+  <testcase name="slideshow module slideshow directive should ...." time="0.004" classname="Chrome_51_0_2704_(Mac_OS_X_10_11_5).unit.slideshow module"/>
+  <system-out>
+    <![CDATA[Chrome 51.0.2704 (Mac OS X 10.11.5) ERROR
+  Uncaught Error: Unexpected request: GET http://sa.aws.aat.org.uk/api/v1/views/api_news?limit=5&page=1
+  Expected GET http://sa.aws.aat.org.uk/api/v1/views/api_news?limit=5&page=0
+  at /Users/davidwestbury/Sites/web-app-sa/src/client/bower_components/angular-mocks/angular-mocks.js:250
+
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
