@@ -1,64 +1,64 @@
 <?xml version="1.0"?>
-<testsuite name="PhantomJS 2.1.1 (Mac OS X 0.0.0)" package="unit" timestamp="2016-06-20T18:22:56" id="0" hostname="AATs-MacBook-Pro-2.local" tests="65" errors="0" failures="0" time="0.28">
+<testsuite name="PhantomJS 2.1.1 (Mac OS X 0.0.0)" package="unit" timestamp="2016-06-30T16:20:55" id="0" hostname="AATs-MacBook-Pro-2.local" tests="65" errors="0" failures="0" time="0.305">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1"/>
   </properties>
-  <testcase name="App config should be defined" time="0.037" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.App"/>
-  <testcase name="App constant should be defined" time="0.008" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.App"/>
-  <testcase name="App constant should return true if the input is not equal to  or an empty array " time="0.007" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.App"/>
-  <testcase name="App appRun should initialize MetaTags service" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.App"/>
+  <testcase name="App config should be defined" time="0.035" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.App"/>
+  <testcase name="App constant should be defined" time="0.009" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.App"/>
+  <testcase name="App constant should return true if the input is not equal to  or an empty array " time="0.008" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.App"/>
+  <testcase name="App appRun should initialize MetaTags service" time="0.006" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.App"/>
   <testcase name="App appRun should $routeChangeStart access false" time="0.006" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.App"/>
   <testcase name="App appRun should $routeChangeStart access requires true" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.App"/>
   <testcase name="App appRun should $routeChangeStart access requires true" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.App"/>
   <testcase name="App appRun should $routeChangeSuccess access false" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.App"/>
-  <testcase name="App appRun should $routeChangeSuccess access requires true" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.App"/>
-  <testcase name="AboutController instance should be defined" time="0.006" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.AboutController"/>
-  <testcase name="DeliverController instance should be defined" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.DeliverController"/>
+  <testcase name="App appRun should $routeChangeSuccess access requires true" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.App"/>
+  <testcase name="AboutController instance should be defined" time="0.007" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.AboutController"/>
+  <testcase name="DeliverController instance should be defined" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.DeliverController"/>
   <testcase name="project.employers module frontpage controller should ...." time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.project.employers module"/>
-  <testcase name="FrontpageController instance should be defined" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.FrontpageController"/>
+  <testcase name="FrontpageController instance should be defined" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.FrontpageController"/>
   <testcase name="header module header controller should ...." time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.header module"/>
   <testcase name="header module header controller should toggleMenu" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.header module"/>
   <testcase name="header module header controller should closeMenu" time="0" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.header module"/>
   <testcase name="membership module membership controller should ...." time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.membership module"/>
-  <testcase name="meta should be nodeService defined" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.meta"/>
-  <testcase name="myaat module myaat controller should ...." time="0.002" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.myaat module"/>
-  <testcase name="NewsController instance should be defined" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
-  <testcase name="NewsController instance should be getNewsListing" time="0.006" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
-  <testcase name="NewsController instance should be getSinglePost" time="0.008" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
+  <testcase name="meta should be MetaTags initialize" time="0.002" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.meta"/>
+  <testcase name="myaat module myaat controller should ...." time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.myaat module"/>
+  <testcase name="NewsController instance should be defined" time="0.006" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
+  <testcase name="NewsController instance should be getNewsListing" time="0.007" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
+  <testcase name="NewsController instance should be getSinglePost" time="0.007" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
   <testcase name="NewsController instance should be goToNews" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
-  <testcase name="NewsController instance should be nextPage" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
-  <testcase name="NewsController instance should be nextPage and has next" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
+  <testcase name="NewsController instance should be nextPage" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
+  <testcase name="NewsController instance should be nextPage and has next" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
   <testcase name="NewsController instance should be prevPage" time="0.017" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
-  <testcase name="NewsController instance should be prevPage and has prev" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
+  <testcase name="NewsController instance should be prevPage and has prev" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
   <testcase name="NewsController instance should be showMore" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
   <testcase name="NewsController instance should be showMore has more page" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
-  <testcase name="NewsController instance should be PostImages" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
+  <testcase name="NewsController instance should be PostImages" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
   <testcase name="NewsController instance should be PostType" time="0.003" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
   <testcase name="NewsController instance should be PostType with images" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
-  <testcase name="NewsController instance should be convertToSlug" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
+  <testcase name="NewsController instance should be convertToSlug" time="0.003" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
   <testcase name="NewsController httpBackend should getNewsListing success" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
-  <testcase name="NewsController httpBackend should getNewsListing error" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
-  <testcase name="NewsController httpBackend should getSinglePost success with images" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
+  <testcase name="NewsController httpBackend should getNewsListing error" time="0.003" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
+  <testcase name="NewsController httpBackend should getSinglePost success with images" time="0.003" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
   <testcase name="NewsController httpBackend should getSinglePost success" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
-  <testcase name="NewsController httpBackend should getSinglePost error" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
+  <testcase name="NewsController httpBackend should getSinglePost error" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NewsController"/>
+  <testcase name="NodeController instance should be defined" time="0.006" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NodeController"/>
   <testcase name="NodeController instance should be defined" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NodeController"/>
-  <testcase name="NodeController instance should be defined" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NodeController"/>
-  <testcase name="NodeController instance should be PostType" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NodeController"/>
-  <testcase name="NodeController instance should be PostTabs" time="0.003" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NodeController"/>
-  <testcase name="NodeController httpBackend should pageLoadContent success" time="0.003" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NodeController"/>
+  <testcase name="NodeController instance should be PostType" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NodeController"/>
+  <testcase name="NodeController instance should be PostTabs" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NodeController"/>
+  <testcase name="NodeController httpBackend should pageLoadContent success" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NodeController"/>
   <testcase name="NodeController httpBackend should pageLoadContent success sign post links" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NodeController"/>
   <testcase name="NodeController httpBackend should pageLoadContent success sign tabs links" time="0.003" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NodeController"/>
   <testcase name="NodeController httpBackend should pageLoadContent success tabs page" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NodeController"/>
-  <testcase name="NodeController httpBackend should pageLoadContent error" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NodeController"/>
-  <testcase name="qualifications module qualifications controller should ...." time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.qualifications module"/>
-  <testcase name="Services  Node  should be nodeService defined" time="0.003" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.Services"/>
+  <testcase name="NodeController httpBackend should pageLoadContent error" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.NodeController"/>
+  <testcase name="qualifications module qualifications controller should ...." time="0.002" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.qualifications module"/>
+  <testcase name="Services  Node  should be nodeService defined" time="0.012" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.Services"/>
   <testcase name="Services  Node  should be nodeService api defined" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.Services"/>
   <testcase name="Services  News  should be newsService api defined" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.Services"/>
-  <testcase name="Services  Menu  should be menuService api defined" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.Services"/>
-  <testcase name="Services  Menu  should be menuService getMenu defined" time="0.003" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.Services"/>
+  <testcase name="Services  Menu  should be menuService api defined" time="0.005" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.Services"/>
+  <testcase name="Services  Menu  should be menuService getMenu defined" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.Services"/>
   <testcase name="Services  Menu  should be menuService setMenu defined" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.Services"/>
   <testcase name="shared 404 module 404 directive should ...." time="0.002" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.shared 404 module"/>
-  <testcase name="hero module hero directive should ...." time="0.002" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.hero module"/>
+  <testcase name="hero module hero directive should ...." time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.hero module"/>
   <testcase name="menu module menu directive should MENU SERVICE API success" time="0.002" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.menu module"/>
   <testcase name="menu module menu directive should MENU SERVICE API error" time="0.002" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.menu module"/>
   <testcase name="mobile-menu module mobile-menu directive should element isActive defined" time="0.002" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.mobile-menu module"/>
@@ -66,8 +66,8 @@
   <testcase name="mobile-menu module mobile-menu directive should element closeMenu defined" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.mobile-menu module"/>
   <testcase name="slideshow module slideshow directive should ...." time="0.003" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.slideshow module"/>
   <testcase name="social module social directive should ...." time="0.002" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.social module"/>
-  <testcase name="spinner module spinner directive should ...." time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.spinner module"/>
-  <testcase name="spotlights module spotlightsContent directive should ...." time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.spotlights module"/>
+  <testcase name="spinner module spinner directive should ...." time="0.002" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.spinner module"/>
+  <testcase name="spotlights module spotlightsContent directive should ...." time="0.002" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).unit.spotlights module"/>
   <system-out>
     <![CDATA[
 ]]>

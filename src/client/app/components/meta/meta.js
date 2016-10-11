@@ -52,6 +52,7 @@
        */
       self.getMetaTags = function(path) {
         var info = {};
+        var gmt = this;
         var routesArray = Object.keys(routes);
         var routesLength = routesArray.length;
         var placeholder = {};
@@ -62,8 +63,9 @@
         var routeArgsLength;
         var pathArgs = [];
         var pathArgsLength;
-        var flag1;
-        var flag2;
+
+        gmt.flag1 = true;
+        gmt.flag2 = false;
 
         for (var i = 0; i < routesLength; i++) {
 
@@ -74,8 +76,7 @@
           routeArgsLength = routeArgs.length;
           pathArgs = path.split('/').filter(Boolean);
           pathArgsLength = pathArgs.length;
-          flag1 = true;
-          flag2 = false;
+
 
 
 
@@ -90,7 +91,7 @@
             }
             if (pathArgs[j] !== routeArgs[j]) {
               placeholder = {};
-              flag1 = false;
+              gmt.flag1 = false;
               break;
             }
           }
@@ -101,16 +102,13 @@
           if (placeHolderLength > 0) {
             for (var ii = 0; ii < routeMetaTagsLength; ii++) {
               var tag = routeMetaTagsArray[ii];
+
               if (typeof(routeMetaTagsObject[tag]) === 'string') {
                 info[tag] = routeMetaTagsObject[tag];
               }
               if (typeof(routeMetaTagsObject[tag]) === 'function') {
-                var functionResponse = routeMetaTagsObject[tag].apply(this, Object.keys(placeholder));
-                if (typeof(functionResponse) !== 'string') {
-                  throw new Error(routeMetaTagsObject[tag].toString() + ' should return a string');
-                } else {
-                  info[tag] = functionResponse;
-                }
+
+                info[tag] = routeMetaTagsObject[tag].apply(this, Object.keys(placeholder));
               }
             }
 
@@ -126,17 +124,15 @@
             }
 
             if (routeArgs[routeArgsLength - 1] === pathArgs[routeArgsLength - 1]) {
-              flag2 = true;
+              gmt.flag2 = true;
               break;
             }
           }
         }
-        if (flag1 && flag2) {
+        if (gmt.flag1 && gmt.flag2) {
           for (var r in routeMetaTagsObject) {
             info[r] = routeMetaTagsObject[r];
           }
-          return info;
-        } else {
           return info;
         }
       };
@@ -154,12 +150,8 @@
         return {
           initialize: function() {
             $rootScope.metatags = {};
-            try {
-              angular.module('ngRoute');
-              $rootScope.$on('$routeChangeSuccess', update);
-            } catch (err) {
-              $rootScope.$on('$stateChangeSuccess', update);
-            }
+            angular.module('ngRoute');
+            $rootScope.$on('$routeChangeSuccess', update);
           }
         };
       }];
